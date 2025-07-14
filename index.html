@@ -18,6 +18,7 @@
       color: #ffffff;
       text-align: center;
       padding: 2rem;
+      position: relative;
     }
     header img {
       width: 120px;
@@ -26,6 +27,18 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
+    }
+    .language-selector {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    .language-selector select {
+      padding: 0.4rem;
+      background: #3e0057;
+      color: white;
+      border: none;
+      border-radius: 5px;
     }
     .container {
       max-width: 900px;
@@ -58,6 +71,7 @@
       font-size: 1rem;
       display: inline-block;
       margin-top: 1rem;
+      cursor: pointer;
     }
     .btn:hover {
       background: #00a3cc;
@@ -66,6 +80,15 @@
 </head>
 <body>
   <header>
+    <div class="language-selector">
+      <select onchange="location = this.value;">
+        <option value="#" selected>🌐 Idioma</option>
+        <option value="#">🇪🇸 Español</option>
+        <option value="#">🇬🇧 English</option>
+        <option value="#">🇷🇺 Русский</option>
+        <option value="#">🇫🇷 Français</option>
+      </select>
+    </div>
     <img src="logo.png" alt="BANK20 logo">
     <h1>BANK2.0 (B20)</h1>
     <p>Innovación blockchain en España para pagos y NFTs</p>
@@ -74,7 +97,7 @@
   <div class="container">
     <div class="card">
       <h2>¿Qué es BANK2.0?</h2>
-      <p>BANK2.0 (B20) es un token descentralizado en la red Polygon diseñado para pagos rápidos, seguros y modernos. Desarrollado en España, el ecosistema BANK2.0 también impulsa la distribución de coleccionables NFT. La comunidad de Max Studio cuenta con más de 3,000 holders en OpenSea, y próximamente se lanzará un <strong>airdrop exclusivo</strong> de B20 a todos los titulares de algún NFT de Max Studio.</p>
+      <p>BANK2.0 (B20) es un token descentralizado en la red Polygon diseñado para pagos rápidos, seguros y modernos. Desarrollado en España, el ecosistema BANK2.0 también impulsa la distribución de coleccionables NFT...</p>
     </div>
 
     <div class="card">
@@ -91,8 +114,14 @@
 
     <div class="card">
       <h2>¡Airdrop de NFTs y Tokens!</h2>
-      <p>Todos los titulares de NFTs de Max Studio podrán reclamar un airdrop exclusivo de BANK2.0 (B20). Participa en la revolución digital y asegura tus recompensas.</p>
+      <p>Todos los titulares de NFTs de Max Studio podrán reclamar un airdrop exclusivo de BANK2.0 (B20)...</p>
       <a class="btn" href="https://opensea.io/es/maximovargas19855_Max-Studio" target="_blank">Ver colección en OpenSea</a>
+    </div>
+
+    <div class="card">
+      <h2>Adquirir BANK2.0 (B20)</h2>
+      <p>Compra directamente el token B20 desde Uniswap en la red Polygon:</p>
+      <a class="btn" href="https://app.uniswap.org/explore/tokens/polygon/0xC0B57Ace313475046BB50911d731F3180fA7A1AA" target="_blank">Adquirir BANK2.0</a>
     </div>
 
     <div class="card">
@@ -121,5 +150,3 @@
   </div>
 </body>
 </html>
-
-
