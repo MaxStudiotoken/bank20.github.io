@@ -64,7 +64,7 @@
       border: 2px solid #00ccff;
     }
     .btn {
-      background: #00ccff;
+      background: #ff00ff;
       color: white;
       padding: 0.75rem 1.25rem;
       border: none;
@@ -73,19 +73,10 @@
       display: inline-block;
       margin-top: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
     }
     .btn:hover {
-      background: #00a3cc;
-    }
-    .btn-neon {
-      background: #ff00ff;
-      color: #fff;
-      font-size: 1.2rem;
-      box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
-      transition: all 0.3s ease;
-    }
-    .btn-neon:hover {
       background: #cc00cc;
       box-shadow: 0 0 30px rgba(255, 0, 255, 0.9);
     }
@@ -154,7 +145,7 @@
       <p>
         Visualiza las métricas de liquidez y trading de BANK2.0 en la red Polygon a través de GeckoTerminal. ¡Mantente al tanto del rendimiento de tu token!
       </p>
-      <a class="btn btn-neon" href="https://www.geckoterminal.com/polygon_pos/pools/0x8bc73d5341c7fb89ae05db58ee49431cc0f36f37" target="_blank">Ver en GeckoTerminal</a>
+      <a class="btn" href="https://www.geckoterminal.com/polygon_pos/pools/0x8bc73d5341c7fb89ae05db58ee49431cc0f36f37" target="_blank">Ver en GeckoTerminal</a>
     </div>
 
     <div class="card">
@@ -162,16 +153,16 @@
       <p>
         Revisa la seguridad del contrato de BANK2.0 en GoPlus Labs para obtener un análisis detallado y una mayor transparencia.
       </p>
-      <a class="btn btn-neon" href="https://gopluslabs.io/token-security/137/0xc0b57ace313475046bb50911d731f3180fa7a1aa" target="_blank">Ver Seguridad en GoPlus Labs</a>
+      <a class="btn" href="https://gopluslabs.io/token-security/137/0xc0b57ace313475046bb50911d731f3180fa7a1aa" target="_blank">Ver Seguridad en GoPlus Labs</a>
     </div>
 
     <div class="card">
       <h2>Recursos Oficiales</h2>
       <ul>
-        <li><a href="https://www.bank20.io" target="_blank">Sitio Web Oficial</a></li>
-        <li><a href="https://x.com/hellofiti" target="_blank">Twitter / X</a></li>
-        <li><a href="https://bank20.io/whitepaper.pdf" target="_blank">Whitepaper (PDF)</a></li>
-        <li><a href="https://github.com/MaxStudiotoken/assets" target="_blank">Repositorio de Código (GitHub)</a></li>
+        <li><a class="btn" href="https://www.bank20.io" target="_blank">Sitio Web Oficial</a></li>
+        <li><a class="btn" href="https://x.com/hellofiti" target="_blank">Twitter / X</a></li>
+        <li><a class="btn" href="https://bank20.io/whitepaper.pdf" target="_blank">Whitepaper (PDF)</a></li>
+        <li><a class="btn" href="https://github.com/MaxStudiotoken/assets" target="_blank">Repositorio de Código (GitHub)</a></li>
       </ul>
     </div>
 
@@ -188,9 +179,10 @@
       <h2>Contacto</h2>
       <p>
         ¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial y el equipo de BANK2.0 responderá a la brevedad:
-        <a href="mailto:bank20token@proton.me">bank20token@proton.me</a>
+        <a href="mailto:bank20token@proton.me" class="btn">bank20token@proton.me</a>
       </p>
     </div>
   </div>
 </body>
 </html>
+
