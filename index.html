@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -16,6 +16,7 @@
       --dark: #000000;
       --card-bg: rgba(62, 0, 87, 0.8);
       --card-border: rgba(0, 204, 255, 0.5);
+      --orange: #FF9800; /* para la porción de Juegos (torta) */
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -72,6 +73,9 @@
       font-size: 1rem; font-weight: bold; display: inline-block; margin-top: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4); text-align: center;
     }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 0, 255, 0.6); text-decoration: none; }
+    .btn.secondary { background: linear-gradient(45deg, #333, #666); }
+    .btn.small { padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 30px; }
+    .inline-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.8rem; }
     .img-container { text-align: center; margin: 2rem 0; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); position: relative; border: 1px solid var(--card-border); }
     .img-container img { max-width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
     .img-container:hover img { transform: scale(1.03); }
@@ -79,6 +83,7 @@
     ul { padding-left: 1.5rem; margin: 1rem 0; }
     li { margin-bottom: 0.8rem; position: relative; }
     li::before { content: "•"; color: var(--accent); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+    code.kbd { background: rgba(255,255,255,.1); padding: .15rem .4rem; border-radius: .4rem; border: 1px solid rgba(255,255,255,.15); }
     .team-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; }
     .team-member { background: rgba(0, 0, 0, 0.3); padding: 1.2rem; border-radius: 10px; flex: 1; min-width: 250px; border: 1px solid var(--card-border); transition: all 0.3s ease; }
     .team-member:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3); }
@@ -86,6 +91,7 @@
     .contact-btn { display: inline-block; margin-top: 1.5rem; font-size: 1.1rem; padding: 1rem 2rem; }
     footer { text-align: center; padding: 2rem; background: rgba(0, 0, 0, 0.5); margin-top: 3rem; border-top: 1px solid var(--highlight); }
     .footer-logo { width: 100px; margin-bottom: 1rem; opacity: 0.8; }
+
     @media (max-width: 768px) {
       .container { padding: 0.5rem; }
       .card { padding: 1.5rem; }
@@ -95,6 +101,8 @@
     .pulse { animation: pulse 2s infinite; }
     @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(255,0,255,.7)} 70%{box-shadow:0 0 0 15px rgba(255,0,255,0)} 100%{box-shadow:0 0 0 0 rgba(255,0,255,0)} }
   </style>
+  <!-- Chart.js para la “torta” -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
@@ -134,20 +142,29 @@
     </div>
 
     <div class="card-grid">
+      <!-- Detalles del token -->
       <div class="card">
         <div class="card-content">
           <h2 data-i18n="tokenDetailsTitle">Detalles del Token</h2>
           <ul>
             <li><strong data-i18n="td1Label">Red Blockchain:</strong> <span data-i18n="td1Value">Polygon (compatible con Ethereum)</span></li>
-            <li><strong data-i18n="td2Label">Dirección del Contrato:</strong> 0xC0B57ACE313475046BB50911D731F3180FA7A1AA</li>
+            <li>
+              <strong data-i18n="td2Label">Dirección del Contrato:</strong>
+              <span><code id="contractAddr" class="kbd">0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code></span>
+              <div class="inline-actions">
+                <a class="btn small" href="https://polygonscan.com/token/0xC0B57ACE313475046BB50911D731F3180FA7A1AA" target="_blank" data-i18n="btnPolygonscan">Ver en PolygonScan</a>
+                <button class="btn small secondary" id="copyContract" data-i18n="btnCopy">Copiar</button>
+                <button class="btn small" id="addToMM" data-i18n="btnAddMM">Añadir a MetaMask</button>
+              </div>
+            </li>
             <li><strong data-i18n="td3Label">Decimales:</strong> <span data-i18n="td3Value">18</span></li>
             <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20 (fijo, sin inflación)</span></li>
             <li><strong data-i18n="td5Label">Distribución Estratégica:</strong> <span data-i18n="td5Value">10M asignados a staking y 3M a recompensas de juegos</span></li>
           </ul>
-          <a class="btn" href="https://polygonscan.com/token/0xC0B57ACE313475046BB50911D731F3180FA7A1AA" target="_blank" data-i18n="btnPolygonscan">Ver en PolygonScan</a>
         </div>
       </div>
 
+      <!-- Airdrop -->
       <div class="card">
         <div class="card-content">
           <h2 data-i18n="airdropTitle">¡Airdrop de NFTs y Tokens!</h2>
@@ -158,6 +175,7 @@
         </div>
       </div>
 
+      <!-- Comprar -->
       <div class="card">
         <div class="card-content">
           <h2 data-i18n="buyTitle">Adquirir BANK2.0 (B20)</h2>
@@ -168,6 +186,7 @@
         </div>
       </div>
 
+      <!-- GeckoTerminal -->
       <div class="card">
         <div class="card-content">
           <h2>GeckoTerminal</h2>
@@ -178,6 +197,7 @@
         </div>
       </div>
 
+      <!-- GoPlus -->
       <div class="card">
         <div class="card-content">
           <h2>GoPlus Labs</h2>
@@ -189,6 +209,7 @@
       </div>
     </div>
 
+    <!-- Sección con imagen + botón comprar -->
     <div class="card">
       <div class="card-content">
         <h2 data-i18n="buyTitle2">Adquirir BANK2.0 (B20)</h2>
@@ -199,6 +220,23 @@
           <img src="pagando.png" alt="Pagando con BANK2.0">
         </div>
         <a class="btn" href="https://app.uniswap.org/explore/tokens/polygon/0xC0B57Ace313475046BB50911d731F3180fA7A1AA" target="_blank" data-i18n="btnBuy2">Adquirir BANK2.0</a>
+      </div>
+    </div>
+
+    <!-- Torta / pie chart -->
+    <div class="card">
+      <div class="card-content">
+        <h2 data-i18n="supplyTitle">Distribución del suministro</h2>
+        <p data-i18n="supplyDesc">Así se reparte el total de 1,000,000,000 B20.</p>
+        <canvas id="supplyChart" width="600" height="340" aria-label="Supply pie chart" role="img"></canvas>
+        <div class="inline-actions">
+          <button class="btn small secondary" id="downloadChart" data-i18n="btnDownload">Descargar imagen</button>
+        </div>
+        <ul>
+          <li><strong data-i18n="legendOwner">Reserva inicial (owner/tesorería):</strong> <span id="ownerOut">—</span> B20</li>
+          <li><strong data-i18n="legendStaking">Pool de Staking:</strong> <span id="stakingOut">—</span> B20</li>
+          <li><strong data-i18n="legendGames">Recompensas de Juegos:</strong> <span id="gamesOut">—</span> B20</li>
+        </ul>
       </div>
     </div>
 
@@ -245,7 +283,7 @@
   </footer>
 
   <script>
-    // ===== Diccionario de textos =====
+    // ===== Textos (i18n) =====
     const T = {
       es: {
         heroSubtitle: "Innovación blockchain impulsada desde España para un futuro financiero más rápido, seguro y descentralizado",
@@ -259,6 +297,8 @@
         td4Label: "Suministro Total:", td4Value: "1,000,000,000 B20 (fijo, sin inflación)",
         td5Label: "Distribución Estratégica:", td5Value: "10M asignados a staking y 3M a recompensas de juegos",
         btnPolygonscan: "Ver en PolygonScan",
+        btnCopy: "Copiar",
+        btnAddMM: "Añadir a MetaMask",
         airdropTitle: "¡Airdrop de NFTs y Tokens!",
         airdropP: "Como parte de nuestro compromiso con la comunidad, todos los titulares de NFTs de Max Studio recibirán un airdrop gratuito de tokens B20. Esta iniciativa busca premiar la fidelidad de los usuarios e incentivar la adopción masiva de nuestra plataforma.",
         btnOpenSea: "Ver colección en OpenSea",
@@ -282,6 +322,13 @@
         contactP: "¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial y el equipo de BANK2.0 responderá a la brevedad.",
         foot1: "© 2025 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
         foot2: "Innovando el futuro de las finanzas descentralizadas",
+        // torta
+        supplyTitle: "Distribución del suministro",
+        supplyDesc: "Así se reparte el total de 1,000,000,000 B20.",
+        legendOwner: "Reserva inicial (owner/tesorería)",
+        legendStaking: "Pool de Staking",
+        legendGames: "Recompensas de Juegos",
+        btnDownload: "Descargar imagen"
       },
       en: {
         heroSubtitle: "Blockchain innovation from Spain for a faster, safer and fully decentralized financial future",
@@ -295,6 +342,8 @@
         td4Label: "Total Supply:", td4Value: "1,000,000,000 B20 (fixed, no inflation)",
         td5Label: "Strategic Allocation:", td5Value: "10M for staking and 3M for game rewards",
         btnPolygonscan: "View on PolygonScan",
+        btnCopy: "Copy",
+        btnAddMM: "Add to MetaMask",
         airdropTitle: "NFT & Token Airdrop!",
         airdropP: "All Max Studio NFT holders will receive a free B20 airdrop. We reward loyalty and drive adoption across our platform.",
         btnOpenSea: "View collection on OpenSea",
@@ -318,6 +367,13 @@
         contactP: "Questions, proposals or support? Email our official address and the BANK2.0 team will reply shortly.",
         foot1: "© 2025 BANK2.0 (B20) – Blockchain Project. All rights reserved.",
         foot2: "Innovating the future of decentralized finance",
+        // pie
+        supplyTitle: "Supply distribution",
+        supplyDesc: "Breakdown of the 1,000,000,000 B20 total supply.",
+        legendOwner: "Initial reserve (owner/treasury)",
+        legendStaking: "Staking Pool",
+        legendGames: "Game Rewards",
+        btnDownload: "Download image"
       },
       fr: {
         heroSubtitle: "Innovation blockchain depuis l’Espagne pour un avenir financier plus rapide, sûr et entièrement décentralisé",
@@ -331,6 +387,8 @@
         td4Label: "Offre totale :", td4Value: "1 000 000 000 B20 (fixe, sans inflation)",
         td5Label: "Répartition stratégique :", td5Value: "10 M pour le staking et 3 M pour les récompenses de jeu",
         btnPolygonscan: "Voir sur PolygonScan",
+        btnCopy: "Copier",
+        btnAddMM: "Ajouter à MetaMask",
         airdropTitle: "Airdrop de NFTs et Tokens !",
         airdropP: "Tous les détenteurs de NFTs Max Studio recevront un airdrop gratuit de B20. Nous récompensons la fidélité et favorisons l’adoption.",
         btnOpenSea: "Voir la collection sur OpenSea",
@@ -354,6 +412,13 @@
         contactP: "Questions, propositions ou support ? Écrivez-nous et l’équipe BANK2.0 vous répondra rapidement.",
         foot1: "© 2025 BANK2.0 (B20) – Projet blockchain. Tous droits réservés.",
         foot2: "Innover l’avenir de la finance décentralisée",
+        // pie
+        supplyTitle: "Répartition de l’offre",
+        supplyDesc: "Répartition du total de 1 000 000 000 B20.",
+        legendOwner: "Réserve initiale (owner/trésorerie)",
+        legendStaking: "Pool de Staking",
+        legendGames: "Récompenses de Jeux",
+        btnDownload: "Télécharger l’image"
       },
       ru: {
         heroSubtitle: "Блокчейн-инновации из Испании для более быстрого, безопасного и полностью децентрализованного финансового будущего",
@@ -367,6 +432,8 @@
         td4Label: "Общее предложение:", td4Value: "1,000,000,000 B20 (фиксированное, без инфляции)",
         td5Label: "Стратегическое распределение:", td5Value: "10M для стейкинга и 3M для игровых наград",
         btnPolygonscan: "Открыть PolygonScan",
+        btnCopy: "Копировать",
+        btnAddMM: "Добавить в MetaMask",
         airdropTitle: "Эирдроп NFT и токенов!",
         airdropP: "Все держатели NFT Max Studio получат бесплатный эирдроп B20. Мы поощряем лояльность и стимулируем массовое принятие.",
         btnOpenSea: "Коллекция на OpenSea",
@@ -390,10 +457,77 @@
         contactP: "Вопросы, предложения или поддержка? Пишите на наш официальный адрес — команда BANK2.0 ответит в ближайшее время.",
         foot1: "© 2025 BANK2.0 (B20) – блокчейн-проект. Все права защищены.",
         foot2: "Инновации будущего децентрализованных финансов",
+        // pie
+        supplyTitle: "Распределение эмиссии",
+        supplyDesc: "Разбивка общего предложения 1,000,000,000 B20.",
+        legendOwner: "Начальный резерв (owner/treasury)",
+        legendStaking: "Пул стейкинга",
+        legendGames: "Игровые вознаграждения",
+        btnDownload: "Скачать изображение"
       }
     };
 
-    // ===== Aplicar idioma a elementos con data-i18n =====
+    // ===== Helpers =====
+    const cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    const fmt = (n) => n.toLocaleString(undefined);
+
+    // Constantes (en tokens, no en wei)
+    const MAX_SUPPLY = 1_000_000_000;
+    const STAKING_POOL = 10_000_000;   // 1%
+    const GAME_POOL = 3_000_000;       // 0.3%
+    const OWNER_RESERVE = MAX_SUPPLY - STAKING_POOL - GAME_POOL; // 987,000,000
+
+    // ===== Chart (torta) =====
+    let supplyChart;
+
+    function renderSupplyChart(dict) {
+      const ctx = document.getElementById('supplyChart').getContext('2d');
+
+      // Colores tomados del theme
+      const c1 = cssVar('--accent');
+      const c2 = cssVar('--highlight');
+      const c3 = cssVar('--orange');
+
+      const labels = [dict.legendOwner, dict.legendStaking, dict.legendGames];
+      const data = [OWNER_RESERVE, STAKING_POOL, GAME_POOL];
+      const total = data.reduce((a,b)=>a+b,0);
+
+      if (supplyChart) supplyChart.destroy();
+      supplyChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels,
+          datasets: [{
+            data,
+            backgroundColor: [c1, c2, c3],
+            borderColor: 'rgba(255,255,255,0.15)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#fff' } },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => {
+                  const val = ctx.parsed;
+                  const pct = (val * 100 / total).toFixed(3);
+                  return `${ctx.label}: ${pct}% (${fmt(val)} B20)`;
+                }
+              }
+            }
+          }
+        }
+      });
+
+      // Números debajo
+      document.getElementById('ownerOut').textContent   = fmt(OWNER_RESERVE);
+      document.getElementById('stakingOut').textContent = fmt(STAKING_POOL);
+      document.getElementById('gamesOut').textContent   = fmt(GAME_POOL);
+    }
+
+    // ===== Aplicar idioma =====
     function applyLang(lang) {
       const dict = T[lang] || T.es;
       document.documentElement.setAttribute('lang', lang);
@@ -403,10 +537,55 @@
         if (dict[key] !== undefined) el.textContent = dict[key];
       });
       localStorage.setItem('b20_lang', lang);
+      renderSupplyChart(dict);
     }
 
-    // ===== Init: leer preferencia / idioma del navegador =====
-    (function initLang(){
+    // ===== Botones (copiar / MetaMask / descargar gráfico) =====
+    function initActions() {
+      const addrEl = document.getElementById('contractAddr');
+      document.getElementById('copyContract')?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(addrEl.textContent.trim());
+          alert('Contrato copiado ✔');
+        } catch (e) {
+          alert('No se pudo copiar.'); 
+        }
+      });
+
+      document.getElementById('addToMM')?.addEventListener('click', async () => {
+        const tokenAddress = addrEl.textContent.trim();
+        try {
+          if (!window.ethereum) { alert('MetaMask no detectado.'); return; }
+          await window.ethereum.request({
+            method: 'wallet_watchAsset',
+            params: {
+              type: 'ERC20',
+              options: {
+                address: tokenAddress,
+                symbol: 'B20',
+                decimals: 18,
+                image: location.origin + '/logo.png'
+              }
+            }
+          });
+        } catch (e) {
+          console.error(e);
+          alert('No se pudo añadir a MetaMask.');
+        }
+      });
+
+      document.getElementById('downloadChart')?.addEventListener('click', () => {
+        const canvas = document.getElementById('supplyChart');
+        const link = document.createElement('a');
+        link.download = 'B20-supply.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+
+    // ===== Init =====
+    (function init(){
+      initActions();
       const saved = localStorage.getItem('b20_lang');
       const nav = (navigator.language || 'es').slice(0,2);
       const initial = saved || (['es','en','fr','ru'].includes(nav) ? nav : 'es');
