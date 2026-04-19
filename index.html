@@ -177,7 +177,7 @@
     ul { padding-left: 1.5rem; margin: 1rem 0; }
     li { margin-bottom: .8rem; list-style: none; position: relative; }
     li::before {
-      content: "►";
+      content: "â–º";
       color: var(--neon-green);
       font-weight: bold;
       display: inline-block;
@@ -282,10 +282,10 @@
   <header>
     <div class="language-selector">
       <select id="langSwitcher" aria-label="Language">
-        <option value="es">🌐 Español</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="ru">🇷🇺 Русский</option>
+        <option value="es">ðŸŒ EspaÃ±ol</option>
+        <option value="en">ðŸ‡¬ðŸ‡§ English</option>
+        <option value="fr">ðŸ‡«ðŸ‡· FranÃ§ais</option>
+        <option value="ru">ðŸ‡·ðŸ‡º Ð ÑƒÑÑÐºÐ¸Ð¹</option>
       </select>
     </div>
     <img src="logo.png" alt="BANK20 logo">
@@ -303,6 +303,22 @@
         <div class="img-container">
           <img src="ahorros.png" alt="Ahorros con BANK2.0">
         </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h2 data-i18n="walletExplainTitle"></h2>
+        <p data-i18n="walletExplainP1"></p>
+        <p data-i18n="walletExplainP2"></p>
+        <p data-i18n="walletExplainP3"></p>
+        <ul>
+          <li><strong data-i18n="walletFeat1Title"></strong> <span data-i18n="walletFeat1Desc"></span></li>
+          <li><strong data-i18n="walletFeat2Title"></strong> <span data-i18n="walletFeat2Desc"></span></li>
+          <li><strong data-i18n="walletFeat3Title"></strong> <span data-i18n="walletFeat3Desc"></span></li>
+          <li><strong data-i18n="walletFeat4Title"></strong> <span data-i18n="walletFeat4Desc"></span></li>
+          <li><strong data-i18n="walletFeat5Title"></strong> <span data-i18n="walletFeat5Desc"></span></li>
+          <li><strong data-i18n="walletFeat6Title"></strong> <span data-i18n="walletFeat6Desc"></span></li>
+        </ul>
       </div>
     </div>
 
@@ -438,9 +454,9 @@
           <button class="btn small secondary" id="downloadChart" data-i18n="btnDownload"></button>
         </div>
         <ul>
-          <li><strong data-i18n="legendOwner"></strong> <span id="ownerOut">—</span> B20</li>
-          <li><strong data-i18n="legendStaking"></strong> <span id="stakingOut">—</span> B20</li>
-          <li><strong data-i18n="legendGames"></strong> <span id="gamesOut">—</span> B20</li>
+          <li><strong data-i18n="legendOwner"></strong> <span id="ownerOut">â€”</span> B20</li>
+          <li><strong data-i18n="legendStaking"></strong> <span id="stakingOut">â€”</span> B20</li>
+          <li><strong data-i18n="legendGames"></strong> <span id="gamesOut">â€”</span> B20</li>
         </ul>
       </div>
     </div>
@@ -487,64 +503,73 @@
 
   <script>
     const T = {
-      es: {
-        heroSubtitle: "La wallet Web3 más ambiciosa del ecosistema Polygon: juega, gana, protege tus NFTs y entra antes que nadie al futuro financiero descentralizado.",
-        whatTitle: "¿Qué es BANK2.0?",
-        whatP1: "BANK2.0 (B20) no es solo un token: es una marca en crecimiento real. Construimos una infraestructura financiera moderna sobre Polygon para pagos rápidos, seguridad sólida y experiencia simple para usuarios nuevos y avanzados.",
-        whatP2: "Con BANK2.0 puedes mover valor en segundos, con comisiones bajas y control total de tus activos. Además, tu wallet está pensada para custodiar NFTs, operar en ecosistema Web3 y participar en dinámicas de recompensas reales dentro de la app.",
-        whatP3: "Miles de usuarios ya están entrando temprano. Este es el mejor momento para posicionarte en una comunidad que combina utilidad, juego, seguridad y visión de largo plazo. Si vas en serio con Web3, BANK2.0 es tu punto de entrada.",
-
-        liveStatsTitle: "📊 Estadísticas en Vivo",
+              walletExplainTitle: "BANK2.0 Wallet: tu centro de control Web3",
+        walletExplainP1: "La Wallet BANK2.0 está diseñada para que cualquier persona, incluso sin experiencia técnica, pueda operar en Web3 de forma segura, rápida y profesional.",
+        walletExplainP2: "Nuestra app integra utilidad real: enviar y recibir activos, seguridad avanzada, staking, galería NFT y minijuegos con recompensas. Todo en una sola interfaz.",
+        walletExplainP3: "Si buscas una wallet con visión comercial, comunidad activa y potencial de expansión, BANK2.0 es tu mejor punto de entrada al ecosistema.",
+        walletFeat1Title: "Seguridad Web3:",
+        walletFeat1Desc: "PIN, flujo protegido y custodia local de claves.",
+        walletFeat2Title: "Staking integrado:",
+        walletFeat2Desc: "Haz staking con B20 y participa en la economía del proyecto.",
+        walletFeat3Title: "Juegos con recompensas:",
+        walletFeat3Desc: "Jockey, Rey de la Tarta, Tetris Pro y 3 en raya CPU.",
+        walletFeat4Title: "Galería NFT Polygon:",
+        walletFeat4Desc: "Visualiza y gestiona tus NFTs en una sección dedicada.",
+        walletFeat5Title: "Ecosistema conectado:",
+        walletFeat5Desc: "Integración con MoonWorld, MOWO y módulos de seguridad.",
+        walletFeat6Title: "Todo en uno:",
+        walletFeat6Desc: "Menos fricción, más resultados desde una sola app.",
+        liveStatsTitle: "ðŸ“Š EstadÃ­sticas en Vivo",
         priceLabel: "Precio B20 (USD)",
-        priceSource: "Actualizado vía Dextools",
+        priceSource: "Actualizado vÃ­a Dextools",
         downloadsLabel: "Descargas App",
         downloadsTarget: "Meta: 10,000",
         holdersLabel: "Holders",
-        holdersSource: "🔗 PolygonScan",
+        holdersSource: "ðŸ”— PolygonScan",
         txLabel: "Transacciones",
-        txSource: "🔄 Totales",
+        txSource: "ðŸ”„ Totales",
         priceChartTitle: "Precio B20 / Tiempo (datos en tiempo real)",
 
         tokenDetailsTitle: "Detalles del Token",
         td1Label: "Red Blockchain:", td1Value: "Polygon (compatible con Ethereum)",
-        td2Label: "Dirección del Contrato:",
+        td2Label: "DirecciÃ³n del Contrato:",
         td3Label: "Decimales:", td3Value: "18",
-        td4Label: "Suministro Total:", td4Value: "1,000,000,000 B20 (fijo, sin inflación)",
-        td5Label: "Distribución Estratégica:", td5Value: "10M para staking y 3M para recompensas de juegos",
+        td4Label: "Suministro Total:", td4Value: "1,000,000,000 B20 (fijo, sin inflaciÃ³n)",
+        td5Label: "DistribuciÃ³n EstratÃ©gica:", td5Value: "10M para staking y 3M para recompensas de juegos",
         btnPolygonscan: "Ver en PolygonScan",
         btnCopy: "Copiar",
-        btnAddMM: "Añadir a MetaMask",
+        btnAddMM: "AÃ±adir a MetaMask",
 
-        airdropTitle: "¡Airdrop de NFTs y Tokens!",
-        airdropP: "Como parte de nuestro compromiso con la comunidad, los holders de NFTs de Max Studio recibirán airdrop de B20. Premiamos la fidelidad e impulsamos la adopción real.",
-        btnOpenSea: "Ver colección en OpenSea",
+        airdropTitle: "Â¡Airdrop de NFTs y Tokens!",
+        airdropP: "Como parte de nuestro compromiso con la comunidad, los holders de NFTs de Max Studio recibirÃ¡n airdrop de B20. Premiamos la fidelidad e impulsamos la adopciÃ³n real.",
+        btnOpenSea: "Ver colecciÃ³n en OpenSea",
 
-        moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "MoonWorld será la expansión más ambiciosa del ecosistema: economía digital, propiedad virtual y utilidad real conectada con BANK2.0 y MOWO. Si entras ahora, llegas con ventaja.",
-        moonworldStatus: "🚀 Cuenta atrás activa. Los primeros en entrar tendrán mejor posicionamiento en el ecosistema.",
+        moonworldTitle: "ðŸŒ™ MoonWorld",
+        moonworldDesc: "MoonWorld serÃ¡ la expansiÃ³n mÃ¡s ambiciosa del ecosistema: economÃ­a digital, propiedad virtual y utilidad real conectada con BANK2.0 y MOWO. Si entras ahora, llegas con ventaja.",
+        moonworldStatus: "ðŸš€ Cuenta atrÃ¡s activa. Los primeros en entrar tendrÃ¡n mejor posicionamiento en el ecosistema.",
         moonworldCountdownLabel: "Tiempo restante para el lanzamiento",
         moonworldButton: "Explorar MoonWorld",
 
         buyTitle: "Adquirir BANK2.0 (B20)",
         buyP1: "Puedes comprar B20 directamente en Uniswap (Polygon), con seguridad, libertad y sin intermediarios.",
         btnBuy: "Adquirir BANK2.0",
-        dextoolsP: "Visualiza métricas de liquidez y trading de BANK2.0 en Dextools para seguir su rendimiento en tiempo real.",
+        dextoolsP: "Visualiza mÃ©tricas de liquidez y trading de BANK2.0 en Dextools para seguir su rendimiento en tiempo real.",
         btnDextools: "Ver en Dextools",
         goplusP: "Consulta la seguridad del contrato de BANK2.0 en GoPlus Labs para operar con mayor confianza.",
         btnGoPlus: "Ver Seguridad en GoPlus Labs",
 
         walletCardTitle: "Wallet BANK2.0 (Android)",
-        walletCardP: "Descarga la app oficial de BANK2.0 para Android y vive la experiencia completa: staking, juegos con recompensas, gestión de tokens, NFT gallery y seguridad avanzada.",
+        walletCardP: "Descarga la app oficial de BANK2.0 para Android y vive la experiencia completa: staking, juegos con recompensas, gestiÃ³n de tokens, NFT gallery y seguridad avanzada.",
         btnPlayStore: "Google Play",
         btnManual: "Manual (PDF)",
 
         buyTitle2: "Adquirir BANK2.0 (B20)",
-        buyP2: "Únete al nuevo sistema financiero Web3 desde hoy. B20 está diseñado para utilidad real y crecimiento sostenible.",
+        buyP2: "Ãšnete al nuevo sistema financiero Web3 desde hoy. B20 estÃ¡ diseÃ±ado para utilidad real y crecimiento sostenible.",
         btnBuy2: "Adquirir BANK2.0",
 
-        supplyTitle: "Distribución del suministro",
-        supplyDesc: "Así se reparte el total de 1,000,000,000 B20.",
-        legendOwner: "Reserva inicial (owner/tesorería)",
+        supplyTitle: "DistribuciÃ³n del suministro",
+        supplyDesc: "AsÃ­ se reparte el total de 1,000,000,000 B20.",
+        legendOwner: "Reserva inicial (owner/tesorerÃ­a)",
         legendStaking: "Pool de Staking",
         legendGames: "Recompensas de Juegos",
         btnDownload: "Descargar imagen",
@@ -557,31 +582,40 @@
 
         teamTitle: "Equipo",
         team1: "Fundador y Arquitecto de Software",
-        team2: "Estratega de Marketing y Relaciones Públicas",
-        team3: "Desarrollador de Smart Contracts y Tecnología Web3",
+        team2: "Estratega de Marketing y Relaciones PÃºblicas",
+        team3: "Desarrollador de Smart Contracts y TecnologÃ­a Web3",
 
         contactTitle: "Contacto",
-        contactP: "¿Tienes preguntas, propuestas o necesitas soporte? Escríbenos y el equipo de BANK2.0 te responderá rápidamente.",
-        foot1: "© 2025 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
+        contactP: "Â¿Tienes preguntas, propuestas o necesitas soporte? EscrÃ­benos y el equipo de BANK2.0 te responderÃ¡ rÃ¡pidamente.",
+        foot1: "Â© 2025 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
         foot2: "Innovando el futuro de las finanzas descentralizadas"
       },
 
-      en: {
-        heroSubtitle: "The most ambitious Web3 wallet in Polygon: play, earn, protect your NFTs, and get in early before the next wave.",
-        whatTitle: "What is BANK2.0?",
-        whatP1: "BANK2.0 (B20) is not just a token. It is a growing brand with a real strategy. We are building modern financial rails on Polygon for fast payments, strong security, and a smooth user experience.",
-        whatP2: "With BANK2.0 you can move value in seconds, pay low fees, and keep full control of your assets. The wallet is designed for NFTs, Web3 operations, and real reward systems inside the app.",
-        whatP3: "Thousands of users are already entering early. This is the right moment to position yourself in a project that combines utility, gaming, security, and long-term vision.",
-
-        liveStatsTitle: "📊 Live Statistics",
+              walletExplainTitle: "BANK2.0 Wallet: your Web3 control center",
+        walletExplainP1: "BANK2.0 Wallet is built so anyone, even without technical background, can use Web3 safely, quickly, and confidently.",
+        walletExplainP2: "Real utility included: send/receive assets, advanced security, staking, NFT gallery, and reward-based mini games in one experience.",
+        walletExplainP3: "If you want a wallet with commercial vision, active community, and expansion potential, BANK2.0 is your ideal entry point.",
+        walletFeat1Title: "Web3 Security:",
+        walletFeat1Desc: "PIN protection, secure flow, and local key custody.",
+        walletFeat2Title: "Integrated Staking:",
+        walletFeat2Desc: "Stake B20 and join the project economy.",
+        walletFeat3Title: "Reward Games:",
+        walletFeat3Desc: "Jockey, Cake King, Tetris Pro, and Tic-Tac-Toe CPU.",
+        walletFeat4Title: "Polygon NFT Gallery:",
+        walletFeat4Desc: "View and manage your NFTs in a dedicated area.",
+        walletFeat5Title: "Connected Ecosystem:",
+        walletFeat5Desc: "Integration with MoonWorld, MOWO, and security modules.",
+        walletFeat6Title: "All-in-One:",
+        walletFeat6Desc: "Less friction, better results from one app.",
+        liveStatsTitle: "ðŸ“Š Live Statistics",
         priceLabel: "B20 Price (USD)",
         priceSource: "Updated via Dextools",
         downloadsLabel: "App Downloads",
         downloadsTarget: "Target: 10,000",
         holdersLabel: "Holders",
-        holdersSource: "🔗 PolygonScan",
+        holdersSource: "ðŸ”— PolygonScan",
         txLabel: "Transactions",
-        txSource: "🔄 Total",
+        txSource: "ðŸ”„ Total",
         priceChartTitle: "B20 Price / Time (real-time data)",
 
         tokenDetailsTitle: "Token Details",
@@ -598,9 +632,9 @@
         airdropP: "As part of our community-first strategy, Max Studio NFT holders receive B20 airdrops. Loyalty is rewarded.",
         btnOpenSea: "View collection on OpenSea",
 
-        moonworldTitle: "🌙 MoonWorld",
+        moonworldTitle: "ðŸŒ™ MoonWorld",
         moonworldDesc: "MoonWorld is the next major expansion: digital economy, virtual ownership, and real utility connected with BANK2.0 and MOWO.",
-        moonworldStatus: "🚀 Countdown is live. Early users get the strongest positioning.",
+        moonworldStatus: "ðŸš€ Countdown is live. Early users get the strongest positioning.",
         moonworldCountdownLabel: "Time remaining until launch",
         moonworldButton: "Explore MoonWorld",
 
@@ -641,71 +675,80 @@
 
         contactTitle: "Contact",
         contactP: "Questions, proposals, or support? Reach us and the BANK2.0 team will respond quickly.",
-        foot1: "© 2025 BANK2.0 (B20) - Blockchain Project. All rights reserved.",
+        foot1: "Â© 2025 BANK2.0 (B20) - Blockchain Project. All rights reserved.",
         foot2: "Innovating the future of decentralized finance"
       },
 
-      fr: {
-        heroSubtitle: "Le wallet Web3 le plus ambitieux sur Polygon : jouez, gagnez, protégez vos NFTs et entrez tôt.",
-        whatTitle: "Qu'est-ce que BANK2.0 ?",
-        whatP1: "BANK2.0 (B20) n'est pas seulement un token. C'est une marque en pleine expansion avec une vision réelle. Nous construisons une infrastructure financière moderne sur Polygon.",
-        whatP2: "Avec BANK2.0, vous transférez de la valeur en quelques secondes, avec peu de frais, et vous gardez le contrôle de vos actifs. Le wallet est pensé pour les NFTs et l'écosystème Web3.",
-        whatP3: "Des milliers d'utilisateurs entrent déjà tôt. C'est le moment idéal pour vous positionner sur un projet qui unit utilité, gaming, sécurité et vision long terme.",
-
-        liveStatsTitle: "📊 Statistiques en direct",
+              walletExplainTitle: "Wallet BANK2.0 : votre centre de contrôle Web3",
+        walletExplainP1: "La Wallet BANK2.0 permet à tous les utilisateurs, même débutants, d'utiliser le Web3 de façon sûre, rapide et simple.",
+        walletExplainP2: "Utilité réelle : envoi/réception d'actifs, sécurité avancée, staking, galerie NFT et mini-jeux avec récompenses.",
+        walletExplainP3: "Si vous cherchez un wallet avec vision commerciale et communauté active, BANK2.0 est votre meilleure porte d'entrée.",
+        walletFeat1Title: "Sécurité Web3 :",
+        walletFeat1Desc: "PIN, flux protégé et garde locale des clés.",
+        walletFeat2Title: "Staking intégré :",
+        walletFeat2Desc: "Stakez du B20 et participez à l'économie du projet.",
+        walletFeat3Title: "Jeux avec récompenses :",
+        walletFeat3Desc: "Jockey, Cake King, Tetris Pro et morpion CPU.",
+        walletFeat4Title: "Galerie NFT Polygon :",
+        walletFeat4Desc: "Visualisez et gérez vos NFTs facilement.",
+        walletFeat5Title: "Écosystème connecté :",
+        walletFeat5Desc: "Intégration MoonWorld, MOWO et modules de sécurité.",
+        walletFeat6Title: "Tout-en-un :",
+        walletFeat6Desc: "Moins de friction, plus de résultats.",
+        liveStatsTitle: "ðŸ“Š Statistiques en direct",
         priceLabel: "Prix B20 (USD)",
-        priceSource: "Mis à jour via Dextools",
-        downloadsLabel: "Téléchargements App",
+        priceSource: "Mis Ã  jour via Dextools",
+        downloadsLabel: "TÃ©lÃ©chargements App",
         downloadsTarget: "Objectif : 10 000",
         holdersLabel: "Holders",
-        holdersSource: "🔗 PolygonScan",
+        holdersSource: "ðŸ”— PolygonScan",
         txLabel: "Transactions",
-        txSource: "🔄 Total",
-        priceChartTitle: "Prix B20 / Temps (données en direct)",
+        txSource: "ðŸ”„ Total",
+        priceChartTitle: "Prix B20 / Temps (donnÃ©es en direct)",
 
-        tokenDetailsTitle: "Détails du token",
+        tokenDetailsTitle: "DÃ©tails du token",
         td1Label: "Blockchain :", td1Value: "Polygon (compatible Ethereum)",
         td2Label: "Adresse du contrat :",
-        td3Label: "Décimales :", td3Value: "18",
+        td3Label: "DÃ©cimales :", td3Value: "18",
         td4Label: "Offre totale :", td4Value: "1 000 000 000 B20 (fixe, sans inflation)",
-        td5Label: "Répartition stratégique :", td5Value: "10M pour le staking et 3M pour les récompenses de jeux",
+        td5Label: "RÃ©partition stratÃ©gique :", td5Value: "10M pour le staking et 3M pour les rÃ©compenses de jeux",
         btnPolygonscan: "Voir sur PolygonScan",
         btnCopy: "Copier",
-        btnAddMM: "Ajouter à MetaMask",
+        btnAddMM: "Ajouter Ã  MetaMask",
 
         airdropTitle: "Airdrop NFTs & Tokens !",
-        airdropP: "Les holders des NFTs Max Studio reçoivent un airdrop B20. Nous récompensons la fidélité et l'engagement.",
+        airdropP: "Les holders des NFTs Max Studio reÃ§oivent un airdrop B20. Nous rÃ©compensons la fidÃ©litÃ© et l'engagement.",
         btnOpenSea: "Voir sur OpenSea",
 
-        moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "MoonWorld est la prochaine grande expansion : économie digitale, propriété virtuelle et utilité réelle connectée à BANK2.0 et MOWO.",
-        moonworldStatus: "🚀 Le compte à rebours est actif. Les premiers entrants auront le meilleur positionnement.",
+        moonworldTitle: "ðŸŒ™ MoonWorld",
+        moonworldDesc: "MoonWorld est la prochaine grande expansion : Ã©conomie digitale, propriÃ©tÃ© virtuelle et utilitÃ© rÃ©elle connectÃ©e Ã  BANK2.0 et MOWO.",
+        moonworldStatus: "ðŸš€ Le compte Ã  rebours est actif. Les premiers entrants auront le meilleur positionnement.",
         moonworldCountdownLabel: "Temps restant avant le lancement",
         moonworldButton: "Explorer MoonWorld",
 
         buyTitle: "Acheter BANK2.0 (B20)",
-        buyP1: "Achetez B20 sur Uniswap (Polygon), sans intermédiaires et avec un contrôle total.",
+        buyP1: "Achetez B20 sur Uniswap (Polygon), sans intermÃ©diaires et avec un contrÃ´le total.",
         btnBuy: "Acheter BANK2.0",
-        dextoolsP: "Suivez la liquidité et le trading de B20 sur Dextools en temps réel.",
+        dextoolsP: "Suivez la liquiditÃ© et le trading de B20 sur Dextools en temps rÃ©el.",
         btnDextools: "Voir sur Dextools",
-        goplusP: "Vérifiez la sécurité du contrat BANK2.0 sur GoPlus Labs.",
+        goplusP: "VÃ©rifiez la sÃ©curitÃ© du contrat BANK2.0 sur GoPlus Labs.",
         btnGoPlus: "Ouvrir GoPlus Security",
 
         walletCardTitle: "Wallet BANK2.0 (Android)",
-        walletCardP: "Téléchargez l'app officielle BANK2.0 Android : staking, jeux récompensés, gestion de tokens, galerie NFT et sécurité Web3.",
+        walletCardP: "TÃ©lÃ©chargez l'app officielle BANK2.0 Android : staking, jeux rÃ©compensÃ©s, gestion de tokens, galerie NFT et sÃ©curitÃ© Web3.",
         btnPlayStore: "Google Play",
         btnManual: "Manuel (PDF)",
 
         buyTitle2: "Acheter BANK2.0 (B20)",
-        buyP2: "Rejoignez le nouveau système financier Web3 dès aujourd'hui.",
+        buyP2: "Rejoignez le nouveau systÃ¨me financier Web3 dÃ¨s aujourd'hui.",
         btnBuy2: "Acheter BANK2.0",
 
         supplyTitle: "Distribution de l'offre",
-        supplyDesc: "Répartition de l'offre totale de 1 000 000 000 B20.",
-        legendOwner: "Réserve initiale (owner/trésorerie)",
+        supplyDesc: "RÃ©partition de l'offre totale de 1 000 000 000 B20.",
+        legendOwner: "RÃ©serve initiale (owner/trÃ©sorerie)",
         legendStaking: "Pool Staking",
-        legendGames: "Récompenses de jeux",
-        btnDownload: "Télécharger l'image",
+        legendGames: "RÃ©compenses de jeux",
+        btnDownload: "TÃ©lÃ©charger l'image",
 
         resourcesTitle: "Ressources officielles",
         btnSite: "Site officiel",
@@ -713,94 +756,103 @@
         btnWhitepaper: "Whitepaper (PDF)",
         btnGithub: "GitHub",
 
-        teamTitle: "Équipe",
+        teamTitle: "Ã‰quipe",
         team1: "Fondateur & Architecte logiciel",
-        team2: "Stratégie marketing & RP",
-        team3: "Développeur Smart Contracts & Web3",
+        team2: "StratÃ©gie marketing & RP",
+        team3: "DÃ©veloppeur Smart Contracts & Web3",
 
         contactTitle: "Contact",
-        contactP: "Questions, propositions ou support ? L'équipe BANK2.0 vous répond rapidement.",
-        foot1: "© 2025 BANK2.0 (B20) - Projet Blockchain. Tous droits réservés.",
-        foot2: "Innover le futur de la finance décentralisée"
+        contactP: "Questions, propositions ou support ? L'Ã©quipe BANK2.0 vous rÃ©pond rapidement.",
+        foot1: "Â© 2025 BANK2.0 (B20) - Projet Blockchain. Tous droits rÃ©servÃ©s.",
+        foot2: "Innover le futur de la finance dÃ©centralisÃ©e"
       },
 
-      ru: {
-        heroSubtitle: "Самый амбициозный Web3-кошелёк на Polygon: играй, зарабатывай, защищай NFT и входи раньше других.",
-        whatTitle: "Что такое BANK2.0?",
-        whatP1: "BANK2.0 (B20) — это не просто токен, а растущий проект с реальной стратегией. Мы строим современную финансовую инфраструктуру на Polygon.",
-        whatP2: "С BANK2.0 вы переводите средства за секунды, с низкими комиссиями и полным контролем активов. Кошелёк создан для NFT и Web3-операций.",
-        whatP3: "Тысячи пользователей уже входят на раннем этапе. Это момент занять место в проекте с полезностью, геймингом, безопасностью и долгосрочным ростом.",
+              walletExplainTitle: "Кошелек BANK2.0: ваш центр управления Web3",
+        walletExplainP1: "Wallet BANK2.0 создан так, чтобы даже новичок мог пользоваться Web3 безопасно, быстро и удобно.",
+        walletExplainP2: "Реальная полезность: отправка/получение активов, продвинутая защита, стейкинг, NFT-галерея и мини-игры с наградами.",
+        walletExplainP3: "Если вам нужен кошелек с коммерческим потенциалом и активным сообществом, BANK2.0 — отличная точка входа.",
+        walletFeat1Title: "Безопасность Web3:",
+        walletFeat1Desc: "PIN-защита, безопасный поток и локальное хранение ключей.",
+        walletFeat2Title: "Встроенный стейкинг:",
+        walletFeat2Desc: "Стейкайте B20 и участвуйте в экономике проекта.",
+        walletFeat3Title: "Игры с наградами:",
+        walletFeat3Desc: "Jockey, Cake King, Tetris Pro и 3-в-ряд CPU.",
+        walletFeat4Title: "NFT-галерея Polygon:",
+        walletFeat4Desc: "Просмотр и управление NFT в отдельном разделе.",
+        walletFeat5Title: "Связанная экосистема:",
+        walletFeat5Desc: "Интеграция с MoonWorld, MOWO и модулями безопасности.",
+        walletFeat6Title: "Все-в-одном:",
+        walletFeat6Desc: "Меньше трения, больше результата в одном приложении.",
+        liveStatsTitle: "ðŸ“Š Ð¡Ñ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÐ° Ð² Ñ€ÐµÐ°Ð»ÑŒÐ½Ð¾Ð¼ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸",
+        priceLabel: "Ð¦ÐµÐ½Ð° B20 (USD)",
+        priceSource: "ÐžÐ±Ð½Ð¾Ð²Ð»ÑÐµÑ‚ÑÑ Ñ‡ÐµÑ€ÐµÐ· Dextools",
+        downloadsLabel: "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ",
+        downloadsTarget: "Ð¦ÐµÐ»ÑŒ: 10 000",
+        holdersLabel: "Ð¥Ð¾Ð»Ð´ÐµÑ€Ñ‹",
+        holdersSource: "ðŸ”— PolygonScan",
+        txLabel: "Ð¢Ñ€Ð°Ð½Ð·Ð°ÐºÑ†Ð¸Ð¸",
+        txSource: "ðŸ”„ Ð˜Ñ‚Ð¾Ð³Ð¾",
+        priceChartTitle: "Ð¦ÐµÐ½Ð° B20 / Ð’Ñ€ÐµÐ¼Ñ (Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ñ€ÐµÐ°Ð»ÑŒÐ½Ð¾Ð¼ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸)",
 
-        liveStatsTitle: "📊 Статистика в реальном времени",
-        priceLabel: "Цена B20 (USD)",
-        priceSource: "Обновляется через Dextools",
-        downloadsLabel: "Загрузки приложения",
-        downloadsTarget: "Цель: 10 000",
-        holdersLabel: "Холдеры",
-        holdersSource: "🔗 PolygonScan",
-        txLabel: "Транзакции",
-        txSource: "🔄 Итого",
-        priceChartTitle: "Цена B20 / Время (данные в реальном времени)",
+        tokenDetailsTitle: "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ñ‚Ð¾ÐºÐµÐ½Ð°",
+        td1Label: "Ð‘Ð»Ð¾ÐºÑ‡ÐµÐ¹Ð½:", td1Value: "Polygon (ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼ Ñ Ethereum)",
+        td2Label: "ÐÐ´Ñ€ÐµÑ ÐºÐ¾Ð½Ñ‚Ñ€Ð°ÐºÑ‚Ð°:",
+        td3Label: "Ð”ÐµÑÑÑ‚Ð¸Ñ‡Ð½Ð¾ÑÑ‚ÑŒ:", td3Value: "18",
+        td4Label: "ÐžÐ±Ñ‰Ð¸Ð¹ Ð¾Ð±ÑŠÑ‘Ð¼:", td4Value: "1 000 000 000 B20 (Ñ„Ð¸ÐºÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾, Ð±ÐµÐ· Ð¸Ð½Ñ„Ð»ÑÑ†Ð¸Ð¸)",
+        td5Label: "Ð Ð°ÑÐ¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ:", td5Value: "10M Ð´Ð»Ñ ÑÑ‚ÐµÐ¹ÐºÐ¸Ð½Ð³Ð° Ð¸ 3M Ð´Ð»Ñ Ð¸Ð³Ñ€Ð¾Ð²Ñ‹Ñ… Ð½Ð°Ð³Ñ€Ð°Ð´",
+        btnPolygonscan: "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð² PolygonScan",
+        btnCopy: "ÐšÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ",
+        btnAddMM: "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð² MetaMask",
 
-        tokenDetailsTitle: "Данные токена",
-        td1Label: "Блокчейн:", td1Value: "Polygon (совместим с Ethereum)",
-        td2Label: "Адрес контракта:",
-        td3Label: "Десятичность:", td3Value: "18",
-        td4Label: "Общий объём:", td4Value: "1 000 000 000 B20 (фиксированно, без инфляции)",
-        td5Label: "Распределение:", td5Value: "10M для стейкинга и 3M для игровых наград",
-        btnPolygonscan: "Открыть в PolygonScan",
-        btnCopy: "Копировать",
-        btnAddMM: "Добавить в MetaMask",
+        airdropTitle: "Airdrop NFT Ð¸ Ñ‚Ð¾ÐºÐµÐ½Ð¾Ð²!",
+        airdropP: "Ð¥Ð¾Ð»Ð´ÐµÑ€Ñ‹ NFT Max Studio Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÑŽÑ‚ airdrop B20. ÐœÑ‹ Ð½Ð°Ð³Ñ€Ð°Ð¶Ð´Ð°ÐµÐ¼ Ð»Ð¾ÑÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÑÑ‚Ð²Ð°.",
+        btnOpenSea: "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÐºÐ¾Ð»Ð»ÐµÐºÑ†Ð¸ÑŽ Ð½Ð° OpenSea",
 
-        airdropTitle: "Airdrop NFT и токенов!",
-        airdropP: "Холдеры NFT Max Studio получают airdrop B20. Мы награждаем лояльность сообщества.",
-        btnOpenSea: "Открыть коллекцию на OpenSea",
+        moonworldTitle: "ðŸŒ™ MoonWorld",
+        moonworldDesc: "MoonWorld â€” ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¹ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ ÑÑ‚Ð°Ð¿: Ñ†Ð¸Ñ„Ñ€Ð¾Ð²Ð°Ñ ÑÐºÐ¾Ð½Ð¾Ð¼Ð¸ÐºÐ°, Ð²Ð¸Ñ€Ñ‚ÑƒÐ°Ð»ÑŒÐ½Ð°Ñ ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ Ð¸ Ñ€ÐµÐ°Ð»ÑŒÐ½Ð°Ñ Ð¿Ð¾Ð»ÐµÐ·Ð½Ð¾ÑÑ‚ÑŒ, ÑÐ²ÑÐ·Ð°Ð½Ð½Ð°Ñ Ñ BANK2.0 Ð¸ MOWO.",
+        moonworldStatus: "ðŸš€ ÐžÐ±Ñ€Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¾Ñ‚ÑÑ‡Ñ‘Ñ‚ Ð°ÐºÑ‚Ð¸Ð²ÐµÐ½. Ð Ð°Ð½Ð½Ð¸Ðµ ÑƒÑ‡Ð°ÑÑ‚Ð½Ð¸ÐºÐ¸ Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÑŽÑ‚ ÑÐ¸Ð»ÑŒÐ½ÐµÐ¹ÑˆÑƒÑŽ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ.",
+        moonworldCountdownLabel: "ÐžÑÑ‚Ð°Ð»Ð¾ÑÑŒ Ð´Ð¾ Ð·Ð°Ð¿ÑƒÑÐºÐ°",
+        moonworldButton: "Ð˜ÑÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÑŒ MoonWorld",
 
-        moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "MoonWorld — следующий большой этап: цифровая экономика, виртуальная собственность и реальная полезность, связанная с BANK2.0 и MOWO.",
-        moonworldStatus: "🚀 Обратный отсчёт активен. Ранние участники получают сильнейшую позицию.",
-        moonworldCountdownLabel: "Осталось до запуска",
-        moonworldButton: "Исследовать MoonWorld",
-
-        buyTitle: "Купить BANK2.0 (B20)",
-        buyP1: "Покупайте B20 на Uniswap (Polygon) без посредников и с полным контролем.",
-        btnBuy: "Купить BANK2.0",
-        dextoolsP: "Отслеживайте ликвидность и торговлю B20 на Dextools в реальном времени.",
-        btnDextools: "Смотреть на Dextools",
-        goplusP: "Проверьте безопасность контракта BANK2.0 в GoPlus Labs.",
-        btnGoPlus: "Открыть GoPlus Security",
+        buyTitle: "ÐšÑƒÐ¿Ð¸Ñ‚ÑŒ BANK2.0 (B20)",
+        buyP1: "ÐŸÐ¾ÐºÑƒÐ¿Ð°Ð¹Ñ‚Ðµ B20 Ð½Ð° Uniswap (Polygon) Ð±ÐµÐ· Ð¿Ð¾ÑÑ€ÐµÐ´Ð½Ð¸ÐºÐ¾Ð² Ð¸ Ñ Ð¿Ð¾Ð»Ð½Ñ‹Ð¼ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»ÐµÐ¼.",
+        btnBuy: "ÐšÑƒÐ¿Ð¸Ñ‚ÑŒ BANK2.0",
+        dextoolsP: "ÐžÑ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ Ð»Ð¸ÐºÐ²Ð¸Ð´Ð½Ð¾ÑÑ‚ÑŒ Ð¸ Ñ‚Ð¾Ñ€Ð³Ð¾Ð²Ð»ÑŽ B20 Ð½Ð° Dextools Ð² Ñ€ÐµÐ°Ð»ÑŒÐ½Ð¾Ð¼ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸.",
+        btnDextools: "Ð¡Ð¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð½Ð° Dextools",
+        goplusP: "ÐŸÑ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑ‚ÑŒ ÐºÐ¾Ð½Ñ‚Ñ€Ð°ÐºÑ‚Ð° BANK2.0 Ð² GoPlus Labs.",
+        btnGoPlus: "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ GoPlus Security",
 
         walletCardTitle: "Wallet BANK2.0 (Android)",
-        walletCardP: "Скачайте официальное приложение BANK2.0 для Android: стейкинг, игры с наградами, управление токенами, NFT-галерея и Web3-безопасность.",
+        walletCardP: "Ð¡ÐºÐ°Ñ‡Ð°Ð¹Ñ‚Ðµ Ð¾Ñ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ BANK2.0 Ð´Ð»Ñ Android: ÑÑ‚ÐµÐ¹ÐºÐ¸Ð½Ð³, Ð¸Ð³Ñ€Ñ‹ Ñ Ð½Ð°Ð³Ñ€Ð°Ð´Ð°Ð¼Ð¸, ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ñ‚Ð¾ÐºÐµÐ½Ð°Ð¼Ð¸, NFT-Ð³Ð°Ð»ÐµÑ€ÐµÑ Ð¸ Web3-Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑ‚ÑŒ.",
         btnPlayStore: "Google Play",
-        btnManual: "Руководство (PDF)",
+        btnManual: "Ð ÑƒÐºÐ¾Ð²Ð¾Ð´ÑÑ‚Ð²Ð¾ (PDF)",
 
-        buyTitle2: "Купить BANK2.0 (B20)",
-        buyP2: "Присоединяйтесь к новой Web3-финансовой системе уже сегодня.",
-        btnBuy2: "Купить BANK2.0",
+        buyTitle2: "ÐšÑƒÐ¿Ð¸Ñ‚ÑŒ BANK2.0 (B20)",
+        buyP2: "ÐŸÑ€Ð¸ÑÐ¾ÐµÐ´Ð¸Ð½ÑÐ¹Ñ‚ÐµÑÑŒ Ðº Ð½Ð¾Ð²Ð¾Ð¹ Web3-Ñ„Ð¸Ð½Ð°Ð½ÑÐ¾Ð²Ð¾Ð¹ ÑÐ¸ÑÑ‚ÐµÐ¼Ðµ ÑƒÐ¶Ðµ ÑÐµÐ³Ð¾Ð´Ð½Ñ.",
+        btnBuy2: "ÐšÑƒÐ¿Ð¸Ñ‚ÑŒ BANK2.0",
 
-        supplyTitle: "Распределение эмиссии",
-        supplyDesc: "Как распределён общий объём 1 000 000 000 B20.",
-        legendOwner: "Начальный резерв (owner/treasury)",
-        legendStaking: "Пул стейкинга",
-        legendGames: "Игровые награды",
-        btnDownload: "Скачать изображение",
+        supplyTitle: "Ð Ð°ÑÐ¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ ÑÐ¼Ð¸ÑÑÐ¸Ð¸",
+        supplyDesc: "ÐšÐ°Ðº Ñ€Ð°ÑÐ¿Ñ€ÐµÐ´ÐµÐ»Ñ‘Ð½ Ð¾Ð±Ñ‰Ð¸Ð¹ Ð¾Ð±ÑŠÑ‘Ð¼ 1 000 000 000 B20.",
+        legendOwner: "ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€ÐµÐ·ÐµÑ€Ð² (owner/treasury)",
+        legendStaking: "ÐŸÑƒÐ» ÑÑ‚ÐµÐ¹ÐºÐ¸Ð½Ð³Ð°",
+        legendGames: "Ð˜Ð³Ñ€Ð¾Ð²Ñ‹Ðµ Ð½Ð°Ð³Ñ€Ð°Ð´Ñ‹",
+        btnDownload: "Ð¡ÐºÐ°Ñ‡Ð°Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ",
 
-        resourcesTitle: "Официальные ресурсы",
-        btnSite: "Официальный сайт",
+        resourcesTitle: "ÐžÑ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ñ€ÐµÑÑƒÑ€ÑÑ‹",
+        btnSite: "ÐžÑ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ°Ð¹Ñ‚",
         btnX: "Twitter / X",
         btnWhitepaper: "Whitepaper (PDF)",
         btnGithub: "GitHub",
 
-        teamTitle: "Команда",
-        team1: "Основатель и архитектор ПО",
-        team2: "Маркетинг и PR",
-        team3: "Разработчик Smart Contracts и Web3",
+        teamTitle: "ÐšÐ¾Ð¼Ð°Ð½Ð´Ð°",
+        team1: "ÐžÑÐ½Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð¸ Ð°Ñ€Ñ…Ð¸Ñ‚ÐµÐºÑ‚Ð¾Ñ€ ÐŸÐž",
+        team2: "ÐœÐ°Ñ€ÐºÐµÑ‚Ð¸Ð½Ð³ Ð¸ PR",
+        team3: "Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸Ðº Smart Contracts Ð¸ Web3",
 
-        contactTitle: "Контакты",
-        contactP: "Есть вопросы, предложения или нужен саппорт? Команда BANK2.0 ответит быстро.",
-        foot1: "© 2025 BANK2.0 (B20) - Blockchain-проект. Все права защищены.",
-        foot2: "Инновации будущего децентрализованных финансов"
+        contactTitle: "ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ñ‹",
+        contactP: "Ð•ÑÑ‚ÑŒ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹, Ð¿Ñ€ÐµÐ´Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð½ÑƒÐ¶ÐµÐ½ ÑÐ°Ð¿Ð¿Ð¾Ñ€Ñ‚? ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° BANK2.0 Ð¾Ñ‚Ð²ÐµÑ‚Ð¸Ñ‚ Ð±Ñ‹ÑÑ‚Ñ€Ð¾.",
+        foot1: "Â© 2025 BANK2.0 (B20) - Blockchain-Ð¿Ñ€Ð¾ÐµÐºÑ‚. Ð’ÑÐµ Ð¿Ñ€Ð°Ð²Ð° Ð·Ð°Ñ‰Ð¸Ñ‰ÐµÐ½Ñ‹.",
+        foot2: "Ð˜Ð½Ð½Ð¾Ð²Ð°Ñ†Ð¸Ð¸ Ð±ÑƒÐ´ÑƒÑ‰ÐµÐ³Ð¾ Ð´ÐµÑ†ÐµÐ½Ñ‚Ñ€Ð°Ð»Ð¸Ð·Ð¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ñ„Ð¸Ð½Ð°Ð½ÑÐ¾Ð²"
       }
     };
 
@@ -929,7 +981,7 @@
       const countdownEl = document.getElementById('moonworldCountdown');
       if (!countdownEl) return;
 
-      // Fecha fija global. Cambia aquí cuando quieras.
+      // Fecha fija global. Cambia aquÃ­ cuando quieras.
       const launchDateUTC = '2026-10-31T18:00:00Z';
       const targetDate = new Date(launchDateUTC);
 
@@ -938,7 +990,7 @@
         const diff = targetDate.getTime() - now.getTime();
 
         if (diff <= 0) {
-          countdownEl.textContent = "¡YA DISPONIBLE!";
+          countdownEl.textContent = "Â¡YA DISPONIBLE!";
           return;
         }
 
@@ -980,7 +1032,7 @@
       document.getElementById('copyContract')?.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(addrEl.textContent.trim());
-          alert('Contrato copiado ✔');
+          alert('Contrato copiado âœ”');
         } catch {
           alert('No se pudo copiar.');
         }
@@ -1006,7 +1058,7 @@
             }
           });
         } catch {
-          alert('No se pudo añadir a MetaMask.');
+          alert('No se pudo aÃ±adir a MetaMask.');
         }
       });
 
@@ -1047,3 +1099,5 @@
   </script>
 </body>
 </html>
+
+
