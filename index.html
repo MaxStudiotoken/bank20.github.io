@@ -47,11 +47,8 @@
       animation: borderGlow 8s linear infinite;
     }
     @keyframes borderGlow {
-      0% { border-image-source: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff00, #ff00ff); }
-      25% { border-image-source: repeating-linear-gradient(90deg, #00ffff, #00ff00, #ff00ff, #00ffff); }
-      50% { border-image-source: repeating-linear-gradient(90deg, #00ff00, #ff00ff, #00ffff, #00ff00); }
-      75% { border-image-source: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff00, #ff00ff); }
-      100% { border-image-source: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff00, #ff00ff); }
+      0% { border-image-source: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff, #00ffff); }
+      100% { border-image-source: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff, #00ffff); }
     }
     header img {
       width: 150px; height: auto; margin: 0 auto 1rem; display: block;
@@ -82,7 +79,6 @@
     }
     .card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 0 35px var(--accent); border-color: var(--accent); }
     .card.moonworld-card { grid-column: span 2; }
-    .card.supply-card { padding: 1.5rem; }
     .btn {
       background: linear-gradient(45deg, var(--accent), var(--highlight)); color: black; padding: 0.8rem 1.8rem;
       border: none; border-radius: 50px; font-size: 1rem; font-weight: bold; display: inline-block;
@@ -135,6 +131,17 @@
       70% { box-shadow: 0 0 0 20px rgba(0, 255, 0, 0); }
       100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
     }
+    .info-box {
+      background: rgba(0,0,0,0.5);
+      border-left: 4px solid var(--neon-green);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -173,7 +180,7 @@
     <div class="card">
       <h2 data-i18n="mowoTitle">🔗 Token Mowo en Polygon</h2>
       <p><strong data-i18n="contractAddressLabel">Dirección del Contrato Mowo:</strong></p>
-      <code style="word-break:break-all; background:#000; padding:10px; display:block; border-radius:8px;" id="mowoContractAddr">
+      <code style="word-break:break-all; background:#000; padding:10px; display:block; border-radius:8px; font-family:monospace;">
         0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121
       </code>
       <div class="inline-actions">
@@ -182,7 +189,7 @@
       </div>
     </div>
 
-    <!-- MOONWORLD (más grande) con contador REAL -->
+    <!-- MOONWORLD con contador REAL -->
     <div class="card moonworld-card">
       <div class="card-content">
         <h2 style="color: var(--neon-orange);" data-i18n="moonworldTitle">🌙 MoonWorld</h2>
@@ -202,54 +209,98 @@
       </div>
     </div>
 
-    <!-- BANK 2.0 con BODEGA NFT + TOKEN MOWO -->
+    <!-- INFORMACIÓN DE LA APP WALLET BANK2.0 -->
     <div class="card-grid">
+      <!-- Bodega NFT + Token Mowo -->
       <div class="card">
-        <h2 data-i18n="bankTitle">🏦 Bank 2.0 - Bodega NFT</h2>
-        <p><strong data-i18n="nftCountLabel">🎨 NFTs en tu wallet:</strong> <span id="nftCount">0</span></p>
-        <p><strong data-i18n="mowoBalanceLabel">💰 Tokens MOWO:</strong> <span id="mowoBalance">0</span> MOWO</p>
-        <button class="btn" id="addMockNftBtn" data-i18n="addNftBtn">➕ Añadir NFT de prueba</button>
-        <button class="btn" id="send10NftsBtn" data-i18n="send10NftsBtn">📤 Enviar 10 NFTs → Ganar 25 MOWO</button>
-        <p style="margin-top:10px; font-size:0.8rem;" data-i18n="bankRewardInfo">✨ Gana 25 MOWO por cada 10 NFTs enviados a tu wallet</p>
+        <h2 data-i18n="bankTitle">🏦 Wallet BANK2.0 - Bodega NFT</h2>
+        <div class="info-box">
+          <p><span class="feature-icon">🎨</span> <strong data-i18n="walletFeature1">Bodega de NFTs</strong><br>
+          <span data-i18n="walletFeature1Desc">Tu wallet tiene un almacén donde puedes guardar todos tus NFTs de cualquier cadena.</span></p>
+          
+          <p><span class="feature-icon">💰</span> <strong data-i18n="walletFeature2">Token Mowo</strong><br>
+          <span data-i18n="walletFeature2Desc">La wallet integra el token Mowo para usarlo dentro del metaverso MoonWorld.</span></p>
+          
+          <p><span class="feature-icon">📤</span> <strong data-i18n="walletFeature3">Enviar 10 NFTs → Ganar 25 MOWO</strong><br>
+          <span data-i18n="walletFeature3Desc">Por cada 10 NFTs que envíes a tu wallet, recibirás 25 MOWO como recompensa.</span></p>
+        </div>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" data-i18n="btnDownloadApp">📲 Descargar Wallet BANK2.0</a>
       </div>
 
+      <!-- Tira de la Suerte -->
       <div class="card">
-        <h2 data-i18n="lotteryTitle">🎲 Tira de la Suerte (24h)</h2>
-        <p data-i18n="lotteryDesc">🎁 <strong>Premio asegurado:</strong> NFT Oro/Plata/Bronce</p>
-        <p data-i18n="lotteryCooldownLabel">🕒 Próximo sorteo: <span id="lotteryCooldown">Cargando...</span></p>
-        <button class="btn" id="lotteryBtn" data-i18n="lotteryBtnText">🎰 ¡Tirar!</button>
-        <p id="lotteryResult" style="margin-top:10px; color:gold;"></p>
-        <p style="font-size:0.7rem;" data-i18n="lotteryRewardsInfo">🏆 Oro: parcela + coche + personaje + 100 MOWO | Plata: coche + personaje + 50 MOWO | Bronce: personaje + 25 MOWO</p>
+        <h2 data-i18n="lotteryTitle">🎲 Tira de la Suerte (Cada 24h)</h2>
+        <div class="info-box">
+          <p><span class="feature-icon">🎰</span> <strong data-i18n="lotteryFeature1">Sorteo diario garantizado</strong><br>
+          <span data-i18n="lotteryFeature1Desc">Cada 24 horas puedes tirar de la suerte y tendrás un 100% de probabilidad de ganar.</span></p>
+          
+          <p><span class="feature-icon">🥇</span> <strong data-i18n="lotteryFeature2">Premios asegurados:</strong></p>
+          <ul style="margin-left: 1.5rem;">
+            <li data-i18n="prizeGold">🏆 ORO: Parcela + Coche + Personaje + 100 MOWO</li>
+            <li data-i18n="prizeSilver">🥈 PLATA: Coche + Personaje + 50 MOWO</li>
+            <li data-i18n="prizeBronze">🥉 BRONCE: Personaje + 25 MOWO</li>
+          </ul>
+        </div>
+        <p style="color: var(--neon-green);" data-i18n="lotteryNote">✨ ¡Cada 24 horas tienes un premio asegurado! No pierdas la oportunidad.</p>
       </div>
+    </div>
+
+    <!-- Metaverso MoonWorld - Información detallada -->
+    <div class="card">
+      <h2 data-i18n="metaverseTitle">🌍 MoonWorld - El Metaverso de BANK2.0</h2>
+      <p data-i18n="metaverseDesc">MoonWorld es un metaverso estilo GTA donde podrás usar tus tokens MOWO y NFTs para vivir experiencias únicas:</p>
+      <div class="live-stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">🏠</div>
+          <div class="stat-label" data-i18n="parcelaLabel">Parcelas de Tierra</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">🚗</div>
+          <div class="stat-label" data-i18n="cocheLabel">Coches Exclusivos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">👤</div>
+          <div class="stat-label" data-i18n="personajeLabel">Personajes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">🎮</div>
+          <div class="stat-label" data-i18n="misionesLabel">Misiones +100 MOWO</div>
+        </div>
+      </div>
+      <p data-i18n="metaverseCta">¡Consigue tu parcela, tu coche y tu personaje entrando al metaverso con los premios de la tira de la suerte!</p>
     </div>
 
     <!-- Estadísticas en Vivo -->
     <div class="live-chart-container">
-      <h2 style="text-align: center;" data-i18n="liveStatsTitle">📊 Estadísticas en Vivo</h2>
+      <h2 style="text-align: center;" data-i18n="liveStatsTitle">📊 Estadísticas BANK2.0</h2>
       <div class="live-stats-grid">
         <div class="stat-card">
           <div class="stat-label" data-i18n="priceLabel">Precio B20 (USD)</div>
           <div class="stat-value" id="b20Price">$0.0032</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label" data-i18n="downloadsLabel">Descargas App</div>
+          <div class="stat-label" data-i18n="downloadsLabel">Descargas App Wallet</div>
           <div class="stat-value" id="downloadCounter">5,892</div>
         </div>
         <div class="stat-card">
           <div class="stat-label" data-i18n="holdersLabel">Holders Mowo</div>
           <div class="stat-value" id="holdersCount">1,881</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-label" data-i18n="rewardsLabel">MOWO Entregados</div>
+          <div class="stat-value" id="rewardsCount">125,430</div>
+        </div>
       </div>
-      <canvas id="mowoChart" width="400" height="200"></canvas>
     </div>
 
     <!-- Detalles del Token B20 -->
     <div class="card">
       <h2 data-i18n="tokenDetailsTitle">Detalles del Token B20</h2>
       <ul>
-        <li><strong data-i18n="td1Label">Red Blockchain:</strong> <span data-i18n="td1Value">Polygon</span></li>
+        <li><strong data-i18n="td1Label">Red Blockchain:</strong> <span data-i18n="td1Value">Polygon (compatible con Ethereum)</span></li>
         <li><strong data-i18n="td2Label">Dirección del Contrato B20:</strong> <code class="kbd" id="contractAddr">0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code></li>
-        <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20</span></li>
+        <li><strong data-i18n="td3Label">Decimales:</strong> <span data-i18n="td3Value">18</span></li>
+        <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20 (fijo, sin inflación)</span></li>
       </ul>
       <div class="inline-actions">
         <button class="btn small" id="copyB20Btn" data-i18n="btnCopy">Copiar B20</button>
@@ -282,7 +333,8 @@
         <h2 data-i18n="teamTitle">Equipo</h2>
         <div class="team-grid">
           <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team1">Fundador y Arquitecto de Software</span></div>
-          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team2">Desarrollador de Smart Contracts</span></div>
+          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team2">Desarrollador de Smart Contracts y Tecnología Web3</span></div>
+          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team3">Estratega de Marketing y Relaciones Públicas</span></div>
         </div>
       </div>
     </div>
@@ -290,7 +342,7 @@
     <!-- Contacto -->
     <div class="card contact-card">
       <h2 data-i18n="contactTitle">Contacto</h2>
-      <p data-i18n="contactP">¿Tienes preguntas? Escríbenos a nuestro correo oficial.</p>
+      <p data-i18n="contactP">¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial.</p>
       <a href="mailto:bank20token@proton.me" class="btn contact-btn">bank20token@proton.me</a>
     </div>
   </div>
@@ -322,27 +374,42 @@
         moonworldStatus: "🚧 La app está en construcción, pero pronto tendremos noticias emocionantes.",
         moonworldCountdownLabel: "Tiempo restante para el lanzamiento (3 meses reales)",
         moonworldButton: "🌙 Explorar MoonWorld",
-        bankTitle: "🏦 Bank 2.0 - Bodega NFT",
-        nftCountLabel: "🎨 NFTs en tu wallet:",
-        mowoBalanceLabel: "💰 Tokens MOWO:",
-        addNftBtn: "➕ Añadir NFT de prueba",
-        send10NftsBtn: "📤 Enviar 10 NFTs → Ganar 25 MOWO",
-        bankRewardInfo: "✨ Gana 25 MOWO por cada 10 NFTs enviados a tu wallet",
-        lotteryTitle: "🎲 Tira de la Suerte (24h)",
-        lotteryDesc: "🎁 Premio asegurado: NFT Oro/Plata/Bronce",
-        lotteryCooldownLabel: "🕒 Próximo sorteo:",
-        lotteryBtnText: "🎰 ¡Tirar!",
-        lotteryRewardsInfo: "🏆 Oro: parcela + coche + personaje + 100 MOWO | Plata: coche + personaje + 50 MOWO | Bronce: personaje + 25 MOWO",
-        liveStatsTitle: "📊 Estadísticas en Vivo",
+        bankTitle: "🏦 Wallet BANK2.0 - Bodega NFT",
+        walletFeature1: "Bodega de NFTs",
+        walletFeature1Desc: "Tu wallet tiene un almacén donde puedes guardar todos tus NFTs de cualquier cadena.",
+        walletFeature2: "Token Mowo",
+        walletFeature2Desc: "La wallet integra el token Mowo para usarlo dentro del metaverso MoonWorld.",
+        walletFeature3: "Enviar 10 NFTs → Ganar 25 MOWO",
+        walletFeature3Desc: "Por cada 10 NFTs que envíes a tu wallet, recibirás 25 MOWO como recompensa.",
+        btnDownloadApp: "📲 Descargar Wallet BANK2.0",
+        lotteryTitle: "🎲 Tira de la Suerte (Cada 24h)",
+        lotteryFeature1: "Sorteo diario garantizado",
+        lotteryFeature1Desc: "Cada 24 horas puedes tirar de la suerte y tendrás un 100% de probabilidad de ganar.",
+        lotteryFeature2: "Premios asegurados:",
+        prizeGold: "🏆 ORO: Parcela + Coche + Personaje + 100 MOWO",
+        prizeSilver: "🥈 PLATA: Coche + Personaje + 50 MOWO",
+        prizeBronze: "🥉 BRONCE: Personaje + 25 MOWO",
+        lotteryNote: "✨ ¡Cada 24 horas tienes un premio asegurado! No pierdas la oportunidad.",
+        metaverseTitle: "🌍 MoonWorld - El Metaverso de BANK2.0",
+        metaverseDesc: "MoonWorld es un metaverso estilo GTA donde podrás usar tus tokens MOWO y NFTs para vivir experiencias únicas:",
+        parcelaLabel: "Parcelas de Tierra",
+        cocheLabel: "Coches Exclusivos",
+        personajeLabel: "Personajes",
+        misionesLabel: "Misiones +100 MOWO",
+        metaverseCta: "¡Consigue tu parcela, tu coche y tu personaje entrando al metaverso con los premios de la tira de la suerte!",
+        liveStatsTitle: "📊 Estadísticas BANK2.0",
         priceLabel: "Precio B20 (USD)",
-        downloadsLabel: "Descargas App",
+        downloadsLabel: "Descargas App Wallet",
         holdersLabel: "Holders Mowo",
+        rewardsLabel: "MOWO Entregados",
         tokenDetailsTitle: "Detalles del Token B20",
         td1Label: "Red Blockchain:",
-        td1Value: "Polygon",
+        td1Value: "Polygon (compatible con Ethereum)",
         td2Label: "Dirección del Contrato B20:",
+        td3Label: "Decimales:",
+        td3Value: "18",
         td4Label: "Suministro Total:",
-        td4Value: "1,000,000,000 B20",
+        td4Value: "1,000,000,000 B20 (fijo, sin inflación)",
         btnAddMM: "Añadir a MetaMask",
         buyTitle: "Adquirir BANK2.0 (B20)",
         buyP1: "Puedes comprar tokens B20 directamente a través de Uniswap en la red Polygon.",
@@ -353,9 +420,10 @@
         btnGithub: "GitHub",
         teamTitle: "Equipo",
         team1: "Fundador y Arquitecto de Software",
-        team2: "Desarrollador de Smart Contracts",
+        team2: "Desarrollador de Smart Contracts y Tecnología Web3",
+        team3: "Estratega de Marketing y Relaciones Públicas",
         contactTitle: "Contacto",
-        contactP: "¿Tienes preguntas? Escríbenos a nuestro correo oficial.",
+        contactP: "¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial.",
         foot1: "© 2025 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
         foot2: "Innovando el futuro de las finanzas descentralizadas"
       },
@@ -377,27 +445,42 @@
         moonworldStatus: "🚧 The app is under construction, but exciting news coming soon.",
         moonworldCountdownLabel: "Time remaining for launch (3 real months)",
         moonworldButton: "🌙 Explore MoonWorld",
-        bankTitle: "🏦 Bank 2.0 - NFT Vault",
-        nftCountLabel: "🎨 NFTs in your wallet:",
-        mowoBalanceLabel: "💰 MOWO Tokens:",
-        addNftBtn: "➕ Add test NFT",
-        send10NftsBtn: "📤 Send 10 NFTs → Earn 25 MOWO",
-        bankRewardInfo: "✨ Earn 25 MOWO for every 10 NFTs sent to your wallet",
-        lotteryTitle: "🎲 Lucky Draw (24h)",
-        lotteryDesc: "🎁 Guaranteed prize: Gold/Silver/Bronze NFT",
-        lotteryCooldownLabel: "🕒 Next draw:",
-        lotteryBtnText: "🎰 Draw!",
-        lotteryRewardsInfo: "🏆 Gold: land + car + character + 100 MOWO | Silver: car + character + 50 MOWO | Bronze: character + 25 MOWO",
-        liveStatsTitle: "📊 Live Statistics",
+        bankTitle: "🏦 BANK2.0 Wallet - NFT Vault",
+        walletFeature1: "NFT Vault",
+        walletFeature1Desc: "Your wallet has a storage where you can keep all your NFTs from any chain.",
+        walletFeature2: "Mowo Token",
+        walletFeature2Desc: "The wallet integrates the Mowo token to use within the MoonWorld metaverse.",
+        walletFeature3: "Send 10 NFTs → Earn 25 MOWO",
+        walletFeature3Desc: "For every 10 NFTs you send to your wallet, you will receive 25 MOWO as a reward.",
+        btnDownloadApp: "📲 Download BANK2.0 Wallet",
+        lotteryTitle: "🎲 Lucky Draw (Every 24h)",
+        lotteryFeature1: "Daily guaranteed draw",
+        lotteryFeature1Desc: "Every 24 hours you can try your luck and have a 100% chance of winning.",
+        lotteryFeature2: "Guaranteed prizes:",
+        prizeGold: "🏆 GOLD: Land + Car + Character + 100 MOWO",
+        prizeSilver: "🥈 SILVER: Car + Character + 50 MOWO",
+        prizeBronze: "🥉 BRONZE: Character + 25 MOWO",
+        lotteryNote: "✨ Every 24 hours you have a guaranteed prize! Don't miss the opportunity.",
+        metaverseTitle: "🌍 MoonWorld - BANK2.0 Metaverse",
+        metaverseDesc: "MoonWorld is a GTA-style metaverse where you can use your MOWO tokens and NFTs to live unique experiences:",
+        parcelaLabel: "Land Parcels",
+        cocheLabel: "Exclusive Cars",
+        personajeLabel: "Characters",
+        misionesLabel: "Missions +100 MOWO",
+        metaverseCta: "Get your land, your car and your character by entering the metaverse with the lucky draw prizes!",
+        liveStatsTitle: "📊 BANK2.0 Statistics",
         priceLabel: "B20 Price (USD)",
-        downloadsLabel: "App Downloads",
+        downloadsLabel: "App Wallet Downloads",
         holdersLabel: "Mowo Holders",
+        rewardsLabel: "MOWO Delivered",
         tokenDetailsTitle: "B20 Token Details",
         td1Label: "Blockchain:",
-        td1Value: "Polygon",
+        td1Value: "Polygon (Ethereum compatible)",
         td2Label: "B20 Contract Address:",
+        td3Label: "Decimals:",
+        td3Value: "18",
         td4Label: "Total Supply:",
-        td4Value: "1,000,000,000 B20",
+        td4Value: "1,000,000,000 B20 (fixed, no inflation)",
         btnAddMM: "Add to MetaMask",
         buyTitle: "Buy BANK2.0 (B20)",
         buyP1: "You can buy B20 tokens directly on Uniswap on the Polygon network.",
@@ -408,9 +491,10 @@
         btnGithub: "GitHub",
         teamTitle: "Team",
         team1: "Founder & Software Architect",
-        team2: "Smart Contract Developer",
+        team2: "Smart Contract & Web3 Developer",
+        team3: "Marketing Strategist & PR",
         contactTitle: "Contact",
-        contactP: "Have questions? Email us.",
+        contactP: "Have questions, proposals or need technical support? Email us directly.",
         foot1: "© 2025 BANK2.0 (B20) - Blockchain Project. All rights reserved.",
         foot2: "Innovating the future of decentralized finance"
       },
@@ -432,27 +516,42 @@
         moonworldStatus: "🚧 O app está em construção, mas novidades em breve.",
         moonworldCountdownLabel: "Tempo restante para o lançamento (3 meses reais)",
         moonworldButton: "🌙 Explorar MoonWorld",
-        bankTitle: "🏦 Bank 2.0 - Cofre NFT",
-        nftCountLabel: "🎨 NFTs na sua wallet:",
-        mowoBalanceLabel: "💰 Tokens MOWO:",
-        addNftBtn: "➕ Adicionar NFT de teste",
-        send10NftsBtn: "📤 Enviar 10 NFTs → Ganhar 25 MOWO",
-        bankRewardInfo: "✨ Ganhe 25 MOWO para cada 10 NFTs enviados",
-        lotteryTitle: "🎲 Sorte Diário (24h)",
-        lotteryDesc: "🎁 Prêmio garantido: NFT Ouro/Prata/Bronze",
-        lotteryCooldownLabel: "🕒 Próximo sorteio:",
-        lotteryBtnText: "🎰 Sortear!",
-        lotteryRewardsInfo: "🏆 Ouro: terreno + carro + personagem + 100 MOWO | Prata: carro + personagem + 50 MOWO | Bronze: personagem + 25 MOWO",
-        liveStatsTitle: "📊 Estatísticas ao Vivo",
+        bankTitle: "🏦 Wallet BANK2.0 - Cofre NFT",
+        walletFeature1: "Cofre de NFTs",
+        walletFeature1Desc: "Sua carteira tem um armazenamento onde você pode guardar todos os seus NFTs de qualquer rede.",
+        walletFeature2: "Token Mowo",
+        walletFeature2Desc: "A carteira integra o token Mowo para usar no metaverso MoonWorld.",
+        walletFeature3: "Enviar 10 NFTs → Ganhar 25 MOWO",
+        walletFeature3Desc: "Para cada 10 NFTs que você enviar para sua carteira, receberá 25 MOWO como recompensa.",
+        btnDownloadApp: "📲 Baixar Wallet BANK2.0",
+        lotteryTitle: "🎲 Sorte Diário (Cada 24h)",
+        lotteryFeature1: "Sorteio diário garantido",
+        lotteryFeature1Desc: "A cada 24 horas você pode tentar a sorte e ter 100% de chance de ganhar.",
+        lotteryFeature2: "Prêmios garantidos:",
+        prizeGold: "🏆 OURO: Terreno + Carro + Personagem + 100 MOWO",
+        prizeSilver: "🥈 PRATA: Carro + Personagem + 50 MOWO",
+        prizeBronze: "🥉 BRONZE: Personagem + 25 MOWO",
+        lotteryNote: "✨ A cada 24 horas você tem um prêmio garantido! Não perca a oportunidade.",
+        metaverseTitle: "🌍 MoonWorld - O Metaverso do BANK2.0",
+        metaverseDesc: "MoonWorld é um metaverso estilo GTA onde você pode usar seus tokens MOWO e NFTs para viver experiências únicas:",
+        parcelaLabel: "Terrenos",
+        cocheLabel: "Carros Exclusivos",
+        personajeLabel: "Personagens",
+        misionesLabel: "Missões +100 MOWO",
+        metaverseCta: "Consiga seu terreno, seu carro e seu personagem entrando no metaverso com os prêmios do sorte!",
+        liveStatsTitle: "📊 Estatísticas BANK2.0",
         priceLabel: "Preço B20 (USD)",
-        downloadsLabel: "Downloads do App",
+        downloadsLabel: "Downloads da Wallet",
         holdersLabel: "Holders Mowo",
+        rewardsLabel: "MOWO Entregues",
         tokenDetailsTitle: "Detalhes do Token B20",
         td1Label: "Blockchain:",
-        td1Value: "Polygon",
+        td1Value: "Polygon (compatível com Ethereum)",
         td2Label: "Endereço do Contrato B20:",
+        td3Label: "Decimais:",
+        td3Value: "18",
         td4Label: "Fornecimento Total:",
-        td4Value: "1.000.000.000 B20",
+        td4Value: "1.000.000.000 B20 (fixo, sem inflação)",
         btnAddMM: "Adicionar à MetaMask",
         buyTitle: "Comprar BANK2.0 (B20)",
         buyP1: "Você pode comprar tokens B20 diretamente na Uniswap na rede Polygon.",
@@ -463,9 +562,10 @@
         btnGithub: "GitHub",
         teamTitle: "Equipe",
         team1: "Fundador e Arquiteto de Software",
-        team2: "Desenvolvedor de Smart Contracts",
+        team2: "Desenvolvedor de Smart Contracts e Web3",
+        team3: "Estrategista de Marketing e RP",
         contactTitle: "Contato",
-        contactP: "Tem perguntas? Escreva-nos.",
+        contactP: "Tem perguntas, propostas ou precisa de suporte técnico? Escreva-nos diretamente.",
         foot1: "© 2025 BANK2.0 (B20) - Projeto Blockchain. Todos os direitos reservados.",
         foot2: "Inovando o futuro das finanças descentralizadas"
       },
@@ -487,27 +587,42 @@
         moonworldStatus: "🚧 Приложение в разработке, скоро появятся новости.",
         moonworldCountdownLabel: "Времени до запуска (3 реальных месяца)",
         moonworldButton: "🌙 Исследовать MoonWorld",
-        bankTitle: "🏦 Bank 2.0 - Хранилище NFT",
-        nftCountLabel: "🎨 NFT в вашем кошельке:",
-        mowoBalanceLabel: "💰 Токены MOWO:",
-        addNftBtn: "➕ Добавить тестовый NFT",
-        send10NftsBtn: "📤 Отправить 10 NFT → Получить 25 MOWO",
-        bankRewardInfo: "✨ Заработайте 25 MOWO за каждые 10 отправленных NFT",
-        lotteryTitle: "🎲 Удача каждый день (24ч)",
-        lotteryDesc: "🎁 Гарантированный приз: NFT Золото/Серебро/Бронза",
-        lotteryCooldownLabel: "🕒 Следующий розыгрыш:",
-        lotteryBtnText: "🎰 Тянуть!",
-        lotteryRewardsInfo: "🏆 Золото: участок + машина + персонаж + 100 MOWO | Серебро: машина + персонаж + 50 MOWO | Бронза: персонаж + 25 MOWO",
-        liveStatsTitle: "📊 Живая статистика",
+        bankTitle: "🏦 Кошелек BANK2.0 - Хранилище NFT",
+        walletFeature1: "Хранилище NFT",
+        walletFeature1Desc: "Ваш кошелек имеет хранилище, где вы можете хранить все свои NFT из любой сети.",
+        walletFeature2: "Токен Mowo",
+        walletFeature2Desc: "Кошелек интегрирует токен Mowo для использования в метавселенной MoonWorld.",
+        walletFeature3: "Отправить 10 NFT → Получить 25 MOWO",
+        walletFeature3Desc: "За каждые 10 NFT, отправленных в ваш кошелек, вы получите 25 MOWO в качестве награды.",
+        btnDownloadApp: "📲 Скачать кошелек BANK2.0",
+        lotteryTitle: "🎲 Удача каждый день (Каждые 24ч)",
+        lotteryFeature1: "Ежедневный гарантированный розыгрыш",
+        lotteryFeature1Desc: "Каждые 24 часа вы можете попытать удачу и иметь 100% шанс на выигрыш.",
+        lotteryFeature2: "Гарантированные призы:",
+        prizeGold: "🏆 ЗОЛОТО: Участок + Машина + Персонаж + 100 MOWO",
+        prizeSilver: "🥈 СЕРЕБРО: Машина + Персонаж + 50 MOWO",
+        prizeBronze: "🥉 БРОНЗА: Персонаж + 25 MOWO",
+        lotteryNote: "✨ Каждые 24 часа у вас есть гарантированный приз! Не упустите возможность.",
+        metaverseTitle: "🌍 MoonWorld - Метавселенная BANK2.0",
+        metaverseDesc: "MoonWorld — это метавселенная в стиле GTA, где вы можете использовать свои токены MOWO и NFT для уникальных впечатлений:",
+        parcelaLabel: "Участки земли",
+        cocheLabel: "Эксклюзивные автомобили",
+        personajeLabel: "Персонажи",
+        misionesLabel: "Миссии +100 MOWO",
+        metaverseCta: "Получите свой участок, машину и персонажа, войдя в метавселенную с призами удачи!",
+        liveStatsTitle: "📊 Статистика BANK2.0",
         priceLabel: "Цена B20 (USD)",
-        downloadsLabel: "Загрузки приложения",
+        downloadsLabel: "Загрузки кошелька",
         holdersLabel: "Держатели Mowo",
+        rewardsLabel: "MOWO Выдано",
         tokenDetailsTitle: "Детали токена B20",
         td1Label: "Блокчейн:",
-        td1Value: "Polygon",
+        td1Value: "Polygon (совместим с Ethereum)",
         td2Label: "Адрес контракта B20:",
+        td3Label: "Десятичные:",
+        td3Value: "18",
         td4Label: "Общее предложение:",
-        td4Value: "1,000,000,000 B20",
+        td4Value: "1,000,000,000 B20 (фиксированное, без инфляции)",
         btnAddMM: "Добавить в MetaMask",
         buyTitle: "Купить BANK2.0 (B20)",
         buyP1: "Вы можете купить токены B20 напрямую на Uniswap в сети Polygon.",
@@ -518,9 +633,10 @@
         btnGithub: "GitHub",
         teamTitle: "Команда",
         team1: "Основатель и Архитектор ПО",
-        team2: "Разработчик смарт-контрактов",
+        team2: "Разработчик смарт-контрактов и Web3",
+        team3: "Маркетолог и PR",
         contactTitle: "Контакты",
-        contactP: "Есть вопросы? Напишите нам.",
+        contactP: "Есть вопросы, предложения или нужна техническая поддержка? Напишите нам напрямую.",
         foot1: "© 2025 BANK2.0 (B20) - Блокчейн-проект. Все права защищены.",
         foot2: "Инновации будущего децентрализованных финансов"
       },
@@ -542,27 +658,42 @@
         moonworldStatus: "🚧 L'application est en construction, mais bientôt des nouvelles excitantes.",
         moonworldCountdownLabel: "Temps restant avant le lancement (3 mois réels)",
         moonworldButton: "🌙 Explorer MoonWorld",
-        bankTitle: "🏦 Bank 2.0 - Coffre NFT",
-        nftCountLabel: "🎨 NFTs dans votre wallet :",
-        mowoBalanceLabel: "💰 Tokens MOWO :",
-        addNftBtn: "➕ Ajouter NFT de test",
-        send10NftsBtn: "📤 Envoyer 10 NFTs → Gagner 25 MOWO",
-        bankRewardInfo: "✨ Gagnez 25 MOWO pour chaque 10 NFTs envoyés",
-        lotteryTitle: "🎲 Tirage Chance (24h)",
-        lotteryDesc: "🎁 Prix garanti : NFT Or/Argent/Bronze",
-        lotteryCooldownLabel: "🕒 Prochain tirage :",
-        lotteryBtnText: "🎰 Tirer !",
-        lotteryRewardsInfo: "🏆 Or : parcelle + voiture + personnage + 100 MOWO | Argent : voiture + personnage + 50 MOWO | Bronze : personnage + 25 MOWO",
-        liveStatsTitle: "📊 Statistiques en Direct",
+        bankTitle: "🏦 Portefeuille BANK2.0 - Coffre NFT",
+        walletFeature1: "Coffre NFT",
+        walletFeature1Desc: "Votre portefeuille dispose d'un stockage où vous pouvez conserver tous vos NFTs de n'importe quelle chaîne.",
+        walletFeature2: "Token Mowo",
+        walletFeature2Desc: "Le portefeuille intègre le token Mowo pour l'utiliser dans le métavers MoonWorld.",
+        walletFeature3: "Envoyer 10 NFTs → Gagner 25 MOWO",
+        walletFeature3Desc: "Pour chaque 10 NFTs que vous envoyez à votre portefeuille, vous recevrez 25 MOWO comme récompense.",
+        btnDownloadApp: "📲 Télécharger Wallet BANK2.0",
+        lotteryTitle: "🎲 Tirage Chance (Toutes les 24h)",
+        lotteryFeature1: "Tirage quotidien garanti",
+        lotteryFeature1Desc: "Toutes les 24 heures, vous pouvez tenter votre chance et avoir 100% de chances de gagner.",
+        lotteryFeature2: "Prix garantis :",
+        prizeGold: "🏆 OR : Terrain + Voiture + Personnage + 100 MOWO",
+        prizeSilver: "🥈 ARGENT : Voiture + Personnage + 50 MOWO",
+        prizeBronze: "🥉 BRONZE : Personnage + 25 MOWO",
+        lotteryNote: "✨ Toutes les 24 heures, vous avez un prix garanti ! Ne manquez pas l'opportunité.",
+        metaverseTitle: "🌍 MoonWorld - Le Métavers de BANK2.0",
+        metaverseDesc: "MoonWorld est un métavers style GTA où vous pouvez utiliser vos tokens MOWO et NFTs pour vivre des expériences uniques :",
+        parcelaLabel: "Parcelles de terre",
+        cocheLabel: "Voitures exclusives",
+        personajeLabel: "Personnages",
+        misionesLabel: "Missions +100 MOWO",
+        metaverseCta: "Obtenez votre terrain, votre voiture et votre personnage en entrant dans le métavers avec les prix du tirage !",
+        liveStatsTitle: "📊 Statistiques BANK2.0",
         priceLabel: "Prix B20 (USD)",
-        downloadsLabel: "Téléchargements App",
+        downloadsLabel: "Téléchargements Wallet",
         holdersLabel: "Holders Mowo",
+        rewardsLabel: "MOWO Distribués",
         tokenDetailsTitle: "Détails du Token B20",
         td1Label: "Blockchain :",
-        td1Value: "Polygon",
+        td1Value: "Polygon (compatible Ethereum)",
         td2Label: "Adresse du contrat B20 :",
+        td3Label: "Décimales :",
+        td3Value: "18",
         td4Label: "Offre totale :",
-        td4Value: "1,000,000,000 B20",
+        td4Value: "1,000,000,000 B20 (fixe, sans inflation)",
         btnAddMM: "Ajouter à MetaMask",
         buyTitle: "Acheter BANK2.0 (B20)",
         buyP1: "Vous pouvez acheter des tokens B20 directement sur Uniswap sur le réseau Polygon.",
@@ -573,138 +704,36 @@
         btnGithub: "GitHub",
         teamTitle: "Équipe",
         team1: "Fondateur & Architecte Logiciel",
-        team2: "Développeur Smart Contracts",
+        team2: "Développeur Smart Contracts & Web3",
+        team3: "Stratège Marketing & RP",
         contactTitle: "Contact",
-        contactP: "Des questions ? Écrivez-nous.",
+        contactP: "Des questions, propositions ou besoin de support technique ? Écrivez-nous directement.",
         foot1: "© 2025 BANK2.0 (B20) - Projet Blockchain. Tous droits réservés.",
         foot2: "Innover l'avenir de la finance décentralisée"
       }
     };
-
-    // ==================== ESTADO LOCAL ====================
-    let nftInventory = JSON.parse(localStorage.getItem('nftInventory')) || [];
-    let mowoTokenBalance = JSON.parse(localStorage.getItem('mowoBalance')) || 0;
-    let lastLottery = localStorage.getItem('lastLottery') || 0;
-
-    // Elementos DOM
-    const nftCountSpan = document.getElementById('nftCount');
-    const mowoBalanceSpan = document.getElementById('mowoBalance');
-    const lotteryCooldownSpan = document.getElementById('lotteryCooldown');
-    const lotteryResultSpan = document.getElementById('lotteryResult');
-
-    function updateUI() {
-      nftCountSpan.textContent = nftInventory.length;
-      mowoBalanceSpan.textContent = mowoTokenBalance;
-      localStorage.setItem('nftInventory', JSON.stringify(nftInventory));
-      localStorage.setItem('mowoBalance', mowoTokenBalance);
-      updateMowoChart();
-    }
-
-    // Gráfico MOWO
-    let mowoChart;
-    function updateMowoChart() {
-      const ctx = document.getElementById('mowoChart')?.getContext('2d');
-      if (!ctx) return;
-      if (mowoChart) mowoChart.destroy();
-      mowoChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Inicio', 'Ahora'],
-          datasets: [{
-            label: 'Balance MOWO',
-            data: [0, mowoTokenBalance],
-            borderColor: '#00ff00',
-            backgroundColor: 'rgba(0,255,0,0.2)',
-            tension: 0.3,
-            fill: true
-          }]
-        },
-        options: { responsive: true, plugins: { legend: { labels: { color: '#fff' } } } }
-      });
-    }
-
-    // Añadir NFT
-    document.getElementById('addMockNftBtn')?.addEventListener('click', () => {
-      nftInventory.push({ id: Date.now(), name: `NFT #${nftInventory.length+1}` });
-      updateUI();
-      alert(`✅ NFT añadido. Total: ${nftInventory.length} NFTs`);
-    });
-
-    // Enviar 10 NFTs → ganar 25 MOWO
-    document.getElementById('send10NftsBtn')?.addEventListener('click', () => {
-      if (nftInventory.length >= 10) {
-        nftInventory = nftInventory.slice(10);
-        mowoTokenBalance += 25;
-        updateUI();
-        alert(`🎉 ¡Ganaste 25 MOWO! Nuevo saldo: ${mowoTokenBalance} MOWO`);
-      } else {
-        alert(`❌ Necesitas 10 NFTs. Tienes ${nftInventory.length}.`);
-      }
-    });
-
-    // Tira de la suerte
-    function updateLotteryCooldown() {
-      const now = Date.now();
-      const diff = 24*60*60*1000 - (now - lastLottery);
-      if (diff <= 0) {
-        lotteryCooldownSpan.textContent = '¡Disponible ahora!';
-      } else {
-        const hours = Math.floor(diff / (60*60*1000));
-        const mins = Math.floor((diff % (60*60*1000)) / (60*1000));
-        lotteryCooldownSpan.textContent = `${hours}h ${mins}m`;
-      }
-    }
-
-    document.getElementById('lotteryBtn')?.addEventListener('click', () => {
-      const now = Date.now();
-      if (now - lastLottery < 24*60*60*1000) {
-        alert('⏳ Solo puedes tirar 1 vez cada 24 horas.');
-        return;
-      }
-      const random = Math.random();
-      let premio = '', recompensa = '', mowoGanado = 0;
-      if (random < 0.33) {
-        premio = '🥇 ORO';
-        recompensa = 'Parcela + Coche + Personaje';
-        mowoGanado = 100;
-      } else if (random < 0.66) {
-        premio = '🥈 PLATA';
-        recompensa = 'Coche + Personaje';
-        mowoGanado = 50;
-      } else {
-        premio = '🥉 BRONCE';
-        recompensa = 'Personaje';
-        mowoGanado = 25;
-      }
-      mowoTokenBalance += mowoGanado;
-      lastLottery = now;
-      localStorage.setItem('lastLottery', lastLottery);
-      updateUI();
-      lotteryResultSpan.innerHTML = `🎲 ¡Te ha tocado: ${premio}!<br>🎁 Recompensa: ${recompensa}<br>💰 +${mowoGanado} MOWO`;
-      updateLotteryCooldown();
-      setTimeout(() => { lotteryResultSpan.innerHTML = ''; }, 5000);
-    });
-
-    setInterval(updateLotteryCooldown, 1000);
-    updateLotteryCooldown();
 
     // ==================== CONTADOR REAL 3 MESES ====================
     function startRealCountdown() {
       const targetDate = new Date();
       targetDate.setMonth(targetDate.getMonth() + 3);
       targetDate.setHours(0, 0, 0, 0);
+      
       function updateCountdown() {
         const now = new Date();
         const diff = targetDate - now;
+        const countdownEl = document.getElementById('moonworldCountdown');
+        if (!countdownEl) return;
+        
         if (diff <= 0) {
-          document.getElementById('moonworldCountdown').innerHTML = '🎉 ¡YA DISPONIBLE! 🎉';
+          countdownEl.innerHTML = '🎉 ¡YA DISPONIBLE! 🎉';
           return;
         }
         const days = Math.floor(diff / (1000*60*60*24));
         const hours = Math.floor((diff % (86400000)) / 3600000);
         const mins = Math.floor((diff % 3600000) / 60000);
         const secs = Math.floor((diff % 60000) / 1000);
-        document.getElementById('moonworldCountdown').innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
+        countdownEl.innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
       }
       updateCountdown();
       setInterval(updateCountdown, 1000);
@@ -724,36 +753,52 @@
     // Añadir a MetaMask
     document.getElementById('addToMM')?.addEventListener('click', async () => {
       if (!window.ethereum) { alert('MetaMask no detectado'); return; }
-      await window.ethereum.request({
-        method: 'wallet_watchAsset',
-        params: { type: 'ERC20', options: { address: '0xC0B57ACE313475046BB50911D731F3180FA7A1AA', symbol: 'B20', decimals: 18 } }
-      });
+      try {
+        await window.ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: '0xC0B57ACE313475046BB50911D731F3180FA7A1AA',
+              symbol: 'B20',
+              decimals: 18,
+              image: window.location.origin + '/logo.png'
+            }
+          }
+        });
+        alert('✅ B20 añadido a MetaMask');
+      } catch(e) { console.error(e); }
     });
 
     // ==================== MULTILENGUAJE ====================
     let currentLang = localStorage.getItem('lang') || 'es';
+    
     function applyLang(lang) {
       const t = translations[lang];
       if (!t) return;
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) el.textContent = t[key];
+        if (t[key] !== undefined) {
+          if (key.includes('Desc') || key.includes('Note')) {
+            el.innerHTML = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
       });
       document.getElementById('langSwitcher').value = lang;
       localStorage.setItem('lang', lang);
       currentLang = lang;
     }
+    
     document.getElementById('langSwitcher')?.addEventListener('change', (e) => applyLang(e.target.value));
     applyLang(currentLang);
 
-    // ==================== INICIALIZAR ====================
-    updateUI();
-    updateMowoChart();
-
-    // Estadísticas simuladas
+    // ==================== ESTADÍSTICAS SIMULADAS ====================
+    let downloads = 5892;
     setInterval(() => {
-      const downloads = parseInt(document.getElementById('downloadCounter').innerText.replace(',', '')) || 5892;
-      document.getElementById('downloadCounter').innerText = (downloads + Math.floor(Math.random() * 5)).toLocaleString();
+      downloads += Math.floor(Math.random() * 3);
+      document.getElementById('downloadCounter').innerText = downloads.toLocaleString();
     }, 30000);
   </script>
 </body>
