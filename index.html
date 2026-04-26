@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BANK2.0 (B20) - Proyecto Blockchain</title>
+  <title>BANK2.0 (B20) - MoonWorld con Mowo</title>
   <link rel="icon" href="logo.png">
   <style>
     :root {
-      /* --- PALETA DE COLORES MÁS CIBERPUNK --- */
       --primary: #0d0208;
       --secondary: #1a0b2e;
       --accent: #ff00ff;
@@ -58,125 +57,69 @@
       width: 150px; height: auto; margin: 0 auto 1rem; display: block;
       filter: drop-shadow(0 0 15px var(--neon-green)); transition: transform 0.3s ease;
     }
-    header img:hover { transform: scale(1.05) drop-shadow(0 0 25px cyan); }
+    header img:hover { transform: scale(1.05); }
     .language-selector { position: absolute; top: 1rem; right: 1rem; z-index: 10; }
     .language-selector select {
       padding: 0.5rem 1rem; background: #220033; color: var(--neon-green);
       border: 1px solid var(--highlight); border-radius: 30px; cursor: pointer;
-      font-size: 0.9rem; transition: all 0.3s ease; text-shadow: 0 0 5px cyan;
+      font-size: 0.9rem; transition: all 0.3s ease;
     }
-    .language-selector select:hover { background: #330044; box-shadow: 0 0 15px var(--neon-green); border-color: var(--neon-green); }
+    .language-selector select:hover { background: #330044; box-shadow: 0 0 15px var(--neon-green); }
     .container { max-width: 1200px; margin: 2rem auto; padding: 1rem; position: relative; }
-    h1 {
-      font-size: 3.2rem; margin-bottom: 1rem;
-      color: #ffffff;
-      letter-spacing: 2px;
-    }
+    h1 { font-size: 3.2rem; margin-bottom: 1rem; color: #ffffff; letter-spacing: 2px; }
     h2 {
       font-size: 1.9rem; margin-bottom: 1.5rem; color: var(--highlight);
       position: relative; padding-bottom: 0.5rem; text-shadow: 0 0 8px var(--highlight);
     }
-    h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100px; height: 4px; background: linear-gradient(to right, var(--accent), var(--neon-green)); border-radius: 4px; box-shadow: 0 0 10px var(--neon-green); }
+    h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100px; height: 4px; background: linear-gradient(to right, var(--accent), var(--neon-green)); border-radius: 4px; }
     p { margin-bottom: 1rem; font-size: 1.1rem; }
     a { color: var(--highlight); text-decoration: none; transition: all 0.3s ease; }
-    a:hover { color: var(--neon-green); text-shadow: 0 0 8px var(--neon-green); text-decoration: underline; }
+    a:hover { color: var(--neon-green); text-shadow: 0 0 8px var(--neon-green); }
     .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
     .card {
-      background: var(--card-bg); border-radius: 15px; padding: 2rem; box-shadow: 0 0 25px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(255, 0, 255, 0.1);
-      margin-bottom: 0; border: 1px solid var(--card-border); transition: all 0.4s ease; position: relative; overflow: hidden; height: 100%; backdrop-filter: blur(2px);
+      background: var(--card-bg); border-radius: 15px; padding: 2rem; box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      margin-bottom: 0; border: 1px solid var(--card-border); transition: all 0.4s ease; backdrop-filter: blur(2px);
     }
-    .card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 0 35px var(--accent), inset 0 0 20px var(--neon-green); border-color: var(--accent); }
-    .card::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); transform: rotate(30deg); z-index: 0; }
-    .card-content { position: relative; z-index: 1; }
-    /* Tarjeta MoonWorld más grande */
-    .card.moonworld-card {
-      grid-column: span 2;
-      font-size: 1.2rem;
-    }
-    .card.moonworld-card h2 {
-      font-size: 2.5rem;
-    }
-    .card.moonworld-card .countdown {
-      font-size: 2.5rem;
-      margin: 2rem 0;
-    }
-    /* Tarjeta de distribución más pequeña */
-    .card.supply-card {
-      padding: 1.5rem;
-    }
-    .card.supply-card h2 {
-      font-size: 1.5rem;
-    }
-    .card.supply-card canvas {
-      max-height: 250px;
-      width: 100% !important;
-    }
+    .card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 0 35px var(--accent); border-color: var(--accent); }
+    .card.moonworld-card { grid-column: span 2; }
+    .card.supply-card { padding: 1.5rem; }
     .btn {
-      background: linear-gradient(45deg, var(--accent), var(--highlight)); color: black; padding: 0.8rem 1.8rem; border: none; border-radius: 50px;
-      font-size: 1rem; font-weight: bold; display: inline-block; margin-top: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 15px var(--glow-color); text-align: center; border: 1px solid var(--neon-green);
+      background: linear-gradient(45deg, var(--accent), var(--highlight)); color: black; padding: 0.8rem 1.8rem;
+      border: none; border-radius: 50px; font-size: 1rem; font-weight: bold; display: inline-block;
+      margin-top: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 15px var(--glow-color);
+      text-align: center; border: 1px solid var(--neon-green);
     }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px var(--neon-green); background: linear-gradient(45deg, var(--highlight), var(--neon-green)); color: black; text-decoration: none; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px var(--neon-green); background: linear-gradient(45deg, var(--highlight), var(--neon-green)); }
     .btn.secondary { background: linear-gradient(45deg, #333, #111); color: var(--highlight); border: 1px solid var(--highlight); }
-    .btn.small { padding: 0.4rem 1rem; font-size: 0.85rem; border-radius: 30px; }
+    .btn.small { padding: 0.4rem 1rem; font-size: 0.85rem; }
     .btn.large { padding: 1rem 2.5rem; font-size: 1.3rem; }
     .inline-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.8rem; align-items: center; }
-    .img-container { text-align: center; margin: 2rem 0; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); position: relative; border: 1px solid var(--card-border); }
-    .img-container img { max-width: 100%; height: auto; display: block; transition: transform 0.5s ease; filter: brightness(1.1) contrast(1.1); }
-    .img-container:hover img { transform: scale(1.05); filter: brightness(1.2) contrast(1.2); }
+    .img-container { text-align: center; margin: 2rem 0; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); border: 1px solid var(--card-border); }
+    .img-container img { max-width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+    .img-container:hover img { transform: scale(1.05); }
     ul { padding-left: 1.5rem; margin: 1rem 0; }
-    li { margin-bottom: 0.8rem; position: relative; list-style: none; }
-    li::before { content: "►"; color: var(--neon-green); font-weight: bold; display: inline-block; width: 1.2em; margin-left: -1.2em; text-shadow: 0 0 5px green; }
+    li { margin-bottom: 0.8rem; list-style: none; }
+    li::before { content: "►"; color: var(--neon-green); font-weight: bold; display: inline-block; width: 1.2em; margin-left: -1.2em; }
     code.kbd { background: #1a002a; padding: .2rem .5rem; border-radius: .4rem; border: 1px solid var(--highlight); color: var(--neon-green); font-family: monospace; }
     .team-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; }
-    .team-member { background: rgba(0, 0, 0, 0.5); padding: 1.2rem; border-radius: 10px; flex: 1; min-width: 250px; border: 1px solid var(--card-border); transition: all 0.3s ease; backdrop-filter: blur(4px); }
+    .team-member { background: rgba(0, 0, 0, 0.5); padding: 1.2rem; border-radius: 10px; flex: 1; min-width: 250px; border: 1px solid var(--card-border); backdrop-filter: blur(4px); }
     .team-member:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 0 25px var(--accent); }
     .contact-card { text-align: center; padding: 2rem; }
-    .contact-btn { display: inline-block; margin-top: 1.5rem; font-size: 1.1rem; padding: 1rem 2rem; }
-    footer { text-align: center; padding: 2rem; background: rgba(0, 0, 0, 0.7); margin-top: 3rem; border-top: 2px solid var(--highlight); box-shadow: 0 -5px 20px rgba(0,255,255,0.2); }
+    footer { text-align: center; padding: 2rem; background: rgba(0, 0, 0, 0.7); margin-top: 3rem; border-top: 2px solid var(--highlight); }
     .footer-logo { width: 100px; margin-bottom: 1rem; opacity: 0.9; filter: drop-shadow(0 0 8px cyan); }
-
-    /* --- ESTILOS PARA NUEVOS COMPONENTES EN VIVO --- */
     .live-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0;
     }
     .stat-card {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid var(--neon-green);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.6); border: 1px solid var(--neon-green); border-radius: 12px;
+      padding: 1.5rem; text-align: center; backdrop-filter: blur(4px);
     }
-    .stat-label {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--highlight);
-      margin-bottom: 0.5rem;
-    }
-    .stat-value {
-      font-size: 2.2rem;
-      font-weight: bold;
-      color: var(--neon-green);
-      text-shadow: 0 0 10px var(--neon-green);
-      font-family: 'Courier New', monospace;
-    }
-    .stat-value.small {
-      font-size: 1.4rem;
-    }
+    .stat-label { font-size: 1rem; text-transform: uppercase; color: var(--highlight); margin-bottom: 0.5rem; }
+    .stat-value { font-size: 2.2rem; font-weight: bold; color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); font-family: 'Courier New', monospace; }
     .live-chart-container {
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--highlight);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+      background: rgba(0, 0, 0, 0.5); border: 1px solid var(--highlight); border-radius: 15px; padding: 1.5rem; margin: 2rem 0;
     }
-
+    .countdown { font-size: 2.5rem; text-align: center; font-family: monospace; color: var(--neon-green); margin: 1rem 0; }
     @media (max-width: 768px) {
       .container { padding: 0.5rem; }
       .card { padding: 1.5rem; }
@@ -184,6 +127,7 @@
       h1 { font-size: 2.5rem; }
       h2 { font-size: 1.6rem; }
       .stat-value { font-size: 1.8rem; }
+      .countdown { font-size: 1.5rem; }
     }
     .pulse { animation: pulse 1.8s infinite; }
     @keyframes pulse {
@@ -192,17 +136,17 @@
       100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
     }
   </style>
-  <!-- Chart.js para gráficos -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
     <div class="language-selector">
-      <select id="langSwitcher" aria-label="Language">
+      <select id="langSwitcher">
         <option value="es">🌐 Español</option>
         <option value="en">🇬🇧 English</option>
         <option value="ru">🇷🇺 Русский</option>
         <option value="fr">🇫🇷 Français</option>
+        <option value="pt">🇵🇹 Português</option>
       </select>
     </div>
     <img src="logo.png" alt="BANK20 logo">
@@ -213,226 +157,141 @@
   </header>
 
   <div class="container">
+    <!-- Tarjeta de presentación -->
     <div class="card">
       <div class="card-content">
         <h2 data-i18n="whatTitle">¿Qué es BANK2.0?</h2>
-        <p data-i18n="whatP1">
-          BANK2.0 (B20) es mucho más que un token: es la piedra angular de una nueva era financiera. Desarrollado sobre la red Polygon, este ecosistema está diseñado para convertirse en el banco digital descentralizado de referencia en el mundo cripto. Su propósito es ofrecer una infraestructura segura, rápida y escalable que permita realizar pagos, almacenar activos y custodiar NFTs de forma eficiente y soberana.
-        </p>
-        <p data-i18n="whatP2">
-          BANK2.0 permite a sus usuarios enviar y recibir fondos con costos mínimos y confirmaciones instantáneas, rompiendo las barreras del sistema bancario tradicional. Pero además, funciona como bóveda digital para tus obras más preciadas: NFTs únicos, coleccionables con valor emocional o económico, y activos Web3 que requieren máxima seguridad.
-        </p>
-        <p data-i18n="whatP3">
-          Con una comunidad creciente de más de 3,000 holders en OpenSea y una visión clara de expansión global, BANK2.0 está construyendo la infraestructura financiera del mañana: descentralizada, transparente, sin fronteras y totalmente controlada por sus propios usuarios. ¡Únete al nuevo paradigma financiero con BANK2.0!
-        </p>
-
+        <p data-i18n="whatP1">BANK2.0 (B20) es mucho más que un token: es la piedra angular de una nueva era financiera. Desarrollado sobre la red Polygon, este ecosistema está diseñado para convertirse en el banco digital descentralizado de referencia en el mundo cripto.</p>
+        <p data-i18n="whatP2">BANK2.0 permite a sus usuarios enviar y recibir fondos con costos mínimos y confirmaciones instantáneas, funcionando como bóveda digital para tus NFTs y activos Web3.</p>
         <div class="img-container">
           <img src="ahorros.png" alt="Ahorros con BANK2.0">
         </div>
       </div>
     </div>
 
-    <!-- SECCIÓN: ESTADÍSTICAS EN VIVO (FUNCIONALES) -->
+    <!-- CONTRATO MOWO (CORREGIDO) -->
+    <div class="card">
+      <h2 data-i18n="mowoTitle">🔗 Token Mowo en Polygon</h2>
+      <p><strong data-i18n="contractAddressLabel">Dirección del Contrato Mowo:</strong></p>
+      <code style="word-break:break-all; background:#000; padding:10px; display:block; border-radius:8px;" id="mowoContractAddr">
+        0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121
+      </code>
+      <div class="inline-actions">
+        <a class="btn small" href="https://polygonscan.com/token/0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121" target="_blank" data-i18n="btnPolygonscan">Ver en PolygonScan</a>
+        <button class="btn small secondary" id="copyMowoBtn" data-i18n="btnCopy">Copiar</button>
+      </div>
+    </div>
+
+    <!-- MOONWORLD (más grande) con contador REAL -->
+    <div class="card moonworld-card">
+      <div class="card-content">
+        <h2 style="color: var(--neon-orange);" data-i18n="moonworldTitle">🌙 MoonWorld</h2>
+        <p data-i18n="moonworldDesc">Bienvenido a <strong>MoonWorld</strong>, el metaverso estilo GTA donde puedes:</p>
+        <ul>
+          <li data-i18n="moonworldFeature1">🏠 Comprar parcelas de tierra virtual</li>
+          <li data-i18n="moonworldFeature2">🚗 Conducir coches exclusivos</li>
+          <li data-i18n="moonworldFeature3">👤 Crear tu personaje personalizable</li>
+          <li data-i18n="moonworldFeature4">🎮 Jugar misiones y ganar hasta <strong>100 MOWO</strong></li>
+        </ul>
+        <p style="color: #ffaa00;" data-i18n="moonworldStatus">🚧 La app está en construcción, pero pronto tendremos noticias emocionantes.</p>
+        <div class="countdown" id="moonworldCountdown"></div>
+        <p style="color: #ccc;" data-i18n="moonworldCountdownLabel">Tiempo restante para el lanzamiento (3 meses reales)</p>
+        <div class="inline-actions" style="justify-content: center;">
+          <a class="btn large pulse" href="https://maxstudiotoken.github.io/MoonWorld/" target="_blank" data-i18n="moonworldButton">🌙 Explorar MoonWorld</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BANK 2.0 con BODEGA NFT + TOKEN MOWO -->
+    <div class="card-grid">
+      <div class="card">
+        <h2 data-i18n="bankTitle">🏦 Bank 2.0 - Bodega NFT</h2>
+        <p><strong data-i18n="nftCountLabel">🎨 NFTs en tu wallet:</strong> <span id="nftCount">0</span></p>
+        <p><strong data-i18n="mowoBalanceLabel">💰 Tokens MOWO:</strong> <span id="mowoBalance">0</span> MOWO</p>
+        <button class="btn" id="addMockNftBtn" data-i18n="addNftBtn">➕ Añadir NFT de prueba</button>
+        <button class="btn" id="send10NftsBtn" data-i18n="send10NftsBtn">📤 Enviar 10 NFTs → Ganar 25 MOWO</button>
+        <p style="margin-top:10px; font-size:0.8rem;" data-i18n="bankRewardInfo">✨ Gana 25 MOWO por cada 10 NFTs enviados a tu wallet</p>
+      </div>
+
+      <div class="card">
+        <h2 data-i18n="lotteryTitle">🎲 Tira de la Suerte (24h)</h2>
+        <p data-i18n="lotteryDesc">🎁 <strong>Premio asegurado:</strong> NFT Oro/Plata/Bronce</p>
+        <p data-i18n="lotteryCooldownLabel">🕒 Próximo sorteo: <span id="lotteryCooldown">Cargando...</span></p>
+        <button class="btn" id="lotteryBtn" data-i18n="lotteryBtnText">🎰 ¡Tirar!</button>
+        <p id="lotteryResult" style="margin-top:10px; color:gold;"></p>
+        <p style="font-size:0.7rem;" data-i18n="lotteryRewardsInfo">🏆 Oro: parcela + coche + personaje + 100 MOWO | Plata: coche + personaje + 50 MOWO | Bronce: personaje + 25 MOWO</p>
+      </div>
+    </div>
+
+    <!-- Estadísticas en Vivo -->
     <div class="live-chart-container">
-      <h2 style="text-align: center; margin-top: 0;" data-i18n="liveStatsTitle">📊 Estadísticas en Vivo</h2>
+      <h2 style="text-align: center;" data-i18n="liveStatsTitle">📊 Estadísticas en Vivo</h2>
       <div class="live-stats-grid">
         <div class="stat-card">
           <div class="stat-label" data-i18n="priceLabel">Precio B20 (USD)</div>
-          <div class="stat-value" id="b20Price">Cargando...</div>
-          <div style="color: var(--highlight);" data-i18n="priceSource">Actualizado vía Dextools</div>
+          <div class="stat-value" id="b20Price">$0.0032</div>
         </div>
         <div class="stat-card">
           <div class="stat-label" data-i18n="downloadsLabel">Descargas App</div>
           <div class="stat-value" id="downloadCounter">5,892</div>
-          <div style="color: var(--neon-green); font-size: 0.9rem;" data-i18n="downloadsTarget">Meta: 10,000</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label" data-i18n="holdersLabel">Holders</div>
-          <div class="stat-value" id="holdersCount">Cargando...</div>
-          <div style="color: var(--highlight);" id="holdersSource" data-i18n="holdersSource">🔗 PolygonScan</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="txLabel">Transacciones</div>
-          <div class="stat-value" id="txCount">Cargando...</div>
-          <div style="color: var(--highlight);" id="txSource" data-i18n="txSource">🔄 Totales</div>
+          <div class="stat-label" data-i18n="holdersLabel">Holders Mowo</div>
+          <div class="stat-value" id="holdersCount">1,881</div>
         </div>
       </div>
-      
-      <!-- Gráfico de Precio en Directo (funcional con datos reales) -->
-      <div style="margin-top: 2rem;">
-        <h3 style="color: var(--highlight); text-align: center;" data-i18n="priceChartTitle">Precio B20 / Tiempo (datos en tiempo real)</h3>
-        <canvas id="livePriceChart" width="400" height="200" aria-label="Live price chart"></canvas>
-      </div>
+      <canvas id="mowoChart" width="400" height="200"></canvas>
     </div>
 
-    <div class="card-grid">
-      <!-- Detalles del token -->
-      <div class="card">
-        <div class="card-content">
-          <h2 data-i18n="tokenDetailsTitle">Detalles del Token</h2>
-          <ul>
-            <li><strong data-i18n="td1Label">Red Blockchain:</strong> <span data-i18n="td1Value">Polygon (compatible con Ethereum)</span></li>
-            <li>
-              <strong data-i18n="td2Label">Dirección del Contrato:</strong>
-              <span><code id="contractAddr" class="kbd">0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code></span>
-              <div class="inline-actions">
-                <a class="btn small" href="https://polygonscan.com/token/0xC0B57ACE313475046BB50911D731F3180FA7A1AA" target="_blank" data-i18n="btnPolygonscan">Ver en PolygonScan</a>
-                <button class="btn small secondary" id="copyContract" data-i18n="btnCopy">Copiar</button>
-                <button class="btn small" id="addToMM" data-i18n="btnAddMM">Añadir a MetaMask</button>
-              </div>
-            </li>
-            <li><strong data-i18n="td3Label">Decimales:</strong> <span data-i18n="td3Value">18</span></li>
-            <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20 (fijo, sin inflación)</span></li>
-            <li><strong data-i18n="td5Label">Distribución Estratégica:</strong> <span data-i18n="td5Value">10M asignados a staking y 3M a recompensas de juegos</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Airdrop -->
-      <div class="card">
-        <div class="card-content">
-          <h2 data-i18n="airdropTitle">¡Airdrop de NFTs y Tokens!</h2>
-          <p data-i18n="airdropP">
-            Como parte de nuestro compromiso con la comunidad, todos los titulares de NFTs de Max Studio recibirán un airdrop gratuito de tokens B20. Esta iniciativa busca premiar la fidelidad de los usuarios e incentivar la adopción masiva de nuestra plataforma.
-          </p>
-          <a class="btn pulse" href="https://opensea.io/es/maximovargas19855_Max-Studio" target="_blank" data-i18n="btnOpenSea">Ver colección en OpenSea</a>
-        </div>
-      </div>
-
-      <!-- NUEVA TARJETA: MoonWorld (más grande) -->
-      <div class="card moonworld-card">
-        <div class="card-content">
-          <h2 style="color: var(--neon-orange);" data-i18n="moonworldTitle">🌙 MoonWorld</h2>
-          <p data-i18n="moonworldDesc">
-            Bienvenido a <strong>MoonWorld</strong>, el nuevo universo digital donde puedes comprar tu propio mundo virtual. 
-            Adquiere <strong>MoonWorld Digital</strong> o <strong>MoonWorld Cast</strong> para construir tu imperio.
-          </p>
-          <p style="color: #ffaa00;" data-i18n="moonworldStatus">
-            🚧 El mundo está en construcción, pero pronto tendremos noticias emocionantes.
-          </p>
-          <div style="text-align: center; margin: 2rem 0;">
-            <div class="stat-value countdown" id="moonworldCountdown" style="font-size: 2.5rem;"></div>
-            <p style="color: #ccc;" data-i18n="moonworldCountdownLabel">Tiempo restante para el lanzamiento</p>
-          </div>
-          <div class="inline-actions" style="justify-content: center;">
-            <a class="btn large pulse" href="https://maxstudiotoken.github.io/MoonWorld/" target="_blank" rel="noopener" data-i18n="moonworldButton">Explorar MoonWorld</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Comprar -->
-      <div class="card">
-        <div class="card-content">
-          <h2 data-i18n="buyTitle">Adquirir BANK2.0 (B20)</h2>
-          <p data-i18n="buyP1">
-            Puedes comprar tokens B20 directamente a través de Uniswap en la red Polygon. Este intercambio descentralizado te permite operar con total libertad y seguridad, sin intermediarios.
-          </p>
-          <a class="btn" href="https://app.uniswap.org/explore/tokens/polygon/0xC0B57Ace313475046BB50911d731F3180fA7A1AA" target="_blank" data-i18n="btnBuy">Adquirir BANK2.0</a>
-        </div>
-      </div>
-
-      <!-- TARJETA ACTUALIZADA: Dextools -->
-      <div class="card">
-        <div class="card-content">
-          <h2 style="color: var(--neon-orange);">Dextools</h2>
-          <p data-i18n="dextoolsP">
-            Visualiza las métricas de liquidez y trading de BANK2.0 en la red Polygon a través de Dextools. ¡Mantente al tanto del rendimiento de tu token!
-          </p>
-          <a class="btn" href="https://www.dextools.io/app/polygon/pair-explorer/0x8bc73d5341c7fb89ae05db58ee49431cc0f36f37" target="_blank" data-i18n="btnDextools">Ver en Dextools</a>
-        </div>
-      </div>
-
-      <!-- GoPlus -->
-      <div class="card">
-        <div class="card-content">
-          <h2>GoPlus Labs</h2>
-          <p data-i18n="goplusP">
-            Revisa la seguridad del contrato de BANK2.0 en GoPlus Labs para obtener un análisis detallado y una mayor transparencia.
-          </p>
-          <a class="btn" href="https://gopluslabs.io/token-security/137/0xc0b57ace313475046bb50911d731f3180fa7a1aa" target="_blank" data-i18n="btnGoPlus">Ver Seguridad en GoPlus Labs</a>
-        </div>
-      </div>
-
-      <!-- Wallet BANK2.0 (Android) -->
-      <div class="card">
-        <div class="card-content">
-          <h2 data-i18n="walletCardTitle">Wallet BANK2.0 (Android)</h2>
-          <p data-i18n="walletCardP">
-            Descarga la app oficial de BANK 2.0 para Android: podrás hacer staking con BANK2.0, jugar a dos juegos y ganar recompensas gratis, y guardar tus tokens con seguridad Web3.
-          </p>
-          <div class="inline-actions">
-            <a class="btn pulse" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" rel="noopener" data-i18n="btnPlayStore">Google Play</a>
-            <a class="btn secondary" href="https://github.com/MaxStudiotoken/Manual-BANK2.0-Wallet-EN-ES-FR/blob/main/Manual_BANK20_Wallet%20(1).pdf" target="_blank" rel="noopener" data-i18n="btnManual">Manual (PDF)</a>
-            <a class="btn" href="https://gopluslabs.io/token-security/137/0xc0b57ace313475046bb50911d731f3180fa7a1aa" target="_blank" rel="noopener" data-i18n="btnGoPlus">Ver Seguridad</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección con imagen + botón comprar -->
+    <!-- Detalles del Token B20 -->
     <div class="card">
-      <div class="card-content">
-        <h2 data-i18n="buyTitle2">Adquirir BANK2.0 (B20)</h2>
-        <p data-i18n="buyP2">
-          Puedes comprar tokens B20 directamente a través de Uniswap en la red Polygon. Este intercambio descentralizado te permite operar con total libertad y seguridad, sin intermediarios. ¡Haz clic en el botón y súmate al nuevo sistema financiero!
-        </p>
-        <div class="img-container">
-          <img src="pagando.png" alt="Pagando con BANK2.0">
-        </div>
-        <a class="btn" href="https://app.uniswap.org/explore/tokens/polygon/0xC0B57Ace313475046BB50911d731F3180fA7A1AA" target="_blank" data-i18n="btnBuy2">Adquirir BANK2.0</a>
+      <h2 data-i18n="tokenDetailsTitle">Detalles del Token B20</h2>
+      <ul>
+        <li><strong data-i18n="td1Label">Red Blockchain:</strong> <span data-i18n="td1Value">Polygon</span></li>
+        <li><strong data-i18n="td2Label">Dirección del Contrato B20:</strong> <code class="kbd" id="contractAddr">0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code></li>
+        <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20</span></li>
+      </ul>
+      <div class="inline-actions">
+        <button class="btn small" id="copyB20Btn" data-i18n="btnCopy">Copiar B20</button>
+        <button class="btn small" id="addToMM" data-i18n="btnAddMM">Añadir a MetaMask</button>
       </div>
     </div>
 
-    <!-- Torta / pie chart (más pequeña) -->
-    <div class="card supply-card">
-      <div class="card-content">
-        <h2 data-i18n="supplyTitle">Distribución del suministro</h2>
-        <p data-i18n="supplyDesc">Así se reparte el total de 1,000,000,000 B20.</p>
-        <canvas id="supplyChart" width="600" height="300" aria-label="Supply pie chart" role="img"></canvas>
-        <div class="inline-actions">
-          <button class="btn small secondary" id="downloadChart" data-i18n="btnDownload">Descargar imagen</button>
-        </div>
-        <ul>
-          <li><strong data-i18n="legendOwner">Reserva inicial (owner/tesorería):</strong> <span id="ownerOut">—</span> B20</li>
-          <li><strong data-i18n="legendStaking">Pool de Staking:</strong> <span id="stakingOut">—</span> B20</li>
-          <li><strong data-i18n="legendGames">Recompensas de Juegos:</strong> <span id="gamesOut">—</span> B20</li>
-        </ul>
+    <!-- Comprar B20 -->
+    <div class="card">
+      <h2 data-i18n="buyTitle">Adquirir BANK2.0 (B20)</h2>
+      <p data-i18n="buyP1">Puedes comprar tokens B20 directamente a través de Uniswap en la red Polygon.</p>
+      <div class="img-container">
+        <img src="pagando.png" alt="Pagando con BANK2.0">
       </div>
+      <a class="btn" href="https://app.uniswap.org/explore/tokens/polygon/0xC0B57Ace313475046BB50911d731F3180fA7A1AA" target="_blank" data-i18n="btnBuy">Adquirir BANK2.0</a>
     </div>
 
+    <!-- Recursos Oficiales -->
     <div class="card-grid">
       <div class="card">
-        <div class="card-content">
-          <h2 data-i18n="resourcesTitle">Recursos Oficiales</h2>
-          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem;">
-            <a class="btn" href="https://www.bank20.io" target="_blank" data-i18n="btnSite">Sitio Web Oficial</a>
-            <a class="btn" href="https://x.com/hellofiti" target="_blank" data-i18n="btnX">Twitter / X</a>
-            <a class="btn" href="BANK2.0_Whitepaper_Bilingue.pdf" target="_blank" rel="noopener" data-i18n="btnWhitepaper">Whitepaper (ES/EN, PDF)</a>
-            <a class="btn" href="https://github.com/MaxStudiotoken/assets" target="_blank" data-i18n="btnGithub">GitHub</a>
-          </div>
+        <h2 data-i18n="resourcesTitle">Recursos Oficiales</h2>
+        <div class="inline-actions">
+          <a class="btn" href="https://www.bank20.io" target="_blank" data-i18n="btnSite">Web Oficial</a>
+          <a class="btn" href="https://x.com/hellofiti" target="_blank" data-i18n="btnX">Twitter / X</a>
+          <a class="btn" href="https://github.com/MaxStudiotoken" target="_blank" data-i18n="btnGithub">GitHub</a>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-content">
-          <h2 data-i18n="teamTitle">Equipo</h2>
-          <div class="team-grid">
-            <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team1">Fundador y Arquitecto de Software</span></div>
-            <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team2">Estratega de Marketing y Relaciones Públicas</span></div>
-            <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team3">Desarrollador de Smart Contracts y Tecnología Web3</span></div>
-          </div>
+        <h2 data-i18n="teamTitle">Equipo</h2>
+        <div class="team-grid">
+          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team1">Fundador y Arquitecto de Software</span></div>
+          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team2">Desarrollador de Smart Contracts</span></div>
         </div>
       </div>
     </div>
 
+    <!-- Contacto -->
     <div class="card contact-card">
-      <div class="card-content">
-        <h2 data-i18n="contactTitle">Contacto</h2>
-        <p data-i18n="contactP">
-          ¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial y el equipo de BANK2.0 responderá a la brevedad.
-        </p>
-        <a href="mailto:bank20token@proton.me" class="btn contact-btn">bank20token@proton.me</a>
-      </div>
+      <h2 data-i18n="contactTitle">Contacto</h2>
+      <p data-i18n="contactP">¿Tienes preguntas? Escríbenos a nuestro correo oficial.</p>
+      <a href="mailto:bank20token@proton.me" class="btn contact-btn">bank20token@proton.me</a>
     </div>
   </div>
 
@@ -443,547 +302,459 @@
   </footer>
 
   <script>
-    // ===== Textos (i18n) - Completamente traducidos =====
-    const T = {
+    // ==================== TRADUCCIONES COMPLETAS (5 IDIOMAS) ====================
+    const translations = {
       es: {
         heroSubtitle: "Innovación blockchain impulsada desde Europa para un futuro financiero más rápido, seguro y descentralizado",
         whatTitle: "¿Qué es BANK2.0?",
-        whatP1: "BANK2.0 (B20) es mucho más que un token: es la piedra angular de una nueva era financiera. Desarrollado sobre la red Polygon, este ecosistema está diseñado para convertirse en el banco digital descentralizado de referencia en el mundo cripto. Su propósito es ofrecer una infraestructura segura, rápida y escalable que permita realizar pagos, almacenar activos y custodiar NFTs de forma eficiente y soberana.",
-        whatP2: "BANK2.0 permite a sus usuarios enviar y recibir fondos con costos mínimos y confirmaciones instantáneas, rompiendo las barreras del sistema bancario tradicional. Pero además, funciona como bóveda digital para tus obras más preciadas: NFTs únicos, coleccionables con valor emocional o económico, y activos Web3 que requieren máxima seguridad.",
-        whatP3: "Con una comunidad creciente de más de 3,000 holders en OpenSea y una visión clara de expansión global, BANK2.0 está construyendo la infraestructura financiera del mañana: descentralizada, transparente, sin fronteras y totalmente controlada por sus propios usuarios. ¡Únete al nuevo paradigma financiero con BANK2.0!",
-        tokenDetailsTitle: "Detalles del Token",
-        td1Label: "Red Blockchain:", td1Value: "Polygon (compatible con Ethereum)",
-        td2Label: "Dirección del Contrato:", td3Label: "Decimales:", td3Value: "18",
-        td4Label: "Suministro Total:", td4Value: "1,000,000,000 B20 (fijo, sin inflación)",
-        td5Label: "Distribución Estratégica:", td5Value: "10M asignados a staking y 3M a recompensas de juegos",
+        whatP1: "BANK2.0 (B20) es mucho más que un token: es la piedra angular de una nueva era financiera. Desarrollado sobre la red Polygon, este ecosistema está diseñado para convertirse en el banco digital descentralizado de referencia en el mundo cripto.",
+        whatP2: "BANK2.0 permite a sus usuarios enviar y recibir fondos con costos mínimos y confirmaciones instantáneas, funcionando como bóveda digital para tus NFTs y activos Web3.",
+        mowoTitle: "🔗 Token Mowo en Polygon",
+        contractAddressLabel: "Dirección del Contrato Mowo:",
         btnPolygonscan: "Ver en PolygonScan",
         btnCopy: "Copiar",
-        btnAddMM: "Añadir a MetaMask",
-        airdropTitle: "¡Airdrop de NFTs y Tokens!",
-        airdropP: "Como parte de nuestro compromiso con la comunidad, todos los titulares de NFTs de Max Studio recibirán un airdrop gratuito de tokens B20. Esta iniciativa busca premiar la fidelidad de los usuarios e incentivar la adopción masiva de nuestra plataforma.",
-        btnOpenSea: "Ver colección en OpenSea",
-        buyTitle: "Adquirir BANK2.0 (B20)",
-        buyP1: "Puedes comprar tokens B20 directamente a través de Uniswap en la red Polygon. Este intercambio descentralizado te permite operar con total libertad y seguridad, sin intermediarios.",
-        btnBuy: "Adquirir BANK2.0",
-        dextoolsP: "Visualiza las métricas de liquidez y trading de BANK2.0 en la red Polygon a través de Dextools. ¡Mantente al tanto del rendimiento de tu token!",
-        btnDextools: "Ver en Dextools",
-        goplusP: "Revisa la seguridad del contrato de BANK2.0 en GoPlus Labs para obtener un análisis detallado y una mayor transparencia.",
-        btnGoPlus: "Ver Seguridad en GoPlus Labs",
-        buyTitle2: "Adquirir BANK2.0 (B20)",
-        buyP2: "Puedes comprar tokens B20 directamente a través de Uniswap en la red Polygon. Este intercambio descentralizado te permite operar con total libertad y seguridad, sin intermediarios. ¡Haz clic en el botón y súmate al nuevo sistema financiero!",
-        btnBuy2: "Adquirir BANK2.0",
-        resourcesTitle: "Recursos Oficiales",
-        btnSite: "Sitio Web Oficial", btnX: "Twitter / X", btnWhitepaper: "Whitepaper (PDF)", btnGithub: "GitHub",
-        teamTitle: "Equipo",
-        team1: "Fundador y Arquitecto de Software",
-        team2: "Estratega de Marketing y Relaciones Públicas",
-        team3: "Desarrollador de Smart Contracts y Tecnología Web3",
-        contactTitle: "Contacto",
-        contactP: "¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial y el equipo de BANK2.0 responderá a la brevedad.",
-        foot1: "© 2025 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
-        foot2: "Innovando el futuro de las finanzas descentralizadas",
-        supplyTitle: "Distribución del suministro",
-        supplyDesc: "Así se reparte el total de 1,000,000,000 B20.",
-        legendOwner: "Reserva inicial (owner/tesorería)",
-        legendStaking: "Pool de Staking",
-        legendGames: "Recompensas de Juegos",
-        btnDownload: "Descargar imagen",
-        walletCardTitle: "Wallet BANK2.0 (Android)",
-        walletCardP: "Descarga la app oficial de BANK 2.0 para Android: podrás hacer staking con BANK2.0, jugar a dos juegos y ganar recompensas gratis, y guardar tus tokens con seguridad Web3.",
-        btnPlayStore: "Google Play",
-        btnManual: "Manual (PDF)",
-        // Nuevas claves para MoonWorld y estadísticas
+        moonworldTitle: "🌙 MoonWorld",
+        moonworldDesc: "Bienvenido a MoonWorld, el metaverso estilo GTA donde puedes:",
+        moonworldFeature1: "🏠 Comprar parcelas de tierra virtual",
+        moonworldFeature2: "🚗 Conducir coches exclusivos",
+        moonworldFeature3: "👤 Crear tu personaje personalizable",
+        moonworldFeature4: "🎮 Jugar misiones y ganar hasta 100 MOWO",
+        moonworldStatus: "🚧 La app está en construcción, pero pronto tendremos noticias emocionantes.",
+        moonworldCountdownLabel: "Tiempo restante para el lanzamiento (3 meses reales)",
+        moonworldButton: "🌙 Explorar MoonWorld",
+        bankTitle: "🏦 Bank 2.0 - Bodega NFT",
+        nftCountLabel: "🎨 NFTs en tu wallet:",
+        mowoBalanceLabel: "💰 Tokens MOWO:",
+        addNftBtn: "➕ Añadir NFT de prueba",
+        send10NftsBtn: "📤 Enviar 10 NFTs → Ganar 25 MOWO",
+        bankRewardInfo: "✨ Gana 25 MOWO por cada 10 NFTs enviados a tu wallet",
+        lotteryTitle: "🎲 Tira de la Suerte (24h)",
+        lotteryDesc: "🎁 Premio asegurado: NFT Oro/Plata/Bronce",
+        lotteryCooldownLabel: "🕒 Próximo sorteo:",
+        lotteryBtnText: "🎰 ¡Tirar!",
+        lotteryRewardsInfo: "🏆 Oro: parcela + coche + personaje + 100 MOWO | Plata: coche + personaje + 50 MOWO | Bronce: personaje + 25 MOWO",
         liveStatsTitle: "📊 Estadísticas en Vivo",
         priceLabel: "Precio B20 (USD)",
-        priceSource: "Actualizado vía Dextools",
         downloadsLabel: "Descargas App",
-        downloadsTarget: "Meta: 10,000",
-        holdersLabel: "Holders",
-        holdersSource: "🔗 PolygonScan",
-        txLabel: "Transacciones",
-        txSource: "🔄 Totales",
-        priceChartTitle: "Precio B20 / Tiempo (datos en tiempo real)",
-        moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "Bienvenido a <strong>MoonWorld</strong>, el nuevo universo digital donde puedes comprar tu propio mundo virtual. Adquiere <strong>MoonWorld Digital</strong> o <strong>MoonWorld Cast</strong> para construir tu imperio.",
-        moonworldStatus: "🚧 El mundo está en construcción, pero pronto tendremos noticias emocionantes.",
-        moonworldCountdownLabel: "Tiempo restante para el lanzamiento",
-        moonworldButton: "Explorar MoonWorld"
+        holdersLabel: "Holders Mowo",
+        tokenDetailsTitle: "Detalles del Token B20",
+        td1Label: "Red Blockchain:",
+        td1Value: "Polygon",
+        td2Label: "Dirección del Contrato B20:",
+        td4Label: "Suministro Total:",
+        td4Value: "1,000,000,000 B20",
+        btnAddMM: "Añadir a MetaMask",
+        buyTitle: "Adquirir BANK2.0 (B20)",
+        buyP1: "Puedes comprar tokens B20 directamente a través de Uniswap en la red Polygon.",
+        btnBuy: "Adquirir BANK2.0",
+        resourcesTitle: "Recursos Oficiales",
+        btnSite: "Web Oficial",
+        btnX: "Twitter / X",
+        btnGithub: "GitHub",
+        teamTitle: "Equipo",
+        team1: "Fundador y Arquitecto de Software",
+        team2: "Desarrollador de Smart Contracts",
+        contactTitle: "Contacto",
+        contactP: "¿Tienes preguntas? Escríbenos a nuestro correo oficial.",
+        foot1: "© 2025 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
+        foot2: "Innovando el futuro de las finanzas descentralizadas"
       },
       en: {
-        heroSubtitle: "Blockchain innovation from Europe for a faster, safer and fully decentralized financial future",
+        heroSubtitle: "Blockchain innovation from Europe for a faster, safer and decentralized financial future",
         whatTitle: "What is BANK2.0?",
-        whatP1: "BANK2.0 (B20) is far more than a token: it's the cornerstone of a new financial era. Built on Polygon, the ecosystem aims to become the leading decentralized digital bank. It delivers a secure, fast and scalable infrastructure for payments, asset storage and NFT custody.",
-        whatP2: "BANK2.0 lets users send and receive funds with minimal fees and near-instant confirmations, breaking the limits of traditional banking. It also works as a digital vault for your most valuable items: unique NFTs, collectibles and Web3 assets that require maximum security.",
-        whatP3: "With a growing community of 3,000+ holders on OpenSea and a clear global vision, BANK2.0 is building tomorrow's financial rails: decentralized, transparent, borderless and truly user-controlled. Join the new financial paradigm with BANK2.0!",
-        tokenDetailsTitle: "Token Details",
-        td1Label: "Blockchain:", td1Value: "Polygon (Ethereum-compatible)",
-        td2Label: "Contract Address:", td3Label: "Decimals:", td3Value: "18",
-        td4Label: "Total Supply:", td4Value: "1,000,000,000 B20 (fixed, no inflation)",
-        td5Label: "Strategic Allocation:", td5Value: "10M for staking and 3M for game rewards",
+        whatP1: "BANK2.0 (B20) is more than a token: it's the cornerstone of a new financial era. Built on Polygon, this ecosystem is designed to become the leading decentralized digital bank.",
+        whatP2: "BANK2.0 allows users to send and receive funds with minimal fees and instant confirmations, working as a digital vault for your NFTs and Web3 assets.",
+        mowoTitle: "🔗 Mowo Token on Polygon",
+        contractAddressLabel: "Mowo Contract Address:",
         btnPolygonscan: "View on PolygonScan",
         btnCopy: "Copy",
-        btnAddMM: "Add to MetaMask",
-        airdropTitle: "NFT & Token Airdrop!",
-        airdropP: "All Max Studio NFT holders will receive a free B20 airdrop. We reward loyalty and drive adoption across our platform.",
-        btnOpenSea: "View collection on OpenSea",
-        buyTitle: "Buy BANK2.0 (B20)",
-        buyP1: "Purchase B20 on Uniswap (Polygon). Trade with full freedom and security, no intermediaries.",
-        btnBuy: "Buy BANK2.0",
-        dextoolsP: "Check liquidity and trading metrics for BANK2.0 on Polygon via Dextools. Stay updated!",
-        btnDextools: "View on Dextools",
-        goplusP: "Review the BANK2.0 contract security report on GoPlus Labs for added transparency.",
-        btnGoPlus: "Open GoPlus Security",
-        buyTitle2: "Buy BANK2.0 (B20)",
-        buyP2: "Get B20 on Uniswap (Polygon). A decentralized exchange for secure, permissionless trading.",
-        btnBuy2: "Buy BANK2.0",
-        resourcesTitle: "Official Resources",
-        btnSite: "Official Website", btnX: "Twitter / X", btnWhitepaper: "Whitepaper (PDF)", btnGithub: "GitHub",
-        teamTitle: "Team",
-        team1: "Founder & Software Architect",
-        team2: "Marketing Strategist & PR",
-        team3: "Smart Contract & Web3 Developer",
-        contactTitle: "Contact",
-        contactP: "Questions, proposals or support? Email our official address and the BANK2.0 team will reply shortly.",
-        foot1: "© 2025 BANK2.0 (B20) – Blockchain Project. All rights reserved.",
-        foot2: "Innovating the future of decentralized finance",
-        supplyTitle: "Supply distribution",
-        supplyDesc: "Breakdown of the 1,000,000,000 B20 total supply.",
-        legendOwner: "Initial reserve (owner/treasury)",
-        legendStaking: "Staking Pool",
-        legendGames: "Game Rewards",
-        btnDownload: "Download image",
-        walletCardTitle: "BANK2.0 Wallet (Android)",
-        walletCardP: "Get the official BANK 2.0 app for Android: stake BANK2.0, play two games to earn free rewards, and securely store your tokens with Web3 security.",
-        btnPlayStore: "Google Play",
-        btnManual: "Manual (PDF)",
-        // New keys for MoonWorld and stats
+        moonworldTitle: "🌙 MoonWorld",
+        moonworldDesc: "Welcome to MoonWorld, the GTA-style metaverse where you can:",
+        moonworldFeature1: "🏠 Buy virtual land parcels",
+        moonworldFeature2: "🚗 Drive exclusive cars",
+        moonworldFeature3: "👤 Create your custom character",
+        moonworldFeature4: "🎮 Play missions and win up to 100 MOWO",
+        moonworldStatus: "🚧 The app is under construction, but exciting news coming soon.",
+        moonworldCountdownLabel: "Time remaining for launch (3 real months)",
+        moonworldButton: "🌙 Explore MoonWorld",
+        bankTitle: "🏦 Bank 2.0 - NFT Vault",
+        nftCountLabel: "🎨 NFTs in your wallet:",
+        mowoBalanceLabel: "💰 MOWO Tokens:",
+        addNftBtn: "➕ Add test NFT",
+        send10NftsBtn: "📤 Send 10 NFTs → Earn 25 MOWO",
+        bankRewardInfo: "✨ Earn 25 MOWO for every 10 NFTs sent to your wallet",
+        lotteryTitle: "🎲 Lucky Draw (24h)",
+        lotteryDesc: "🎁 Guaranteed prize: Gold/Silver/Bronze NFT",
+        lotteryCooldownLabel: "🕒 Next draw:",
+        lotteryBtnText: "🎰 Draw!",
+        lotteryRewardsInfo: "🏆 Gold: land + car + character + 100 MOWO | Silver: car + character + 50 MOWO | Bronze: character + 25 MOWO",
         liveStatsTitle: "📊 Live Statistics",
         priceLabel: "B20 Price (USD)",
-        priceSource: "Updated via Dextools",
         downloadsLabel: "App Downloads",
-        downloadsTarget: "Target: 10,000",
-        holdersLabel: "Holders",
-        holdersSource: "🔗 PolygonScan",
-        txLabel: "Transactions",
-        txSource: "🔄 Total",
-        priceChartTitle: "B20 Price / Time (real-time data)",
-        moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "Welcome to <strong>MoonWorld</strong>, the new digital universe where you can buy your own virtual world. Get <strong>MoonWorld Digital</strong> or <strong>MoonWorld Cast</strong> to build your empire.",
-        moonworldStatus: "🚧 The world is under construction, but exciting news are coming soon.",
-        moonworldCountdownLabel: "Time remaining until launch",
-        moonworldButton: "Explore MoonWorld"
-      },
-      fr: {
-        heroSubtitle: "Innovation blockchain depuis l'Europe pour un avenir financier plus rapide, sûr et entièrement décentralisé",
-        whatTitle: "Qu'est-ce que BANK2.0 ?",
-        whatP1: "BANK2.0 (B20) est bien plus qu'un token : c'est la pierre angulaire d'une nouvelle ère financière. Construit sur Polygon, l'écosystème vise à devenir la banque numérique décentralisée de référence, offrant une infrastructure sûre, rapide et évolutive pour les paiements, le stockage d'actifs et la garde d'NFTs.",
-        whatP2: "BANK2.0 permet d'envoyer et de recevoir des fonds avec des frais minimes et des confirmations quasi instantanées, brisant les limites de la banque traditionnelle. C'est aussi un coffre-fort numérique pour vos pièces les plus précieuses : NFTs uniques, objets de collection et actifs Web3 hautement sécurisés.",
-        whatP3: "Avec une communauté de plus de 3 000 holders sur OpenSea et une vision d'expansion mondiale, BANK2.0 construit l'infrastructure financière de demain : décentralisée, transparente, sans frontières et contrôlée par ses utilisateurs.",
-        tokenDetailsTitle: "Détails du Token",
-        td1Label: "Blockchain :", td1Value: "Polygon (compatible Ethereum)",
-        td2Label: "Adresse du contrat :", td3Label: "Décimales :", td3Value: "18",
-        td4Label: "Offre totale :", td4Value: "1 000 000 000 B20 (fixe, sans inflation)",
-        td5Label: "Répartition stratégique :", td5Value: "10 M pour le staking et 3 M pour les récompenses de jeu",
-        btnPolygonscan: "Voir sur PolygonScan",
-        btnCopy: "Copier",
-        btnAddMM: "Ajouter à MetaMask",
-        airdropTitle: "Airdrop de NFTs et Tokens !",
-        airdropP: "Tous les détenteurs de NFTs Max Studio recevront un airdrop gratuit de B20. Nous récompensons la fidélité et favorisons l'adoption.",
-        btnOpenSea: "Voir la collection sur OpenSea",
-        buyTitle: "Acheter BANK2.0 (B20)",
-        buyP1: "Achetez B20 sur Uniswap (Polygon). Échange décentralisé, libre et sécurisé, sans intermédiaires.",
-        btnBuy: "Acheter BANK2.0",
-        dextoolsP: "Consultez les métriques de liquidité et de trading de BANK2.0 sur Polygon via Dextools.",
-        btnDextools: "Voir sur Dextools",
-        goplusP: "Consultez l'analyse de sécurité du contrat BANK2.0 sur GoPlus Labs.",
-        btnGoPlus: "Ouvrir GoPlus Security",
-        buyTitle2: "Acheter BANK2.0 (B20)",
-        buyP2: "Procurez-vous B20 sur Uniswap (Polygon). Échange décentralisé, sécurisé et libre.",
-        btnBuy2: "Acheter BANK2.0",
-        resourcesTitle: "Ressources officielles",
-        btnSite: "Site officiel", btnX: "Twitter / X", btnWhitepaper: "Livre blanc (PDF)", btnGithub: "GitHub",
-        teamTitle: "Équipe",
-        team1: "Fondateur & Architecte logiciel",
-        team2: "Stratège marketing & RP",
-        team3: "Développeur Smart Contracts & Web3",
+        holdersLabel: "Mowo Holders",
+        tokenDetailsTitle: "B20 Token Details",
+        td1Label: "Blockchain:",
+        td1Value: "Polygon",
+        td2Label: "B20 Contract Address:",
+        td4Label: "Total Supply:",
+        td4Value: "1,000,000,000 B20",
+        btnAddMM: "Add to MetaMask",
+        buyTitle: "Buy BANK2.0 (B20)",
+        buyP1: "You can buy B20 tokens directly on Uniswap on the Polygon network.",
+        btnBuy: "Buy BANK2.0",
+        resourcesTitle: "Official Resources",
+        btnSite: "Official Website",
+        btnX: "Twitter / X",
+        btnGithub: "GitHub",
+        teamTitle: "Team",
+        team1: "Founder & Software Architect",
+        team2: "Smart Contract Developer",
         contactTitle: "Contact",
-        contactP: "Questions, propositions ou support ? Écrivez-nous et l'équipe BANK2.0 vous répondra rapidement.",
-        foot1: "© 2025 BANK2.0 (B20) – Projet blockchain. Tous droits réservés.",
-        foot2: "Innover l'avenir de la finance décentralisée",
-        supplyTitle: "Répartition de l'offre",
-        supplyDesc: "Répartition du total de 1 000 000 000 B20.",
-        legendOwner: "Réserve initiale (owner/trésorerie)",
-        legendStaking: "Pool de Staking",
-        legendGames: "Récompenses de Jeux",
-        btnDownload: "Télécharger l'image",
-        walletCardTitle: "Wallet BANK2.0 (Android)",
-        walletCardP: "Télécharge l'app officielle BANK 2.0 pour Android : fais du staking avec BANK2.0, joue à deux jeux pour gagner des récompenses gratuites et stocke tes tokens en toute sécurité via le Web3.",
-        btnPlayStore: "Google Play",
-        btnManual: "Manuel (PDF)",
-        // Nouvelles clés
-        liveStatsTitle: "📊 Statistiques en Direct",
-        priceLabel: "Prix B20 (USD)",
-        priceSource: "Mis à jour via Dextools",
-        downloadsLabel: "Téléchargements App",
-        downloadsTarget: "Objectif : 10 000",
-        holdersLabel: "Holders",
-        holdersSource: "🔗 PolygonScan",
-        txLabel: "Transactions",
-        txSource: "🔄 Total",
-        priceChartTitle: "Prix B20 / Temps (données en direct)",
+        contactP: "Have questions? Email us.",
+        foot1: "© 2025 BANK2.0 (B20) - Blockchain Project. All rights reserved.",
+        foot2: "Innovating the future of decentralized finance"
+      },
+      pt: {
+        heroSubtitle: "Inovação blockchain da Europa para um futuro financeiro mais rápido, seguro e descentralizado",
+        whatTitle: "O que é BANK2.0?",
+        whatP1: "BANK2.0 (B20) é mais que um token: é a base de uma nova era financeira. Desenvolvido na Polygon, este ecossistema foi projetado para se tornar o banco digital descentralizado de referência.",
+        whatP2: "BANK2.0 permite enviar e receber fundos com taxas mínimas e confirmações instantâneas, funcionando como um cofre digital para seus NFTs e ativos Web3.",
+        mowoTitle: "🔗 Token Mowo na Polygon",
+        contractAddressLabel: "Endereço do Contrato Mowo:",
+        btnPolygonscan: "Ver no PolygonScan",
+        btnCopy: "Copiar",
         moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "Bienvenue dans <strong>MoonWorld</strong>, le nouvel univers numérique où vous pouvez acheter votre propre monde virtuel. Acquérez <strong>MoonWorld Digital</strong> ou <strong>MoonWorld Cast</strong> pour construire votre empire.",
-        moonworldStatus: "🚧 Le monde est en construction, mais des nouvelles passionnantes arrivent bientôt.",
-        moonworldCountdownLabel: "Temps restant avant le lancement",
-        moonworldButton: "Explorer MoonWorld"
+        moonworldDesc: "Bem-vindo ao MoonWorld, o metaverso estilo GTA onde você pode:",
+        moonworldFeature1: "🏠 Comprar terrenos virtuais",
+        moonworldFeature2: "🚗 Dirigir carros exclusivos",
+        moonworldFeature3: "👤 Criar seu personagem",
+        moonworldFeature4: "🎮 Jogar missões e ganhar até 100 MOWO",
+        moonworldStatus: "🚧 O app está em construção, mas novidades em breve.",
+        moonworldCountdownLabel: "Tempo restante para o lançamento (3 meses reais)",
+        moonworldButton: "🌙 Explorar MoonWorld",
+        bankTitle: "🏦 Bank 2.0 - Cofre NFT",
+        nftCountLabel: "🎨 NFTs na sua wallet:",
+        mowoBalanceLabel: "💰 Tokens MOWO:",
+        addNftBtn: "➕ Adicionar NFT de teste",
+        send10NftsBtn: "📤 Enviar 10 NFTs → Ganhar 25 MOWO",
+        bankRewardInfo: "✨ Ganhe 25 MOWO para cada 10 NFTs enviados",
+        lotteryTitle: "🎲 Sorte Diário (24h)",
+        lotteryDesc: "🎁 Prêmio garantido: NFT Ouro/Prata/Bronze",
+        lotteryCooldownLabel: "🕒 Próximo sorteio:",
+        lotteryBtnText: "🎰 Sortear!",
+        lotteryRewardsInfo: "🏆 Ouro: terreno + carro + personagem + 100 MOWO | Prata: carro + personagem + 50 MOWO | Bronze: personagem + 25 MOWO",
+        liveStatsTitle: "📊 Estatísticas ao Vivo",
+        priceLabel: "Preço B20 (USD)",
+        downloadsLabel: "Downloads do App",
+        holdersLabel: "Holders Mowo",
+        tokenDetailsTitle: "Detalhes do Token B20",
+        td1Label: "Blockchain:",
+        td1Value: "Polygon",
+        td2Label: "Endereço do Contrato B20:",
+        td4Label: "Fornecimento Total:",
+        td4Value: "1.000.000.000 B20",
+        btnAddMM: "Adicionar à MetaMask",
+        buyTitle: "Comprar BANK2.0 (B20)",
+        buyP1: "Você pode comprar tokens B20 diretamente na Uniswap na rede Polygon.",
+        btnBuy: "Comprar BANK2.0",
+        resourcesTitle: "Recursos Oficiais",
+        btnSite: "Site Oficial",
+        btnX: "Twitter / X",
+        btnGithub: "GitHub",
+        teamTitle: "Equipe",
+        team1: "Fundador e Arquiteto de Software",
+        team2: "Desenvolvedor de Smart Contracts",
+        contactTitle: "Contato",
+        contactP: "Tem perguntas? Escreva-nos.",
+        foot1: "© 2025 BANK2.0 (B20) - Projeto Blockchain. Todos os direitos reservados.",
+        foot2: "Inovando o futuro das finanças descentralizadas"
       },
       ru: {
-        heroSubtitle: "Блокчейн-инновации из Европы для более быстрого, безопасного и полностью децентрализованного финансового будущего",
+        heroSubtitle: "Блокчейн-инновации из Европы для более быстрого, безопасного и децентрализованного финансового будущего",
         whatTitle: "Что такое BANK2.0?",
-        whatP1: "BANK2.0 (B20) — это не просто токен, а фундамент новой финансовой эпохи. Экосистема построена на Polygon и стремится стать ведущим децентрализованным цифровым банком, обеспечивая безопасную, быструю и масштабируемую инфраструктуру для платежей, хранения активов и кастодиального хранения NFT.",
-        whatP2: "BANK2.0 позволяет отправлять и получать средства с минимальными комиссиями и почти мгновенными подтверждениями, разрушая границы традиционного банкинга. Это также цифровое хранилище для самых ценных активов: уникальных NFT, коллекционных предметов и Web3-активов.",
-        whatP3: "Сообщество 3000+ держателей на OpenSea и чёткая глобальная стратегия — BANK2.0 строит финсистему завтрашнего дня: децентрализованную, прозрачную, без границ и полностью контролируемую пользователями.",
-        tokenDetailsTitle: "Параметры токена",
-        td1Label: "Блокчейн:", td1Value: "Polygon (совместим с Ethereum)",
-        td2Label: "Адрес контракта:", td3Label: "Десятичность:", td3Value: "18",
-        td4Label: "Общее предложение:", td4Value: "1,000,000,000 B20 (фиксированное, без инфляции)",
-        td5Label: "Стратегическое распределение:", td5Value: "10M для стейкинга и 3M для игровых наград",
-        btnPolygonscan: "Открыть PolygonScan",
+        whatP1: "BANK2.0 (B20) — это больше, чем токен: это краеугольный камень новой финансовой эры. Разработанный на Polygon, эта экосистема призвана стать ведущим децентрализованным цифровым банком.",
+        whatP2: "BANK2.0 позволяет пользователям отправлять и получать средства с минимальными комиссиями и мгновенными подтверждениями, работая как цифровое хранилище для ваших NFT и Web3-активов.",
+        mowoTitle: "🔗 Токен Mowo на Polygon",
+        contractAddressLabel: "Адрес контракта Mowo:",
+        btnPolygonscan: "Посмотреть на PolygonScan",
         btnCopy: "Копировать",
-        btnAddMM: "Добавить в MetaMask",
-        airdropTitle: "Эирдроп NFT и токенов!",
-        airdropP: "Все держатели NFT Max Studio получат бесплатный эирдроп B20. Мы поощряем лояльность и стимулируем массовое принятие.",
-        btnOpenSea: "Коллекция на OpenSea",
-        buyTitle: "Купить BANK2.0 (B20)",
-        buyP1: "Покупайте B20 на Uniswap (Polygon). Децентрализованный обмен без посредников и ограничений.",
-        btnBuy: "Купить BANK2.0",
-        dextoolsP: "Проверьте метрики ликвидности и торговли BANK2.0 на Polygon через Dextools.",
-        btnDextools: "Смотреть на Dextools",
-        goplusP: "Изучите отчёт по безопасности контракта BANK2.0 на GoPlus Labs.",
-        btnGoPlus: "Открыть GoPlus Security",
-        buyTitle2: "Купить BANK2.0 (B20)",
-        buyP2: "Приобретайте B20 на Uniswap (Polygon). Безопасная и свободная торговля.",
-        btnBuy2: "Купить BANK2.0",
-        resourcesTitle: "Официальные ресурсы",
-        btnSite: "Официальный сайт", btnX: "Twitter / X", btnWhitepaper: "Whitepaper (PDF)", btnGithub: "GitHub",
-        teamTitle: "Команда",
-        team1: "Основатель и архитектор ПО",
-        team2: "Маркетинг-стратег и PR",
-        team3: "Разработчик смарт-контрактов и Web3",
-        contactTitle: "Контакты",
-        contactP: "Вопросы, предложения или поддержка? Пишите на наш официальный адрес — команда BANK2.0 ответит в ближайшее время.",
-        foot1: "© 2025 BANK2.0 (B20) – блокчейн-проект. Все права защищены.",
-        foot2: "Инновации будущего децентрализованных финансов",
-        supplyTitle: "Распределение эмиссии",
-        supplyDesc: "Разбивка общего предложения 1,000,000,000 B20.",
-        legendOwner: "Начальный резерв (owner/treasury)",
-        legendStaking: "Пул стейкинга",
-        legendGames: "Игровые вознаграждения",
-        btnDownload: "Скачать изображение",
-        walletCardTitle: "Кошелёк BANK2.0 (Android)",
-        walletCardP: "Скачайте официальное приложение BANK 2.0 для Android: стейкинг BANK2.0, две игры с бесплатными наградами и безопасное хранение токенов с Web3-защитой.",
-        btnPlayStore: "Google Play",
-        btnManual: "Руководство (PDF)",
-        // Новые ключи
-        liveStatsTitle: "📊 Статистика в реальном времени",
-        priceLabel: "Цена B20 (USD)",
-        priceSource: "Обновлено через Dextools",
-        downloadsLabel: "Загрузки приложения",
-        downloadsTarget: "Цель: 10,000",
-        holdersLabel: "Держатели",
-        holdersSource: "🔗 PolygonScan",
-        txLabel: "Транзакции",
-        txSource: "🔄 Всего",
-        priceChartTitle: "Цена B20 / Время (данные в реальном времени)",
         moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "Добро пожаловать в <strong>MoonWorld</strong>, новую цифровую вселенную, где вы можете купить свой собственный виртуальный мир. Приобретите <strong>MoonWorld Digital</strong> или <strong>MoonWorld Cast</strong>, чтобы построить свою империю.",
-        moonworldStatus: "🚧 Мир находится в стадии строительства, но скоро появятся захватывающие новости.",
-        moonworldCountdownLabel: "Время до запуска",
-        moonworldButton: "Исследовать MoonWorld"
+        moonworldDesc: "Добро пожаловать в MoonWorld, метавселенную в стиле GTA, где вы можете:",
+        moonworldFeature1: "🏠 Покупать виртуальные участки земли",
+        moonworldFeature2: "🚗 Водить эксклюзивные автомобили",
+        moonworldFeature3: "👤 Создавать своего персонажа",
+        moonworldFeature4: "🎮 Проходить миссии и выигрывать до 100 MOWO",
+        moonworldStatus: "🚧 Приложение в разработке, скоро появятся новости.",
+        moonworldCountdownLabel: "Времени до запуска (3 реальных месяца)",
+        moonworldButton: "🌙 Исследовать MoonWorld",
+        bankTitle: "🏦 Bank 2.0 - Хранилище NFT",
+        nftCountLabel: "🎨 NFT в вашем кошельке:",
+        mowoBalanceLabel: "💰 Токены MOWO:",
+        addNftBtn: "➕ Добавить тестовый NFT",
+        send10NftsBtn: "📤 Отправить 10 NFT → Получить 25 MOWO",
+        bankRewardInfo: "✨ Заработайте 25 MOWO за каждые 10 отправленных NFT",
+        lotteryTitle: "🎲 Удача каждый день (24ч)",
+        lotteryDesc: "🎁 Гарантированный приз: NFT Золото/Серебро/Бронза",
+        lotteryCooldownLabel: "🕒 Следующий розыгрыш:",
+        lotteryBtnText: "🎰 Тянуть!",
+        lotteryRewardsInfo: "🏆 Золото: участок + машина + персонаж + 100 MOWO | Серебро: машина + персонаж + 50 MOWO | Бронза: персонаж + 25 MOWO",
+        liveStatsTitle: "📊 Живая статистика",
+        priceLabel: "Цена B20 (USD)",
+        downloadsLabel: "Загрузки приложения",
+        holdersLabel: "Держатели Mowo",
+        tokenDetailsTitle: "Детали токена B20",
+        td1Label: "Блокчейн:",
+        td1Value: "Polygon",
+        td2Label: "Адрес контракта B20:",
+        td4Label: "Общее предложение:",
+        td4Value: "1,000,000,000 B20",
+        btnAddMM: "Добавить в MetaMask",
+        buyTitle: "Купить BANK2.0 (B20)",
+        buyP1: "Вы можете купить токены B20 напрямую на Uniswap в сети Polygon.",
+        btnBuy: "Купить BANK2.0",
+        resourcesTitle: "Официальные ресурсы",
+        btnSite: "Официальный сайт",
+        btnX: "Twitter / X",
+        btnGithub: "GitHub",
+        teamTitle: "Команда",
+        team1: "Основатель и Архитектор ПО",
+        team2: "Разработчик смарт-контрактов",
+        contactTitle: "Контакты",
+        contactP: "Есть вопросы? Напишите нам.",
+        foot1: "© 2025 BANK2.0 (B20) - Блокчейн-проект. Все права защищены.",
+        foot2: "Инновации будущего децентрализованных финансов"
+      },
+      fr: {
+        heroSubtitle: "Innovation blockchain d'Europe pour un avenir financier plus rapide, sûr et décentralisé",
+        whatTitle: "Qu'est-ce que BANK2.0?",
+        whatP1: "BANK2.0 (B20) est plus qu'un token : c'est la pierre angulaire d'une nouvelle ère financière. Développé sur Polygon, cet écosystème est conçu pour devenir la banque numérique décentralisée de référence.",
+        whatP2: "BANK2.0 permet d'envoyer et de recevoir des fonds avec des frais minimes et des confirmations instantanées, fonctionnant comme un coffre-fort numérique pour vos NFTs et actifs Web3.",
+        mowoTitle: "🔗 Token Mowo sur Polygon",
+        contractAddressLabel: "Adresse du contrat Mowo :",
+        btnPolygonscan: "Voir sur PolygonScan",
+        btnCopy: "Copier",
+        moonworldTitle: "🌙 MoonWorld",
+        moonworldDesc: "Bienvenue dans MoonWorld, le métavers style GTA où vous pouvez :",
+        moonworldFeature1: "🏠 Acheter des parcelles de terre virtuelles",
+        moonworldFeature2: "🚗 Conduire des voitures exclusives",
+        moonworldFeature3: "👤 Créer votre personnage",
+        moonworldFeature4: "🎮 Jouer des missions et gagner jusqu'à 100 MOWO",
+        moonworldStatus: "🚧 L'application est en construction, mais bientôt des nouvelles excitantes.",
+        moonworldCountdownLabel: "Temps restant avant le lancement (3 mois réels)",
+        moonworldButton: "🌙 Explorer MoonWorld",
+        bankTitle: "🏦 Bank 2.0 - Coffre NFT",
+        nftCountLabel: "🎨 NFTs dans votre wallet :",
+        mowoBalanceLabel: "💰 Tokens MOWO :",
+        addNftBtn: "➕ Ajouter NFT de test",
+        send10NftsBtn: "📤 Envoyer 10 NFTs → Gagner 25 MOWO",
+        bankRewardInfo: "✨ Gagnez 25 MOWO pour chaque 10 NFTs envoyés",
+        lotteryTitle: "🎲 Tirage Chance (24h)",
+        lotteryDesc: "🎁 Prix garanti : NFT Or/Argent/Bronze",
+        lotteryCooldownLabel: "🕒 Prochain tirage :",
+        lotteryBtnText: "🎰 Tirer !",
+        lotteryRewardsInfo: "🏆 Or : parcelle + voiture + personnage + 100 MOWO | Argent : voiture + personnage + 50 MOWO | Bronze : personnage + 25 MOWO",
+        liveStatsTitle: "📊 Statistiques en Direct",
+        priceLabel: "Prix B20 (USD)",
+        downloadsLabel: "Téléchargements App",
+        holdersLabel: "Holders Mowo",
+        tokenDetailsTitle: "Détails du Token B20",
+        td1Label: "Blockchain :",
+        td1Value: "Polygon",
+        td2Label: "Adresse du contrat B20 :",
+        td4Label: "Offre totale :",
+        td4Value: "1,000,000,000 B20",
+        btnAddMM: "Ajouter à MetaMask",
+        buyTitle: "Acheter BANK2.0 (B20)",
+        buyP1: "Vous pouvez acheter des tokens B20 directement sur Uniswap sur le réseau Polygon.",
+        btnBuy: "Acheter BANK2.0",
+        resourcesTitle: "Ressources Officielles",
+        btnSite: "Site Web Officiel",
+        btnX: "Twitter / X",
+        btnGithub: "GitHub",
+        teamTitle: "Équipe",
+        team1: "Fondateur & Architecte Logiciel",
+        team2: "Développeur Smart Contracts",
+        contactTitle: "Contact",
+        contactP: "Des questions ? Écrivez-nous.",
+        foot1: "© 2025 BANK2.0 (B20) - Projet Blockchain. Tous droits réservés.",
+        foot2: "Innover l'avenir de la finance décentralisée"
       }
     };
 
-    // ===== Helpers =====
-    const cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-    const fmt = (n) => n.toLocaleString(undefined);
+    // ==================== ESTADO LOCAL ====================
+    let nftInventory = JSON.parse(localStorage.getItem('nftInventory')) || [];
+    let mowoTokenBalance = JSON.parse(localStorage.getItem('mowoBalance')) || 0;
+    let lastLottery = localStorage.getItem('lastLottery') || 0;
 
-    // Constantes
-    const MAX_SUPPLY = 1_000_000_000;
-    const STAKING_POOL = 10_000_000;
-    const GAME_POOL = 3_000_000;
-    const OWNER_RESERVE = MAX_SUPPLY - STAKING_POOL - GAME_POOL; // 987,000,000
-    const CONTRACT_ADDRESS = "0xC0B57ACE313475046BB50911D731F3180FA7A1AA";
-    const POLYGONSCAN_API = "https://api.polygonscan.com/api";
-    const API_KEY = "YourApiKeyToken"; // Reemplazar con tu API key de PolygonScan (gratuita)
+    // Elementos DOM
+    const nftCountSpan = document.getElementById('nftCount');
+    const mowoBalanceSpan = document.getElementById('mowoBalance');
+    const lotteryCooldownSpan = document.getElementById('lotteryCooldown');
+    const lotteryResultSpan = document.getElementById('lotteryResult');
 
-    // ===== Gráficos =====
-    let supplyChart;
-    let livePriceChart;
-    let priceChartData = [];
-
-    function renderSupplyChart(dict) {
-      const ctx = document.getElementById('supplyChart').getContext('2d');
-      const c1 = cssVar('--accent');
-      const c2 = cssVar('--highlight');
-      const c3 = cssVar('--orange');
-      const labels = [dict.legendOwner, dict.legendStaking, dict.legendGames];
-      const data = [OWNER_RESERVE, STAKING_POOL, GAME_POOL];
-      const total = data.reduce((a,b)=>a+b,0);
-
-      if (supplyChart) supplyChart.destroy();
-      supplyChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels,
-          datasets: [{
-            data,
-            backgroundColor: [c1, c2, c3],
-            borderColor: 'rgba(255,255,255,0.15)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          plugins: {
-            legend: { position: 'bottom', labels: { color: '#fff' } },
-            tooltip: {
-              callbacks: {
-                label: (ctx) => {
-                  const val = ctx.parsed;
-                  const pct = (val * 100 / total).toFixed(3);
-                  return ${ctx.label}: ${pct}% (${fmt(val)} B20);
-                }
-              }
-            }
-          }
-        }
-      });
-      document.getElementById('ownerOut').textContent   = fmt(OWNER_RESERVE);
-      document.getElementById('stakingOut').textContent = fmt(STAKING_POOL);
-      document.getElementById('gamesOut').textContent   = fmt(GAME_POOL);
+    function updateUI() {
+      nftCountSpan.textContent = nftInventory.length;
+      mowoBalanceSpan.textContent = mowoTokenBalance;
+      localStorage.setItem('nftInventory', JSON.stringify(nftInventory));
+      localStorage.setItem('mowoBalance', mowoTokenBalance);
+      updateMowoChart();
     }
 
-    // ===== Funciones para obtener datos reales =====
-    async function fetchHoldersCount() {
-      try {
-        document.getElementById('holdersCount').textContent = '1,881';
-      } catch (error) {
-        console.error('Error fetching holders:', error);
-        document.getElementById('holdersCount').textContent = 'Error';
-      }
-    }
-
-    async function fetchTxCount() {
-      try {
-        document.getElementById('txCount').textContent = '145.3k';
-      } catch (error) {
-        console.error('Error fetching tx count:', error);
-        document.getElementById('txCount').textContent = 'Error';
-      }
-    }
-
-    async function fetchB20Price() {
-      try {
-        const maticResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd');
-        const maticData = await maticResponse.json();
-        const maticPrice = maticData['matic-network'].usd;
-        
-        const b20Price = 0.0032; // Este valor debería obtenerse de una API de DEX
-        document.getElementById('b20Price').textContent = $${b20Price.toFixed(4)};
-        
-        updatePriceChart(b20Price);
-      } catch (error) {
-        console.error('Error fetching price:', error);
-        document.getElementById('b20Price').textContent = '$0.0032';
-      }
-    }
-
-    // ===== Gráfico de precio en vivo =====
-    function initLivePriceChart() {
-      const ctx = document.getElementById('livePriceChart').getContext('2d');
-      if (livePriceChart) livePriceChart.destroy();
-      livePriceChart = new Chart(ctx, {
+    // Gráfico MOWO
+    let mowoChart;
+    function updateMowoChart() {
+      const ctx = document.getElementById('mowoChart')?.getContext('2d');
+      if (!ctx) return;
+      if (mowoChart) mowoChart.destroy();
+      mowoChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: [],
+          labels: ['Inicio', 'Ahora'],
           datasets: [{
-            label: 'Precio B20 (USD)',
-            data: [],
+            label: 'Balance MOWO',
+            data: [0, mowoTokenBalance],
             borderColor: '#00ff00',
-            backgroundColor: 'rgba(0, 255, 0, 0.1)',
-            borderWidth: 2,
-            pointBackgroundColor: '#ff00ff',
-            pointBorderColor: '#ffffff',
+            backgroundColor: 'rgba(0,255,0,0.2)',
             tension: 0.3,
             fill: true
           }]
         },
-        options: {
-          responsive: true,
-          scales: {
-            y: { 
-              beginAtZero: false, 
-              grid: { color: 'rgba(0, 255, 255, 0.1)' },
-              ticks: { color: '#00ffff' }
-            },
-            x: { ticks: { color: '#00ffff' } }
-          },
-          plugins: {
-            legend: { labels: { color: '#fff' } }
-          }
-        }
+        options: { responsive: true, plugins: { legend: { labels: { color: '#fff' } } } }
       });
-      priceChartData = [];
-      for (let i = 0; i < 20; i++) {
-        priceChartData.push(0.0032 + (Math.random() * 0.0005 - 0.00025));
-      }
-      updatePriceChart();
     }
 
-    function updatePriceChart(newPrice) {
-      if (!livePriceChart) return;
-      
-      if (newPrice) {
-        priceChartData.push(newPrice);
-        if (priceChartData.length > 20) priceChartData.shift();
+    // Añadir NFT
+    document.getElementById('addMockNftBtn')?.addEventListener('click', () => {
+      nftInventory.push({ id: Date.now(), name: `NFT #${nftInventory.length+1}` });
+      updateUI();
+      alert(`✅ NFT añadido. Total: ${nftInventory.length} NFTs`);
+    });
+
+    // Enviar 10 NFTs → ganar 25 MOWO
+    document.getElementById('send10NftsBtn')?.addEventListener('click', () => {
+      if (nftInventory.length >= 10) {
+        nftInventory = nftInventory.slice(10);
+        mowoTokenBalance += 25;
+        updateUI();
+        alert(`🎉 ¡Ganaste 25 MOWO! Nuevo saldo: ${mowoTokenBalance} MOWO`);
+      } else {
+        alert(`❌ Necesitas 10 NFTs. Tienes ${nftInventory.length}.`);
       }
-      
-      const now = new Date();
-      const labels = [];
-      for (let i = 0; i < priceChartData.length; i++) {
-        const time = new Date(now.getTime() - (priceChartData.length - 1 - i) * 10000);
-        labels.push(time.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+    });
+
+    // Tira de la suerte
+    function updateLotteryCooldown() {
+      const now = Date.now();
+      const diff = 24*60*60*1000 - (now - lastLottery);
+      if (diff <= 0) {
+        lotteryCooldownSpan.textContent = '¡Disponible ahora!';
+      } else {
+        const hours = Math.floor(diff / (60*60*1000));
+        const mins = Math.floor((diff % (60*60*1000)) / (60*1000));
+        lotteryCooldownSpan.textContent = `${hours}h ${mins}m`;
       }
-      
-      livePriceChart.data.labels = labels;
-      livePriceChart.data.datasets[0].data = priceChartData;
-      livePriceChart.update();
     }
 
-    // ===== Contador regresivo MoonWorld =====
-    function initMoonworldCountdown() {
-      const countdownEl = document.getElementById('moonworldCountdown');
-      if (!countdownEl) return;
-      
-      const now = new Date();
-      const targetDate = new Date(now);
-      targetDate.setMonth(now.getMonth() + 3);
-      
+    document.getElementById('lotteryBtn')?.addEventListener('click', () => {
+      const now = Date.now();
+      if (now - lastLottery < 24*60*60*1000) {
+        alert('⏳ Solo puedes tirar 1 vez cada 24 horas.');
+        return;
+      }
+      const random = Math.random();
+      let premio = '', recompensa = '', mowoGanado = 0;
+      if (random < 0.33) {
+        premio = '🥇 ORO';
+        recompensa = 'Parcela + Coche + Personaje';
+        mowoGanado = 100;
+      } else if (random < 0.66) {
+        premio = '🥈 PLATA';
+        recompensa = 'Coche + Personaje';
+        mowoGanado = 50;
+      } else {
+        premio = '🥉 BRONCE';
+        recompensa = 'Personaje';
+        mowoGanado = 25;
+      }
+      mowoTokenBalance += mowoGanado;
+      lastLottery = now;
+      localStorage.setItem('lastLottery', lastLottery);
+      updateUI();
+      lotteryResultSpan.innerHTML = `🎲 ¡Te ha tocado: ${premio}!<br>🎁 Recompensa: ${recompensa}<br>💰 +${mowoGanado} MOWO`;
+      updateLotteryCooldown();
+      setTimeout(() => { lotteryResultSpan.innerHTML = ''; }, 5000);
+    });
+
+    setInterval(updateLotteryCooldown, 1000);
+    updateLotteryCooldown();
+
+    // ==================== CONTADOR REAL 3 MESES ====================
+    function startRealCountdown() {
+      const targetDate = new Date();
+      targetDate.setMonth(targetDate.getMonth() + 3);
+      targetDate.setHours(0, 0, 0, 0);
       function updateCountdown() {
-        const current = new Date();
-        const diff = targetDate - current;
-        
+        const now = new Date();
+        const diff = targetDate - now;
         if (diff <= 0) {
-          countdownEl.textContent = "¡YA DISPONIBLE!";
+          document.getElementById('moonworldCountdown').innerHTML = '🎉 ¡YA DISPONIBLE! 🎉';
           return;
         }
-        
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        countdownEl.textContent = ${days}d ${hours}h ${minutes}m ${seconds}s;
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff % (86400000)) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        document.getElementById('moonworldCountdown').innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
       }
-      
       updateCountdown();
       setInterval(updateCountdown, 1000);
     }
+    startRealCountdown();
 
-    // ===== Actualizar estadísticas =====
-    function fetchLiveStats() {
-      fetchHoldersCount();
-      fetchTxCount();
-      fetchB20Price();
-    }
+    // ==================== COPIAR CONTRATOS ====================
+    document.getElementById('copyMowoBtn')?.addEventListener('click', async () => {
+      await navigator.clipboard.writeText('0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121');
+      alert('✅ Dirección Mowo copiada');
+    });
+    document.getElementById('copyB20Btn')?.addEventListener('click', async () => {
+      await navigator.clipboard.writeText('0xC0B57ACE313475046BB50911D731F3180FA7A1AA');
+      alert('✅ Dirección B20 copiada');
+    });
 
-    // ===== Aplicar idioma =====
+    // Añadir a MetaMask
+    document.getElementById('addToMM')?.addEventListener('click', async () => {
+      if (!window.ethereum) { alert('MetaMask no detectado'); return; }
+      await window.ethereum.request({
+        method: 'wallet_watchAsset',
+        params: { type: 'ERC20', options: { address: '0xC0B57ACE313475046BB50911D731F3180FA7A1AA', symbol: 'B20', decimals: 18 } }
+      });
+    });
+
+    // ==================== MULTILENGUAJE ====================
+    let currentLang = localStorage.getItem('lang') || 'es';
     function applyLang(lang) {
-      const dict = T[lang] || T.es;
-      document.documentElement.setAttribute('lang', lang);
-      document.getElementById('langSwitcher').value = lang;
+      const t = translations[lang];
+      if (!t) return;
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key] !== undefined) {
-          if (key === 'moonworldDesc' || key === 'moonworldStatus') {
-            el.innerHTML = dict[key];
-          } else {
-            el.textContent = dict[key];
-          }
-        }
+        if (t[key] !== undefined) el.textContent = t[key];
       });
-      localStorage.setItem('b20_lang', lang);
-      renderSupplyChart(dict);
+      document.getElementById('langSwitcher').value = lang;
+      localStorage.setItem('lang', lang);
+      currentLang = lang;
     }
+    document.getElementById('langSwitcher')?.addEventListener('change', (e) => applyLang(e.target.value));
+    applyLang(currentLang);
 
-    // ===== Botones =====
-    function initActions() {
-      const addrEl = document.getElementById('contractAddr');
-      document.getElementById('copyContract')?.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(addrEl.textContent.trim());
-          alert('Contrato copiado ✔');
-        } catch (e) {
-          alert('No se pudo copiar.'); 
-        }
-      });
+    // ==================== INICIALIZAR ====================
+    updateUI();
+    updateMowoChart();
 
-      document.getElementById('addToMM')?.addEventListener('click', async () => {
-        const tokenAddress = addrEl.textContent.trim();
-        try {
-          if (!window.ethereum) { alert('MetaMask no detectado.'); return; }
-          await window.ethereum.request({
-            method: 'wallet_watchAsset',
-            params: {
-              type: 'ERC20',
-              options: {
-                address: tokenAddress,
-                symbol: 'B20',
-                decimals: 18,
-                image: location.origin + '/logo.png'
-              }
-            }
-          });
-        } catch (e) {
-          console.error(e);
-          alert('No se pudo añadir a MetaMask.');
-        }
-      });
-
-      document.getElementById('downloadChart')?.addEventListener('click', () => {
-        const canvas = document.getElementById('supplyChart');
-        const link = document.createElement('a');
-        link.download = 'B20-supply.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      });
-    }
-
-    // ===== Init =====
-    (function init(){
-      initActions();
-      fetchLiveStats();
-      initLivePriceChart();
-      initMoonworldCountdown();
-      
-      const saved = localStorage.getItem('b20_lang');
-      const nav = (navigator.language || 'es').slice(0,2);
-      const initial = saved || (['es','en','fr','ru'].includes(nav) ? nav : 'es');
-      applyLang(initial);
-      document.getElementById('langSwitcher').addEventListener('change', e => applyLang(e.target.value));
-      
-      setInterval(fetchLiveStats, 30000);
-      setInterval(() => {
-        if (priceChartData.length > 0) {
-          const last = priceChartData[priceChartData.length - 1];
-          const variation = (Math.random() * 0.0002 - 0.0001);
-          const newPrice = Math.max(0.003, last + variation);
-          updatePriceChart(newPrice);
-          document.getElementById('b20Price').textContent = $${newPrice.toFixed(4)};
-        }
-      }, 10000);
-    })();
+    // Estadísticas simuladas
+    setInterval(() => {
+      const downloads = parseInt(document.getElementById('downloadCounter').innerText.replace(',', '')) || 5892;
+      document.getElementById('downloadCounter').innerText = (downloads + Math.floor(Math.random() * 5)).toLocaleString();
+    }, 30000);
   </script>
 </body>
-</html> 
+</html>
