@@ -25,6 +25,8 @@
       --solana-green: #14f195;
       --solana-purple: #9945ff;
       --solana-blue: #00c2ff;
+      --gold: #ffd700;
+      --red: #ff1e1e;
     }
 
     * {
@@ -36,8 +38,6 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(145deg, #000000 0%, #1a0033 100%);
-      margin: 0;
-      padding: 0;
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
@@ -52,6 +52,7 @@
       background:
         radial-gradient(circle at 15% 20%, rgba(255, 0, 255, 0.2) 0%, transparent 30%),
         radial-gradient(circle at 85% 75%, rgba(0, 255, 255, 0.2) 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 35%),
         repeating-linear-gradient(45deg, rgba(0,255,0,0.03) 0px, rgba(0,255,0,0.03) 2px, transparent 2px, transparent 6px);
       z-index: -1;
       pointer-events: none;
@@ -66,12 +67,6 @@
       box-shadow: 0 0 20px var(--glow-color);
       border-bottom: 4px solid transparent;
       border-image: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff00, #ff00ff) 30;
-      animation: borderGlow 8s linear infinite;
-    }
-
-    @keyframes borderGlow {
-      0% { border-image-source: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff, #00ffff); }
-      100% { border-image-source: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff, #00ffff); }
     }
 
     header img {
@@ -102,12 +97,6 @@
       border-radius: 30px;
       cursor: pointer;
       font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .language-selector select:hover {
-      background: #330044;
-      box-shadow: 0 0 15px var(--neon-green);
     }
 
     .container {
@@ -179,57 +168,75 @@
     }
 
     .card:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-6px);
       box-shadow: 0 0 35px var(--accent);
       border-color: var(--accent);
-    }
-
-    .card.moonworld-card {
-      grid-column: span 2;
     }
 
     .mega-hero-card {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255, 0, 255, 0.75);
+      border: 2px solid rgba(255, 215, 0, 0.9);
       background:
         radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.25), transparent 35%),
         radial-gradient(circle at 90% 10%, rgba(0, 255, 255, 0.22), transparent 35%),
-        radial-gradient(circle at 50% 100%, rgba(20, 241, 149, 0.18), transparent 40%),
-        linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(26, 0, 51, 0.92));
-      box-shadow: 0 0 45px rgba(255, 0, 255, 0.28), inset 0 0 28px rgba(0, 255, 255, 0.12);
-    }
-
-    .mega-hero-card::before {
-      content: "";
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(255,0,255,0.22), rgba(0,255,255,0.22), rgba(20,241,149,0.2));
-      filter: blur(14px);
-      pointer-events: none;
+        radial-gradient(circle at 50% 100%, rgba(255, 215, 0, 0.22), transparent 45%),
+        linear-gradient(145deg, rgba(0, 0, 0, 0.97), rgba(26, 0, 51, 0.92));
+      box-shadow: 0 0 55px rgba(255, 215, 0, 0.28), inset 0 0 30px rgba(0, 255, 255, 0.12);
     }
 
     .prize-badge {
       display: inline-block;
-      padding: 0.7rem 1.2rem;
+      padding: 0.75rem 1.3rem;
       border-radius: 999px;
-      background: linear-gradient(90deg, #ff00ff, #00ffff, #14f195);
+      background: linear-gradient(90deg, #ffd700, #ff00ff, #00ffff, #14f195);
       color: #000;
       font-weight: 900;
       letter-spacing: 0.5px;
       margin-bottom: 1rem;
-      box-shadow: 0 0 25px rgba(0,255,255,0.45);
+      box-shadow: 0 0 28px rgba(255, 215, 0, 0.65);
     }
 
     .big-hook-title {
-      font-size: 2.4rem;
+      font-size: 2.75rem;
       color: #ffffff;
-      text-shadow: 0 0 12px var(--highlight), 0 0 22px var(--accent);
+      text-shadow: 0 0 14px var(--gold), 0 0 25px var(--accent);
       margin-bottom: 1rem;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .million-box {
+      background: rgba(0, 0, 0, 0.72);
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 1.4rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+      text-align: center;
+    }
+
+    .million-number {
+      font-size: 3rem;
+      font-weight: 1000;
+      color: var(--gold);
+      line-height: 1;
+      text-shadow: 0 0 16px var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    .million-text {
+      font-size: 1.35rem;
+      color: #ffffff;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .green-impact {
+      font-size: 1.35rem;
+      color: #00ff00;
+      font-weight: 900;
+      text-shadow: 0 0 12px #00ff00;
     }
 
     .security-status-grid {
@@ -318,19 +325,6 @@
         radial-gradient(circle at 90% 20%, rgba(153, 69, 255, 0.24), transparent 40%),
         linear-gradient(145deg, rgba(4, 8, 18, 0.95), rgba(24, 3, 47, 0.88));
       box-shadow: 0 0 35px rgba(20, 241, 149, 0.18), inset 0 0 22px rgba(153, 69, 255, 0.12);
-    }
-
-    .solana-card::before {
-      content: "";
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(20,241,149,0.25), rgba(153,69,255,0.25));
-      filter: blur(10px);
-      pointer-events: none;
     }
 
     .solana-badge {
@@ -444,6 +438,13 @@
       box-shadow: 0 0 22px rgba(20,241,149,0.35);
     }
 
+    .btn.gold-btn {
+      background: linear-gradient(45deg, #ffd700, #ff8c00, #ff00ff);
+      color: #000000;
+      border: 1px solid #ffffff;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.45);
+    }
+
     .btn.small {
       padding: 0.4rem 1rem;
       font-size: 0.85rem;
@@ -525,12 +526,6 @@
       min-width: 250px;
       border: 1px solid var(--card-border);
       backdrop-filter: blur(4px);
-    }
-
-    .team-member:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-      box-shadow: 0 0 25px var(--accent);
     }
 
     .contact-card {
@@ -630,14 +625,14 @@
       h1 { font-size: 2.5rem; }
       h2 { font-size: 1.6rem; }
       .big-hook-title { font-size: 1.85rem; }
+      .million-number { font-size: 2.2rem; }
+      .million-text { font-size: 1.05rem; }
       .stat-value { font-size: 1.8rem; }
       .countdown { font-size: 1.5rem; }
       .language-selector { position: static; margin-bottom: 1rem; }
       .card-grid { grid-template-columns: 1fr; }
     }
   </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -665,24 +660,35 @@
 
     <div class="card mega-hero-card">
       <div class="prize-badge" data-i18n="megaBadge">
-        🏆 Gran premio global BANK2.0
+        🏆 GRAN PREMIO GLOBAL
       </div>
 
       <h2 class="big-hook-title" data-i18n="megaTitle">
-        Compite por ser el jugador número uno del mundo
+        1.000.000 DE USUARIOS, UN RANKING GLOBAL Y UN GANADOR
       </h2>
 
+      <div class="million-box">
+        <div class="million-number" data-i18n="millionNumber">1.000.000</div>
+        <div class="million-text" data-i18n="millionText">
+          Cuando WalletBank2.0 alcance un millón de usuarios, el jugador con más puntos en el ranking global podrá optar al gran premio especial del ecosistema.
+        </div>
+      </div>
+
       <p data-i18n="megaP1">
-        WalletBank2.0 no es solo una wallet. Es una plataforma crypto todo en uno donde puedes guardar activos, jugar, competir, ganar recompensas y subir en un ranking global dentro del ecosistema BANK2.0, MOWO, Polygon y Solana.
+        WalletBank2.0 nace con una misión clara: crear una competición global donde cada usuario pueda jugar, sumar puntos y luchar por estar en lo más alto del ranking mundial.
       </p>
 
       <p data-i18n="megaP2">
-        El jugador con más puntos a nivel global podrá optar al gran premio especial del ecosistema cuando se cumplan las condiciones activas dentro de la app. Cada partida suma. Cada misión cuenta. Cada usuario puede luchar por estar arriba.
+        El jugador que consiga más puntos a nivel global podrá optar al gran premio especial del ecosistema cuando se cumplan las condiciones activas dentro de la app.
+      </p>
+
+      <p class="green-impact" data-i18n="megaPExtra">
+        Cada partida cuenta. Cada punto suma. Cada día puede acercarte al puesto número uno.
       </p>
 
       <div class="info-box">
         <p data-i18n="megaP3">
-          La misión es clara: convertir WalletBank2.0 en una app donde tus tokens no estén quietos, donde tu actividad tenga valor y donde cada día puedas entrar para guardar, jugar, competir y recibir nuevas oportunidades.
+          WalletBank2.0 no es solo una wallet. Es una plataforma crypto todo en uno donde puedes guardar activos, jugar, competir, ganar recompensas y formar parte de un ecosistema con identidad propia.
         </p>
       </div>
 
@@ -748,7 +754,7 @@
       </div>
 
       <div class="inline-actions">
-        <a class="btn large pulse" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" data-i18n="megaDownloadBtn">
+        <a class="btn gold-btn large pulse" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" data-i18n="megaDownloadBtn">
           📲 Descargar WalletBank2.0
         </a>
 
@@ -960,7 +966,7 @@
 
       <div class="live-stats-grid">
         <div class="stat-card">
-          <div class="stat-label" data-i18n="priceLabel">Precio B20 (USD)</div>
+          <div class="stat-label" data-i18n="priceLabel">Precio B20</div>
           <div class="stat-value" id="b20Price">Solana</div>
         </div>
 
@@ -1056,11 +1062,15 @@
       es: {
         heroSubtitle: "Innovación blockchain impulsada desde Europa para un futuro financiero más rápido, seguro y descentralizado",
 
-        megaBadge: "🏆 Gran premio global BANK2.0",
-        megaTitle: "Compite por ser el jugador número uno del mundo",
-        megaP1: "WalletBank2.0 no es solo una wallet. Es una plataforma crypto todo en uno donde puedes guardar activos, jugar, competir, ganar recompensas y subir en un ranking global dentro del ecosistema BANK2.0, MOWO, Polygon y Solana.",
-        megaP2: "El jugador con más puntos a nivel global podrá optar al gran premio especial del ecosistema cuando se cumplan las condiciones activas dentro de la app. Cada partida suma. Cada misión cuenta. Cada usuario puede luchar por estar arriba.",
-        megaP3: "La misión es clara: convertir WalletBank2.0 en una app donde tus tokens no estén quietos, donde tu actividad tenga valor y donde cada día puedas entrar para guardar, jugar, competir y recibir nuevas oportunidades.",
+        megaBadge: "🏆 GRAN PREMIO GLOBAL",
+        megaTitle: "1.000.000 DE USUARIOS, UN RANKING GLOBAL Y UN GANADOR",
+        millionNumber: "1.000.000",
+        millionText: "Cuando WalletBank2.0 alcance un millón de usuarios, el jugador con más puntos en el ranking global podrá optar al gran premio especial del ecosistema.",
+        megaP1: "WalletBank2.0 nace con una misión clara: crear una competición global donde cada usuario pueda jugar, sumar puntos y luchar por estar en lo más alto del ranking mundial.",
+        megaP2: "El jugador que consiga más puntos a nivel global podrá optar al gran premio especial del ecosistema cuando se cumplan las condiciones activas dentro de la app.",
+        megaPExtra: "Cada partida cuenta. Cada punto suma. Cada día puede acercarte al puesto número uno.",
+        megaP3: "WalletBank2.0 no es solo una wallet. Es una plataforma crypto todo en uno donde puedes guardar activos, jugar, competir, ganar recompensas y formar parte de un ecosistema con identidad propia.",
+
         securityTitle: "🛡️ Sistema pionero de alerta visual antes del inicio de sesión",
         securityP1: "WalletBank2.0 incorpora un sistema único de colores y comprobación visual antes de introducir credenciales. La app muestra una señal clara para ayudar al usuario a identificar si el acceso parece normal, inestable o de riesgo.",
         securityGreenTitle: "Verde",
@@ -1070,6 +1080,7 @@
         securityRedTitle: "Rojo",
         securityRedDesc: "Señal de posible riesgo. Se recomienda no introducir credenciales hasta revisar la situación.",
         securityP2: "La idea es sencilla y potente: si algo no parece correcto, la app te avisa antes de que escribas tus datos.",
+
         walletPowerTitle: "🚀 WalletBank2.0: wallet, juegos, Solana y recompensas",
         powerFeature1Title: "Polygon + Solana",
         powerFeature1Desc: "El ecosistema BANK2.0 crece y se expande con soporte para Solana, además de Polygon.",
@@ -1149,7 +1160,7 @@
         metaverseCta: "¡Consigue tu parcela, tu coche y tu personaje entrando al metaverso con los premios de la tira de la suerte!",
 
         liveStatsTitle: "📊 Estadísticas BANK2.0",
-        priceLabel: "B20 Solana",
+        priceLabel: "B20",
         downloadsLabel: "Descargas App Wallet",
         holdersLabel: "Holders Mowo",
         rewardsLabel: "MOWO Entregados",
@@ -1185,6 +1196,44 @@
         contactP: "¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial.",
         foot1: "© 2026 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
         foot2: "Innovando el futuro de las finanzas descentralizadas"
+      },
+
+      en: {
+        heroSubtitle: "Blockchain innovation from Europe for a faster, safer and decentralized financial future",
+        megaBadge: "🏆 GLOBAL GRAND PRIZE",
+        megaTitle: "1,000,000 USERS, ONE GLOBAL RANKING AND ONE WINNER",
+        millionNumber: "1,000,000",
+        millionText: "When WalletBank2.0 reaches one million users, the player with the highest score in the global ranking may qualify for the ecosystem special grand prize.",
+        megaP1: "WalletBank2.0 was created with a clear mission: to build a global competition where every user can play, collect points and fight for the top of the world ranking.",
+        megaP2: "The player with the highest global score may qualify for the ecosystem special grand prize when the active conditions inside the app are met.",
+        megaPExtra: "Every match counts. Every point matters. Every day can bring you closer to number one.",
+        megaP3: "WalletBank2.0 is not just a wallet. It is an all-in-one crypto platform where you can store assets, play, compete, earn rewards and become part of a unique ecosystem.",
+
+        securityTitle: "🛡️ Pioneer visual alert system before login",
+        securityP1: "WalletBank2.0 includes a unique color and visual check system before users enter credentials. The app shows a clear signal to help users identify whether access looks normal, unstable or risky.",
+        securityGreenTitle: "Green",
+        securityGreenDesc: "Normal access. The user can continue with more confidence.",
+        securityYellowTitle: "Yellow",
+        securityYellowDesc: "Unstable connection or unusual behavior. Review before entering.",
+        securityRedTitle: "Red",
+        securityRedDesc: "Possible risk signal. Do not enter credentials until the situation is reviewed.",
+        securityP2: "The idea is simple and powerful: if something does not look right, the app warns you before you type your data.",
+
+        walletPowerTitle: "🚀 WalletBank2.0: wallet, games, Solana and rewards",
+        powerFeature1Title: "Polygon + Solana",
+        powerFeature1Desc: "The BANK2.0 ecosystem grows and expands with Solana support, alongside Polygon.",
+        powerFeature2Title: "Holding rewards",
+        powerFeature2Desc: "Users may receive rewards for holding and participating in the ecosystem, according to active rules.",
+        powerFeature3Title: "Online chess with MOWO",
+        powerFeature3Desc: "Compete online, challenge other players and use MOWO in competitive matches according to app conditions.",
+        powerFeature4Title: "Safe gift",
+        powerFeature4Desc: "The app includes MOWO and BANK2.0 gifts for participating users, depending on availability and system rules.",
+        powerFeature5Title: "Lucky Machine",
+        powerFeature5Desc: "One free spin every 24 hours, streaks, prizes and rewards inside the MOWO ecosystem.",
+        powerFeature6Title: "Global ranking",
+        powerFeature6Desc: "Climb positions, collect points and compete against users worldwide.",
+        megaDownloadBtn: "📲 Download WalletBank2.0",
+        megaSolanaBtn: "🚀 Support BANK2.0 Solana"
       }
     };
 
@@ -1276,7 +1325,9 @@
             key.includes('P1') ||
             key.includes('P2') ||
             key.includes('P3') ||
-            key.includes('P4')
+            key.includes('P4') ||
+            key.includes('PExtra') ||
+            key.includes('Text')
           ) {
             el.innerHTML = t[key];
           } else {
