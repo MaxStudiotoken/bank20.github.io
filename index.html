@@ -8,17 +8,13 @@
 
   <style>
     :root {
-      --primary: #0d0208;
-      --secondary: #1a0b2e;
       --accent: #ff00ff;
-      --accent-light: #ff66ff;
       --highlight: #00ffff;
       --neon-green: #00ff00;
       --neon-orange: #ff4500;
       --text: #e0e0e0;
       --text-bright: #ffffff;
-      --dark: #000000;
-      --card-bg: rgba(10, 2, 20, 0.85);
+      --card-bg: rgba(10, 2, 20, 0.88);
       --card-border: rgba(0, 255, 255, 0.6);
       --orange: #ffaa00;
       --glow-color: rgba(255, 0, 255, 0.7);
@@ -47,13 +43,13 @@
 
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       inset: 0;
       background:
-        radial-gradient(circle at 15% 20%, rgba(255, 0, 255, 0.2) 0%, transparent 30%),
-        radial-gradient(circle at 85% 75%, rgba(0, 255, 255, 0.2) 0%, transparent 30%),
-        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 35%),
-        repeating-linear-gradient(45deg, rgba(0,255,0,0.03) 0px, rgba(0,255,0,0.03) 2px, transparent 2px, transparent 6px);
+        radial-gradient(circle at 15% 20%, rgba(255, 0, 255, 0.22) 0%, transparent 32%),
+        radial-gradient(circle at 85% 75%, rgba(0, 255, 255, 0.22) 0%, transparent 32%),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.10) 0%, transparent 38%),
+        repeating-linear-gradient(45deg, rgba(0,255,0,0.035) 0px, rgba(0,255,0,0.035) 2px, transparent 2px, transparent 6px);
       z-index: -1;
       pointer-events: none;
     }
@@ -66,7 +62,7 @@
       position: relative;
       box-shadow: 0 0 20px var(--glow-color);
       border-bottom: 4px solid transparent;
-      border-image: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff00, #ff00ff) 30;
+      border-image: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff00, #ffd700, #ff00ff) 30;
     }
 
     header img {
@@ -111,6 +107,7 @@
       margin-bottom: 1rem;
       color: #ffffff;
       letter-spacing: 2px;
+      text-shadow: 0 0 12px var(--highlight);
     }
 
     h2 {
@@ -176,13 +173,17 @@
     .mega-hero-card {
       position: relative;
       overflow: hidden;
-      border: 2px solid rgba(255, 215, 0, 0.9);
+      text-align: center;
+      border: 2px solid rgba(255, 215, 0, 0.95);
       background:
-        radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.25), transparent 35%),
-        radial-gradient(circle at 90% 10%, rgba(0, 255, 255, 0.22), transparent 35%),
-        radial-gradient(circle at 50% 100%, rgba(255, 215, 0, 0.22), transparent 45%),
-        linear-gradient(145deg, rgba(0, 0, 0, 0.97), rgba(26, 0, 51, 0.92));
-      box-shadow: 0 0 55px rgba(255, 215, 0, 0.28), inset 0 0 30px rgba(0, 255, 255, 0.12);
+        radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.28), transparent 35%),
+        radial-gradient(circle at 90% 10%, rgba(0, 255, 255, 0.25), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(255, 215, 0, 0.28), transparent 45%),
+        linear-gradient(145deg, rgba(0, 0, 0, 0.98), rgba(26, 0, 51, 0.94));
+      box-shadow:
+        0 0 55px rgba(255, 215, 0, 0.32),
+        0 0 80px rgba(255, 0, 255, 0.18),
+        inset 0 0 35px rgba(0, 255, 255, 0.13);
     }
 
     .prize-badge {
@@ -191,45 +192,82 @@
       border-radius: 999px;
       background: linear-gradient(90deg, #ffd700, #ff00ff, #00ffff, #14f195);
       color: #000;
-      font-weight: 900;
-      letter-spacing: 0.5px;
+      font-weight: 1000;
+      letter-spacing: 0.7px;
       margin-bottom: 1rem;
       box-shadow: 0 0 28px rgba(255, 215, 0, 0.65);
+      text-transform: uppercase;
     }
 
     .big-hook-title {
-      font-size: 2.75rem;
+      font-size: clamp(2rem, 5vw, 4.2rem);
       color: #ffffff;
-      text-shadow: 0 0 14px var(--gold), 0 0 25px var(--accent);
+      text-shadow:
+        0 0 14px var(--gold),
+        0 0 25px var(--accent),
+        0 0 40px var(--highlight);
       margin-bottom: 1rem;
-      line-height: 1.15;
+      line-height: 1.08;
       text-transform: uppercase;
+      font-weight: 1000;
     }
 
     .million-box {
-      background: rgba(0, 0, 0, 0.72);
-      border: 2px solid var(--gold);
-      border-radius: 18px;
-      padding: 1.4rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+      background: rgba(0, 0, 0, 0.78);
+      border: 3px solid var(--gold);
+      border-radius: 24px;
+      padding: 1.8rem 1rem;
+      margin: 1.7rem 0;
+      box-shadow:
+        0 0 35px rgba(255, 215, 0, 0.35),
+        inset 0 0 24px rgba(255, 0, 255, 0.15);
       text-align: center;
     }
 
-    .million-number {
-      font-size: 3rem;
+    .million-super-number {
+      font-size: clamp(4.5rem, 15vw, 12rem);
       font-weight: 1000;
-      color: var(--gold);
-      line-height: 1;
-      text-shadow: 0 0 16px var(--gold);
-      margin-bottom: 0.7rem;
+      color: #ffd700;
+      line-height: 0.9;
+      letter-spacing: 2px;
+      text-shadow:
+        0 0 15px #ffd700,
+        0 0 35px #ff00ff,
+        0 0 55px #00ffff;
+      margin-bottom: 0.5rem;
+      animation: millionGlow 1.8s infinite alternate;
+    }
+
+    .million-super-title {
+      font-size: clamp(2rem, 6vw, 4.8rem);
+      font-weight: 1000;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow:
+        0 0 12px #00ffff,
+        0 0 25px #ff00ff;
+      margin-bottom: 1.2rem;
     }
 
     .million-text {
-      font-size: 1.35rem;
+      max-width: 950px;
+      margin: 0 auto;
+      font-size: clamp(1.15rem, 2.6vw, 1.75rem);
       color: #ffffff;
-      font-weight: 800;
-      text-transform: uppercase;
+      font-weight: 850;
+      text-shadow: 0 0 10px rgba(0,255,255,0.45);
+    }
+
+    @keyframes millionGlow {
+      from {
+        transform: scale(1);
+        filter: brightness(1);
+      }
+      to {
+        transform: scale(1.04);
+        filter: brightness(1.35);
+      }
     }
 
     .green-impact {
@@ -244,6 +282,7 @@
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 1rem;
       margin: 1.4rem 0;
+      text-align: left;
     }
 
     .security-status {
@@ -296,6 +335,7 @@
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1rem;
       margin: 1.5rem 0;
+      text-align: left;
     }
 
     .wallet-feature-box {
@@ -461,6 +501,7 @@
       flex-wrap: wrap;
       margin-top: 0.8rem;
       align-items: center;
+      justify-content: center;
     }
 
     .img-container {
@@ -611,6 +652,7 @@
       padding: 1rem;
       margin: 1rem 0;
       border-radius: 8px;
+      text-align: left;
     }
 
     .feature-icon {
@@ -621,12 +663,11 @@
     @media (max-width: 768px) {
       .container { padding: 0.5rem; }
       .card { padding: 1.5rem; }
-      .card.moonworld-card { grid-column: span 1; }
       h1 { font-size: 2.5rem; }
       h2 { font-size: 1.6rem; }
-      .big-hook-title { font-size: 1.85rem; }
-      .million-number { font-size: 2.2rem; }
-      .million-text { font-size: 1.05rem; }
+      .big-hook-title { font-size: 1.9rem; }
+      .million-super-number { font-size: clamp(4rem, 20vw, 6rem); }
+      .million-super-title { font-size: clamp(1.7rem, 9vw, 3rem); }
       .stat-value { font-size: 1.8rem; }
       .countdown { font-size: 1.5rem; }
       .language-selector { position: static; margin-bottom: 1rem; }
@@ -641,9 +682,6 @@
       <select id="langSwitcher">
         <option value="es">🌐 Español</option>
         <option value="en">🇬🇧 English</option>
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="pt">🇵🇹 Português</option>
       </select>
     </div>
 
@@ -660,17 +698,22 @@
 
     <div class="card mega-hero-card">
       <div class="prize-badge" data-i18n="megaBadge">
-        🏆 GRAN PREMIO GLOBAL
+        🏆 PREMIO GLOBAL BANK2.0
       </div>
 
       <h2 class="big-hook-title" data-i18n="megaTitle">
-        1.000.000 DE USUARIOS, UN RANKING GLOBAL Y UN GANADOR
+        UN RANKING GLOBAL, MILLONES DE PUNTOS Y UN GRAN PREMIO
       </h2>
 
       <div class="million-box">
-        <div class="million-number" data-i18n="millionNumber">1.000.000</div>
+        <div class="million-super-number" data-i18n="millionNumber">1.000.000</div>
+
+        <div class="million-super-title" data-i18n="millionTitle">
+          MOWO DE PREMIO GLOBAL
+        </div>
+
         <div class="million-text" data-i18n="millionText">
-          Cuando WalletBank2.0 alcance un millón de usuarios, el jugador con más puntos en el ranking global podrá optar al gran premio especial del ecosistema.
+          El jugador con más puntos en el ranking global podrá optar al gran premio especial de 1.000.000 MOWO, según las condiciones activas dentro de la app.
         </div>
       </div>
 
@@ -679,7 +722,7 @@
       </p>
 
       <p data-i18n="megaP2">
-        El jugador que consiga más puntos a nivel global podrá optar al gran premio especial del ecosistema cuando se cumplan las condiciones activas dentro de la app.
+        El jugador que consiga más puntos a nivel global podrá optar al gran premio especial de 1.000.000 MOWO cuando se cumplan las condiciones activas dentro de la app.
       </p>
 
       <p class="green-impact" data-i18n="megaPExtra">
@@ -875,7 +918,7 @@
 
         <p style="color: #ccc;" data-i18n="moonworldCountdownLabel">Tiempo restante para el lanzamiento (3 meses reales)</p>
 
-        <div class="inline-actions" style="justify-content: center;">
+        <div class="inline-actions">
           <a class="btn large pulse" href="https://maxstudiotoken.github.io/MoonWorld/" target="_blank" data-i18n="moonworldButton">🌙 Explorar MoonWorld</a>
         </div>
       </div>
@@ -901,7 +944,7 @@
           <p>
             <span class="feature-icon">📤</span>
             <strong data-i18n="walletFeature3">Enviar 10 NFTs → Ganar 25 MOWO</strong><br>
-            <span data-i18n="walletFeature3Desc">Por cada 10 NFTs que envíes a tu wallet, recibirás 25 MOWO como recompensa.</span>
+            <span data-i18n="walletFeature3Desc">Por cada 10 NFTs que envíes a tu wallet, recibirás 25 MOWO como recompensa según reglas activas.</span>
           </p>
         </div>
 
@@ -966,7 +1009,7 @@
 
       <div class="live-stats-grid">
         <div class="stat-card">
-          <div class="stat-label" data-i18n="priceLabel">Precio B20</div>
+          <div class="stat-label" data-i18n="priceLabel">B20</div>
           <div class="stat-value" id="b20Price">Solana</div>
         </div>
 
@@ -994,7 +1037,7 @@
         <li><strong data-i18n="td1Label">Red Blockchain:</strong> <span data-i18n="td1Value">Polygon y transición hacia Solana</span></li>
         <li><strong data-i18n="td2Label">Dirección del Contrato B20 Polygon:</strong> <code class="kbd" id="contractAddr">0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code></li>
         <li><strong data-i18n="td3Label">Decimales:</strong> <span data-i18n="td3Value">18</span></li>
-        <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20 (fijo, sin inflación)</span></li>
+        <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20 fijo, sin inflación</span></li>
       </ul>
 
       <div class="inline-actions">
@@ -1004,7 +1047,7 @@
     </div>
 
     <div class="card">
-      <h2 data-i18n="buyTitle">Adquirir BANK2.0 (B20)</h2>
+      <h2 data-i18n="buyTitle">Adquirir BANK2.0 B20</h2>
 
       <p data-i18n="buyP1">Puedes apoyar la nueva etapa de BANK2.0 en Solana desde Pump.fun, y también consultar el token histórico B20 en Polygon.</p>
 
@@ -1053,7 +1096,7 @@
   <footer>
     <img src="logo.png" alt="BANK20 logo" class="footer-logo">
 
-    <p data-i18n="foot1">© 2026 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.</p>
+    <p data-i18n="foot1">© 2026 BANK2.0 B20 - Proyecto Blockchain. Todos los derechos reservados.</p>
     <p data-i18n="foot2">Innovando el futuro de las finanzas descentralizadas</p>
   </footer>
 
@@ -1062,12 +1105,13 @@
       es: {
         heroSubtitle: "Innovación blockchain impulsada desde Europa para un futuro financiero más rápido, seguro y descentralizado",
 
-        megaBadge: "🏆 GRAN PREMIO GLOBAL",
-        megaTitle: "1.000.000 DE USUARIOS, UN RANKING GLOBAL Y UN GANADOR",
+        megaBadge: "🏆 PREMIO GLOBAL BANK2.0",
+        megaTitle: "UN RANKING GLOBAL, MILLONES DE PUNTOS Y UN GRAN PREMIO",
         millionNumber: "1.000.000",
-        millionText: "Cuando WalletBank2.0 alcance un millón de usuarios, el jugador con más puntos en el ranking global podrá optar al gran premio especial del ecosistema.",
+        millionTitle: "MOWO DE PREMIO GLOBAL",
+        millionText: "El jugador con más puntos en el ranking global podrá optar al gran premio especial de 1.000.000 MOWO, según las condiciones activas dentro de la app.",
         megaP1: "WalletBank2.0 nace con una misión clara: crear una competición global donde cada usuario pueda jugar, sumar puntos y luchar por estar en lo más alto del ranking mundial.",
-        megaP2: "El jugador que consiga más puntos a nivel global podrá optar al gran premio especial del ecosistema cuando se cumplan las condiciones activas dentro de la app.",
+        megaP2: "El jugador que consiga más puntos a nivel global podrá optar al gran premio especial de 1.000.000 MOWO cuando se cumplan las condiciones activas dentro de la app.",
         megaPExtra: "Cada partida cuenta. Cada punto suma. Cada día puede acercarte al puesto número uno.",
         megaP3: "WalletBank2.0 no es solo una wallet. Es una plataforma crypto todo en uno donde puedes guardar activos, jugar, competir, ganar recompensas y formar parte de un ecosistema con identidad propia.",
 
@@ -1098,7 +1142,7 @@
         megaSolanaBtn: "🚀 Apoyar BANK2.0 Solana",
 
         whatTitle: "¿Qué es BANK2.0?",
-        whatP1: "BANK2.0 (B20) no es solo un token. Es una visión de nueva economía digital: una forma de avanzar hacia un sistema más libre, más transparente y más accesible para todos.",
+        whatP1: "BANK2.0 B20 no es solo un token. Es una visión de nueva economía digital: una forma de avanzar hacia un sistema más libre, más transparente y más accesible para todos.",
         whatP2: "BANK2.0 nace para impulsar una comunidad que cree en el progreso, en la propiedad real de los activos y en una wallet donde el usuario pueda guardar, mover y utilizar sus activos Web3 con mayor independencia.",
 
         solanaBadge: "BANK2.0 entra en Solana",
@@ -1130,7 +1174,7 @@
         moonworldFeature3: "👤 Crear tu personaje personalizable",
         moonworldFeature4: "🎮 Jugar misiones y ganar hasta 100 MOWO",
         moonworldStatus: "🚧 La app está en construcción, pero pronto tendremos noticias emocionantes.",
-        moonworldCountdownLabel: "Tiempo restante para el lanzamiento (3 meses reales)",
+        moonworldCountdownLabel: "Tiempo restante para el lanzamiento",
         moonworldButton: "🌙 Explorar MoonWorld",
 
         bankTitle: "🏦 Wallet BANK2.0 - Bodega NFT",
@@ -1142,7 +1186,7 @@
         walletFeature3Desc: "Por cada 10 NFTs que envíes a tu wallet, recibirás 25 MOWO como recompensa según reglas activas.",
         btnDownloadApp: "📲 Descargar Wallet BANK2.0",
 
-        lotteryTitle: "🎲 Tira de la Suerte (Cada 24h)",
+        lotteryTitle: "🎲 Tira de la Suerte cada 24h",
         lotteryFeature1: "Sorteo diario",
         lotteryFeature1Desc: "Cada 24 horas puedes tirar de la suerte y recibir una recompensa según las reglas activas del sistema.",
         lotteryFeature2: "Premios disponibles:",
@@ -1172,11 +1216,11 @@
         td3Label: "Decimales:",
         td3Value: "18",
         td4Label: "Suministro Total:",
-        td4Value: "1,000,000,000 B20 (fijo, sin inflación)",
+        td4Value: "1,000,000,000 B20 fijo, sin inflación",
         btnCopyB20: "Copiar B20",
         btnAddMM: "Añadir a MetaMask",
 
-        buyTitle: "Adquirir BANK2.0 (B20)",
+        buyTitle: "Adquirir BANK2.0 B20",
         buyP1: "Puedes apoyar la nueva etapa de BANK2.0 en Solana desde Pump.fun, y también consultar el token histórico B20 en Polygon.",
         btnBuySolana: "Comprar BANK2.0 Solana",
         btnBuyPolygon: "Ver B20 Polygon",
@@ -1194,18 +1238,20 @@
 
         contactTitle: "Contacto",
         contactP: "¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial.",
-        foot1: "© 2026 BANK2.0 (B20) - Proyecto Blockchain. Todos los derechos reservados.",
+        foot1: "© 2026 BANK2.0 B20 - Proyecto Blockchain. Todos los derechos reservados.",
         foot2: "Innovando el futuro de las finanzas descentralizadas"
       },
 
       en: {
         heroSubtitle: "Blockchain innovation from Europe for a faster, safer and decentralized financial future",
-        megaBadge: "🏆 GLOBAL GRAND PRIZE",
-        megaTitle: "1,000,000 USERS, ONE GLOBAL RANKING AND ONE WINNER",
+
+        megaBadge: "🏆 BANK2.0 GLOBAL PRIZE",
+        megaTitle: "ONE GLOBAL RANKING, MILLIONS OF POINTS AND ONE GRAND PRIZE",
         millionNumber: "1,000,000",
-        millionText: "When WalletBank2.0 reaches one million users, the player with the highest score in the global ranking may qualify for the ecosystem special grand prize.",
+        millionTitle: "MOWO GLOBAL PRIZE",
+        millionText: "The player with the highest score in the global ranking may qualify for the special grand prize of 1,000,000 MOWO, according to the active conditions inside the app.",
         megaP1: "WalletBank2.0 was created with a clear mission: to build a global competition where every user can play, collect points and fight for the top of the world ranking.",
-        megaP2: "The player with the highest global score may qualify for the ecosystem special grand prize when the active conditions inside the app are met.",
+        megaP2: "The player with the highest global score may qualify for the special grand prize of 1,000,000 MOWO when the active conditions inside the app are met.",
         megaPExtra: "Every match counts. Every point matters. Every day can bring you closer to number one.",
         megaP3: "WalletBank2.0 is not just a wallet. It is an all-in-one crypto platform where you can store assets, play, compete, earn rewards and become part of a unique ecosystem.",
 
