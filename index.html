@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BANK2.0 (B20) - MoonWorld con Mowo</title>
+  <title>BANK2.0 (B20) - Wallet, Polygon, Solana</title>
   <link rel="icon" href="logo.png">
 
   <style>
     :root {
       --accent: #ff00ff;
       --highlight: #00ffff;
-      --neon-green: #00ff00;
+      --neon-green: #00ff88;
       --neon-orange: #ff4500;
       --text: #e0e0e0;
       --text-bright: #ffffff;
       --card-bg: rgba(10, 2, 20, 0.88);
-      --card-border: rgba(0, 255, 255, 0.6);
+      --card-border: rgba(0, 255, 255, 0.45);
       --orange: #ffaa00;
       --glow-color: rgba(255, 0, 255, 0.7);
       --solana-green: #14f195;
       --solana-purple: #9945ff;
       --solana-blue: #00c2ff;
       --gold: #ffd700;
-      --red: #ff1e1e;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -49,90 +52,9 @@
         radial-gradient(circle at 15% 20%, rgba(255, 0, 255, 0.22) 0%, transparent 32%),
         radial-gradient(circle at 85% 75%, rgba(0, 255, 255, 0.22) 0%, transparent 32%),
         radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.10) 0%, transparent 38%),
-        repeating-linear-gradient(45deg, rgba(0,255,0,0.035) 0px, rgba(0,255,0,0.035) 2px, transparent 2px, transparent 6px);
+        repeating-linear-gradient(45deg, rgba(0,255,0,0.03) 0px, rgba(0,255,0,0.03) 2px, transparent 2px, transparent 6px);
       z-index: -1;
       pointer-events: none;
-    }
-
-    header {
-      background: linear-gradient(to right, #000000, #120015);
-      color: var(--text-bright);
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      box-shadow: 0 0 20px var(--glow-color);
-      border-bottom: 4px solid transparent;
-      border-image: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff00, #ffd700, #ff00ff) 30;
-    }
-
-    header img {
-      width: 150px;
-      height: auto;
-      margin: 0 auto 1rem;
-      display: block;
-      filter: drop-shadow(0 0 15px var(--neon-green));
-      transition: transform 0.3s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.05);
-    }
-
-    .language-selector {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 10;
-    }
-
-    .language-selector select {
-      padding: 0.5rem 1rem;
-      background: #220033;
-      color: var(--neon-green);
-      border: 1px solid var(--highlight);
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1rem;
-      position: relative;
-    }
-
-    h1 {
-      font-size: 3.2rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-      letter-spacing: 2px;
-      text-shadow: 0 0 12px var(--highlight);
-    }
-
-    h2 {
-      font-size: 1.9rem;
-      margin-bottom: 1.5rem;
-      color: var(--highlight);
-      position: relative;
-      padding-bottom: 0.5rem;
-      text-shadow: 0 0 8px var(--highlight);
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to right, var(--accent), var(--neon-green));
-      border-radius: 4px;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
     }
 
     a {
@@ -146,47 +68,142 @@
       text-shadow: 0 0 8px var(--neon-green);
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    header {
+      background: linear-gradient(to right, #000000, #120015);
+      color: var(--text-bright);
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px var(--glow-color);
+      border-bottom: 3px solid transparent;
+      border-image: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #00ff88, #ffd700, #ff00ff) 30;
+    }
+
+    .header-top {
+      max-width: 1200px;
+      margin: 0 auto 1rem;
+      position: relative;
+    }
+
+    header img {
+      width: 130px;
+      height: auto;
+      margin: 0 auto 1rem;
+      display: block;
+      filter: drop-shadow(0 0 15px var(--neon-green));
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    .language-selector {
+      position: absolute;
+      top: 0.5rem;
+      right: 0;
+      z-index: 10;
+    }
+
+    .language-selector select {
+      padding: 0.55rem 1rem;
+      background: #220033;
+      color: var(--neon-green);
+      border: 1px solid var(--highlight);
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.7rem;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 12px var(--highlight);
+    }
+
+    .hero-subtitle {
+      color: #cfcfcf;
+      text-shadow: 0 0 5px cyan;
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .tab-nav {
+      max-width: 1200px;
+      margin: 1.5rem auto 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab-btn {
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--text-bright);
+      border: 1px solid rgba(0,255,255,0.4);
+      border-radius: 999px;
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(0,255,255,0.08);
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: linear-gradient(45deg, var(--accent), var(--highlight));
+      color: #000;
+      border-color: #fff;
+      box-shadow: 0 0 18px var(--highlight);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
     }
 
     .card {
       background: var(--card-bg);
-      border-radius: 15px;
+      border-radius: 18px;
       padding: 2rem;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.14);
       margin-bottom: 2rem;
       border: 1px solid var(--card-border);
-      transition: all 0.4s ease;
+      transition: all 0.35s ease;
       backdrop-filter: blur(2px);
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 35px var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.22);
       border-color: var(--accent);
     }
 
-    .mega-hero-card {
+    .hero-card {
       position: relative;
       overflow: hidden;
       text-align: center;
-      border: 2px solid rgba(255, 215, 0, 0.95);
+      border: 2px solid rgba(255, 215, 0, 0.55);
       background:
-        radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.28), transparent 35%),
-        radial-gradient(circle at 90% 10%, rgba(0, 255, 255, 0.25), transparent 35%),
-        radial-gradient(circle at 50% 100%, rgba(255, 215, 0, 0.28), transparent 45%),
+        radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.24), transparent 35%),
+        radial-gradient(circle at 90% 10%, rgba(0, 255, 255, 0.20), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(255, 215, 0, 0.18), transparent 45%),
         linear-gradient(145deg, rgba(0, 0, 0, 0.98), rgba(26, 0, 51, 0.94));
       box-shadow:
-        0 0 55px rgba(255, 215, 0, 0.32),
-        0 0 80px rgba(255, 0, 255, 0.18),
-        inset 0 0 35px rgba(0, 255, 255, 0.13);
+        0 0 55px rgba(255, 215, 0, 0.18),
+        0 0 80px rgba(255, 0, 255, 0.10),
+        inset 0 0 35px rgba(0, 255, 255, 0.08);
     }
 
-    .prize-badge {
+    .badge {
       display: inline-block;
       padding: 0.75rem 1.3rem;
       border-radius: 999px;
@@ -195,176 +212,134 @@
       font-weight: 1000;
       letter-spacing: 0.7px;
       margin-bottom: 1rem;
-      box-shadow: 0 0 28px rgba(255, 215, 0, 0.65);
+      box-shadow: 0 0 28px rgba(255, 215, 0, 0.35);
       text-transform: uppercase;
     }
 
-    .big-hook-title {
-      font-size: clamp(2rem, 5vw, 4.2rem);
+    .big-title {
+      font-size: clamp(2rem, 4vw, 4rem);
       color: #ffffff;
-      text-shadow:
-        0 0 14px var(--gold),
-        0 0 25px var(--accent),
-        0 0 40px var(--highlight);
+      text-shadow: 0 0 14px var(--gold), 0 0 25px var(--accent), 0 0 40px var(--highlight);
       margin-bottom: 1rem;
       line-height: 1.08;
       text-transform: uppercase;
       font-weight: 1000;
     }
 
-    .million-box {
-      background: rgba(0, 0, 0, 0.78);
-      border: 3px solid var(--gold);
-      border-radius: 24px;
-      padding: 1.8rem 1rem;
-      margin: 1.7rem 0;
-      box-shadow:
-        0 0 35px rgba(255, 215, 0, 0.35),
-        inset 0 0 24px rgba(255, 0, 255, 0.15);
-      text-align: center;
-    }
-
-    .million-super-number {
-      font-size: clamp(4.5rem, 15vw, 12rem);
-      font-weight: 1000;
-      color: #ffd700;
-      line-height: 0.9;
-      letter-spacing: 2px;
-      text-shadow:
-        0 0 15px #ffd700,
-        0 0 35px #ff00ff,
-        0 0 55px #00ffff;
-      margin-bottom: 0.5rem;
-      animation: millionGlow 1.8s infinite alternate;
-    }
-
-    .million-super-title {
-      font-size: clamp(2rem, 6vw, 4.8rem);
-      font-weight: 1000;
-      color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      text-shadow:
-        0 0 12px #00ffff,
-        0 0 25px #ff00ff;
+    .section-title {
+      font-size: 1.9rem;
       margin-bottom: 1.2rem;
+      color: var(--highlight);
+      position: relative;
+      padding-bottom: 0.5rem;
+      text-shadow: 0 0 8px var(--highlight);
     }
 
-    .million-text {
-      max-width: 950px;
-      margin: 0 auto;
-      font-size: clamp(1.15rem, 2.6vw, 1.75rem);
-      color: #ffffff;
-      font-weight: 850;
-      text-shadow: 0 0 10px rgba(0,255,255,0.45);
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, var(--accent), var(--neon-green));
+      border-radius: 4px;
     }
 
-    @keyframes millionGlow {
-      from {
-        transform: scale(1);
-        filter: brightness(1);
-      }
-      to {
-        transform: scale(1.04);
-        filter: brightness(1.35);
-      }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.08rem;
     }
 
-    .green-impact {
-      font-size: 1.35rem;
-      color: #00ff00;
+    .highlight-line {
+      font-size: 1.18rem;
+      color: var(--neon-green);
       font-weight: 900;
-      text-shadow: 0 0 12px #00ff00;
+      text-shadow: 0 0 10px rgba(0,255,136,0.6);
     }
 
-    .security-status-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1rem;
-      margin: 1.4rem 0;
-      text-align: left;
-    }
-
-    .security-status {
-      padding: 1rem;
-      border-radius: 14px;
-      background: rgba(0,0,0,0.58);
-      border: 1px solid rgba(255,255,255,0.16);
-    }
-
-    .security-status.green {
-      border-color: rgba(0,255,0,0.75);
-      box-shadow: 0 0 18px rgba(0,255,0,0.18);
-    }
-
-    .security-status.yellow {
-      border-color: rgba(255,170,0,0.85);
-      box-shadow: 0 0 18px rgba(255,170,0,0.18);
-    }
-
-    .security-status.red {
-      border-color: rgba(255,30,30,0.9);
-      box-shadow: 0 0 18px rgba(255,30,30,0.22);
-    }
-
-    .status-dot {
-      display: inline-block;
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
-
-    .status-dot.green {
-      background: #00ff00;
-      box-shadow: 0 0 12px #00ff00;
-    }
-
-    .status-dot.yellow {
-      background: #ffaa00;
-      box-shadow: 0 0 12px #ffaa00;
-    }
-
-    .status-dot.red {
-      background: #ff1e1e;
-      box-shadow: 0 0 12px #ff1e1e;
-    }
-
-    .wallet-feature-grid {
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1rem;
-      margin: 1.5rem 0;
-      text-align: left;
+      margin: 1.4rem 0;
     }
 
-    .wallet-feature-box {
-      background: rgba(0,0,0,0.52);
-      border: 1px solid rgba(0,255,255,0.45);
+    .feature-box {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(0,255,255,0.35);
       border-radius: 14px;
       padding: 1rem;
       transition: all 0.3s ease;
     }
 
-    .wallet-feature-box:hover {
+    .feature-box:hover {
       transform: translateY(-4px);
       border-color: var(--neon-green);
-      box-shadow: 0 0 22px rgba(0,255,0,0.18);
+      box-shadow: 0 0 18px rgba(0,255,136,0.16);
     }
 
-    .wallet-feature-box strong {
+    .feature-box strong {
       color: var(--highlight);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .prize-box {
+      background: rgba(0, 0, 0, 0.78);
+      border: 3px solid var(--gold);
+      border-radius: 24px;
+      padding: 1.8rem 1rem;
+      margin: 1.7rem 0;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.2), inset 0 0 24px rgba(255, 0, 255, 0.08);
+      text-align: center;
+    }
+
+    .prize-number {
+      font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 1000;
+      color: #ffd700;
+      line-height: 0.9;
+      text-shadow: 0 0 15px #ffd700, 0 0 35px #ff00ff, 0 0 55px #00ffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .prize-title {
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 1000;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 12px #00ffff, 0 0 25px #ff00ff;
+      margin-bottom: 0.8rem;
+    }
+
+    .code-box,
+    .info-box {
+      background: rgba(0,0,0,0.5);
+      border-left: 4px solid var(--neon-green);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .code-box code {
+      display: block;
+      word-break: break-all;
+      font-family: monospace;
+      background: #000;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 0.75rem;
     }
 
     .solana-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(20, 241, 149, 0.75);
+      border: 1px solid rgba(20, 241, 149, 0.7);
       background:
-        radial-gradient(circle at 10% 10%, rgba(20, 241, 149, 0.18), transparent 35%),
-        radial-gradient(circle at 90% 20%, rgba(153, 69, 255, 0.24), transparent 40%),
+        radial-gradient(circle at 10% 10%, rgba(20, 241, 149, 0.14), transparent 35%),
+        radial-gradient(circle at 90% 20%, rgba(153, 69, 255, 0.2), transparent 40%),
         linear-gradient(145deg, rgba(4, 8, 18, 0.95), rgba(24, 3, 47, 0.88));
-      box-shadow: 0 0 35px rgba(20, 241, 149, 0.18), inset 0 0 22px rgba(153, 69, 255, 0.12);
+      box-shadow: 0 0 30px rgba(20, 241, 149, 0.12), inset 0 0 22px rgba(153, 69, 255, 0.08);
     }
 
     .solana-badge {
@@ -379,79 +354,26 @@
       font-weight: 800;
       letter-spacing: 0.5px;
       margin-bottom: 1rem;
-      box-shadow: 0 0 18px rgba(20, 241, 149, 0.25);
+      box-shadow: 0 0 18px rgba(20, 241, 149, 0.18);
     }
 
-    .solana-lines {
-      width: 28px;
-      height: 22px;
-      display: inline-block;
-      position: relative;
-    }
-
-    .solana-lines span {
-      position: absolute;
-      left: 0;
-      width: 28px;
-      height: 5px;
-      border-radius: 8px;
-      transform: skewX(-18deg);
-      background: linear-gradient(90deg, var(--solana-green), var(--solana-blue), var(--solana-purple));
-      box-shadow: 0 0 8px rgba(20,241,149,0.7);
-    }
-
-    .solana-lines span:nth-child(1) { top: 0; }
-    .solana-lines span:nth-child(2) { top: 8px; }
-    .solana-lines span:nth-child(3) { top: 16px; }
-
-    .timeline-box {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .timeline-item {
-      background: rgba(0,0,0,0.48);
-      border: 1px solid rgba(0,255,255,0.45);
-      border-radius: 12px;
-      padding: 1rem;
-    }
-
-    .timeline-date {
-      color: var(--solana-green);
-      font-weight: 900;
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-    }
-
-    .warning-soft {
-      padding: 1rem;
-      border-radius: 12px;
-      background: rgba(255, 170, 0, 0.08);
-      border-left: 4px solid var(--orange);
-      color: #f2f2f2;
-      margin: 1.2rem 0;
-    }
-
-    .solana-contract-box {
-      background: rgba(0,0,0,0.62);
-      border: 1px solid rgba(20,241,149,0.6);
-      border-radius: 12px;
-      padding: 1rem;
-      margin: 1rem 0;
+    .inline-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      align-items: center;
     }
 
     .btn {
       background: linear-gradient(45deg, var(--accent), var(--highlight));
       color: black;
-      padding: 0.8rem 1.8rem;
+      padding: 0.8rem 1.6rem;
       border: none;
       border-radius: 50px;
       font-size: 1rem;
       font-weight: bold;
       display: inline-block;
-      margin-top: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 0 15px var(--glow-color);
@@ -461,7 +383,7 @@
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 30px var(--neon-green);
+      box-shadow: 0 0 25px var(--neon-green);
       background: linear-gradient(45deg, var(--highlight), var(--neon-green));
     }
 
@@ -475,103 +397,28 @@
       background: linear-gradient(45deg, var(--solana-green), var(--solana-blue), var(--solana-purple));
       color: #050505;
       border: 1px solid #ffffff;
-      box-shadow: 0 0 22px rgba(20,241,149,0.35);
+      box-shadow: 0 0 22px rgba(20,241,149,0.25);
     }
 
     .btn.gold-btn {
       background: linear-gradient(45deg, #ffd700, #ff8c00, #ff00ff);
       color: #000000;
       border: 1px solid #ffffff;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.45);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
     }
 
-    .btn.small {
-      padding: 0.4rem 1rem;
-      font-size: 0.85rem;
+    .tab-panel {
+      display: none;
     }
 
-    .btn.large {
-      padding: 1rem 2.5rem;
-      font-size: 1.3rem;
-    }
-
-    .inline-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 0.8rem;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .img-container {
-      text-align: center;
-      margin: 2rem 0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-      border: 1px solid var(--card-border);
-    }
-
-    .img-container img {
-      max-width: 100%;
-      height: auto;
+    .tab-panel.active {
       display: block;
-      transition: transform 0.5s ease;
+      animation: fadeIn 0.25s ease;
     }
 
-    .img-container:hover img {
-      transform: scale(1.05);
-    }
-
-    ul {
-      padding-left: 1.5rem;
-      margin: 1rem 0;
-    }
-
-    li {
-      margin-bottom: 0.8rem;
-      list-style: none;
-    }
-
-    li::before {
-      content: "►";
-      color: var(--neon-green);
-      font-weight: bold;
-      display: inline-block;
-      width: 1.2em;
-      margin-left: -1.2em;
-    }
-
-    code.kbd {
-      background: #1a002a;
-      padding: .2rem .5rem;
-      border-radius: .4rem;
-      border: 1px solid var(--highlight);
-      color: var(--neon-green);
-      font-family: monospace;
-    }
-
-    .team-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .team-member {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1.2rem;
-      border-radius: 10px;
-      flex: 1;
-      min-width: 250px;
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(4px);
-    }
-
-    .contact-card {
-      text-align: center;
-      padding: 2rem;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     footer {
@@ -583,822 +430,583 @@
     }
 
     .footer-logo {
-      width: 100px;
+      width: 90px;
       margin-bottom: 1rem;
       opacity: 0.9;
       filter: drop-shadow(0 0 8px cyan);
     }
 
-    .live-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .stat-card {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid var(--neon-green);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      backdrop-filter: blur(4px);
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      text-transform: uppercase;
-      color: var(--highlight);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-value {
-      font-size: 2.2rem;
-      font-weight: bold;
-      color: var(--neon-green);
-      text-shadow: 0 0 10px var(--neon-green);
-      font-family: 'Courier New', monospace;
-    }
-
-    .live-chart-container {
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--highlight);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .countdown {
-      font-size: 2.5rem;
-      text-align: center;
-      font-family: monospace;
-      color: var(--neon-green);
-      margin: 1rem 0;
-    }
-
-    .pulse {
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
-      70% { box-shadow: 0 0 0 20px rgba(0, 255, 0, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
-    }
-
-    .info-box {
-      background: rgba(0,0,0,0.5);
-      border-left: 4px solid var(--neon-green);
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      text-align: left;
-    }
-
-    .feature-icon {
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-    }
-
     @media (max-width: 768px) {
-      .container { padding: 0.5rem; }
-      .card { padding: 1.5rem; }
-      h1 { font-size: 2.5rem; }
-      h2 { font-size: 1.6rem; }
-      .big-hook-title { font-size: 1.9rem; }
-      .million-super-number { font-size: clamp(4rem, 20vw, 6rem); }
-      .million-super-title { font-size: clamp(1.7rem, 9vw, 3rem); }
-      .stat-value { font-size: 1.8rem; }
-      .countdown { font-size: 1.5rem; }
-      .language-selector { position: static; margin-bottom: 1rem; }
-      .card-grid { grid-template-columns: 1fr; }
+      header {
+        position: relative;
+      }
+
+      .language-selector {
+        position: static;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .container {
+        padding: 0.7rem;
+      }
+
+      .card {
+        padding: 1.4rem;
+      }
+
+      .tab-nav {
+        justify-content: center;
+      }
+
+      .tab-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <div class="language-selector">
-      <select id="langSwitcher">
-        <option value="es">🌐 Español</option>
-        <option value="en">🇬🇧 English</option>
-      </select>
+    <div class="header-top">
+      <div class="language-selector">
+        <select id="langSwitcher">
+          <option value="es">🌐 Español</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </div>
+
+      <img src="logo.png" alt="BANK2.0 logo">
+      <h1>BANK2.0 (B20)</h1>
+      <p class="hero-subtitle" data-i18n="heroSubtitle">
+        Innovación, privacidad, discreción y una nueva identidad financiera.
+      </p>
     </div>
 
-    <img src="logo.png" alt="BANK20 logo">
-
-    <h1>BANK2.0 (B20)</h1>
-
-    <p data-i18n="heroSubtitle" style="color: #aaa; text-shadow: 0 0 5px cyan;">
-      Innovación blockchain impulsada desde Europa para un futuro financiero más rápido, seguro y descentralizado
-    </p>
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="wallet" data-i18n="tabWallet">Wallet</button>
+      <button class="tab-btn" data-tab="polygon" data-i18n="tabPolygon">Bank 2.0 Polygon</button>
+      <button class="tab-btn" data-tab="solana" data-i18n="tabSolana">Bank 2.0 Solana</button>
+      <button class="tab-btn" data-tab="reward" data-i18n="tabReward">Premio Global</button>
+      <button class="tab-btn" data-tab="contract" data-i18n="tabContract">Contrato</button>
+      <button class="tab-btn" data-tab="privacy" data-i18n="tabPrivacy">Privacidad</button>
+    </nav>
   </header>
 
   <div class="container">
-
-    <div class="card mega-hero-card">
-      <div class="prize-badge" data-i18n="megaBadge">
-        🏆 PREMIO GLOBAL BANK2.0
-      </div>
-
-      <h2 class="big-hook-title" data-i18n="megaTitle">
-        UN RANKING GLOBAL, MILLONES DE PUNTOS Y UN GRAN PREMIO
-      </h2>
-
-      <div class="million-box">
-        <div class="million-super-number" data-i18n="millionNumber">1.000.000</div>
-
-        <div class="million-super-title" data-i18n="millionTitle">
-          MOWO DE PREMIO GLOBAL
-        </div>
-
-        <div class="million-text" data-i18n="millionText">
-          El jugador con más puntos en el ranking global podrá optar al gran premio especial de 1.000.000 MOWO, según las condiciones activas dentro de la app.
-        </div>
-      </div>
-
-      <p data-i18n="megaP1">
-        WalletBank2.0 nace con una misión clara: crear una competición global donde cada usuario pueda jugar, sumar puntos y luchar por estar en lo más alto del ranking mundial.
+    <div class="card hero-card">
+      <div class="badge" data-i18n="heroBadge">BANK2.0 · BANCO CRIPTO PRIVADO</div>
+      <h2 class="big-title" data-i18n="heroTitle">UN BANCO DE CRIPTOMONEDAS TOTALMENTE NUEVO Y EXCLUSIVO</h2>
+      <p data-i18n="heroText">
+        BANK2.0 nace como una nueva generación de banca cripto donde la privacidad, la velocidad, las transferencias a bajo coste y la discreción son lo primordial.
       </p>
-
-      <p data-i18n="megaP2">
-        El jugador que consiga más puntos a nivel global podrá optar al gran premio especial de 1.000.000 MOWO cuando se cumplan las condiciones activas dentro de la app.
+      <p class="highlight-line" data-i18n="heroHighlight">
+        Tus activos son tuyos y de nadie más.
       </p>
-
-      <p class="green-impact" data-i18n="megaPExtra">
-        Cada partida cuenta. Cada punto suma. Cada día puede acercarte al puesto número uno.
-      </p>
-
-      <div class="info-box">
-        <p data-i18n="megaP3">
-          WalletBank2.0 no es solo una wallet. Es una plataforma crypto todo en uno donde puedes guardar activos, jugar, competir, ganar recompensas y formar parte de un ecosistema con identidad propia.
-        </p>
-      </div>
-
-      <h2 data-i18n="securityTitle">🛡️ Sistema pionero de alerta visual antes del inicio de sesión</h2>
-
-      <p data-i18n="securityP1">
-        WalletBank2.0 incorpora un sistema único de colores y comprobación visual antes de introducir credenciales. La app muestra una señal clara para ayudar al usuario a identificar si el acceso parece normal, inestable o de riesgo.
-      </p>
-
-      <div class="security-status-grid">
-        <div class="security-status green">
-          <p><span class="status-dot green"></span><strong data-i18n="securityGreenTitle">Verde</strong></p>
-          <p data-i18n="securityGreenDesc">Acceso normal. El usuario puede continuar con mayor tranquilidad.</p>
-        </div>
-
-        <div class="security-status yellow">
-          <p><span class="status-dot yellow"></span><strong data-i18n="securityYellowTitle">Amarillo</strong></p>
-          <p data-i18n="securityYellowDesc">Conexión inestable o comportamiento extraño. Se recomienda revisar antes de entrar.</p>
-        </div>
-
-        <div class="security-status red">
-          <p><span class="status-dot red"></span><strong data-i18n="securityRedTitle">Rojo</strong></p>
-          <p data-i18n="securityRedDesc">Señal de posible riesgo. Se recomienda no introducir credenciales hasta revisar la situación.</p>
-        </div>
-      </div>
-
-      <p data-i18n="securityP2">
-        La idea es sencilla y potente: si algo no parece correcto, la app te avisa antes de que escribas tus datos.
-      </p>
-
-      <h2 data-i18n="walletPowerTitle">🚀 WalletBank2.0: wallet, juegos, Solana y recompensas</h2>
-
-      <div class="wallet-feature-grid">
-        <div class="wallet-feature-box">
-          <p><strong data-i18n="powerFeature1Title">Polygon + Solana</strong></p>
-          <p data-i18n="powerFeature1Desc">El ecosistema BANK2.0 crece y se expande con soporte para Solana, además de Polygon.</p>
-        </div>
-
-        <div class="wallet-feature-box">
-          <p><strong data-i18n="powerFeature2Title">Recompensas por guardar</strong></p>
-          <p data-i18n="powerFeature2Desc">Los usuarios podrán recibir recompensas por guardar y participar dentro del ecosistema, según reglas activas.</p>
-        </div>
-
-        <div class="wallet-feature-box">
-          <p><strong data-i18n="powerFeature3Title">Ajedrez online con MOWO</strong></p>
-          <p data-i18n="powerFeature3Desc">Compite online, reta a otros jugadores y usa MOWO en partidas competitivas según condiciones de la app.</p>
-        </div>
-
-        <div class="wallet-feature-box">
-          <p><strong data-i18n="powerFeature4Title">Regalo seguro</strong></p>
-          <p data-i18n="powerFeature4Desc">La app incluye regalos de MOWO y BANK2.0 para usuarios participantes, según disponibilidad y reglas del sistema.</p>
-        </div>
-
-        <div class="wallet-feature-box">
-          <p><strong data-i18n="powerFeature5Title">Máquina de Suerte</strong></p>
-          <p data-i18n="powerFeature5Desc">Tirada gratuita cada 24 horas, rachas, premios y recompensas dentro del ecosistema MOWO.</p>
-        </div>
-
-        <div class="wallet-feature-box">
-          <p><strong data-i18n="powerFeature6Title">Ranking global</strong></p>
-          <p data-i18n="powerFeature6Desc">Sube posiciones, acumula puntos y compite contra otros usuarios a nivel mundial.</p>
-        </div>
-      </div>
-
-      <div class="inline-actions">
-        <a class="btn gold-btn large pulse" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" data-i18n="megaDownloadBtn">
-          📲 Descargar WalletBank2.0
-        </a>
-
-        <a class="btn solana-btn large" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" data-i18n="megaSolanaBtn">
-          🚀 Apoyar BANK2.0 Solana
-        </a>
-      </div>
     </div>
 
-    <div class="card">
-      <div class="card-content">
-        <h2 data-i18n="whatTitle">¿Qué es BANK2.0?</h2>
-
-        <p data-i18n="whatP1">
-          BANK2.0 (B20) no es solo un token. Es una visión de nueva economía digital: una forma de avanzar hacia un sistema más libre, más transparente y más accesible para todos.
+    <section id="wallet" class="tab-panel active">
+      <div class="card">
+        <h2 class="section-title" data-i18n="walletTitle">Wallet</h2>
+        <p data-i18n="walletP1">
+          BANK2.0 Wallet es un banco de criptomonedas totalmente nuevo y exclusivo.
+        </p>
+        <p data-i18n="walletP2">
+          Se acabaron los nombres. Se acabaron los teléfonos. Se acabó la exposición innecesaria.
+        </p>
+        <p data-i18n="walletP3">
+          La idea es clara: tu dirección de wallet puede convertirse en tu DNI oculto, sin dar explicaciones, con privacidad anticipada, reserva y control total.
+        </p>
+        <p class="highlight-line" data-i18n="walletP4">
+          Tu identidad es tuya. Tu privacidad es tuya. Tus activos son tuyos.
         </p>
 
-        <p data-i18n="whatP2">
-          BANK2.0 nace para impulsar una comunidad que cree en el progreso, en la propiedad real de los activos y en una wallet donde el usuario pueda guardar, mover y utilizar sus activos Web3 con mayor independencia.
+        <div class="feature-grid">
+          <div class="feature-box">
+            <strong data-i18n="walletF1Title">Nuevo banco cripto</strong>
+            <span data-i18n="walletF1Desc">Una experiencia bancaria digital nueva, exclusiva y preparada para una nueva etapa.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="walletF2Title">DNI oculto</strong>
+            <span data-i18n="walletF2Desc">Tu dirección de wallet funciona como identidad protegida dentro del ecosistema.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="walletF3Title">Discreción absoluta</strong>
+            <span data-i18n="walletF3Desc">La discreción es una base del proyecto, no un añadido.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="walletF4Title">Control total</strong>
+            <span data-i18n="walletF4Desc">Gestiona tus activos con independencia y una nueva filosofía financiera.</span>
+          </div>
+        </div>
+
+        <div class="inline-actions">
+          <a class="btn gold-btn" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" data-i18n="walletBtn">
+            📲 Descargar Wallet
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="polygon" class="tab-panel">
+      <div class="card">
+        <h2 class="section-title" data-i18n="polygonTitle">Bank 2.0 Polygon</h2>
+        <p data-i18n="polygonP1">
+          BANK2.0 Polygon representa el cambio y la evolución del ecosistema.
+        </p>
+        <p data-i18n="polygonP2">
+          BANK2.0 no fue diseñada para repetir la banca antigua. Fue diseñada para otro movimiento: transparencia, transferencias a bajo coste, velocidad absoluta y discreción por encima de todo.
+        </p>
+        <p data-i18n="polygonP3">
+          Esta parte explica la etapa en Polygon, el origen del token y la base de la transición del ecosistema.
         </p>
 
-        <div class="img-container">
-          <img src="ahorros.png" alt="Ahorros con BANK2.0">
-        </div>
-      </div>
-    </div>
-
-    <div class="card solana-card">
-      <div class="solana-badge">
-        <span class="solana-lines" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span data-i18n="solanaBadge">BANK2.0 entra en Solana</span>
-      </div>
-
-      <h2 data-i18n="solanaTitle">BANK2.0 Solana: la nueva etapa del ecosistema</h2>
-
-      <p data-i18n="solanaP1">
-        A partir del día 30-04-2026, Bank 2.0 - Wallet soportará la cadena Solana e incluirá dentro de su cartera el nuevo Bank 2.0 Solana.
-      </p>
-
-      <p data-i18n="solanaP2">
-        Este cambio nace de una necesidad real: en la red Polygon, algunas wallets web como Binance Web y Coinbase Web pueden marcar el token B20 como spam porque en su salida se realizó un airdrop y ciertos detectores automáticos pueden interpretar ese tipo de distribución como actividad sospechosa.
-      </p>
-
-      <div class="warning-soft" data-i18n="solanaWarning">
-        BANK2.0 no se detiene. BANK2.0 evoluciona. La decisión de avanzar hacia Solana busca ofrecer una experiencia más limpia, rápida y neutral para la comunidad, evitando avisos confusos que puedan dañar la imagen del proyecto.
-      </div>
-
-      <p data-i18n="solanaP3">
-        Las recompensas de Bank 2.0 seguirán entregándose por la red Polygon durante la transición, pero dentro de la máquina de suerte se podrá cambiar Bank 2.0 por el token MOWO de Polygon.
-      </p>
-
-      <div class="timeline-box">
-        <div class="timeline-item">
-          <div class="timeline-date" data-i18n="solanaDate1">30-04-2026</div>
-          <p data-i18n="solanaStep1">La wallet Bank 2.0 añade soporte para Solana y Bank 2.0 Solana dentro de la cartera.</p>
+        <div class="feature-grid">
+          <div class="feature-box">
+            <strong data-i18n="polygonF1Title">Bajo coste</strong>
+            <span data-i18n="polygonF1Desc">Transferencias eficientes y accesibles dentro de la economía cripto.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="polygonF2Title">Velocidad absoluta</strong>
+            <span data-i18n="polygonF2Desc">Movimiento rápido para una interacción moderna y directa.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="polygonF3Title">Transparencia</strong>
+            <span data-i18n="polygonF3Desc">Claridad en el movimiento del sistema sin renunciar al control del usuario.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="polygonF4Title">Propiedad real</strong>
+            <span data-i18n="polygonF4Desc">Tus activos te pertenecen y no forman parte de terceros.</span>
+          </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-date" data-i18n="solanaDate2">2026</div>
-          <p data-i18n="solanaStep2">Periodo de transición: Polygon seguirá activo para recompensas y cambios dentro del ecosistema.</p>
+        <div class="code-box">
+          <span data-i18n="polygonContractLabel">Contrato B20 Polygon:</span>
+          <code>0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date" data-i18n="solanaDate3">Inicio de 2027</div>
-          <p data-i18n="solanaStep3">La hoja de ruta contempla que los usuarios hayan completado la migración a Bank 2.0 Solana.</p>
-        </div>
-      </div>
-
-      <p data-i18n="solanaP4">
-        No compres solo un token: apoya un ecosistema nuevo. Con tu granito de arena y el de toda la comunidad, Bank 2.0 puede convertirse en un proyecto grande, útil y sostenible en el tiempo.
-      </p>
-
-      <div class="solana-contract-box">
-        <p><strong data-i18n="solanaSupportLabel">Apoyo al proyecto BANK2.0 en Solana:</strong></p>
-
-        <code style="word-break:break-all; background:#000; padding:10px; display:block; border-radius:8px; font-family:monospace; color:var(--solana-green);">
-          https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump
-        </code>
 
         <div class="inline-actions">
-          <a class="btn solana-btn" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" data-i18n="btnSupportSolana">🚀 Apoyar BANK2.0 Solana</a>
-          <button class="btn small secondary" id="copySolanaPumpBtn" data-i18n="btnCopySolanaLink">Copiar enlace</button>
+          <a class="btn secondary" href="https://app.uniswap.org/explore/tokens/polygon/0xC0B57Ace313475046BB50911d731F3180fA7A1AA" target="_blank" data-i18n="polygonBtn">
+            Ver B20 Polygon
+          </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2 data-i18n="mowoTitle">🔗 Token Mowo en Polygon</h2>
+    <section id="solana" class="tab-panel">
+      <div class="card solana-card">
+        <div class="solana-badge" data-i18n="solanaBadge">BANK2.0 entra en Solana</div>
+        <h2 class="section-title" data-i18n="solanaTitle">Bank 2.0 Solana</h2>
+        <p data-i18n="solanaP1">
+          BANK2.0 Solana presenta la nueva moneda y una nueva etapa del ecosistema.
+        </p>
+        <p data-i18n="solanaP2">
+          La idea de esta moneda es también la inversión: cuando la mantienes, el banco puede comprarte intereses y puedes congelar tus activos según tu estrategia.
+        </p>
+        <p data-i18n="solanaP3">
+          Pero BANK2.0 fue diseñada para otro movimiento: tus activos son tuyos y de nadie más. Transparencia, transferencias a bajo coste, velocidad absoluta y discreción siguen siendo la prioridad.
+        </p>
+        <p class="highlight-line" data-i18n="solanaP4">
+          No es solo una moneda. Es una nueva etapa de control, utilidad y reserva.
+        </p>
 
-      <p><strong data-i18n="contractAddressLabel">Dirección del Contrato Mowo:</strong></p>
+        <div class="feature-grid">
+          <div class="feature-box">
+            <strong data-i18n="solanaF1Title">Nueva moneda</strong>
+            <span data-i18n="solanaF1Desc">Una nueva fase dentro del ecosistema BANK2.0.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="solanaF2Title">Inversión</strong>
+            <span data-i18n="solanaF2Desc">Mantener el activo puede formar parte de una estrategia financiera.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="solanaF3Title">Congelar activos</strong>
+            <span data-i18n="solanaF3Desc">El usuario puede congelar activos según el movimiento elegido.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="solanaF4Title">Discreción primero</strong>
+            <span data-i18n="solanaF4Desc">La prioridad sigue siendo privacidad, velocidad y control.</span>
+          </div>
+        </div>
 
-      <code style="word-break:break-all; background:#000; padding:10px; display:block; border-radius:8px; font-family:monospace;">
-        0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121
-      </code>
-
-      <div class="inline-actions">
-        <a class="btn small" href="https://polygonscan.com/token/0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121" target="_blank" data-i18n="btnPolygonscan">Ver en PolygonScan</a>
-        <button class="btn small secondary" id="copyMowoBtn" data-i18n="btnCopy">Copiar</button>
-      </div>
-    </div>
-
-    <div class="card moonworld-card">
-      <div class="card-content">
-        <h2 style="color: var(--neon-orange);" data-i18n="moonworldTitle">🌙 MoonWorld</h2>
-
-        <p data-i18n="moonworldDesc">Bienvenido a <strong>MoonWorld</strong>, el metaverso estilo GTA donde puedes:</p>
-
-        <ul>
-          <li data-i18n="moonworldFeature1">🏠 Comprar parcelas de tierra virtual</li>
-          <li data-i18n="moonworldFeature2">🚗 Conducir coches exclusivos</li>
-          <li data-i18n="moonworldFeature3">👤 Crear tu personaje personalizable</li>
-          <li data-i18n="moonworldFeature4">🎮 Jugar misiones y ganar hasta <strong>100 MOWO</strong></li>
-        </ul>
-
-        <p style="color: #ffaa00;" data-i18n="moonworldStatus">🚧 La app está en construcción, pero pronto tendremos noticias emocionantes.</p>
-
-        <div class="countdown" id="moonworldCountdown"></div>
-
-        <p style="color: #ccc;" data-i18n="moonworldCountdownLabel">Tiempo restante para el lanzamiento (3 meses reales)</p>
+        <div class="code-box">
+          <span data-i18n="solanaLinkLabel">BANK2.0 Solana:</span>
+          <code id="solanaLink">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</code>
+        </div>
 
         <div class="inline-actions">
-          <a class="btn large pulse" href="https://maxstudiotoken.github.io/MoonWorld/" target="_blank" data-i18n="moonworldButton">🌙 Explorar MoonWorld</a>
+          <a class="btn solana-btn" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" data-i18n="solanaBtn">
+            🚀 Apoyar BANK2.0 Solana
+          </a>
+          <button class="btn secondary" id="copySolanaBtn" data-i18n="copyLinkBtn">Copiar enlace</button>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="card-grid">
+    <section id="reward" class="tab-panel">
+      <div class="card hero-card">
+        <h2 class="section-title" data-i18n="rewardTitle">Premio Global</h2>
+        <div class="prize-box">
+          <div class="prize-number" data-i18n="rewardNumber">1.000.000</div>
+          <div class="prize-title" data-i18n="rewardPrizeTitle">MOWO DE PREMIO GLOBAL</div>
+          <p data-i18n="rewardText">
+            El jugador con más puntos en el ranking global podrá optar al gran premio especial según las condiciones activas dentro de la app.
+          </p>
+        </div>
+
+        <p data-i18n="rewardP1">
+          Cada usuario puede jugar, sumar puntos y luchar por estar en lo más alto del ranking mundial.
+        </p>
+        <p data-i18n="rewardP2">
+          BANK2.0 no es solo una wallet. También es un ecosistema con recompensas, ranking y una identidad propia.
+        </p>
+        <p class="highlight-line" data-i18n="rewardP3">
+          Cada punto cuenta. Cada día importa. Cada movimiento puede acercarte al número uno.
+        </p>
+      </div>
+    </section>
+
+    <section id="contract" class="tab-panel">
       <div class="card">
-        <h2 data-i18n="bankTitle">🏦 Wallet BANK2.0 - Bodega NFT</h2>
+        <h2 class="section-title" data-i18n="contractTitle">Contrato</h2>
+        <p data-i18n="contractP1">
+          Contrato claro. Sin repeticiones. Sin confusión.
+        </p>
+        <p data-i18n="contractP2">
+          Esta zona reúne la información principal del ecosistema en un único espacio para evitar duplicidades y textos repetidos.
+        </p>
 
-        <div class="info-box">
-          <p>
-            <span class="feature-icon">🎨</span>
-            <strong data-i18n="walletFeature1">Bodega de NFTs</strong><br>
-            <span data-i18n="walletFeature1Desc">Tu wallet tiene un almacén donde puedes guardar todos tus NFTs de cualquier cadena.</span>
-          </p>
-
-          <p>
-            <span class="feature-icon">💰</span>
-            <strong data-i18n="walletFeature2">Token Mowo</strong><br>
-            <span data-i18n="walletFeature2Desc">La wallet integra el token Mowo para usarlo dentro del metaverso MoonWorld.</span>
-          </p>
-
-          <p>
-            <span class="feature-icon">📤</span>
-            <strong data-i18n="walletFeature3">Enviar 10 NFTs → Ganar 25 MOWO</strong><br>
-            <span data-i18n="walletFeature3Desc">Por cada 10 NFTs que envíes a tu wallet, recibirás 25 MOWO como recompensa según reglas activas.</span>
-          </p>
+        <div class="code-box">
+          <span data-i18n="contractBox1Title">Contrato B20 Polygon:</span>
+          <code>0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code>
         </div>
 
-        <a class="btn" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" data-i18n="btnDownloadApp">📲 Descargar Wallet BANK2.0</a>
-      </div>
-
-      <div class="card">
-        <h2 data-i18n="lotteryTitle">🎲 Tira de la Suerte (Cada 24h)</h2>
-
-        <div class="info-box">
-          <p>
-            <span class="feature-icon">🎰</span>
-            <strong data-i18n="lotteryFeature1">Sorteo diario</strong><br>
-            <span data-i18n="lotteryFeature1Desc">Cada 24 horas puedes tirar de la suerte y recibir una recompensa según las reglas activas del sistema.</span>
-          </p>
-
-          <p><span class="feature-icon">🥇</span> <strong data-i18n="lotteryFeature2">Premios disponibles:</strong></p>
-
-          <ul style="margin-left: 1.5rem;">
-            <li data-i18n="prizeGold">🏆 ORO: Parcela + Coche + Personaje + 100 MOWO</li>
-            <li data-i18n="prizeSilver">🥈 PLATA: Coche + Personaje + 50 MOWO</li>
-            <li data-i18n="prizeBronze">🥉 BRONCE: Personaje + 25 MOWO</li>
-          </ul>
+        <div class="code-box">
+          <span data-i18n="contractBox2Title">Contrato MOWO Polygon:</span>
+          <code>0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121</code>
         </div>
-
-        <p style="color: var(--neon-green);" data-i18n="lotteryNote">✨ Cada 24 horas tienes una nueva oportunidad dentro del ecosistema. No la dejes pasar.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 data-i18n="metaverseTitle">🌍 MoonWorld - El Metaverso de BANK2.0</h2>
-
-      <p data-i18n="metaverseDesc">MoonWorld es un metaverso estilo GTA donde podrás usar tus tokens MOWO y NFTs para vivir experiencias únicas:</p>
-
-      <div class="live-stats-grid">
-        <div class="stat-card">
-          <div class="stat-value">🏠</div>
-          <div class="stat-label" data-i18n="parcelaLabel">Parcelas de Tierra</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-value">🚗</div>
-          <div class="stat-label" data-i18n="cocheLabel">Coches Exclusivos</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-value">👤</div>
-          <div class="stat-label" data-i18n="personajeLabel">Personajes</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-value">🎮</div>
-          <div class="stat-label" data-i18n="misionesLabel">Misiones +100 MOWO</div>
-        </div>
-      </div>
-
-      <p data-i18n="metaverseCta">¡Consigue tu parcela, tu coche y tu personaje entrando al metaverso con los premios de la tira de la suerte!</p>
-    </div>
-
-    <div class="live-chart-container">
-      <h2 style="text-align: center;" data-i18n="liveStatsTitle">📊 Estadísticas BANK2.0</h2>
-
-      <div class="live-stats-grid">
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="priceLabel">B20</div>
-          <div class="stat-value" id="b20Price">Solana</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="downloadsLabel">Descargas App Wallet</div>
-          <div class="stat-value" id="downloadCounter">5,892</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="holdersLabel">Holders Mowo</div>
-          <div class="stat-value" id="holdersCount">1,881</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="rewardsLabel">MOWO Entregados</div>
-          <div class="stat-value" id="rewardsCount">125,430</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 data-i18n="tokenDetailsTitle">Detalles del Token B20</h2>
-
-      <ul>
-        <li><strong data-i18n="td1Label">Red Blockchain:</strong> <span data-i18n="td1Value">Polygon y transición hacia Solana</span></li>
-        <li><strong data-i18n="td2Label">Dirección del Contrato B20 Polygon:</strong> <code class="kbd" id="contractAddr">0xC0B57ACE313475046BB50911D731F3180FA7A1AA</code></li>
-        <li><strong data-i18n="td3Label">Decimales:</strong> <span data-i18n="td3Value">18</span></li>
-        <li><strong data-i18n="td4Label">Suministro Total:</strong> <span data-i18n="td4Value">1,000,000,000 B20 fijo, sin inflación</span></li>
-      </ul>
-
-      <div class="inline-actions">
-        <button class="btn small" id="copyB20Btn" data-i18n="btnCopyB20">Copiar B20</button>
-        <button class="btn small" id="addToMM" data-i18n="btnAddMM">Añadir a MetaMask</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 data-i18n="buyTitle">Adquirir BANK2.0 B20</h2>
-
-      <p data-i18n="buyP1">Puedes apoyar la nueva etapa de BANK2.0 en Solana desde Pump.fun, y también consultar el token histórico B20 en Polygon.</p>
-
-      <div class="img-container">
-        <img src="pagando.png" alt="Pagando con BANK2.0">
-      </div>
-
-      <div class="inline-actions">
-        <a class="btn solana-btn" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" data-i18n="btnBuySolana">Comprar BANK2.0 Solana</a>
-        <a class="btn secondary" href="https://app.uniswap.org/explore/tokens/polygon/0xC0B57Ace313475046BB50911d731F3180fA7A1AA" target="_blank" data-i18n="btnBuyPolygon">Ver B20 Polygon</a>
-      </div>
-    </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <h2 data-i18n="resourcesTitle">Recursos Oficiales</h2>
 
         <div class="inline-actions">
-          <a class="btn" href="https://www.bank20.io" target="_blank" data-i18n="btnSite">Web Oficial</a>
-          <a class="btn" href="https://x.com/hellofiti" target="_blank" data-i18n="btnX">Twitter / X</a>
-          <a class="btn" href="https://github.com/MaxStudiotoken" target="_blank" data-i18n="btnGithub">GitHub</a>
-          <a class="btn solana-btn" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" data-i18n="btnPumpFun">Pump.fun Solana</a>
+          <button class="btn secondary" id="copyB20Btn" data-i18n="copyB20Btn">Copiar B20</button>
+          <button class="btn secondary" id="copyMowoBtn" data-i18n="copyMowoBtn">Copiar MOWO</button>
         </div>
       </div>
+    </section>
 
+    <section id="privacy" class="tab-panel">
       <div class="card">
-        <h2 data-i18n="teamTitle">Equipo</h2>
+        <h2 class="section-title" data-i18n="privacyTitle">Privacidad</h2>
+        <p data-i18n="privacyP1">
+          La privacidad no es un añadido. Es el centro de BANK2.0.
+        </p>
+        <p data-i18n="privacyP2">
+          La idea es dejar atrás la antigua exposición: sin nombres, sin teléfonos y sin explicaciones innecesarias.
+        </p>
+        <p data-i18n="privacyP3">
+          Tu dirección de wallet puede actuar como tu identidad oculta: protegida, reservada y discreta.
+        </p>
+        <p class="highlight-line" data-i18n="privacyP4">
+          Privacidad anticipada. Discreción absoluta. Control total.
+        </p>
 
-        <div class="team-grid">
-          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team1">Fundador y Arquitecto de Software</span></div>
-          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team2">Desarrollador de Smart Contracts y Tecnología Web3</span></div>
-          <div class="team-member"><strong>Maximo Vargas:</strong> <span data-i18n="team3">Estratega de Marketing y Relaciones Públicas</span></div>
+        <div class="feature-grid">
+          <div class="feature-box">
+            <strong data-i18n="privacyF1Title">Privacidad anticipada</strong>
+            <span data-i18n="privacyF1Desc">Privacidad desde el diseño, no como añadido.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="privacyF2Title">Discreción absoluta</strong>
+            <span data-i18n="privacyF2Desc">La discreción es una regla principal del ecosistema.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="privacyF3Title">Identidad protegida</strong>
+            <span data-i18n="privacyF3Desc">Una nueva identidad financiera con menos exposición y más control.</span>
+          </div>
+          <div class="feature-box">
+            <strong data-i18n="privacyF4Title">Activos protegidos</strong>
+            <span data-i18n="privacyF4Desc">Tus activos permanecen bajo tu propiedad y decisión.</span>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="card contact-card">
-      <h2 data-i18n="contactTitle">Contacto</h2>
-
-      <p data-i18n="contactP">¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial.</p>
-
-      <a href="mailto:bank20token@proton.me" class="btn contact-btn">bank20token@proton.me</a>
-    </div>
+    </section>
   </div>
 
   <footer>
-    <img src="logo.png" alt="BANK20 logo" class="footer-logo">
-
-    <p data-i18n="foot1">© 2026 BANK2.0 B20 - Proyecto Blockchain. Todos los derechos reservados.</p>
-    <p data-i18n="foot2">Innovando el futuro de las finanzas descentralizadas</p>
+    <img src="logo.png" alt="BANK2.0 logo" class="footer-logo">
+    <p data-i18n="footer1">© 2026 BANK2.0 B20 - Proyecto Blockchain. Todos los derechos reservados.</p>
+    <p data-i18n="footer2">Una nueva identidad financiera basada en privacidad, propiedad y discreción.</p>
   </footer>
 
   <script>
     const translations = {
       es: {
-        heroSubtitle: "Innovación blockchain impulsada desde Europa para un futuro financiero más rápido, seguro y descentralizado",
+        heroSubtitle: "Innovación, privacidad, discreción y una nueva identidad financiera.",
+        heroBadge: "BANK2.0 · BANCO CRIPTO PRIVADO",
+        heroTitle: "UN BANCO DE CRIPTOMONEDAS TOTALMENTE NUEVO Y EXCLUSIVO",
+        heroText: "BANK2.0 nace como una nueva generación de banca cripto donde la privacidad, la velocidad, las transferencias a bajo coste y la discreción son lo primordial.",
+        heroHighlight: "Tus activos son tuyos y de nadie más.",
 
-        megaBadge: "🏆 PREMIO GLOBAL BANK2.0",
-        megaTitle: "UN RANKING GLOBAL, MILLONES DE PUNTOS Y UN GRAN PREMIO",
-        millionNumber: "1.000.000",
-        millionTitle: "MOWO DE PREMIO GLOBAL",
-        millionText: "El jugador con más puntos en el ranking global podrá optar al gran premio especial de 1.000.000 MOWO, según las condiciones activas dentro de la app.",
-        megaP1: "WalletBank2.0 nace con una misión clara: crear una competición global donde cada usuario pueda jugar, sumar puntos y luchar por estar en lo más alto del ranking mundial.",
-        megaP2: "El jugador que consiga más puntos a nivel global podrá optar al gran premio especial de 1.000.000 MOWO cuando se cumplan las condiciones activas dentro de la app.",
-        megaPExtra: "Cada partida cuenta. Cada punto suma. Cada día puede acercarte al puesto número uno.",
-        megaP3: "WalletBank2.0 no es solo una wallet. Es una plataforma crypto todo en uno donde puedes guardar activos, jugar, competir, ganar recompensas y formar parte de un ecosistema con identidad propia.",
+        tabWallet: "Wallet",
+        tabPolygon: "Bank 2.0 Polygon",
+        tabSolana: "Bank 2.0 Solana",
+        tabReward: "Premio Global",
+        tabContract: "Contrato",
+        tabPrivacy: "Privacidad",
 
-        securityTitle: "🛡️ Sistema pionero de alerta visual antes del inicio de sesión",
-        securityP1: "WalletBank2.0 incorpora un sistema único de colores y comprobación visual antes de introducir credenciales. La app muestra una señal clara para ayudar al usuario a identificar si el acceso parece normal, inestable o de riesgo.",
-        securityGreenTitle: "Verde",
-        securityGreenDesc: "Acceso normal. El usuario puede continuar con mayor tranquilidad.",
-        securityYellowTitle: "Amarillo",
-        securityYellowDesc: "Conexión inestable o comportamiento extraño. Se recomienda revisar antes de entrar.",
-        securityRedTitle: "Rojo",
-        securityRedDesc: "Señal de posible riesgo. Se recomienda no introducir credenciales hasta revisar la situación.",
-        securityP2: "La idea es sencilla y potente: si algo no parece correcto, la app te avisa antes de que escribas tus datos.",
+        walletTitle: "Wallet",
+        walletP1: "BANK2.0 Wallet es un banco de criptomonedas totalmente nuevo y exclusivo.",
+        walletP2: "Se acabaron los nombres. Se acabaron los teléfonos. Se acabó la exposición innecesaria.",
+        walletP3: "La idea es clara: tu dirección de wallet puede convertirse en tu DNI oculto, sin dar explicaciones, con privacidad anticipada, reserva y control total.",
+        walletP4: "Tu identidad es tuya. Tu privacidad es tuya. Tus activos son tuyos.",
+        walletF1Title: "Nuevo banco cripto",
+        walletF1Desc: "Una experiencia bancaria digital nueva, exclusiva y preparada para una nueva etapa.",
+        walletF2Title: "DNI oculto",
+        walletF2Desc: "Tu dirección de wallet funciona como identidad protegida dentro del ecosistema.",
+        walletF3Title: "Discreción absoluta",
+        walletF3Desc: "La discreción es una base del proyecto, no un añadido.",
+        walletF4Title: "Control total",
+        walletF4Desc: "Gestiona tus activos con independencia y una nueva filosofía financiera.",
+        walletBtn: "📲 Descargar Wallet",
 
-        walletPowerTitle: "🚀 WalletBank2.0: wallet, juegos, Solana y recompensas",
-        powerFeature1Title: "Polygon + Solana",
-        powerFeature1Desc: "El ecosistema BANK2.0 crece y se expande con soporte para Solana, además de Polygon.",
-        powerFeature2Title: "Recompensas por guardar",
-        powerFeature2Desc: "Los usuarios podrán recibir recompensas por guardar y participar dentro del ecosistema, según reglas activas.",
-        powerFeature3Title: "Ajedrez online con MOWO",
-        powerFeature3Desc: "Compite online, reta a otros jugadores y usa MOWO en partidas competitivas según condiciones de la app.",
-        powerFeature4Title: "Regalo seguro",
-        powerFeature4Desc: "La app incluye regalos de MOWO y BANK2.0 para usuarios participantes, según disponibilidad y reglas del sistema.",
-        powerFeature5Title: "Máquina de Suerte",
-        powerFeature5Desc: "Tirada gratuita cada 24 horas, rachas, premios y recompensas dentro del ecosistema MOWO.",
-        powerFeature6Title: "Ranking global",
-        powerFeature6Desc: "Sube posiciones, acumula puntos y compite contra otros usuarios a nivel mundial.",
-        megaDownloadBtn: "📲 Descargar WalletBank2.0",
-        megaSolanaBtn: "🚀 Apoyar BANK2.0 Solana",
-
-        whatTitle: "¿Qué es BANK2.0?",
-        whatP1: "BANK2.0 B20 no es solo un token. Es una visión de nueva economía digital: una forma de avanzar hacia un sistema más libre, más transparente y más accesible para todos.",
-        whatP2: "BANK2.0 nace para impulsar una comunidad que cree en el progreso, en la propiedad real de los activos y en una wallet donde el usuario pueda guardar, mover y utilizar sus activos Web3 con mayor independencia.",
+        polygonTitle: "Bank 2.0 Polygon",
+        polygonP1: "BANK2.0 Polygon representa el cambio y la evolución del ecosistema.",
+        polygonP2: "BANK2.0 no fue diseñada para repetir la banca antigua. Fue diseñada para otro movimiento: transparencia, transferencias a bajo coste, velocidad absoluta y discreción por encima de todo.",
+        polygonP3: "Esta parte explica la etapa en Polygon, el origen del token y la base de la transición del ecosistema.",
+        polygonF1Title: "Bajo coste",
+        polygonF1Desc: "Transferencias eficientes y accesibles dentro de la economía cripto.",
+        polygonF2Title: "Velocidad absoluta",
+        polygonF2Desc: "Movimiento rápido para una interacción moderna y directa.",
+        polygonF3Title: "Transparencia",
+        polygonF3Desc: "Claridad en el movimiento del sistema sin renunciar al control del usuario.",
+        polygonF4Title: "Propiedad real",
+        polygonF4Desc: "Tus activos te pertenecen y no forman parte de terceros.",
+        polygonContractLabel: "Contrato B20 Polygon:",
+        polygonBtn: "Ver B20 Polygon",
 
         solanaBadge: "BANK2.0 entra en Solana",
-        solanaTitle: "BANK2.0 Solana: la nueva etapa del ecosistema",
-        solanaP1: "A partir del día 30-04-2026, Bank 2.0 - Wallet soportará la cadena Solana e incluirá dentro de su cartera el nuevo Bank 2.0 Solana.",
-        solanaP2: "Este cambio nace de una necesidad real: en la red Polygon, algunas wallets web como Binance Web y Coinbase Web pueden marcar el token B20 como spam porque en su salida se realizó un airdrop y ciertos detectores automáticos pueden interpretar ese tipo de distribución como actividad sospechosa.",
-        solanaWarning: "BANK2.0 no se detiene. BANK2.0 evoluciona. La decisión de avanzar hacia Solana busca ofrecer una experiencia más limpia, rápida y neutral para la comunidad, evitando avisos confusos que puedan dañar la imagen del proyecto.",
-        solanaP3: "Las recompensas de Bank 2.0 seguirán entregándose por la red Polygon durante la transición, pero dentro de la máquina de suerte se podrá cambiar Bank 2.0 por el token MOWO de Polygon.",
-        solanaDate1: "30-04-2026",
-        solanaStep1: "La wallet Bank 2.0 añade soporte para Solana y Bank 2.0 Solana dentro de la cartera.",
-        solanaDate2: "2026",
-        solanaStep2: "Periodo de transición: Polygon seguirá activo para recompensas y cambios dentro del ecosistema.",
-        solanaDate3: "Inicio de 2027",
-        solanaStep3: "La hoja de ruta contempla que los usuarios hayan completado la migración a Bank 2.0 Solana.",
-        solanaP4: "No compres solo un token: apoya un ecosistema nuevo. Con tu granito de arena y el de toda la comunidad, Bank 2.0 puede convertirse en un proyecto grande, útil y sostenible en el tiempo.",
-        solanaSupportLabel: "Apoyo al proyecto BANK2.0 en Solana:",
-        btnSupportSolana: "🚀 Apoyar BANK2.0 Solana",
-        btnCopySolanaLink: "Copiar enlace",
+        solanaTitle: "Bank 2.0 Solana",
+        solanaP1: "BANK2.0 Solana presenta la nueva moneda y una nueva etapa del ecosistema.",
+        solanaP2: "La idea de esta moneda es también la inversión: cuando la mantienes, el banco puede comprarte intereses y puedes congelar tus activos según tu estrategia.",
+        solanaP3: "Pero BANK2.0 fue diseñada para otro movimiento: tus activos son tuyos y de nadie más. Transparencia, transferencias a bajo coste, velocidad absoluta y discreción siguen siendo la prioridad.",
+        solanaP4: "No es solo una moneda. Es una nueva etapa de control, utilidad y reserva.",
+        solanaF1Title: "Nueva moneda",
+        solanaF1Desc: "Una nueva fase dentro del ecosistema BANK2.0.",
+        solanaF2Title: "Inversión",
+        solanaF2Desc: "Mantener el activo puede formar parte de una estrategia financiera.",
+        solanaF3Title: "Congelar activos",
+        solanaF3Desc: "El usuario puede congelar activos según el movimiento elegido.",
+        solanaF4Title: "Discreción primero",
+        solanaF4Desc: "La prioridad sigue siendo privacidad, velocidad y control.",
+        solanaLinkLabel: "BANK2.0 Solana:",
+        solanaBtn: "🚀 Apoyar BANK2.0 Solana",
+        copyLinkBtn: "Copiar enlace",
 
-        mowoTitle: "🔗 Token Mowo en Polygon",
-        contractAddressLabel: "Dirección del Contrato Mowo:",
-        btnPolygonscan: "Ver en PolygonScan",
-        btnCopy: "Copiar",
+        rewardTitle: "Premio Global",
+        rewardNumber: "1.000.000",
+        rewardPrizeTitle: "MOWO DE PREMIO GLOBAL",
+        rewardText: "El jugador con más puntos en el ranking global podrá optar al gran premio especial según las condiciones activas dentro de la app.",
+        rewardP1: "Cada usuario puede jugar, sumar puntos y luchar por estar en lo más alto del ranking mundial.",
+        rewardP2: "BANK2.0 no es solo una wallet. También es un ecosistema con recompensas, ranking y una identidad propia.",
+        rewardP3: "Cada punto cuenta. Cada día importa. Cada movimiento puede acercarte al número uno.",
 
-        moonworldTitle: "🌙 MoonWorld",
-        moonworldDesc: "Bienvenido a MoonWorld, el metaverso estilo GTA donde puedes:",
-        moonworldFeature1: "🏠 Comprar parcelas de tierra virtual",
-        moonworldFeature2: "🚗 Conducir coches exclusivos",
-        moonworldFeature3: "👤 Crear tu personaje personalizable",
-        moonworldFeature4: "🎮 Jugar misiones y ganar hasta 100 MOWO",
-        moonworldStatus: "🚧 La app está en construcción, pero pronto tendremos noticias emocionantes.",
-        moonworldCountdownLabel: "Tiempo restante para el lanzamiento",
-        moonworldButton: "🌙 Explorar MoonWorld",
+        contractTitle: "Contrato",
+        contractP1: "Contrato claro. Sin repeticiones. Sin confusión.",
+        contractP2: "Esta zona reúne la información principal del ecosistema en un único espacio para evitar duplicidades y textos repetidos.",
+        contractBox1Title: "Contrato B20 Polygon:",
+        contractBox2Title: "Contrato MOWO Polygon:",
+        copyB20Btn: "Copiar B20",
+        copyMOWOBtnTypo: "Copiar MOWO",
+        copyMowoBtn: "Copiar MOWO",
 
-        bankTitle: "🏦 Wallet BANK2.0 - Bodega NFT",
-        walletFeature1: "Bodega de NFTs",
-        walletFeature1Desc: "Tu wallet tiene un almacén donde puedes guardar todos tus NFTs de cualquier cadena.",
-        walletFeature2: "Token Mowo",
-        walletFeature2Desc: "La wallet integra el token Mowo para usarlo dentro del metaverso MoonWorld.",
-        walletFeature3: "Enviar 10 NFTs → Ganar 25 MOWO",
-        walletFeature3Desc: "Por cada 10 NFTs que envíes a tu wallet, recibirás 25 MOWO como recompensa según reglas activas.",
-        btnDownloadApp: "📲 Descargar Wallet BANK2.0",
+        privacyTitle: "Privacidad",
+        privacyP1: "La privacidad no es un añadido. Es el centro de BANK2.0.",
+        privacyP2: "La idea es dejar atrás la antigua exposición: sin nombres, sin teléfonos y sin explicaciones innecesarias.",
+        privacyP3: "Tu dirección de wallet puede actuar como tu identidad oculta: protegida, reservada y discreta.",
+        privacyP4: "Privacidad anticipada. Discreción absoluta. Control total.",
+        privacyF1Title: "Privacidad anticipada",
+        privacyF1Desc: "Privacidad desde el diseño, no como añadido.",
+        privacyF2Title: "Discreción absoluta",
+        privacyF2Desc: "La discreción es una regla principal del ecosistema.",
+        privacyF3Title: "Identidad protegida",
+        privacyF3Desc: "Una nueva identidad financiera con menos exposición y más control.",
+        privacyF4Title: "Activos protegidos",
+        privacyF4Desc: "Tus activos permanecen bajo tu propiedad y decisión.",
 
-        lotteryTitle: "🎲 Tira de la Suerte cada 24h",
-        lotteryFeature1: "Sorteo diario",
-        lotteryFeature1Desc: "Cada 24 horas puedes tirar de la suerte y recibir una recompensa según las reglas activas del sistema.",
-        lotteryFeature2: "Premios disponibles:",
-        prizeGold: "🏆 ORO: Parcela + Coche + Personaje + 100 MOWO",
-        prizeSilver: "🥈 PLATA: Coche + Personaje + 50 MOWO",
-        prizeBronze: "🥉 BRONCE: Personaje + 25 MOWO",
-        lotteryNote: "✨ Cada 24 horas tienes una nueva oportunidad dentro del ecosistema. No la dejes pasar.",
+        footer1: "© 2026 BANK2.0 B20 - Proyecto Blockchain. Todos los derechos reservados.",
+        footer2: "Una nueva identidad financiera basada en privacidad, propiedad y discreción.",
 
-        metaverseTitle: "🌍 MoonWorld - El Metaverso de BANK2.0",
-        metaverseDesc: "MoonWorld es un metaverso estilo GTA donde podrás usar tus tokens MOWO y NFTs para vivir experiencias únicas:",
-        parcelaLabel: "Parcelas de Tierra",
-        cocheLabel: "Coches Exclusivos",
-        personajeLabel: "Personajes",
-        misionesLabel: "Misiones +100 MOWO",
-        metaverseCta: "¡Consigue tu parcela, tu coche y tu personaje entrando al metaverso con los premios de la tira de la suerte!",
-
-        liveStatsTitle: "📊 Estadísticas BANK2.0",
-        priceLabel: "B20",
-        downloadsLabel: "Descargas App Wallet",
-        holdersLabel: "Holders Mowo",
-        rewardsLabel: "MOWO Entregados",
-
-        tokenDetailsTitle: "Detalles del Token B20",
-        td1Label: "Red Blockchain:",
-        td1Value: "Polygon y transición hacia Solana",
-        td2Label: "Dirección del Contrato B20 Polygon:",
-        td3Label: "Decimales:",
-        td3Value: "18",
-        td4Label: "Suministro Total:",
-        td4Value: "1,000,000,000 B20 fijo, sin inflación",
-        btnCopyB20: "Copiar B20",
-        btnAddMM: "Añadir a MetaMask",
-
-        buyTitle: "Adquirir BANK2.0 B20",
-        buyP1: "Puedes apoyar la nueva etapa de BANK2.0 en Solana desde Pump.fun, y también consultar el token histórico B20 en Polygon.",
-        btnBuySolana: "Comprar BANK2.0 Solana",
-        btnBuyPolygon: "Ver B20 Polygon",
-
-        resourcesTitle: "Recursos Oficiales",
-        btnSite: "Web Oficial",
-        btnX: "Twitter / X",
-        btnGithub: "GitHub",
-        btnPumpFun: "Pump.fun Solana",
-
-        teamTitle: "Equipo",
-        team1: "Fundador y Arquitecto de Software",
-        team2: "Desarrollador de Smart Contracts y Tecnología Web3",
-        team3: "Estratega de Marketing y Relaciones Públicas",
-
-        contactTitle: "Contacto",
-        contactP: "¿Tienes preguntas, propuestas o necesitas soporte técnico? Escríbenos directamente a nuestro correo oficial.",
-        foot1: "© 2026 BANK2.0 B20 - Proyecto Blockchain. Todos los derechos reservados.",
-        foot2: "Innovando el futuro de las finanzas descentralizadas"
+        alertSolanaCopied: "✅ Enlace BANK2.0 Solana copiado",
+        alertB20Copied: "✅ Contrato B20 copiado",
+        alertMowoCopied: "✅ Contrato MOWO copiado"
       },
 
       en: {
-        heroSubtitle: "Blockchain innovation from Europe for a faster, safer and decentralized financial future",
+        heroSubtitle: "Innovation, privacy, discretion and a new financial identity.",
+        heroBadge: "BANK2.0 · PRIVATE CRYPTO BANK",
+        heroTitle: "A COMPLETELY NEW AND EXCLUSIVE CRYPTO BANK",
+        heroText: "BANK2.0 was created as a new generation crypto bank where privacy, speed, low-cost transfers and discretion are the main principles.",
+        heroHighlight: "Your assets are yours and nobody else's.",
 
-        megaBadge: "🏆 BANK2.0 GLOBAL PRIZE",
-        megaTitle: "ONE GLOBAL RANKING, MILLIONS OF POINTS AND ONE GRAND PRIZE",
-        millionNumber: "1,000,000",
-        millionTitle: "MOWO GLOBAL PRIZE",
-        millionText: "The player with the highest score in the global ranking may qualify for the special grand prize of 1,000,000 MOWO, according to the active conditions inside the app.",
-        megaP1: "WalletBank2.0 was created with a clear mission: to build a global competition where every user can play, collect points and fight for the top of the world ranking.",
-        megaP2: "The player with the highest global score may qualify for the special grand prize of 1,000,000 MOWO when the active conditions inside the app are met.",
-        megaPExtra: "Every match counts. Every point matters. Every day can bring you closer to number one.",
-        megaP3: "WalletBank2.0 is not just a wallet. It is an all-in-one crypto platform where you can store assets, play, compete, earn rewards and become part of a unique ecosystem.",
+        tabWallet: "Wallet",
+        tabPolygon: "Bank 2.0 Polygon",
+        tabSolana: "Bank 2.0 Solana",
+        tabReward: "Global Reward",
+        tabContract: "Contract",
+        tabPrivacy: "Privacy",
 
-        securityTitle: "🛡️ Pioneer visual alert system before login",
-        securityP1: "WalletBank2.0 includes a unique color and visual check system before users enter credentials. The app shows a clear signal to help users identify whether access looks normal, unstable or risky.",
-        securityGreenTitle: "Green",
-        securityGreenDesc: "Normal access. The user can continue with more confidence.",
-        securityYellowTitle: "Yellow",
-        securityYellowDesc: "Unstable connection or unusual behavior. Review before entering.",
-        securityRedTitle: "Red",
-        securityRedDesc: "Possible risk signal. Do not enter credentials until the situation is reviewed.",
-        securityP2: "The idea is simple and powerful: if something does not look right, the app warns you before you type your data.",
+        walletTitle: "Wallet",
+        walletP1: "BANK2.0 Wallet is a completely new and exclusive crypto bank.",
+        walletP2: "No more names. No more phone numbers. No more unnecessary exposure.",
+        walletP3: "The idea is clear: your wallet address can become your hidden ID, without explanations, with anticipated privacy, reservation and total control.",
+        walletP4: "Your identity is yours. Your privacy is yours. Your assets are yours.",
+        walletF1Title: "New crypto bank",
+        walletF1Desc: "A new and exclusive digital banking experience prepared for a new stage.",
+        walletF2Title: "Hidden ID",
+        walletF2Desc: "Your wallet address works as a protected identity inside the ecosystem.",
+        walletF3Title: "Absolute discretion",
+        walletF3Desc: "Discretion is a foundation of the project, not an extra.",
+        walletF4Title: "Total control",
+        walletF4Desc: "Manage your assets with independence and a new financial philosophy.",
+        walletBtn: "📲 Download Wallet",
 
-        walletPowerTitle: "🚀 WalletBank2.0: wallet, games, Solana and rewards",
-        powerFeature1Title: "Polygon + Solana",
-        powerFeature1Desc: "The BANK2.0 ecosystem grows and expands with Solana support, alongside Polygon.",
-        powerFeature2Title: "Holding rewards",
-        powerFeature2Desc: "Users may receive rewards for holding and participating in the ecosystem, according to active rules.",
-        powerFeature3Title: "Online chess with MOWO",
-        powerFeature3Desc: "Compete online, challenge other players and use MOWO in competitive matches according to app conditions.",
-        powerFeature4Title: "Safe gift",
-        powerFeature4Desc: "The app includes MOWO and BANK2.0 gifts for participating users, depending on availability and system rules.",
-        powerFeature5Title: "Lucky Machine",
-        powerFeature5Desc: "One free spin every 24 hours, streaks, prizes and rewards inside the MOWO ecosystem.",
-        powerFeature6Title: "Global ranking",
-        powerFeature6Desc: "Climb positions, collect points and compete against users worldwide.",
-        megaDownloadBtn: "📲 Download WalletBank2.0",
-        megaSolanaBtn: "🚀 Support BANK2.0 Solana"
+        polygonTitle: "Bank 2.0 Polygon",
+        polygonP1: "BANK2.0 Polygon represents change and the evolution of the ecosystem.",
+        polygonP2: "BANK2.0 was not designed to repeat old banking. It was designed for another movement: transparency, low-cost transfers, absolute speed and discretion above all.",
+        polygonP3: "This section explains the Polygon stage, the origin of the token and the transition basis of the ecosystem.",
+        polygonF1Title: "Low cost",
+        polygonF1Desc: "Efficient and accessible transfers inside the crypto economy.",
+        polygonF2Title: "Absolute speed",
+        polygonF2Desc: "Fast movement for a modern and direct interaction.",
+        polygonF3Title: "Transparency",
+        polygonF3Desc: "System clarity without giving up user control.",
+        polygonF4Title: "Real ownership",
+        polygonF4Desc: "Your assets belong to you and not to third parties.",
+        polygonContractLabel: "B20 Polygon Contract:",
+        polygonBtn: "View B20 Polygon",
+
+        solanaBadge: "BANK2.0 enters Solana",
+        solanaTitle: "Bank 2.0 Solana",
+        solanaP1: "BANK2.0 Solana introduces the new currency and a new stage of the ecosystem.",
+        solanaP2: "The idea behind this currency also includes investment: when you hold it, the bank can buy interests from you and you can freeze your assets according to your strategy.",
+        solanaP3: "But BANK2.0 was designed for another movement: your assets are yours and nobody else's. Transparency, low-cost transfers, absolute speed and discretion remain the priority.",
+        solanaP4: "It is not just a currency. It is a new stage of control, utility and reserve.",
+        solanaF1Title: "New currency",
+        solanaF1Desc: "A new phase inside the BANK2.0 ecosystem.",
+        solanaF2Title: "Investment",
+        solanaF2Desc: "Holding the asset can be part of a financial strategy.",
+        solanaF3Title: "Freeze assets",
+        solanaF3Desc: "The user can freeze assets according to the chosen movement.",
+        solanaF4Title: "Discretion first",
+        solanaF4Desc: "The priority remains privacy, speed and control.",
+        solanaLinkLabel: "BANK2.0 Solana:",
+        solanaBtn: "🚀 Support BANK2.0 Solana",
+        copyLinkBtn: "Copy link",
+
+        rewardTitle: "Global Reward",
+        rewardNumber: "1,000,000",
+        rewardPrizeTitle: "MOWO GLOBAL PRIZE",
+        rewardText: "The player with the most points in the global ranking may qualify for the grand special prize according to the active conditions inside the app.",
+        rewardP1: "Every user can play, collect points and fight to reach the top of the global ranking.",
+        rewardP2: "BANK2.0 is not only a wallet. It is also an ecosystem with rewards, ranking and its own identity.",
+        rewardP3: "Every point counts. Every day matters. Every move can bring you closer to number one.",
+
+        contractTitle: "Contract",
+        contractP1: "Clear contract. No repetition. No confusion.",
+        contractP2: "This area gathers the main ecosystem information in one place to avoid duplicated sections and repeated text.",
+        contractBox1Title: "B20 Polygon Contract:",
+        contractBox2Title: "MOWO Polygon Contract:",
+        copyB20Btn: "Copy B20",
+        copyMOWOBtnTypo: "Copy MOWO",
+        copyMowoBtn: "Copy MOWO",
+
+        privacyTitle: "Privacy",
+        privacyP1: "Privacy is not an extra feature. It is the center of BANK2.0.",
+        privacyP2: "The idea is to leave old exposure behind: no names, no phones and no unnecessary explanations.",
+        privacyP3: "Your wallet address can act as your hidden identity: protected, reserved and discreet.",
+        privacyP4: "Anticipated privacy. Absolute discretion. Total control.",
+        privacyF1Title: "Anticipated privacy",
+        privacyF1Desc: "Privacy by design, not as an add-on.",
+        privacyF2Title: "Absolute discretion",
+        privacyF2Desc: "Discretion is a main rule of the ecosystem.",
+        privacyF3Title: "Protected identity",
+        privacyF3Desc: "A new financial identity with less exposure and more control.",
+        privacyF4Title: "Protected assets",
+        privacyF4Desc: "Your assets remain under your ownership and decision.",
+
+        footer1: "© 2026 BANK2.0 B20 - Blockchain Project. All rights reserved.",
+        footer2: "A new financial identity based on privacy, ownership and discretion.",
+
+        alertSolanaCopied: "✅ BANK2.0 Solana link copied",
+        alertB20Copied: "✅ B20 contract copied",
+        alertMowoCopied: "✅ MOWO contract copied"
       }
     };
 
-    function startRealCountdown() {
-      const targetDate = new Date();
-      targetDate.setMonth(targetDate.getMonth() + 3);
-      targetDate.setHours(0, 0, 0, 0);
+    const langSwitcher = document.getElementById("langSwitcher");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
 
-      function updateCountdown() {
-        const now = new Date();
-        const diff = targetDate - now;
-        const countdownEl = document.getElementById('moonworldCountdown');
-        if (!countdownEl) return;
+    let currentLang = localStorage.getItem("bank20-lang") || "es";
+    let currentTab = localStorage.getItem("bank20-tab") || "wallet";
 
-        if (diff <= 0) {
-          countdownEl.innerHTML = '🎉 ¡YA DISPONIBLE! 🎉';
-          return;
-        }
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.es;
+      document.documentElement.lang = lang;
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % 86400000) / 3600000);
-        const mins = Math.floor((diff % 3600000) / 60000);
-        const secs = Math.floor((diff % 60000) / 1000);
-
-        countdownEl.innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
-      }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    }
-
-    startRealCountdown();
-
-    document.getElementById('copyMowoBtn')?.addEventListener('click', async () => {
-      await navigator.clipboard.writeText('0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121');
-      alert('✅ Dirección Mowo copiada');
-    });
-
-    document.getElementById('copyB20Btn')?.addEventListener('click', async () => {
-      await navigator.clipboard.writeText('0xC0B57ACE313475046BB50911D731F3180FA7A1AA');
-      alert('✅ Dirección B20 Polygon copiada');
-    });
-
-    document.getElementById('copySolanaPumpBtn')?.addEventListener('click', async () => {
-      await navigator.clipboard.writeText('https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump');
-      alert('✅ Enlace BANK2.0 Solana copiado');
-    });
-
-    document.getElementById('addToMM')?.addEventListener('click', async () => {
-      if (!window.ethereum) {
-        alert('MetaMask no detectado');
-        return;
-      }
-
-      try {
-        await window.ethereum.request({
-          method: 'wallet_watchAsset',
-          params: {
-            type: 'ERC20',
-            options: {
-              address: '0xC0B57ACE313475046BB50911D731F3180FA7A1AA',
-              symbol: 'B20',
-              decimals: 18,
-              image: window.location.origin + '/logo.png'
-            }
-          }
-        });
-
-        alert('✅ B20 Polygon añadido a MetaMask');
-      } catch (e) {
-        console.error(e);
-      }
-    });
-
-    let currentLang = localStorage.getItem('lang') || 'es';
-
-    function applyLang(lang) {
-      const t = translations[lang];
-      if (!t) return;
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-
-        if (t[key] !== undefined) {
-          if (
-            key.includes('Desc') ||
-            key.includes('Note') ||
-            key.includes('Warning') ||
-            key.includes('P1') ||
-            key.includes('P2') ||
-            key.includes('P3') ||
-            key.includes('P4') ||
-            key.includes('PExtra') ||
-            key.includes('Text')
-          ) {
-            el.innerHTML = t[key];
-          } else {
-            el.textContent = t[key];
-          }
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) {
+          el.textContent = dict[key];
         }
       });
 
-      const switcher = document.getElementById('langSwitcher');
-      if (switcher) switcher.value = lang;
-
-      localStorage.setItem('lang', lang);
+      langSwitcher.value = lang;
+      localStorage.setItem("bank20-lang", lang);
       currentLang = lang;
     }
 
-    document.getElementById('langSwitcher')?.addEventListener('change', (e) => applyLang(e.target.value));
-    applyLang(currentLang);
+    function activateTab(tabId) {
+      tabButtons.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.tab === tabId);
+      });
 
-    let downloads = 5892;
+      tabPanels.forEach((panel) => {
+        panel.classList.toggle("active", panel.id === tabId);
+      });
 
-    setInterval(() => {
-      downloads += Math.floor(Math.random() * 3);
-      const el = document.getElementById('downloadCounter');
-      if (el) el.innerText = downloads.toLocaleString();
-    }, 30000);
+      localStorage.setItem("bank20-tab", tabId);
+      currentTab = tabId;
+    }
+
+    langSwitcher.addEventListener("change", (event) => {
+      applyTranslations(event.target.value);
+    });
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activateTab(btn.dataset.tab);
+      });
+    });
+
+    document.getElementById("copySolanaBtn")?.addEventListener("click", async () => {
+      await navigator.clipboard.writeText("https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump");
+      alert(translations[currentLang].alertSolanaCopied);
+    });
+
+    document.getElementById("copyB20Btn")?.addEventListener("click", async () => {
+      await navigator.clipboard.writeText("0xC0B57ACE313475046BB50911D731F3180FA7A1AA");
+      alert(translations[currentLang].alertB20Copied);
+    });
+
+    document.getElementById("copyMowoBtn")?.addEventListener("click", async () => {
+      await navigator.clipboard.writeText("0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121");
+      alert(translations[currentLang].alertMowoCopied);
+    });
+
+    applyTranslations(currentLang);
+    activateTab(currentTab);
   </script>
 </body>
 </html>
