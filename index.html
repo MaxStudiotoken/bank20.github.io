@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>BANK2.0 | Your Private Crypto Bank</title>
+
   <meta
     name="description"
     content="BANK2.0 private crypto bank with wallet, crypto vault, NFT vault, games, Solana ecosystem, security system and MoonWorld metaverse."
   />
+
   <link rel="icon" href="logo.png" />
+
   <style>
     :root {
       --bg: #06020d;
@@ -519,6 +523,50 @@
       background: rgba(255,255,255,0.04);
     }
 
+    .promo-image-card {
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(127, 246, 255, 0.14), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
+      border: 1px solid rgba(127, 246, 255, 0.16);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+    }
+
+    .promo-image-card.gold {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 215, 110, 0.18), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
+      border-color: rgba(255, 215, 110, 0.2);
+    }
+
+    .promo-image-card.red {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 90, 90, 0.16), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
+      border-color: rgba(255, 90, 90, 0.22);
+    }
+
+    .promo-image {
+      width: 100%;
+      max-height: 620px;
+      object-fit: contain;
+      border-radius: 22px;
+      background: rgba(0, 0, 0, 0.22);
+    }
+
+    .promo-caption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      text-align: center;
+    }
+
+    .promo-caption strong {
+      color: #fff;
+    }
+
     .notice {
       margin-top: 18px;
       padding: 16px 18px;
@@ -731,9 +779,14 @@
       .btn {
         width: 100%;
       }
+
+      .promo-image {
+        max-height: 440px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="topbar-inner">
@@ -985,6 +1038,22 @@
           <span data-i18n="gamesNoticeText"> la llave a la puerta NFT forma parte de las recompensas y conecta los juegos con los premios del metaverso lunar.</span>
         </div>
 
+        <div class="cards-2">
+          <div class="promo-image-card gold">
+            <img class="promo-image" src="maquina.png" alt="BANK2.0 lucky machine with MOWO rewards" />
+            <p class="promo-caption" data-i18n="machineImageCaption">
+              <strong>Lucky Machine:</strong> play, win MOWO and unlock NFT prizes connected to MoonWorld.
+            </p>
+          </div>
+
+          <div class="promo-image-card red">
+            <img class="promo-image" src="regalo.png" alt="BANK2.0 red gift reward package" />
+            <p class="promo-caption" data-i18n="giftImageCaption">
+              <strong>Reward Gift:</strong> special prizes for users who participate in the BANK2.0 ecosystem.
+            </p>
+          </div>
+        </div>
+
         <div class="cards-4">
           <div class="card tier gold nft-card">
             <div class="nft-icon-wrap">
@@ -1073,6 +1142,13 @@
         <p data-i18n="solanaP3">
           Esta etapa quiere unir velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad que no se negocia: discreción.
         </p>
+
+        <div class="promo-image-card">
+          <img class="promo-image" src="fondos.png" alt="BANK2.0 direct access to your funds" />
+          <p class="promo-caption" data-i18n="fundsImageCaption">
+            <strong>BANK2.0:</strong> direct access to your funds without traditional banking obstacles.
+          </p>
+        </div>
 
         <div class="cards">
           <div class="card feature">
@@ -1188,6 +1264,13 @@
         <p data-i18n="securityP1">
           La idea es simple: si algo no parece correcto, la wallet debe avisarte antes de que introduzcas credenciales o continúes con el acceso.
         </p>
+
+        <div class="promo-image-card">
+          <img class="promo-image" src="scaner.png" alt="BANK2.0 network scanner security system" />
+          <p class="promo-caption" data-i18n="scannerImageCaption">
+            <strong>Pioneer Network Scanner:</strong> visual protection before entering your wallet.
+          </p>
+        </div>
 
         <div class="security-grid">
           <div class="security-card green">
@@ -1422,6 +1505,8 @@
         gamesCard3Text: "La ruleta puede darte premios NFT y abrir el acceso a recompensas conectadas con el metaverso.",
         gamesNoticeTitle: "Llave NFT:",
         gamesNoticeText: " la llave a la puerta NFT forma parte de las recompensas y conecta los juegos con los premios del metaverso lunar.",
+        machineImageCaption: "<strong>Máquina de la suerte:</strong> juega, gana MOWO y desbloquea premios NFT conectados con MoonWorld.",
+        giftImageCaption: "<strong>Regalo de recompensa:</strong> premios especiales para usuarios que participan en el ecosistema BANK2.0.",
         goldTitle: "NFT Oro",
         goldText: "Si te toca un NFT oro, puedes conseguir recompensas premium para tu metaverso lunar.",
         silverTitle: "NFT Plata",
@@ -1448,6 +1533,7 @@
         solanaP1: "La idea de esta moneda también entra por la inversión. Cuando la mantienes, el banco puede comprarte intereses y además puedes congelar tus activos según la estrategia que elijas.",
         solanaP2: "Pero el mensaje fuerte es otro: BANK2.0 fue diseñado para un movimiento donde tus activos siguen siendo tuyos, no del sistema y no de nadie más.",
         solanaP3: "Esta etapa quiere unir velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad que no se negocia: discreción.",
+        fundsImageCaption: "<strong>BANK2.0:</strong> acceso directo a tus fondos sin obstáculos de la banca tradicional.",
         solanaCard1Title: "Una nueva moneda con propósito",
         solanaCard1Text: "No solo cambia la red. Cambia la idea de hacia dónde quiere ir BANK2.0.",
         solanaCard2Title: "Intereses y estrategia",
@@ -1480,6 +1566,7 @@
         securityLead: "BANK2.0 incorpora una alerta visual antes del acceso para ayudarte a identificar si el entorno parece normal, dudoso o de riesgo antes de introducir tus datos.",
         securityQuote: "Ver, revisar y decidir",
         securityP1: "La idea es simple: si algo no parece correcto, la wallet debe avisarte antes de que introduzcas credenciales o continúes con el acceso.",
+        scannerImageCaption: "<strong>Pioneer Network Scanner:</strong> protección visual antes de entrar a tu wallet.",
         securityGreenTitle: "Verde",
         securityGreenText: "Acceso normal. El entorno parece correcto y el usuario puede continuar con más tranquilidad.",
         securityYellowTitle: "Amarillo",
@@ -1602,10 +1689,12 @@
         gamesCard1Text: "A classic game inside the ecosystem to participate, compete and keep adding activity inside BANK2.0.",
         gamesCard2Title: "Online chess",
         gamesCard2Text: "Compete online and become part of a more complete experience inside the wallet.",
-        gamesCard3Title: "Lucky wheel",
-        gamesCard3Text: "The wheel can give you NFT prizes and open access to rewards connected to the metaverse.",
+        gamesCard3Title: "Lucky machine",
+        gamesCard3Text: "The lucky machine can give you NFT prizes and open access to rewards connected to the metaverse.",
         gamesNoticeTitle: "NFT key:",
         gamesNoticeText: " the key to the NFT door is part of the rewards and connects the games with the lunar metaverse prizes.",
+        machineImageCaption: "<strong>Lucky Machine:</strong> play, win MOWO and unlock NFT prizes connected to MoonWorld.",
+        giftImageCaption: "<strong>Reward Gift:</strong> special prizes for users who participate in the BANK2.0 ecosystem.",
         goldTitle: "Gold NFT",
         goldText: "If you get a gold NFT, you can unlock premium rewards for your lunar metaverse.",
         silverTitle: "Silver NFT",
@@ -1632,6 +1721,7 @@
         solanaP1: "The idea of this coin also includes investment. When you hold it, the bank can buy interests from you and you can also freeze your assets according to the strategy you choose.",
         solanaP2: "But the strong message is another one: BANK2.0 was designed for a movement where your assets are still yours, not the system's and not anyone else's.",
         solanaP3: "This stage wants to combine absolute speed, low-cost transfers, transparency and one non-negotiable priority: discretion.",
+        fundsImageCaption: "<strong>BANK2.0:</strong> direct access to your funds without traditional banking obstacles.",
         solanaCard1Title: "A new coin with purpose",
         solanaCard1Text: "Not only the network changes. The idea of where BANK2.0 wants to go changes too.",
         solanaCard2Title: "Interests and strategy",
@@ -1664,6 +1754,7 @@
         securityLead: "BANK2.0 includes a visual alert before access to help you identify whether the environment looks normal, doubtful or risky before entering your data.",
         securityQuote: "See, review and decide",
         securityP1: "The idea is simple: if something does not look right, the wallet should warn you before you enter credentials or continue with access.",
+        scannerImageCaption: "<strong>Pioneer Network Scanner:</strong> visual protection before entering your wallet.",
         securityGreenTitle: "Green",
         securityGreenText: "Normal access. The environment looks correct and the user can continue with more confidence.",
         securityYellowTitle: "Yellow",
@@ -1724,6 +1815,7 @@
 
       document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.getAttribute("data-i18n");
+
         if (dict[key] !== undefined) {
           element.innerHTML = dict[key];
         }
