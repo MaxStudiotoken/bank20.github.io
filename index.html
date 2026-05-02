@@ -7,7 +7,7 @@
   <title>BANK2.0 | Your Private Crypto Bank</title>
   <meta
     name="description"
-    content="BANK2.0 is a private crypto banking concept with wallet, crypto vault, NFT vault, Solana ecosystem and global rewards."
+    content="BANK2.0 private crypto bank with wallet, crypto vault, NFT vault, games, Solana ecosystem and MoonWorld metaverse."
   />
   <link rel="icon" href="logo.png" />
   <style>
@@ -23,8 +23,8 @@
       --pink: #ff4fd8;
       --green: #7dffb2;
       --gold: #ffd76e;
-      --blue: #9ec7ff;
-      --dark: #0a0f14;
+      --silver: #d8dee9;
+      --bronze: #d38a5c;
       --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
       --radius: 28px;
       --maxw: 1180px;
@@ -322,7 +322,8 @@
 
     .side-list,
     .cards,
-    .cards-2 {
+    .cards-2,
+    .cards-4 {
       display: grid;
       gap: 14px;
     }
@@ -403,6 +404,11 @@
 
     .cards-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .cards-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       margin-top: 24px;
     }
 
@@ -492,6 +498,36 @@
       text-transform: uppercase;
     }
 
+    .tier {
+      text-align: center;
+    }
+
+    .tier.gold {
+      border-color: rgba(255, 215, 110, 0.25);
+      background: linear-gradient(135deg, rgba(255,215,110,0.14), rgba(255,255,255,0.03));
+    }
+
+    .tier.silver {
+      border-color: rgba(216, 222, 233, 0.22);
+      background: linear-gradient(135deg, rgba(216,222,233,0.10), rgba(255,255,255,0.03));
+    }
+
+    .tier.bronze {
+      border-color: rgba(211, 138, 92, 0.22);
+      background: linear-gradient(135deg, rgba(211,138,92,0.12), rgba(255,255,255,0.03));
+    }
+
+    .tier-label {
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .tier.gold .tier-label { color: var(--gold); }
+    .tier.silver .tier-label { color: var(--silver); }
+    .tier.bronze .tier-label { color: var(--bronze); }
+
     .code {
       margin-top: 18px;
       padding: 18px;
@@ -559,6 +595,12 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .cards-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 760px) {
       .hero-inner,
       .panel {
@@ -567,7 +609,8 @@
 
       .section-head,
       .cards,
-      .cards-2 {
+      .cards-2,
+      .cards-4 {
         grid-template-columns: 1fr;
       }
 
@@ -596,8 +639,10 @@
 
       <nav class="tabs" aria-label="Main navigation">
         <a class="tab-link" href="#wallet-vault" data-i18n="tabWalletVault">Wallet & Vault</a>
+        <a class="tab-link" href="#games" data-i18n="tabGames">Games</a>
         <a class="tab-link" href="#change" data-i18n="tabChange">Change</a>
         <a class="tab-link" href="#solana" data-i18n="tabSolana">Solana</a>
+        <a class="tab-link" href="#metaverse" data-i18n="tabMetaverse">MoonWorld</a>
         <a class="tab-link" href="#prize" data-i18n="tabPrize">Global Prize</a>
         <a class="tab-link" href="#privacy" data-i18n="tabPrivacy">Privacy</a>
         <a class="tab-link" href="#contract" data-i18n="tabContract">Contract</a>
@@ -654,7 +699,7 @@
               </div>
               <div class="side-item">
                 <strong data-i18n="heroCard3Title">BANK2.0 rewards you</strong>
-                <span data-i18n="heroCard3Text">While others charge you for storage, BANK2.0 rewards you for trusting the ecosystem.</span>
+                <span data-i18n="heroCard3Text">While others charge you for storage, BANK2.0 wants to reward you for trusting the ecosystem.</span>
               </div>
             </div>
           </aside>
@@ -754,6 +799,60 @@
       </div>
     </section>
 
+    <section id="games" class="section">
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" data-i18n="gamesEyebrow">Games</div>
+            <h2 data-i18n="gamesTitle">Juegos dentro del ecosistema BANK2.0</h2>
+            <p data-i18n="gamesLead">
+              BANK2.0 no es solo guardar activos. También es jugar, competir y abrir la puerta al metaverso desde la propia wallet.
+            </p>
+          </div>
+          <div class="quote" data-i18n="gamesQuote">Jugar también suma</div>
+        </div>
+
+        <div class="cards">
+          <div class="card feature">
+            <strong data-i18n="gamesCard1Title">Tres en raya</strong>
+            <p data-i18n="gamesCard1Text">Un juego clásico dentro del ecosistema para participar, competir y seguir sumando actividad dentro de BANK2.0.</p>
+          </div>
+          <div class="card">
+            <strong data-i18n="gamesCard2Title">Ajedrez online</strong>
+            <p data-i18n="gamesCard2Text">Compite online y forma parte de una experiencia más completa dentro de la wallet.</p>
+          </div>
+          <div class="card">
+            <strong data-i18n="gamesCard3Title">Ruleta de la suerte</strong>
+            <p data-i18n="gamesCard3Text">La ruleta puede darte premios NFT y abrir el acceso a recompensas conectadas con el metaverso.</p>
+          </div>
+        </div>
+
+        <div class="notice">
+          <strong data-i18n="gamesNoticeTitle">Llave NFT:</strong>
+          <span data-i18n="gamesNoticeText"> la llave a la puerta NFT forma parte de las recompensas y conecta los juegos con los premios del metaverso lunar.</span>
+        </div>
+
+        <div class="cards-4">
+          <div class="card tier gold">
+            <div class="tier-label" data-i18n="goldTitle">NFT Oro</div>
+            <p data-i18n="goldText">Si te toca un NFT oro, puedes conseguir recompensas premium para tu metaverso lunar.</p>
+          </div>
+          <div class="card tier silver">
+            <div class="tier-label" data-i18n="silverTitle">NFT Plata</div>
+            <p data-i18n="silverText">Si te toca un NFT plata, desbloqueas recompensas intermedias dentro del ecosistema.</p>
+          </div>
+          <div class="card tier bronze">
+            <div class="tier-label" data-i18n="bronzeTitle">NFT Cobre</div>
+            <p data-i18n="bronzeText">Si te toca un NFT cobre, sigues entrando en la puerta del ecosistema y de sus premios.</p>
+          </div>
+          <div class="card">
+            <div class="tier-label" data-i18n="prizeAccessTitle">Premios metaverso</div>
+            <p data-i18n="prizeAccessText">Según el NFT que ganes, puedes obtener coche, personaje, parcela y casa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="change" class="section">
       <div class="panel">
         <div class="section-head">
@@ -836,6 +935,41 @@
       </div>
     </section>
 
+    <section id="metaverse" class="section">
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" data-i18n="metaverseEyebrow">MoonWorld</div>
+            <h2 data-i18n="metaverseTitle">El metaverso lunar vuelve a formar parte de BANK2.0</h2>
+            <p data-i18n="metaverseLead">
+              MoonWorld es el metaverso lunar del ecosistema, donde los premios NFT y los juegos pueden abrirte acceso a objetos y activos para tu mundo.
+            </p>
+          </div>
+          <div class="quote" data-i18n="metaverseQuote">Coche, personaje, parcela y casa</div>
+        </div>
+
+        <p data-i18n="metaverseP1">
+          Si te toca un NFT oro, plata o cobre, el premio puede convertirse en acceso real a elementos del metaverso.
+        </p>
+        <p data-i18n="metaverseP2">
+          Según el premio que ganes, puedes obtener coche, personaje, parcela y casa para tu metaverso lunar.
+        </p>
+        <p data-i18n="metaverseP3">
+          La idea es conectar wallet, juegos, NFT y metaverso en una sola experiencia dentro del ecosistema BANK2.0.
+        </p>
+
+        <div class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://maxstudiotoken.github.io/MoonWorld/"
+            target="_blank"
+            rel="noopener"
+            data-i18n="metaverseBtn"
+          >🌙 Entrar en MoonWorld</a>
+        </div>
+      </div>
+    </section>
+
     <section id="prize" class="section">
       <div class="panel">
         <div class="section-head">
@@ -911,29 +1045,30 @@
         <div class="section-head">
           <div>
             <div class="eyebrow" data-i18n="contractEyebrow">Contract</div>
-            <h2 data-i18n="contractTitle">Información clara, una sola vez y en su sitio</h2>
+            <h2 data-i18n="contractTitle">Contratos del ecosistema</h2>
             <p data-i18n="contractLead">
-              Aquí es donde va lo importante del contrato, sin duplicarlo por toda la página y sin mezclarlo con otras partes.
+              Aquí quedan solo los enlaces y contratos importantes para guardar dentro de BANK2.0 Wallet.
             </p>
           </div>
-          <div class="quote" data-i18n="contractQuote">Sin repeticiones</div>
+          <div class="quote" data-i18n="contractQuote">Datos esenciales</div>
         </div>
-
-        <p data-i18n="contractP1">
-          La idea correcta no es repetir contratos varias veces. La idea correcta es reunirlos aquí, limpios, accesibles y bien organizados.
-        </p>
-        <p data-i18n="contractP2">
-          Esta sección queda solo para la información esencial del ecosistema.
-        </p>
 
         <div class="cards-2">
           <div class="card">
-            <strong data-i18n="contractCard1Title">Contrato MOWO Polygon</strong>
+            <strong data-i18n="contractCard1Title">MOWO Coin Polygon</strong>
             <div class="code">0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121</div>
           </div>
           <div class="card">
-            <strong data-i18n="contractCard2Title">Enlace BANK2.0 Solana</strong>
+            <strong data-i18n="contractCard2Title">BANK2.0 Solana</strong>
             <div class="code">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
+          </div>
+          <div class="card">
+            <strong data-i18n="contractCard3Title">MOWO Gold Solana</strong>
+            <div class="code">https://pump.fun/coin/GZYnRDN1zwGEmaQgxxQD27V29Q3qxZVv3LvdZDRBedzL</div>
+          </div>
+          <div class="card">
+            <strong data-i18n="contractCard4Title">Guardable en BANK2.0 Wallet</strong>
+            <p data-i18n="contractCard4Text">Solana, Polygon, BANK 2.0 Solana, MOWO Gold Solana y MOWO Coin Polygon.</p>
           </div>
         </div>
       </div>
@@ -963,7 +1098,7 @@
         <img src="logo.png" alt="BANK2.0 logo" onerror="this.style.display='none'; this.parentElement.textContent='B20'; this.parentElement.style.color='#fff'; this.parentElement.style.fontWeight='900'; this.parentElement.style.fontSize='1rem';" />
       </div>
       <p data-i18n="footer1">© 2026 BANK2.0 · Concepto de banca cripto privada</p>
-      <p data-i18n="footer2">Privacidad, discreción, propiedad real y una nueva identidad financiera.</p>
+      <p data-i18n="footer2">Privacidad, discreción, propiedad real, juegos y metaverso en una sola experiencia.</p>
     </footer>
   </main>
 
@@ -972,11 +1107,13 @@
       es: {
         brandSub: "Tu banco privado sin datos innecesarios",
         tabWalletVault: "Wallet & Bodega",
+        tabGames: "Juegos",
         tabChange: "Cambio",
         tabSolana: "Solana",
+        tabMetaverse: "MoonWorld",
         tabPrize: "Premio Global",
         tabPrivacy: "Privacidad",
-        tabContract: "Contrato",
+        tabContract: "Contratos",
         tabContact: "Contacto",
 
         heroBadge: "BANK2.0 · BANCO CRIPTO PRIVADO",
@@ -1024,6 +1161,27 @@
         vaultDifferenceP2: "Aquí no se trata solo de guardar activos. Se trata de que tu banco digital te dé una razón para quedarte.",
         walletVaultBtn: "📲 Descargar BANK2.0 Wallet",
 
+        gamesEyebrow: "Juegos",
+        gamesTitle: "Juegos dentro del ecosistema BANK2.0",
+        gamesLead: "BANK2.0 no es solo guardar activos. También es jugar, competir y abrir la puerta al metaverso desde la propia wallet.",
+        gamesQuote: "Jugar también suma",
+        gamesCard1Title: "Tres en raya",
+        gamesCard1Text: "Un juego clásico dentro del ecosistema para participar, competir y seguir sumando actividad dentro de BANK2.0.",
+        gamesCard2Title: "Ajedrez online",
+        gamesCard2Text: "Compite online y forma parte de una experiencia más completa dentro de la wallet.",
+        gamesCard3Title: "Ruleta de la suerte",
+        gamesCard3Text: "La ruleta puede darte premios NFT y abrir el acceso a recompensas conectadas con el metaverso.",
+        gamesNoticeTitle: "Llave NFT:",
+        gamesNoticeText: " la llave a la puerta NFT forma parte de las recompensas y conecta los juegos con los premios del metaverso lunar.",
+        goldTitle: "NFT Oro",
+        goldText: "Si te toca un NFT oro, puedes conseguir recompensas premium para tu metaverso lunar.",
+        silverTitle: "NFT Plata",
+        silverText: "Si te toca un NFT plata, desbloqueas recompensas intermedias dentro del ecosistema.",
+        bronzeTitle: "NFT Cobre",
+        bronzeText: "Si te toca un NFT cobre, sigues entrando en la puerta del ecosistema y de sus premios.",
+        prizeAccessTitle: "Premios metaverso",
+        prizeAccessText: "Según el NFT que ganes, puedes obtener coche, personaje, parcela y casa.",
+
         changeEyebrow: "Cambio",
         changeTitle: "BANK2.0 deja atrás la etapa anterior y entra en una nueva dirección",
         changeLead: "Esta parte no existe para promocionar B20 Polygon. Existe para explicar el cambio de etapa y dejar claro que el foco del proyecto está en lo nuevo.",
@@ -1049,6 +1207,15 @@
         solanaCard3Text: "Más agilidad, menos fricción y más control con una experiencia más limpia.",
         solanaBtn: "🚀 Ver BANK2.0 Solana",
 
+        metaverseEyebrow: "MoonWorld",
+        metaverseTitle: "El metaverso lunar vuelve a formar parte de BANK2.0",
+        metaverseLead: "MoonWorld es el metaverso lunar del ecosistema, donde los premios NFT y los juegos pueden abrirte acceso a objetos y activos para tu mundo.",
+        metaverseQuote: "Coche, personaje, parcela y casa",
+        metaverseP1: "Si te toca un NFT oro, plata o cobre, el premio puede convertirse en acceso real a elementos del metaverso.",
+        metaverseP2: "Según el premio que ganes, puedes obtener coche, personaje, parcela y casa para tu metaverso lunar.",
+        metaverseP3: "La idea es conectar wallet, juegos, NFT y metaverso en una sola experiencia dentro del ecosistema BANK2.0.",
+        metaverseBtn: "🌙 Entrar en MoonWorld",
+
         prizeEyebrow: "Premio Global",
         prizeTitle: "Un premio global para una comunidad global",
         prizeLead: "BANK2.0 también quiere construir una idea de recompensa, competición y pertenencia dentro del ecosistema.",
@@ -1073,14 +1240,15 @@
         privacyCard3Title: "Discreción por encima de todo",
         privacyCard3Text: "La discreción deja de ser secundaria y pasa a ser prioritaria.",
 
-        contractEyebrow: "Contrato",
-        contractTitle: "Información clara, una sola vez y en su sitio",
-        contractLead: "Aquí es donde va lo importante del contrato, sin duplicarlo por toda la página y sin mezclarlo con otras partes.",
-        contractQuote: "Sin repeticiones",
-        contractP1: "La idea correcta no es repetir contratos varias veces. La idea correcta es reunirlos aquí, limpios, accesibles y bien organizados.",
-        contractP2: "Esta sección queda solo para la información esencial del ecosistema.",
-        contractCard1Title: "Contrato MOWO Polygon",
-        contractCard2Title: "Enlace BANK2.0 Solana",
+        contractEyebrow: "Contratos",
+        contractTitle: "Contratos del ecosistema",
+        contractLead: "Aquí quedan solo los enlaces y contratos importantes para guardar dentro de BANK2.0 Wallet.",
+        contractQuote: "Datos esenciales",
+        contractCard1Title: "MOWO Coin Polygon",
+        contractCard2Title: "BANK2.0 Solana",
+        contractCard3Title: "MOWO Gold Solana",
+        contractCard4Title: "Guardable en BANK2.0 Wallet",
+        contractCard4Text: "Solana, Polygon, BANK 2.0 Solana, MOWO Gold Solana y MOWO Coin Polygon.",
 
         contactEyebrow: "Contacto",
         contactTitle: "Contacto",
@@ -1088,17 +1256,19 @@
         contactQuote: "Canal oficial",
 
         footer1: "© 2026 BANK2.0 · Concepto de banca cripto privada",
-        footer2: "Privacidad, discreción, propiedad real y una nueva identidad financiera."
+        footer2: "Privacidad, discreción, propiedad real, juegos y metaverso en una sola experiencia."
       },
 
       en: {
         brandSub: "Your private bank without unnecessary data",
         tabWalletVault: "Wallet & Vault",
+        tabGames: "Games",
         tabChange: "Change",
         tabSolana: "Solana",
+        tabMetaverse: "MoonWorld",
         tabPrize: "Global Prize",
         tabPrivacy: "Privacy",
-        tabContract: "Contract",
+        tabContract: "Contracts",
         tabContact: "Contact",
 
         heroBadge: "BANK2.0 · PRIVATE CRYPTO BANK",
@@ -1146,6 +1316,27 @@
         vaultDifferenceP2: "This is not only about storing assets. It is about your digital bank giving you a reason to stay.",
         walletVaultBtn: "📲 Download BANK2.0 Wallet",
 
+        gamesEyebrow: "Games",
+        gamesTitle: "Games inside the BANK2.0 ecosystem",
+        gamesLead: "BANK2.0 is not only about storing assets. It is also about playing, competing and opening the door to the metaverse from the wallet itself.",
+        gamesQuote: "Playing also counts",
+        gamesCard1Title: "Tic-tac-toe",
+        gamesCard1Text: "A classic game inside the ecosystem to participate, compete and keep adding activity inside BANK2.0.",
+        gamesCard2Title: "Online chess",
+        gamesCard2Text: "Compete online and become part of a more complete experience inside the wallet.",
+        gamesCard3Title: "Lucky wheel",
+        gamesCard3Text: "The wheel can give you NFT prizes and open access to rewards connected to the metaverse.",
+        gamesNoticeTitle: "NFT key:",
+        gamesNoticeText: " the key to the NFT door is part of the rewards and connects the games with the lunar metaverse prizes.",
+        goldTitle: "Gold NFT",
+        goldText: "If you get a gold NFT, you can unlock premium rewards for your lunar metaverse.",
+        silverTitle: "Silver NFT",
+        silverText: "If you get a silver NFT, you unlock intermediate rewards inside the ecosystem.",
+        bronzeTitle: "Bronze NFT",
+        bronzeText: "If you get a bronze NFT, you still enter the ecosystem door and its rewards.",
+        prizeAccessTitle: "Metaverse prizes",
+        prizeAccessText: "Depending on the NFT you win, you can obtain a car, character, land plot and house.",
+
         changeEyebrow: "Change",
         changeTitle: "BANK2.0 leaves the previous stage behind and enters a new direction",
         changeLead: "This part does not exist to promote B20 Polygon. It exists to explain the stage change and make clear that the focus of the project is on the new phase.",
@@ -1171,6 +1362,15 @@
         solanaCard3Text: "More agility, less friction and more control with a cleaner experience.",
         solanaBtn: "🚀 View BANK2.0 Solana",
 
+        metaverseEyebrow: "MoonWorld",
+        metaverseTitle: "The lunar metaverse is back as part of BANK2.0",
+        metaverseLead: "MoonWorld is the lunar metaverse of the ecosystem, where NFT prizes and games can open access to objects and assets for your world.",
+        metaverseQuote: "Car, character, land plot and house",
+        metaverseP1: "If you get a gold, silver or bronze NFT, the prize can become real access to metaverse elements.",
+        metaverseP2: "Depending on the prize you win, you can obtain a car, character, land plot and house for your lunar metaverse.",
+        metaverseP3: "The idea is to connect wallet, games, NFT and metaverse in one single experience inside the BANK2.0 ecosystem.",
+        metaverseBtn: "🌙 Enter MoonWorld",
+
         prizeEyebrow: "Global Prize",
         prizeTitle: "A global prize for a global community",
         prizeLead: "BANK2.0 also wants to build an idea of reward, competition and belonging inside the ecosystem.",
@@ -1195,14 +1395,15 @@
         privacyCard3Title: "Discretion above everything",
         privacyCard3Text: "Discretion stops being secondary and becomes the priority.",
 
-        contractEyebrow: "Contract",
-        contractTitle: "Clear information, once, and in the right place",
-        contractLead: "This is where the important contract information goes, without duplicating it across the page and without mixing it with other parts.",
-        contractQuote: "No repetition",
-        contractP1: "The right idea is not to repeat contracts several times. The right idea is to gather them here, clean, accessible and organized.",
-        contractP2: "This section stays only for essential ecosystem information.",
-        contractCard1Title: "MOWO Polygon Contract",
-        contractCard2Title: "BANK2.0 Solana Link",
+        contractEyebrow: "Contracts",
+        contractTitle: "Ecosystem contracts",
+        contractLead: "Only the important links and contracts to store inside BANK2.0 Wallet remain here.",
+        contractQuote: "Essential data",
+        contractCard1Title: "MOWO Coin Polygon",
+        contractCard2Title: "BANK2.0 Solana",
+        contractCard3Title: "MOWO Gold Solana",
+        contractCard4Title: "Storable in BANK2.0 Wallet",
+        contractCard4Text: "Solana, Polygon, BANK 2.0 Solana, MOWO Gold Solana and MOWO Coin Polygon.",
 
         contactEyebrow: "Contact",
         contactTitle: "Contact",
@@ -1210,7 +1411,7 @@
         contactQuote: "Official channel",
 
         footer1: "© 2026 BANK2.0 · Private crypto banking concept",
-        footer2: "Privacy, discretion, real ownership and a new financial identity."
+        footer2: "Privacy, discretion, real ownership, games and metaverse in one single experience."
       }
     };
 
