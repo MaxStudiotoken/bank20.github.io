@@ -323,7 +323,8 @@
     .side-list,
     .cards,
     .cards-2,
-    .cards-4 {
+    .cards-4,
+    .cards-5 {
       display: grid;
       gap: 14px;
     }
@@ -412,10 +413,59 @@
       margin-top: 24px;
     }
 
+    .cards-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
     .card.feature {
       background:
         linear-gradient(135deg, rgba(255, 215, 110, 0.12), rgba(127, 246, 255, 0.06));
       border-color: rgba(255, 215, 110, 0.14);
+    }
+
+    .asset-card,
+    .nft-card {
+      text-align: center;
+    }
+
+    .asset-icon-wrap,
+    .nft-icon-wrap,
+    .metaverse-image-wrap {
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .asset-icon {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .nft-icon {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    }
+
+    .metaverse-image {
+      width: min(100%, 220px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+      background: rgba(255,255,255,0.04);
     }
 
     .notice {
@@ -595,6 +645,12 @@
       }
     }
 
+    @media (max-width: 980px) {
+      .cards-5 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 900px) {
       .cards-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -610,7 +666,8 @@
       .section-head,
       .cards,
       .cards-2,
-      .cards-4 {
+      .cards-4,
+      .cards-5 {
         grid-template-columns: 1fr;
       }
 
@@ -645,7 +702,7 @@
         <a class="tab-link" href="#metaverse" data-i18n="tabMetaverse">MoonWorld</a>
         <a class="tab-link" href="#prize" data-i18n="tabPrize">Global Prize</a>
         <a class="tab-link" href="#privacy" data-i18n="tabPrivacy">Privacy</a>
-        <a class="tab-link" href="#contract" data-i18n="tabContract">Contract</a>
+        <a class="tab-link" href="#contract" data-i18n="tabContract">Contracts</a>
         <a class="tab-link" href="#contact" data-i18n="tabContact">Contact</a>
       </nav>
 
@@ -742,6 +799,48 @@
           </div>
         </div>
 
+        <div class="cards-5">
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <img class="asset-icon" src="solana.png" alt="Solana icon" />
+            </div>
+            <strong>Solana</strong>
+            <p data-i18n="assetSolanaText">Activo guardable dentro de la bodega BANK2.0.</p>
+          </div>
+
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <img class="asset-icon" src="bank20solana.png" alt="BANK2.0 Solana icon" />
+            </div>
+            <strong>BANK2.0 Solana</strong>
+            <p data-i18n="assetBank20SolanaText">La nueva fase del ecosistema también vive dentro de tu bodega.</p>
+          </div>
+
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <img class="asset-icon" src="mowo_gold_logo.png" alt="MOWO Gold icon" />
+            </div>
+            <strong>MOWO Gold</strong>
+            <p data-i18n="assetMowoGoldText">MOWO Gold de Solana también se puede guardar en BANK2.0 Wallet.</p>
+          </div>
+
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <img class="asset-icon" src="solananft.png" alt="Solana NFT icon" />
+            </div>
+            <strong data-i18n="assetNftTitle">NFT Solana</strong>
+            <p data-i18n="assetNftText">Bodega NFT integrada para activos y premios del ecosistema.</p>
+          </div>
+
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <img class="asset-icon" src="logo.png" alt="BANK2.0 Wallet icon" />
+            </div>
+            <strong data-i18n="assetWalletTitle">BANK2.0 Wallet</strong>
+            <p data-i18n="assetWalletText">Todo reunido en una sola wallet: banco, bodega, juegos y metaverso.</p>
+          </div>
+        </div>
+
         <div class="list">
           <div class="list-item">
             <span class="bullet"></span>
@@ -833,19 +932,34 @@
         </div>
 
         <div class="cards-4">
-          <div class="card tier gold">
+          <div class="card tier gold nft-card">
+            <div class="nft-icon-wrap">
+              <img class="nft-icon" src="solananft.png" alt="NFT Oro icon" />
+            </div>
             <div class="tier-label" data-i18n="goldTitle">NFT Oro</div>
             <p data-i18n="goldText">Si te toca un NFT oro, puedes conseguir recompensas premium para tu metaverso lunar.</p>
           </div>
-          <div class="card tier silver">
+
+          <div class="card tier silver nft-card">
+            <div class="nft-icon-wrap">
+              <img class="nft-icon" src="solananft.png" alt="NFT Plata icon" />
+            </div>
             <div class="tier-label" data-i18n="silverTitle">NFT Plata</div>
             <p data-i18n="silverText">Si te toca un NFT plata, desbloqueas recompensas intermedias dentro del ecosistema.</p>
           </div>
-          <div class="card tier bronze">
+
+          <div class="card tier bronze nft-card">
+            <div class="nft-icon-wrap">
+              <img class="nft-icon" src="solananft.png" alt="NFT Cobre icon" />
+            </div>
             <div class="tier-label" data-i18n="bronzeTitle">NFT Cobre</div>
             <p data-i18n="bronzeText">Si te toca un NFT cobre, sigues entrando en la puerta del ecosistema y de sus premios.</p>
           </div>
-          <div class="card">
+
+          <div class="card nft-card">
+            <div class="nft-icon-wrap">
+              <img class="nft-icon" src="todonftjuntos.png" alt="Premios metaverso NFT" />
+            </div>
             <div class="tier-label" data-i18n="prizeAccessTitle">Premios metaverso</div>
             <p data-i18n="prizeAccessText">Según el NFT que ganes, puedes obtener coche, personaje, parcela y casa.</p>
           </div>
@@ -948,6 +1062,10 @@
           <div class="quote" data-i18n="metaverseQuote">Coche, personaje, parcela y casa</div>
         </div>
 
+        <div class="metaverse-image-wrap">
+          <img class="metaverse-image" src="moonworld_logo.png" alt="MoonWorld logo" />
+        </div>
+
         <p data-i18n="metaverseP1">
           Si te toca un NFT oro, plata o cobre, el premio puede convertirse en acceso real a elementos del metaverso.
         </p>
@@ -1044,7 +1162,7 @@
       <div class="panel">
         <div class="section-head">
           <div>
-            <div class="eyebrow" data-i18n="contractEyebrow">Contract</div>
+            <div class="eyebrow" data-i18n="contractEyebrow">Contracts</div>
             <h2 data-i18n="contractTitle">Contratos del ecosistema</h2>
             <p data-i18n="contractLead">
               Aquí quedan solo los enlaces y contratos importantes para guardar dentro de BANK2.0 Wallet.
@@ -1063,6 +1181,9 @@
             <div class="code">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
           </div>
           <div class="card">
+            <div class="asset-icon-wrap">
+              <img class="asset-icon" src="mowo_gold_logo.png" alt="MOWO Gold Solana" />
+            </div>
             <strong data-i18n="contractCard3Title">MOWO Gold Solana</strong>
             <div class="code">https://pump.fun/coin/GZYnRDN1zwGEmaQgxxQD27V29Q3qxZVv3LvdZDRBedzL</div>
           </div>
@@ -1144,6 +1265,14 @@
         vaultCard2Text: "Tu banco no solo guarda. También puede premiarte con hasta un 30% de ganancias por staking dentro del ecosistema.",
         vaultCard3Title: "Hasta 250.000 MOWO de recompensa",
         vaultCard3Text: "La primera vez puedes recibir una recompensa de bienvenida de hasta 250.000 MOWO.",
+
+        assetSolanaText: "Activo guardable dentro de la bodega BANK2.0.",
+        assetBank20SolanaText: "La nueva fase del ecosistema también vive dentro de tu bodega.",
+        assetMowoGoldText: "MOWO Gold de Solana también se puede guardar en BANK2.0 Wallet.",
+        assetNftTitle: "NFT Solana",
+        assetNftText: "Bodega NFT integrada para activos y premios del ecosistema.",
+        assetWalletTitle: "BANK2.0 Wallet",
+        assetWalletText: "Todo reunido en una sola wallet: banco, bodega, juegos y metaverso.",
 
         vaultList1Title: "Solana, Polygon y activos del ecosistema",
         vaultList1Text: "Una bodega única para guardar activos clave sin dispersar tu experiencia.",
@@ -1299,6 +1428,14 @@
         vaultCard2Text: "Your bank does not only store. It can also reward you with up to 30% staking gains inside the ecosystem.",
         vaultCard3Title: "Up to 250,000 MOWO reward",
         vaultCard3Text: "The first time you can receive a welcome reward of up to 250,000 MOWO.",
+
+        assetSolanaText: "Storable asset inside the BANK2.0 vault.",
+        assetBank20SolanaText: "The new phase of the ecosystem also lives inside your vault.",
+        assetMowoGoldText: "MOWO Gold on Solana can also be stored in BANK2.0 Wallet.",
+        assetNftTitle: "Solana NFT",
+        assetNftText: "Integrated NFT vault for ecosystem assets and rewards.",
+        assetWalletTitle: "BANK2.0 Wallet",
+        assetWalletText: "Everything together in a single wallet: bank, vault, games and metaverse.",
 
         vaultList1Title: "Solana, Polygon and ecosystem assets",
         vaultList1Text: "A single vault to keep key assets without scattering your experience.",
