@@ -7,7 +7,7 @@
   <title>BANK2.0 | Your Private Crypto Bank</title>
   <meta
     name="description"
-    content="BANK2.0 private crypto bank with wallet, crypto vault, NFT vault, games, Solana ecosystem and MoonWorld metaverse."
+    content="BANK2.0 private crypto bank with wallet, crypto vault, NFT vault, games, Solana ecosystem, security system and MoonWorld metaverse."
   />
   <link rel="icon" href="logo.png" />
   <style>
@@ -25,8 +25,9 @@
       --gold: #ffd76e;
       --silver: #d8dee9;
       --bronze: #d38a5c;
+      --red: #ff5a5a;
+      --yellow: #ffd76e;
       --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-      --radius: 28px;
       --maxw: 1180px;
       --navh: 78px;
     }
@@ -324,7 +325,8 @@
     .cards,
     .cards-2,
     .cards-4,
-    .cards-5 {
+    .cards-5,
+    .security-grid {
       display: grid;
       gap: 14px;
     }
@@ -418,6 +420,11 @@
       margin-top: 24px;
     }
 
+    .security-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
     .card.feature {
       background:
         linear-gradient(135deg, rgba(255, 215, 110, 0.12), rgba(127, 246, 255, 0.06));
@@ -427,6 +434,50 @@
     .asset-card,
     .nft-card {
       text-align: center;
+    }
+
+    .security-card {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .security-card.green {
+      border-color: rgba(125, 255, 178, 0.35);
+      background: linear-gradient(135deg, rgba(125,255,178,0.12), rgba(255,255,255,0.03));
+    }
+
+    .security-card.yellow {
+      border-color: rgba(255, 215, 110, 0.35);
+      background: linear-gradient(135deg, rgba(255,215,110,0.12), rgba(255,255,255,0.03));
+    }
+
+    .security-card.red {
+      border-color: rgba(255, 90, 90, 0.4);
+      background: linear-gradient(135deg, rgba(255,90,90,0.16), rgba(255,255,255,0.03));
+    }
+
+    .security-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+    }
+
+    .security-card.green .security-dot {
+      background: #32ff9c;
+      box-shadow: 0 0 18px #32ff9c;
+    }
+
+    .security-card.yellow .security-dot {
+      background: #ffd76e;
+      box-shadow: 0 0 18px #ffd76e;
+    }
+
+    .security-card.red .security-dot {
+      background: #ff4d4d;
+      box-shadow: 0 0 18px #ff4d4d;
     }
 
     .asset-icon-wrap,
@@ -652,7 +703,8 @@
     }
 
     @media (max-width: 900px) {
-      .cards-4 {
+      .cards-4,
+      .security-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -667,7 +719,8 @@
       .cards,
       .cards-2,
       .cards-4,
-      .cards-5 {
+      .cards-5,
+      .security-grid {
         grid-template-columns: 1fr;
       }
 
@@ -701,6 +754,7 @@
         <a class="tab-link" href="#solana" data-i18n="tabSolana">Solana</a>
         <a class="tab-link" href="#metaverse" data-i18n="tabMetaverse">MoonWorld</a>
         <a class="tab-link" href="#prize" data-i18n="tabPrize">Global Prize</a>
+        <a class="tab-link" href="#security" data-i18n="tabSecurity">Security</a>
         <a class="tab-link" href="#privacy" data-i18n="tabPrivacy">Privacy</a>
         <a class="tab-link" href="#contract" data-i18n="tabContract">Contracts</a>
         <a class="tab-link" href="#contact" data-i18n="tabContact">Contact</a>
@@ -1118,6 +1172,58 @@
       </div>
     </section>
 
+    <section id="security" class="section">
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" data-i18n="securityEyebrow">Security</div>
+            <h2 data-i18n="securityTitle">Sistema de seguridad visual antes de entrar a tu wallet</h2>
+            <p data-i18n="securityLead">
+              BANK2.0 incorpora una alerta visual antes del acceso para ayudarte a identificar si el entorno parece normal, dudoso o de riesgo antes de introducir tus datos.
+            </p>
+          </div>
+          <div class="quote" data-i18n="securityQuote">Ver, revisar y decidir</div>
+        </div>
+
+        <p data-i18n="securityP1">
+          La idea es simple: si algo no parece correcto, la wallet debe avisarte antes de que introduzcas credenciales o continúes con el acceso.
+        </p>
+
+        <div class="security-grid">
+          <div class="security-card green">
+            <div class="security-dot"></div>
+            <strong data-i18n="securityGreenTitle">Verde</strong>
+            <p data-i18n="securityGreenText">
+              Acceso normal. El entorno parece correcto y el usuario puede continuar con más tranquilidad.
+            </p>
+          </div>
+
+          <div class="security-card yellow">
+            <div class="security-dot"></div>
+            <strong data-i18n="securityYellowTitle">Amarillo</strong>
+            <p data-i18n="securityYellowText">
+              Señal de duda o inestabilidad. Se recomienda revisar antes de entrar o continuar.
+            </p>
+          </div>
+
+          <div class="security-card red">
+            <div class="security-dot"></div>
+            <strong data-i18n="securityRedTitle">Rojo</strong>
+            <p data-i18n="securityRedText">
+              Posible riesgo. No introduzcas datos ni continúes hasta revisar la situación.
+            </p>
+          </div>
+        </div>
+
+        <div class="notice">
+          <strong data-i18n="securityNoticeTitle">Seguridad BANK2.0:</strong>
+          <span data-i18n="securityNoticeText">
+            antes de escribir datos, la wallet te da una señal visual clara para que tengas una referencia inmediata del estado del acceso.
+          </span>
+        </div>
+      </div>
+    </section>
+
     <section id="privacy" class="section">
       <div class="panel">
         <div class="section-head">
@@ -1246,6 +1352,7 @@
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
         tabPrize: "Premio Global",
+        tabSecurity: "Seguridad",
         tabPrivacy: "Privacidad",
         tabContract: "Contratos",
         tabContact: "Contacto",
@@ -1368,6 +1475,20 @@
         prizeP2: "El jugador con mayor puntuación podrá optar al gran premio según las condiciones activas dentro de la aplicación.",
         prizeP3: "No es solo un premio. Es una forma de dar identidad, comunidad y ambición a todo el ecosistema.",
 
+        securityEyebrow: "Seguridad",
+        securityTitle: "Sistema de seguridad visual antes de entrar a tu wallet",
+        securityLead: "BANK2.0 incorpora una alerta visual antes del acceso para ayudarte a identificar si el entorno parece normal, dudoso o de riesgo antes de introducir tus datos.",
+        securityQuote: "Ver, revisar y decidir",
+        securityP1: "La idea es simple: si algo no parece correcto, la wallet debe avisarte antes de que introduzcas credenciales o continúes con el acceso.",
+        securityGreenTitle: "Verde",
+        securityGreenText: "Acceso normal. El entorno parece correcto y el usuario puede continuar con más tranquilidad.",
+        securityYellowTitle: "Amarillo",
+        securityYellowText: "Señal de duda o inestabilidad. Se recomienda revisar antes de entrar o continuar.",
+        securityRedTitle: "Rojo",
+        securityRedText: "Posible riesgo. No introduzcas datos ni continúes hasta revisar la situación.",
+        securityNoticeTitle: "Seguridad BANK2.0:",
+        securityNoticeText: "antes de escribir datos, la wallet te da una señal visual clara para que tengas una referencia inmediata del estado del acceso.",
+
         privacyEyebrow: "Privacidad",
         privacyTitle: "La privacidad no es una función. Es la base del banco.",
         privacyLead: "Si BANK2.0 quiere convencer, tiene que dejarlo claro: no se trata solo de mover cripto, se trata de hacerlo con menos exposición y más control.",
@@ -1415,6 +1536,7 @@
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
         tabPrize: "Global Prize",
+        tabSecurity: "Security",
         tabPrivacy: "Privacy",
         tabContract: "Contracts",
         tabContact: "Contact",
@@ -1536,6 +1658,20 @@
         prizeP1: "The idea is to create a competition where users play, collect points and try to reach the top of the global ranking.",
         prizeP2: "The player with the highest score may qualify for the grand prize according to the active conditions inside the application.",
         prizeP3: "It is not only a prize. It is a way to give identity, community and ambition to the entire ecosystem.",
+
+        securityEyebrow: "Security",
+        securityTitle: "Visual security system before entering your wallet",
+        securityLead: "BANK2.0 includes a visual alert before access to help you identify whether the environment looks normal, doubtful or risky before entering your data.",
+        securityQuote: "See, review and decide",
+        securityP1: "The idea is simple: if something does not look right, the wallet should warn you before you enter credentials or continue with access.",
+        securityGreenTitle: "Green",
+        securityGreenText: "Normal access. The environment looks correct and the user can continue with more confidence.",
+        securityYellowTitle: "Yellow",
+        securityYellowText: "Warning or unstable signal. It is recommended to review before entering or continuing.",
+        securityRedTitle: "Red",
+        securityRedText: "Possible risk. Do not enter data or continue until the situation is reviewed.",
+        securityNoticeTitle: "BANK2.0 Security:",
+        securityNoticeText: "before typing any data, the wallet gives you a clear visual signal so you have an immediate reference of the access status.",
 
         privacyEyebrow: "Privacy",
         privacyTitle: "Privacy is not a feature. It is the base of the bank.",
