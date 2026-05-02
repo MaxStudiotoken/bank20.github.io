@@ -1,28 +1,34 @@
+<!-- /index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BANK2.0 (B20) - Your Private Crypto Bank</title>
+  <title>BANK2.0 | Your Private Crypto Bank</title>
+  <meta
+    name="description"
+    content="BANK2.0 is a private crypto banking concept with wallet, crypto vault, NFT vault, Solana ecosystem and global rewards."
+  />
   <link rel="icon" href="logo.png" />
   <style>
     :root {
-      --bg: #05010c;
-      --bg-soft: rgba(12, 7, 24, 0.88);
-      --panel: rgba(8, 5, 18, 0.84);
-      --panel-2: rgba(15, 10, 28, 0.92);
-      --text: #f4f4f6;
-      --muted: #b9bfd1;
+      --bg: #06020d;
+      --bg-2: #0d0416;
+      --panel: rgba(15, 8, 28, 0.84);
+      --panel-2: rgba(10, 6, 18, 0.92);
+      --text: #f5f7fb;
+      --muted: #b8bfd3;
       --line: rgba(255, 255, 255, 0.08);
-      --cyan: #79f7ff;
-      --pink: #ff47d7;
+      --cyan: #7ff6ff;
+      --pink: #ff4fd8;
       --green: #7dffb2;
-      --gold: #ffd978;
-      --blue: #8dc7ff;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius: 24px;
-      --max: 1180px;
-      --nav-h: 78px;
+      --gold: #ffd76e;
+      --blue: #9ec7ff;
+      --dark: #0a0f14;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      --radius: 28px;
+      --maxw: 1180px;
+      --navh: 78px;
     }
 
     * {
@@ -33,17 +39,17 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--nav-h) + 18px);
+      scroll-padding-top: calc(var(--navh) + 18px);
     }
 
     body {
       font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(255, 71, 215, 0.14), transparent 26%),
-        radial-gradient(circle at 85% 20%, rgba(121, 247, 255, 0.12), transparent 24%),
-        radial-gradient(circle at 50% 80%, rgba(125, 255, 178, 0.08), transparent 30%),
-        linear-gradient(180deg, #030106 0%, #090313 40%, #05010c 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(255, 79, 216, 0.14), transparent 24%),
+        radial-gradient(circle at 85% 12%, rgba(127, 246, 255, 0.12), transparent 24%),
+        radial-gradient(circle at 50% 90%, rgba(125, 255, 178, 0.08), transparent 30%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 48%, var(--bg) 100%);
       line-height: 1.65;
       overflow-x: hidden;
     }
@@ -56,14 +62,14 @@
         linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
       background-size: 32px 32px;
-      opacity: 0.15;
+      opacity: 0.16;
       pointer-events: none;
       z-index: -1;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
 
     a {
@@ -72,7 +78,7 @@
     }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--maxw), calc(100% - 32px));
       margin: 0 auto;
     }
 
@@ -80,16 +86,16 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      height: var(--nav-h);
+      height: var(--navh);
+      background: rgba(7, 4, 13, 0.82);
       backdrop-filter: blur(18px);
-      background: rgba(4, 2, 9, 0.8);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--line);
     }
 
     .topbar-inner {
-      width: min(var(--max), calc(100% - 32px));
-      height: 100%;
+      width: min(var(--maxw), calc(100% - 32px));
       margin: 0 auto;
+      height: 100%;
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 18px;
@@ -103,22 +109,32 @@
       min-width: 0;
     }
 
-    .brand img {
+    .brand-logo {
       width: 48px;
       height: 48px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 14px rgba(121, 247, 255, 0.22));
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.24), transparent 30%),
+        linear-gradient(135deg, rgba(255,79,216,0.26), rgba(127,246,255,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 26px rgba(127, 246, 255, 0.12);
     }
 
-    .brand-copy {
-      min-width: 0;
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .brand-copy strong {
       display: block;
+      color: #fff;
       font-size: 1rem;
       letter-spacing: 0.08em;
-      color: #fff;
     }
 
     .brand-copy span {
@@ -150,25 +166,27 @@
       color: var(--muted);
       border: 1px solid transparent;
       transition: 0.25s ease;
-      font-weight: 700;
       font-size: 0.94rem;
+      font-weight: 800;
     }
 
-    .tab-link:hover {
+    .tab-link:hover,
+    .tab-link.active {
       color: #fff;
-      border-color: rgba(121, 247, 255, 0.18);
-      background: rgba(255,255,255,0.03);
+      border-color: rgba(127, 246, 255, 0.18);
+      background: rgba(255,255,255,0.035);
     }
 
     .toolbar {
       display: flex;
       justify-content: flex-end;
+      gap: 10px;
     }
 
     .lang {
       appearance: none;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(121, 247, 255, 0.2);
+      border: 1px solid rgba(127, 246, 255, 0.2);
       color: var(--text);
       padding: 10px 14px;
       border-radius: 999px;
@@ -177,59 +195,58 @@
     }
 
     section {
-      scroll-margin-top: calc(var(--nav-h) + 18px);
+      scroll-margin-top: calc(var(--navh) + 18px);
     }
 
     .hero {
-      padding: 42px 0 24px;
+      padding: 42px 0 22px;
     }
 
     .hero-shell {
       background:
-        radial-gradient(circle at 10% 10%, rgba(255, 71, 215, 0.16), transparent 28%),
-        radial-gradient(circle at 90% 20%, rgba(121, 247, 255, 0.14), transparent 26%),
-        linear-gradient(145deg, rgba(10, 4, 22, 0.98), rgba(5, 3, 13, 0.96));
-      border: 1px solid rgba(255,255,255,0.08);
+        radial-gradient(circle at 10% 12%, rgba(255, 79, 216, 0.14), transparent 26%),
+        radial-gradient(circle at 90% 16%, rgba(127, 246, 255, 0.12), transparent 24%),
+        linear-gradient(145deg, rgba(14, 8, 26, 0.98), rgba(7, 4, 14, 0.96));
+      border: 1px solid var(--line);
       border-radius: 34px;
       box-shadow: var(--shadow);
       overflow: hidden;
-      position: relative;
     }
 
     .hero-inner {
-      padding: 52px 44px;
+      padding: 54px 44px;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 34px;
       align-items: center;
     }
 
-    .hero-badge {
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 10px 16px;
       border-radius: 999px;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
+      border: 1px solid var(--line);
       color: var(--gold);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      margin-bottom: 18px;
-      text-transform: uppercase;
       font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 4.4rem);
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
       line-height: 0.98;
+      letter-spacing: -0.04em;
       margin-bottom: 18px;
-      letter-spacing: -0.03em;
       color: #fff;
     }
 
-    .hero h1 span {
-      background: linear-gradient(90deg, #fff 0%, var(--cyan) 45%, var(--green) 100%);
+    h1 .grad {
+      background: linear-gradient(90deg, #fff 0%, var(--cyan) 44%, var(--green) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -237,19 +254,19 @@
 
     .hero p {
       color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 760px;
+      font-size: 1.07rem;
       margin-bottom: 14px;
+      max-width: 760px;
     }
 
-    .hero-claim {
+    .claim {
       color: #fff;
       font-size: 1.12rem;
-      font-weight: 800;
+      font-weight: 900;
       margin: 18px 0 24px;
     }
 
-    .hero-actions {
+    .actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
@@ -275,55 +292,61 @@
     }
 
     .btn-primary {
-      color: #08110d;
+      color: #07130d;
       background: linear-gradient(90deg, var(--green), var(--cyan));
-      box-shadow: 0 10px 30px rgba(121, 247, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(127, 246, 255, 0.18);
     }
 
     .btn-secondary {
       color: #fff;
       background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.08);
+      border-color: var(--line);
     }
 
     .hero-side {
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
       border-radius: 28px;
       padding: 24px;
     }
 
-    .hero-side-title {
-      font-size: 0.86rem;
+    .side-title,
+    .eyebrow {
       color: var(--cyan);
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-weight: 900;
       margin-bottom: 12px;
     }
 
-    .hero-side-list {
+    .side-list,
+    .cards,
+    .cards-2 {
       display: grid;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .hero-side-item {
-      padding: 14px 14px 14px 16px;
-      border-radius: 18px;
+    .side-item,
+    .card {
+      padding: 18px;
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      border-radius: 22px;
     }
 
-    .hero-side-item strong {
+    .side-item strong,
+    .card strong {
       display: block;
       color: #fff;
-      margin-bottom: 4px;
       font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .hero-side-item span {
+    .side-item span,
+    .card p {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.96rem;
     }
 
     .section {
@@ -332,10 +355,10 @@
 
     .panel {
       background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
       border-radius: 30px;
-      padding: 34px;
       box-shadow: var(--shadow);
+      padding: 34px;
     }
 
     .section-head {
@@ -346,27 +369,18 @@
       margin-bottom: 24px;
     }
 
-    .eyebrow {
-      color: var(--cyan);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
     .section h2 {
-      font-size: clamp(1.7rem, 4vw, 2.9rem);
-      line-height: 1.02;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1.04;
       letter-spacing: -0.03em;
       color: #fff;
       margin-bottom: 12px;
     }
 
-    .section-head p,
-    .section-copy p {
+    .section p {
       color: var(--muted);
-      font-size: 1.04rem;
+      font-size: 1.03rem;
+      margin-bottom: 12px;
     }
 
     .quote {
@@ -374,85 +388,28 @@
       align-items: center;
       padding: 12px 16px;
       border-radius: 999px;
-      background: rgba(121,247,255,0.08);
-      border: 1px solid rgba(121,247,255,0.18);
+      background: rgba(127,246,255,0.08);
+      border: 1px solid rgba(127,246,255,0.16);
       color: #fff;
-      font-weight: 800;
       font-size: 0.94rem;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .grid-3 {
-      display: grid;
+    .cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
       margin-top: 24px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 22px;
+    .cards-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 24px;
     }
 
-    .card strong {
-      display: block;
-      color: #fff;
-      font-size: 1.08rem;
-      margin-bottom: 8px;
-    }
-
-    .card p,
-    .card span {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .big-point {
+    .card.feature {
       background:
-        linear-gradient(135deg, rgba(255,217,120,0.14), rgba(121,247,255,0.08));
-      border: 1px solid rgba(255,217,120,0.18);
-    }
-
-    .big-point strong {
-      color: var(--gold);
-      font-size: 1.18rem;
-    }
-
-    .prize-box {
-      margin-top: 22px;
-      padding: 30px;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 50% 10%, rgba(255,217,120,0.18), transparent 35%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,217,120,0.16);
-      text-align: center;
-    }
-
-    .prize-number {
-      font-size: clamp(3rem, 10vw, 7rem);
-      line-height: 0.9;
-      font-weight: 1000;
-      color: var(--gold);
-      letter-spacing: -0.05em;
-      text-shadow: 0 0 24px rgba(255,217,120,0.18);
-    }
-
-    .prize-label {
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 10px;
+        linear-gradient(135deg, rgba(255, 215, 110, 0.12), rgba(127, 246, 255, 0.06));
+      border-color: rgba(255, 215, 110, 0.14);
     }
 
     .notice {
@@ -460,7 +417,7 @@
       padding: 16px 18px;
       border-radius: 20px;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
       color: var(--muted);
     }
 
@@ -468,43 +425,129 @@
       color: #fff;
     }
 
+    .list {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+    }
+
+    .bullet {
+      flex: 0 0 10px;
+      width: 10px;
+      height: 10px;
+      margin-top: 9px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--green), var(--cyan));
+      box-shadow: 0 0 14px rgba(127, 246, 255, 0.18);
+    }
+
+    .list-item div strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .list-item div span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .prize-box {
+      margin-top: 22px;
+      padding: 30px;
+      border-radius: 28px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255,215,110,0.18), transparent 35%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,215,110,0.16);
+    }
+
+    .prize-number {
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 0.9;
+      font-weight: 1000;
+      letter-spacing: -0.05em;
+      color: var(--gold);
+      text-shadow: 0 0 24px rgba(255,215,110,0.16);
+    }
+
+    .prize-label {
+      margin-top: 10px;
+      color: #fff;
+      font-weight: 900;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .code {
       margin-top: 18px;
       padding: 18px;
       border-radius: 20px;
       background: #05060b;
-      border: 1px solid rgba(121,247,255,0.14);
+      border: 1px solid rgba(127,246,255,0.14);
       color: var(--green);
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 0.95rem;
       word-break: break-all;
     }
 
-    .foot {
+    .footer {
       padding: 28px 0 54px;
-      color: var(--muted);
       text-align: center;
+      color: var(--muted);
     }
 
-    .foot img {
+    .footer-logo {
       width: 72px;
+      height: 72px;
       margin: 0 auto 14px;
-      opacity: 0.92;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.24), transparent 30%),
+        linear-gradient(135deg, rgba(255,79,216,0.26), rgba(127,246,255,0.18));
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .footer-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     @media (max-width: 1100px) {
+      .topbar {
+        height: auto;
+      }
+
       .topbar-inner {
         grid-template-columns: 1fr;
         height: auto;
         padding: 12px 0;
       }
 
-      .topbar {
-        height: auto;
-      }
-
       .toolbar {
         justify-content: flex-start;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
       }
 
       html {
@@ -514,10 +557,6 @@
       section {
         scroll-margin-top: 120px;
       }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 760px) {
@@ -526,13 +565,13 @@
         padding: 24px;
       }
 
-      .grid-2,
-      .grid-3,
-      .section-head {
+      .section-head,
+      .cards,
+      .cards-2 {
         grid-template-columns: 1fr;
       }
 
-      .hero-actions {
+      .actions {
         flex-direction: column;
       }
 
@@ -545,22 +584,24 @@
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="#inicio" class="brand">
-        <img src="logo.png" alt="BANK2.0 logo" />
+      <a class="brand" href="#inicio">
+        <div class="brand-logo">
+          <img src="logo.png" alt="BANK2.0 logo" onerror="this.style.display='none'; this.parentElement.textContent='B20'; this.parentElement.style.color='#fff'; this.parentElement.style.fontWeight='900'; this.parentElement.style.fontSize='1rem';" />
+        </div>
         <div class="brand-copy">
           <strong>BANK2.0</strong>
           <span data-i18n="brandSub">Your private bank without unnecessary data</span>
         </div>
       </a>
 
-      <nav class="tabs" aria-label="Navegación principal">
-        <a class="tab-link" href="#wallet" data-i18n="tabWallet">Wallet</a>
-        <a class="tab-link" href="#change" data-i18n="tabChange">Cambio</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab-link" href="#wallet-vault" data-i18n="tabWalletVault">Wallet & Vault</a>
+        <a class="tab-link" href="#change" data-i18n="tabChange">Change</a>
         <a class="tab-link" href="#solana" data-i18n="tabSolana">Solana</a>
-        <a class="tab-link" href="#prize" data-i18n="tabPrize">Premio Global</a>
-        <a class="tab-link" href="#privacy" data-i18n="tabPrivacy">Privacidad</a>
-        <a class="tab-link" href="#contract" data-i18n="tabContract">Contrato</a>
-        <a class="tab-link" href="#contact" data-i18n="tabContact">Contacto</a>
+        <a class="tab-link" href="#prize" data-i18n="tabPrize">Global Prize</a>
+        <a class="tab-link" href="#privacy" data-i18n="tabPrivacy">Privacy</a>
+        <a class="tab-link" href="#contract" data-i18n="tabContract">Contract</a>
+        <a class="tab-link" href="#contact" data-i18n="tabContact">Contact</a>
       </nav>
 
       <div class="toolbar">
@@ -577,37 +618,43 @@
       <div class="hero-shell">
         <div class="hero-inner">
           <div>
-            <div class="hero-badge" data-i18n="heroBadge">BANK2.0 · PRIVATE CRYPTO BANK</div>
-            <h1 data-i18n="heroTitle">Tu banco <span>sin nombres, sin teléfonos, sin exposición innecesaria</span></h1>
+            <div class="badge" data-i18n="heroBadge">BANK2.0 · PRIVATE CRYPTO BANK</div>
+            <h1 data-i18n="heroTitle">Tu banco <span class="grad">sin nombres, sin teléfonos, sin exposición innecesaria</span></h1>
             <p data-i18n="heroP1">
               BANK2.0 no quiere parecer un banco antiguo. BANK2.0 quiere ser tu banco en una nueva etapa: más privado, más directo y más tuyo.
             </p>
             <p data-i18n="heroP2">
               La idea es simple: dejar atrás formularios, datos innecesarios y explicaciones de más. Tu wallet puede ser tu identidad reservada dentro del ecosistema.
             </p>
-            <p class="hero-claim" data-i18n="heroClaim">
+            <p class="claim" data-i18n="heroClaim">
               Tus activos son tuyos. Tu identidad es tuya. Tu banco también.
             </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" rel="noopener" data-i18n="heroBtn1">📲 Descargar Wallet</a>
-              <a class="btn btn-secondary" href="#wallet" data-i18n="heroBtn2">Ver cómo funciona</a>
+            <div class="actions">
+              <a
+                class="btn btn-primary"
+                href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20"
+                target="_blank"
+                rel="noopener"
+                data-i18n="heroBtn1"
+              >📲 Descargar Wallet</a>
+              <a class="btn btn-secondary" href="#wallet-vault" data-i18n="heroBtn2">Ver la bodega</a>
             </div>
           </div>
 
           <aside class="hero-side">
-            <div class="hero-side-title" data-i18n="heroSideTitle">Why BANK2.0</div>
-            <div class="hero-side-list">
-              <div class="hero-side-item">
-                <strong data-i18n="heroCard1Title">A bank, not just a wallet</strong>
-                <span data-i18n="heroCard1Text">A private banking idea for digital assets, movement, storage and identity.</span>
+            <div class="side-title" data-i18n="heroSideTitle">Why BANK2.0</div>
+            <div class="side-list">
+              <div class="side-item">
+                <strong data-i18n="heroCard1Title">A bank, not only a wallet</strong>
+                <span data-i18n="heroCard1Text">A private banking idea for assets, storage, identity and movement.</span>
               </div>
-              <div class="hero-side-item">
-                <strong data-i18n="heroCard2Title">Without unnecessary data</strong>
-                <span data-i18n="heroCard2Text">No names, no phones, no exposure as the center of the experience.</span>
+              <div class="side-item">
+                <strong data-i18n="heroCard2Title">No unnecessary data</strong>
+                <span data-i18n="heroCard2Text">No names, no phones and less exposure at the center of the experience.</span>
               </div>
-              <div class="hero-side-item">
-                <strong data-i18n="heroCard3Title">Discretion first</strong>
-                <span data-i18n="heroCard3Text">Speed, low-cost transfers and full control with privacy above all.</span>
+              <div class="side-item">
+                <strong data-i18n="heroCard3Title">BANK2.0 rewards you</strong>
+                <span data-i18n="heroCard3Text">While others charge you for storage, BANK2.0 rewards you for trusting the ecosystem.</span>
               </div>
             </div>
           </aside>
@@ -615,48 +662,94 @@
       </div>
     </section>
 
-    <section id="wallet" class="section">
+    <section id="wallet-vault" class="section">
       <div class="panel">
         <div class="section-head">
           <div>
-            <div class="eyebrow" data-i18n="walletEyebrow">Wallet</div>
-            <h2 data-i18n="walletTitle">Qué es BANK2.0 y por qué quiere ser tu banco</h2>
-            <p data-i18n="walletLead">
-              BANK2.0 Wallet no se presenta como una wallet cualquiera. La idea es mucho más fuerte: convertir la wallet en tu banco personal dentro del mundo cripto.
+            <div class="eyebrow" data-i18n="walletVaultEyebrow">Wallet & Vault</div>
+            <h2 data-i18n="walletVaultTitle">Tu banco, tu bodega cripto y tu bodega NFT en un solo lugar</h2>
+            <p data-i18n="walletVaultLead">
+              BANK2.0 no se presenta como una wallet cualquiera. La idea es más fuerte: convertir tu wallet en tu banco y en tu bodega digital dentro del ecosistema.
             </p>
           </div>
-          <div class="quote" data-i18n="walletQuote">Tu dirección puede ser tu identidad reservada</div>
+          <div class="quote" data-i18n="walletVaultQuote">Guardar y ganar</div>
         </div>
 
-        <div class="section-copy">
-          <p data-i18n="walletP1">
-            Se acabó depender de nombres, teléfonos y datos que no aportan nada al usuario. BANK2.0 nace con otra mentalidad: menos exposición, más control y una forma nueva de entrar en las finanzas digitales.
-          </p>
-          <p data-i18n="walletP2">
-            La idea es que tu dirección de wallet funcione como tu DNI oculto dentro del ecosistema. No para explicarte más, sino para darte menos exposición y más privacidad desde el principio.
-          </p>
-          <p data-i18n="walletP3">
-            BANK2.0 quiere convencer por una idea clara: un banco donde tus activos sean tuyos, donde tu acceso sea más privado y donde la discreción deje de ser un lujo para convertirse en la base de todo.
-          </p>
+        <p data-i18n="walletVaultP1">
+          Un banco tradicional te cobra por guardar tus ahorros. BANK2.0 quiere marcar la diferencia: guarda tus activos, los organiza y además te premia por confiar.
+        </p>
+        <p data-i18n="walletVaultP2">
+          La wallet está pensada para que tengas menos exposición, más control y una identidad más reservada dentro del ecosistema. Tu dirección puede actuar como tu identidad protegida.
+        </p>
+
+        <div class="cards">
+          <div class="card feature">
+            <strong data-i18n="vaultCard1Title">Bodega cripto</strong>
+            <p data-i18n="vaultCard1Text">Guarda Solana, Polygon, BANK 2.0 Solana, MOWO GOLD de Solana y MOWO Coin de Polygon.</p>
+          </div>
+          <div class="card feature">
+            <strong data-i18n="vaultCard2Title">Hasta 30% por staking</strong>
+            <p data-i18n="vaultCard2Text">Tu banco no solo guarda. También puede premiarte con hasta un 30% de ganancias por staking dentro del ecosistema.</p>
+          </div>
+          <div class="card feature">
+            <strong data-i18n="vaultCard3Title">Hasta 250.000 MOWO de recompensa</strong>
+            <p data-i18n="vaultCard3Text">La primera vez puedes recibir una recompensa de bienvenida de hasta 250.000 MOWO.</p>
+          </div>
         </div>
 
-        <div class="grid-3">
-          <div class="card big-point">
-            <strong data-i18n="walletCard1Title">Un banco sin datos innecesarios</strong>
-            <p data-i18n="walletCard1Text">La propuesta es cortar con la vieja lógica de pedir más de lo que hace falta.</p>
+        <div class="list">
+          <div class="list-item">
+            <span class="bullet"></span>
+            <div>
+              <strong data-i18n="vaultList1Title">Solana, Polygon y activos del ecosistema</strong>
+              <span data-i18n="vaultList1Text">Una bodega única para guardar activos clave sin dispersar tu experiencia.</span>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="bullet"></span>
+            <div>
+              <strong data-i18n="vaultList2Title">BANK2.0 te premia por guardar</strong>
+              <span data-i18n="vaultList2Text">Esa es la diferencia frente a un banco tradicional: en lugar de cobrarte, BANK2.0 quiere recompensarte.</span>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="bullet"></span>
+            <div>
+              <strong data-i18n="vaultList3Title">Más control, menos exposición</strong>
+              <span data-i18n="vaultList3Text">Tu banco digital con una lógica más reservada, más directa y más enfocada en el usuario.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards-2">
+          <div class="card">
+            <strong data-i18n="nftVaultTitle">Bodega NFT</strong>
+            <p data-i18n="nftVaultP1">
+              BANK2.0 también incluye bodega NFT por la red de Solana y Polygon para guardar tus NFTs de forma más cómoda, más clara y más integrada.
+            </p>
+            <p data-i18n="nftVaultP2">
+              Si llegas 10 NFTs a tu wallet, puedes recibir una recompensa en MOWO Coin por confiar en nuestro proyecto.
+            </p>
           </div>
           <div class="card">
-            <strong data-i18n="walletCard2Title">Una identidad más reservada</strong>
-            <p data-i18n="walletCard2Text">Tu wallet puede ser tu identidad protegida, sin convertir tu vida privada en parte del proceso.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="walletCard3Title">Tus activos son tuyos</strong>
-            <p data-i18n="walletCard3Text">El centro de BANK2.0 es la propiedad real: tus activos no son del banco, son tuyos.</p>
+            <strong data-i18n="vaultDifferenceTitle">La diferencia que marca BANK2.0</strong>
+            <p data-i18n="vaultDifferenceP1">
+              Mientras otros te cobran por guardar, BANK2.0 quiere premiarte por formar parte, por almacenar y por confiar dentro del ecosistema.
+            </p>
+            <p data-i18n="vaultDifferenceP2">
+              Aquí no se trata solo de guardar activos. Se trata de que tu banco digital te dé una razón para quedarte.
+            </p>
           </div>
         </div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" rel="noopener" data-i18n="walletBtn">📲 Descargar BANK2.0 Wallet</a>
+        <div class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20"
+            target="_blank"
+            rel="noopener"
+            data-i18n="walletVaultBtn"
+          >📲 Descargar BANK2.0 Wallet</a>
         </div>
       </div>
     </section>
@@ -666,29 +759,27 @@
         <div class="section-head">
           <div>
             <div class="eyebrow" data-i18n="changeEyebrow">Change</div>
-            <h2 data-i18n="changeTitle">BANK2.0 deja atrás Polygon y avanza hacia otra etapa</h2>
+            <h2 data-i18n="changeTitle">BANK2.0 deja atrás la etapa anterior y entra en una nueva dirección</h2>
             <p data-i18n="changeLead">
-              La etapa anterior no es la promoción principal. La idea ahora es explicar el cambio: Polygon queda atrás y BANK2.0 se mueve hacia una estructura nueva.
+              Esta parte no existe para promocionar B20 Polygon. Existe para explicar el cambio de etapa y dejar claro que el foco del proyecto está en lo nuevo.
             </p>
           </div>
-          <div class="quote" data-i18n="changeQuote">No mirar atrás. Explicar el cambio.</div>
+          <div class="quote" data-i18n="changeQuote">Explicar el cambio</div>
         </div>
 
-        <div class="section-copy">
-          <p data-i18n="changeP1">
-            Aquí no se trata de vender B20 Polygon. Al contrario: esta parte debe dejar claro que BANK2.0 entra en una nueva fase y que la antigua etapa deja de ser el foco.
-          </p>
-          <p data-i18n="changeP2">
-            La explicación correcta es esta: el proyecto evoluciona porque quiere una imagen más limpia, un movimiento más claro y una experiencia mejor para la comunidad.
-          </p>
-          <p data-i18n="changeP3">
-            BANK2.0 fue diseñado para otra dirección: discreción, velocidad, transparencia y bajo coste, sin quedarse atado a una etapa que ya no representa el futuro del proyecto.
-          </p>
-        </div>
+        <p data-i18n="changeP1">
+          La idea correcta aquí es mostrar evolución. Polygon puede seguir apareciendo como parte de la bodega o del recorrido del ecosistema, pero no como el centro de la nueva propuesta.
+        </p>
+        <p data-i18n="changeP2">
+          BANK2.0 busca una imagen más limpia, un movimiento más claro y una experiencia más alineada con su identidad: discreción, bajo coste, velocidad y control del usuario.
+        </p>
+        <p data-i18n="changeP3">
+          Por eso esta sección solo explica que la etapa anterior queda atrás y que el proyecto avanza hacia una estructura nueva.
+        </p>
 
         <div class="notice">
           <strong data-i18n="changeNoticeTitle">Aviso:</strong>
-          <span data-i18n="changeNoticeText"> Esta sección existe para explicar el cambio de etapa, no para promocionar la moneda anterior.</span>
+          <span data-i18n="changeNoticeText"> esta sección explica la transición. No promociona la moneda anterior como propuesta principal.</span>
         </div>
       </div>
     </section>
@@ -700,26 +791,24 @@
             <div class="eyebrow" data-i18n="solanaEyebrow">Bank 2.0 Solana</div>
             <h2 data-i18n="solanaTitle">La nueva moneda y la nueva etapa del banco</h2>
             <p data-i18n="solanaLead">
-              BANK2.0 Solana es la nueva fase del ecosistema. Aquí sí se habla de la moneda nueva, del movimiento nuevo y del motivo por el que esta etapa importa.
+              BANK2.0 Solana representa la nueva fase del ecosistema. Aquí sí se habla de la nueva moneda, del nuevo movimiento y del motivo por el que esta etapa importa.
             </p>
           </div>
           <div class="quote" data-i18n="solanaQuote">Inversión, control y discreción</div>
         </div>
 
-        <div class="section-copy">
-          <p data-i18n="solanaP1">
-            La idea de esta moneda también entra por la inversión. Cuando la mantienes, el banco puede comprarte intereses, y además puedes congelar tus activos según la estrategia que decidas seguir.
-          </p>
-          <p data-i18n="solanaP2">
-            Pero el mensaje fuerte no es solo ese. El mensaje fuerte es que BANK2.0 fue diseñado para otro movimiento: tus activos siguen siendo tuyos, no del sistema y no de nadie más.
-          </p>
-          <p data-i18n="solanaP3">
-            Esta nueva etapa quiere unir velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad que no se negocia: discreción.
-          </p>
-        </div>
+        <p data-i18n="solanaP1">
+          La idea de esta moneda también entra por la inversión. Cuando la mantienes, el banco puede comprarte intereses y además puedes congelar tus activos según la estrategia que elijas.
+        </p>
+        <p data-i18n="solanaP2">
+          Pero el mensaje fuerte es otro: BANK2.0 fue diseñado para un movimiento donde tus activos siguen siendo tuyos, no del sistema y no de nadie más.
+        </p>
+        <p data-i18n="solanaP3">
+          Esta etapa quiere unir velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad que no se negocia: discreción.
+        </p>
 
-        <div class="grid-3">
-          <div class="card big-point">
+        <div class="cards">
+          <div class="card feature">
             <strong data-i18n="solanaCard1Title">Una nueva moneda con propósito</strong>
             <p data-i18n="solanaCard1Text">No solo cambia la red. Cambia la idea de hacia dónde quiere ir BANK2.0.</p>
           </div>
@@ -735,8 +824,14 @@
 
         <div class="code">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" rel="noopener" data-i18n="solanaBtn">🚀 Ver BANK2.0 Solana</a>
+        <div class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump"
+            target="_blank"
+            rel="noopener"
+            data-i18n="solanaBtn"
+          >🚀 Ver BANK2.0 Solana</a>
         </div>
       </div>
     </section>
@@ -759,17 +854,15 @@
           <div class="prize-label" data-i18n="prizeLabel">MOWO DE PREMIO GLOBAL</div>
         </div>
 
-        <div class="section-copy">
-          <p data-i18n="prizeP1">
-            La idea es simple y potente: crear una competición donde los usuarios juegan, suman puntos y buscan entrar en lo más alto del ranking global.
-          </p>
-          <p data-i18n="prizeP2">
-            El jugador con mayor puntuación podrá optar al gran premio según las condiciones activas dentro de la aplicación.
-          </p>
-          <p data-i18n="prizeP3">
-            No es solo un premio. Es una forma de dar identidad, comunidad y ambición a todo el ecosistema.
-          </p>
-        </div>
+        <p data-i18n="prizeP1">
+          La idea es crear una competición donde los usuarios juegan, suman puntos y buscan entrar en lo más alto del ranking global.
+        </p>
+        <p data-i18n="prizeP2">
+          El jugador con mayor puntuación podrá optar al gran premio según las condiciones activas dentro de la aplicación.
+        </p>
+        <p data-i18n="prizeP3">
+          No es solo un premio. Es una forma de dar identidad, comunidad y ambición a todo el ecosistema.
+        </p>
       </div>
     </section>
 
@@ -786,20 +879,18 @@
           <div class="quote" data-i18n="privacyQuote">Privacidad anticipada</div>
         </div>
 
-        <div class="section-copy">
-          <p data-i18n="privacyP1">
-            Se acabó convertir cada acceso en una entrega de datos. Se acabó hacer visible más de lo necesario. La dirección de la wallet pasa a ocupar el centro como identidad reservada.
-          </p>
-          <p data-i18n="privacyP2">
-            BANK2.0 pone por delante una lógica sencilla: sin nombres, sin teléfonos, sin exposición innecesaria y sin explicar de más quién eres para poder usar tu propio banco.
-          </p>
-          <p data-i18n="privacyP3">
-            Privacidad anticipada, discreción absoluta y propiedad real no son mensajes decorativos. Son la base de la experiencia.
-          </p>
-        </div>
+        <p data-i18n="privacyP1">
+          Se acabó convertir cada acceso en una entrega de datos. Se acabó hacer visible más de lo necesario. La wallet pasa a ocupar el centro como identidad reservada.
+        </p>
+        <p data-i18n="privacyP2">
+          BANK2.0 pone por delante una lógica sencilla: sin nombres, sin teléfonos, sin exposición innecesaria y sin necesidad de explicar más de lo que corresponde para usar tu propio banco.
+        </p>
+        <p data-i18n="privacyP3">
+          Privacidad anticipada, discreción absoluta y propiedad real no son mensajes decorativos. Son la base de la experiencia.
+        </p>
 
-        <div class="grid-3">
-          <div class="card big-point">
+        <div class="cards">
+          <div class="card feature">
             <strong data-i18n="privacyCard1Title">Sin datos innecesarios</strong>
             <p data-i18n="privacyCard1Text">Menos exposición y menos dependencia de identificadores tradicionales.</p>
           </div>
@@ -828,22 +919,20 @@
           <div class="quote" data-i18n="contractQuote">Sin repeticiones</div>
         </div>
 
-        <div class="section-copy">
-          <p data-i18n="contractP1">
-            La idea correcta no es repetir contratos varias veces. La idea correcta es reunirlos aquí, limpios, accesibles y bien organizados.
-          </p>
-          <p data-i18n="contractP2">
-            Esta sección queda solo para la información esencial del ecosistema.
-          </p>
-        </div>
+        <p data-i18n="contractP1">
+          La idea correcta no es repetir contratos varias veces. La idea correcta es reunirlos aquí, limpios, accesibles y bien organizados.
+        </p>
+        <p data-i18n="contractP2">
+          Esta sección queda solo para la información esencial del ecosistema.
+        </p>
 
-        <div class="grid-2">
+        <div class="cards-2">
           <div class="card">
-            <strong data-i18n="contractCard1Title">MOWO Polygon Contract</strong>
+            <strong data-i18n="contractCard1Title">Contrato MOWO Polygon</strong>
             <div class="code">0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121</div>
           </div>
           <div class="card">
-            <strong data-i18n="contractCard2Title">BANK2.0 Solana Link</strong>
+            <strong data-i18n="contractCard2Title">Enlace BANK2.0 Solana</strong>
             <div class="code">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
           </div>
         </div>
@@ -863,16 +952,18 @@
           <div class="quote" data-i18n="contactQuote">Canal oficial</div>
         </div>
 
-        <div class="hero-actions">
+        <div class="actions">
           <a class="btn btn-primary" href="mailto:bank20token@proton.me">bank20token@proton.me</a>
         </div>
       </div>
     </section>
 
-    <footer class="foot">
-      <img src="logo.png" alt="BANK2.0 logo" />
-      <p data-i18n="footer1">© 2026 BANK2.0 · Private crypto banking concept</p>
-      <p data-i18n="footer2">Privacy, discretion, real ownership and a new financial identity.</p>
+    <footer class="footer">
+      <div class="footer-logo">
+        <img src="logo.png" alt="BANK2.0 logo" onerror="this.style.display='none'; this.parentElement.textContent='B20'; this.parentElement.style.color='#fff'; this.parentElement.style.fontWeight='900'; this.parentElement.style.fontSize='1rem';" />
+      </div>
+      <p data-i18n="footer1">© 2026 BANK2.0 · Concepto de banca cripto privada</p>
+      <p data-i18n="footer2">Privacidad, discreción, propiedad real y una nueva identidad financiera.</p>
     </footer>
   </main>
 
@@ -880,7 +971,7 @@
     const translations = {
       es: {
         brandSub: "Tu banco privado sin datos innecesarios",
-        tabWallet: "Wallet",
+        tabWalletVault: "Wallet & Bodega",
         tabChange: "Cambio",
         tabSolana: "Solana",
         tabPrize: "Premio Global",
@@ -889,52 +980,67 @@
         tabContact: "Contacto",
 
         heroBadge: "BANK2.0 · BANCO CRIPTO PRIVADO",
-        heroTitle: "Tu banco <span>sin nombres, sin teléfonos, sin exposición innecesaria</span>",
+        heroTitle: 'Tu banco <span class="grad">sin nombres, sin teléfonos, sin exposición innecesaria</span>',
         heroP1: "BANK2.0 no quiere parecer un banco antiguo. BANK2.0 quiere ser tu banco en una nueva etapa: más privado, más directo y más tuyo.",
         heroP2: "La idea es simple: dejar atrás formularios, datos innecesarios y explicaciones de más. Tu wallet puede ser tu identidad reservada dentro del ecosistema.",
         heroClaim: "Tus activos son tuyos. Tu identidad es tuya. Tu banco también.",
         heroBtn1: "📲 Descargar Wallet",
-        heroBtn2: "Ver cómo funciona",
+        heroBtn2: "Ver la bodega",
         heroSideTitle: "Por qué BANK2.0",
         heroCard1Title: "Un banco, no solo una wallet",
-        heroCard1Text: "Una idea de banca privada para activos digitales, movimiento, custodia e identidad.",
+        heroCard1Text: "Una idea de banca privada para activos, custodia, identidad y movimiento.",
         heroCard2Title: "Sin datos innecesarios",
-        heroCard2Text: "Sin nombres, sin teléfonos y sin exposición como centro de la experiencia.",
-        heroCard3Title: "Discreción primero",
-        heroCard3Text: "Velocidad, bajo coste y control total con la privacidad por encima de todo.",
+        heroCard2Text: "Sin nombres, sin teléfonos y con menos exposición en el centro de la experiencia.",
+        heroCard3Title: "BANK2.0 te premia",
+        heroCard3Text: "Mientras otros te cobran por guardar, BANK2.0 quiere premiarte por confiar en el ecosistema.",
 
-        walletEyebrow: "Wallet",
-        walletTitle: "Qué es BANK2.0 y por qué quiere ser tu banco",
-        walletLead: "BANK2.0 Wallet no se presenta como una wallet cualquiera. La idea es mucho más fuerte: convertir la wallet en tu banco personal dentro del mundo cripto.",
-        walletQuote: "Tu dirección puede ser tu identidad reservada",
-        walletP1: "Se acabó depender de nombres, teléfonos y datos que no aportan nada al usuario. BANK2.0 nace con otra mentalidad: menos exposición, más control y una forma nueva de entrar en las finanzas digitales.",
-        walletP2: "La idea es que tu dirección de wallet funcione como tu DNI oculto dentro del ecosistema. No para explicarte más, sino para darte menos exposición y más privacidad desde el principio.",
-        walletP3: "BANK2.0 quiere convencer por una idea clara: un banco donde tus activos sean tuyos, donde tu acceso sea más privado y donde la discreción deje de ser un lujo para convertirse en la base de todo.",
-        walletCard1Title: "Un banco sin datos innecesarios",
-        walletCard1Text: "La propuesta es cortar con la vieja lógica de pedir más de lo que hace falta.",
-        walletCard2Title: "Una identidad más reservada",
-        walletCard2Text: "Tu wallet puede ser tu identidad protegida, sin convertir tu vida privada en parte del proceso.",
-        walletCard3Title: "Tus activos son tuyos",
-        walletCard3Text: "El centro de BANK2.0 es la propiedad real: tus activos no son del banco, son tuyos.",
-        walletBtn: "📲 Descargar BANK2.0 Wallet",
+        walletVaultEyebrow: "Wallet & Bodega",
+        walletVaultTitle: "Tu banco, tu bodega cripto y tu bodega NFT en un solo lugar",
+        walletVaultLead: "BANK2.0 no se presenta como una wallet cualquiera. La idea es más fuerte: convertir tu wallet en tu banco y en tu bodega digital dentro del ecosistema.",
+        walletVaultQuote: "Guardar y ganar",
+        walletVaultP1: "Un banco tradicional te cobra por guardar tus ahorros. BANK2.0 quiere marcar la diferencia: guarda tus activos, los organiza y además te premia por confiar.",
+        walletVaultP2: "La wallet está pensada para que tengas menos exposición, más control y una identidad más reservada dentro del ecosistema. Tu dirección puede actuar como tu identidad protegida.",
+
+        vaultCard1Title: "Bodega cripto",
+        vaultCard1Text: "Guarda Solana, Polygon, BANK 2.0 Solana, MOWO GOLD de Solana y MOWO Coin de Polygon.",
+        vaultCard2Title: "Hasta 30% por staking",
+        vaultCard2Text: "Tu banco no solo guarda. También puede premiarte con hasta un 30% de ganancias por staking dentro del ecosistema.",
+        vaultCard3Title: "Hasta 250.000 MOWO de recompensa",
+        vaultCard3Text: "La primera vez puedes recibir una recompensa de bienvenida de hasta 250.000 MOWO.",
+
+        vaultList1Title: "Solana, Polygon y activos del ecosistema",
+        vaultList1Text: "Una bodega única para guardar activos clave sin dispersar tu experiencia.",
+        vaultList2Title: "BANK2.0 te premia por guardar",
+        vaultList2Text: "Esa es la diferencia frente a un banco tradicional: en lugar de cobrarte, BANK2.0 quiere recompensarte.",
+        vaultList3Title: "Más control, menos exposición",
+        vaultList3Text: "Tu banco digital con una lógica más reservada, más directa y más enfocada en el usuario.",
+
+        nftVaultTitle: "Bodega NFT",
+        nftVaultP1: "BANK2.0 también incluye bodega NFT por la red de Solana y Polygon para guardar tus NFTs de forma más cómoda, más clara y más integrada.",
+        nftVaultP2: "Si llegas 10 NFTs a tu wallet, puedes recibir una recompensa en MOWO Coin por confiar en nuestro proyecto.",
+
+        vaultDifferenceTitle: "La diferencia que marca BANK2.0",
+        vaultDifferenceP1: "Mientras otros te cobran por guardar, BANK2.0 quiere premiarte por formar parte, por almacenar y por confiar dentro del ecosistema.",
+        vaultDifferenceP2: "Aquí no se trata solo de guardar activos. Se trata de que tu banco digital te dé una razón para quedarte.",
+        walletVaultBtn: "📲 Descargar BANK2.0 Wallet",
 
         changeEyebrow: "Cambio",
-        changeTitle: "BANK2.0 deja atrás Polygon y avanza hacia otra etapa",
-        changeLead: "La etapa anterior no es la promoción principal. La idea ahora es explicar el cambio: Polygon queda atrás y BANK2.0 se mueve hacia una estructura nueva.",
-        changeQuote: "No mirar atrás. Explicar el cambio.",
-        changeP1: "Aquí no se trata de vender B20 Polygon. Al contrario: esta parte debe dejar claro que BANK2.0 entra en una nueva fase y que la antigua etapa deja de ser el foco.",
-        changeP2: "La explicación correcta es esta: el proyecto evoluciona porque quiere una imagen más limpia, un movimiento más claro y una experiencia mejor para la comunidad.",
-        changeP3: "BANK2.0 fue diseñado para otra dirección: discreción, velocidad, transparencia y bajo coste, sin quedarse atado a una etapa que ya no representa el futuro del proyecto.",
+        changeTitle: "BANK2.0 deja atrás la etapa anterior y entra en una nueva dirección",
+        changeLead: "Esta parte no existe para promocionar B20 Polygon. Existe para explicar el cambio de etapa y dejar claro que el foco del proyecto está en lo nuevo.",
+        changeQuote: "Explicar el cambio",
+        changeP1: "La idea correcta aquí es mostrar evolución. Polygon puede seguir apareciendo como parte de la bodega o del recorrido del ecosistema, pero no como el centro de la nueva propuesta.",
+        changeP2: "BANK2.0 busca una imagen más limpia, un movimiento más claro y una experiencia más alineada con su identidad: discreción, bajo coste, velocidad y control del usuario.",
+        changeP3: "Por eso esta sección solo explica que la etapa anterior queda atrás y que el proyecto avanza hacia una estructura nueva.",
         changeNoticeTitle: "Aviso:",
-        changeNoticeText: "Esta sección existe para explicar el cambio de etapa, no para promocionar la moneda anterior.",
+        changeNoticeText: " esta sección explica la transición. No promociona la moneda anterior como propuesta principal.",
 
         solanaEyebrow: "Bank 2.0 Solana",
         solanaTitle: "La nueva moneda y la nueva etapa del banco",
-        solanaLead: "BANK2.0 Solana es la nueva fase del ecosistema. Aquí sí se habla de la moneda nueva, del movimiento nuevo y del motivo por el que esta etapa importa.",
+        solanaLead: "BANK2.0 Solana representa la nueva fase del ecosistema. Aquí sí se habla de la nueva moneda, del nuevo movimiento y del motivo por el que esta etapa importa.",
         solanaQuote: "Inversión, control y discreción",
-        solanaP1: "La idea de esta moneda también entra por la inversión. Cuando la mantienes, el banco puede comprarte intereses, y además puedes congelar tus activos según la estrategia que decidas seguir.",
-        solanaP2: "Pero el mensaje fuerte no es solo ese. El mensaje fuerte es que BANK2.0 fue diseñado para otro movimiento: tus activos siguen siendo tuyos, no del sistema y no de nadie más.",
-        solanaP3: "Esta nueva etapa quiere unir velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad que no se negocia: discreción.",
+        solanaP1: "La idea de esta moneda también entra por la inversión. Cuando la mantienes, el banco puede comprarte intereses y además puedes congelar tus activos según la estrategia que elijas.",
+        solanaP2: "Pero el mensaje fuerte es otro: BANK2.0 fue diseñado para un movimiento donde tus activos siguen siendo tuyos, no del sistema y no de nadie más.",
+        solanaP3: "Esta etapa quiere unir velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad que no se negocia: discreción.",
         solanaCard1Title: "Una nueva moneda con propósito",
         solanaCard1Text: "No solo cambia la red. Cambia la idea de hacia dónde quiere ir BANK2.0.",
         solanaCard2Title: "Intereses y estrategia",
@@ -949,7 +1055,7 @@
         prizeQuote: "Cada punto cuenta",
         prizeNumber: "1.000.000",
         prizeLabel: "MOWO DE PREMIO GLOBAL",
-        prizeP1: "La idea es simple y potente: crear una competición donde los usuarios juegan, suman puntos y buscan entrar en lo más alto del ranking global.",
+        prizeP1: "La idea es crear una competición donde los usuarios juegan, suman puntos y buscan entrar en lo más alto del ranking global.",
         prizeP2: "El jugador con mayor puntuación podrá optar al gran premio según las condiciones activas dentro de la aplicación.",
         prizeP3: "No es solo un premio. Es una forma de dar identidad, comunidad y ambición a todo el ecosistema.",
 
@@ -957,8 +1063,8 @@
         privacyTitle: "La privacidad no es una función. Es la base del banco.",
         privacyLead: "Si BANK2.0 quiere convencer, tiene que dejarlo claro: no se trata solo de mover cripto, se trata de hacerlo con menos exposición y más control.",
         privacyQuote: "Privacidad anticipada",
-        privacyP1: "Se acabó convertir cada acceso en una entrega de datos. Se acabó hacer visible más de lo necesario. La dirección de la wallet pasa a ocupar el centro como identidad reservada.",
-        privacyP2: "BANK2.0 pone por delante una lógica sencilla: sin nombres, sin teléfonos, sin exposición innecesaria y sin explicar de más quién eres para poder usar tu propio banco.",
+        privacyP1: "Se acabó convertir cada acceso en una entrega de datos. Se acabó hacer visible más de lo necesario. La wallet pasa a ocupar el centro como identidad reservada.",
+        privacyP2: "BANK2.0 pone por delante una lógica sencilla: sin nombres, sin teléfonos, sin exposición innecesaria y sin necesidad de explicar más de lo que corresponde para usar tu propio banco.",
         privacyP3: "Privacidad anticipada, discreción absoluta y propiedad real no son mensajes decorativos. Son la base de la experiencia.",
         privacyCard1Title: "Sin datos innecesarios",
         privacyCard1Text: "Menos exposición y menos dependencia de identificadores tradicionales.",
@@ -987,7 +1093,7 @@
 
       en: {
         brandSub: "Your private bank without unnecessary data",
-        tabWallet: "Wallet",
+        tabWalletVault: "Wallet & Vault",
         tabChange: "Change",
         tabSolana: "Solana",
         tabPrize: "Global Prize",
@@ -996,52 +1102,67 @@
         tabContact: "Contact",
 
         heroBadge: "BANK2.0 · PRIVATE CRYPTO BANK",
-        heroTitle: "Your bank <span>without names, without phones, without unnecessary exposure</span>",
+        heroTitle: 'Your bank <span class="grad">without names, without phones, without unnecessary exposure</span>',
         heroP1: "BANK2.0 does not want to look like an old bank. BANK2.0 wants to be your bank in a new stage: more private, more direct and more yours.",
         heroP2: "The idea is simple: leave behind forms, unnecessary data and too many explanations. Your wallet can be your reserved identity inside the ecosystem.",
         heroClaim: "Your assets are yours. Your identity is yours. Your bank is yours too.",
         heroBtn1: "📲 Download Wallet",
-        heroBtn2: "See how it works",
+        heroBtn2: "See the vault",
         heroSideTitle: "Why BANK2.0",
         heroCard1Title: "A bank, not only a wallet",
-        heroCard1Text: "A private banking idea for digital assets, movement, storage and identity.",
-        heroCard2Title: "Without unnecessary data",
-        heroCard2Text: "No names, no phones and no exposure at the center of the experience.",
-        heroCard3Title: "Discretion first",
-        heroCard3Text: "Speed, low-cost transfers and full control with privacy above everything.",
+        heroCard1Text: "A private banking idea for assets, storage, identity and movement.",
+        heroCard2Title: "No unnecessary data",
+        heroCard2Text: "No names, no phones and less exposure at the center of the experience.",
+        heroCard3Title: "BANK2.0 rewards you",
+        heroCard3Text: "While others charge you for storage, BANK2.0 wants to reward you for trusting the ecosystem.",
 
-        walletEyebrow: "Wallet",
-        walletTitle: "What BANK2.0 is and why it wants to be your bank",
-        walletLead: "BANK2.0 Wallet does not present itself as just another wallet. The idea is much stronger: turning the wallet into your personal bank inside the crypto world.",
-        walletQuote: "Your address can be your reserved identity",
-        walletP1: "No more depending on names, phones and data that add nothing for the user. BANK2.0 was born with a different mindset: less exposure, more control and a new way to enter digital finance.",
-        walletP2: "The idea is that your wallet address works as your hidden ID inside the ecosystem. Not to explain more about you, but to give you less exposure and more privacy from the beginning.",
-        walletP3: "BANK2.0 wants to convince through one clear idea: a bank where your assets are yours, where access is more private and where discretion stops being a luxury and becomes the base of everything.",
-        walletCard1Title: "A bank without unnecessary data",
-        walletCard1Text: "The proposal is to cut the old logic of asking for more than necessary.",
-        walletCard2Title: "A more reserved identity",
-        walletCard2Text: "Your wallet can be your protected identity without turning your private life into part of the process.",
-        walletCard3Title: "Your assets are yours",
-        walletCard3Text: "The center of BANK2.0 is real ownership: your assets are not the bank's, they are yours.",
-        walletBtn: "📲 Download BANK2.0 Wallet",
+        walletVaultEyebrow: "Wallet & Vault",
+        walletVaultTitle: "Your bank, your crypto vault and your NFT vault in one place",
+        walletVaultLead: "BANK2.0 does not present itself as just another wallet. The idea is stronger: turning your wallet into your bank and your digital vault inside the ecosystem.",
+        walletVaultQuote: "Store and earn",
+        walletVaultP1: "A traditional bank charges you to keep your savings. BANK2.0 wants to make the difference: it stores your assets, organizes them and also rewards you for trusting.",
+        walletVaultP2: "The wallet is built so you have less exposure, more control and a more reserved identity inside the ecosystem. Your address can act as your protected identity.",
+
+        vaultCard1Title: "Crypto vault",
+        vaultCard1Text: "Store Solana, Polygon, BANK 2.0 Solana, MOWO GOLD on Solana and MOWO Coin on Polygon.",
+        vaultCard2Title: "Up to 30% staking rewards",
+        vaultCard2Text: "Your bank does not only store. It can also reward you with up to 30% staking gains inside the ecosystem.",
+        vaultCard3Title: "Up to 250,000 MOWO reward",
+        vaultCard3Text: "The first time you can receive a welcome reward of up to 250,000 MOWO.",
+
+        vaultList1Title: "Solana, Polygon and ecosystem assets",
+        vaultList1Text: "A single vault to keep key assets without scattering your experience.",
+        vaultList2Title: "BANK2.0 rewards you for storing",
+        vaultList2Text: "That is the difference versus a traditional bank: instead of charging you, BANK2.0 wants to reward you.",
+        vaultList3Title: "More control, less exposure",
+        vaultList3Text: "Your digital bank with a more reserved, more direct and more user-focused logic.",
+
+        nftVaultTitle: "NFT vault",
+        nftVaultP1: "BANK2.0 also includes an NFT vault on Solana and Polygon to store your NFTs in a more comfortable, clearer and more integrated way.",
+        nftVaultP2: "If you send 10 NFTs to your wallet, you may receive a reward in MOWO Coin for trusting our project.",
+
+        vaultDifferenceTitle: "The difference that defines BANK2.0",
+        vaultDifferenceP1: "While others charge you for storage, BANK2.0 wants to reward you for being part of it, for storing and for trusting inside the ecosystem.",
+        vaultDifferenceP2: "This is not only about storing assets. It is about your digital bank giving you a reason to stay.",
+        walletVaultBtn: "📲 Download BANK2.0 Wallet",
 
         changeEyebrow: "Change",
-        changeTitle: "BANK2.0 leaves Polygon behind and moves into another stage",
-        changeLead: "The previous stage is not the main promotion. The point now is to explain the change: Polygon stays behind and BANK2.0 moves toward a new structure.",
-        changeQuote: "Do not look back. Explain the change.",
-        changeP1: "This is not about selling B20 Polygon. On the contrary: this section must make clear that BANK2.0 enters a new phase and that the old stage is no longer the focus.",
-        changeP2: "The right explanation is this: the project evolves because it wants a cleaner image, a clearer movement and a better experience for the community.",
-        changeP3: "BANK2.0 was designed for another direction: discretion, speed, transparency and low cost, without staying tied to a stage that no longer represents the future of the project.",
+        changeTitle: "BANK2.0 leaves the previous stage behind and enters a new direction",
+        changeLead: "This part does not exist to promote B20 Polygon. It exists to explain the stage change and make clear that the focus of the project is on the new phase.",
+        changeQuote: "Explain the change",
+        changeP1: "The right idea here is to show evolution. Polygon can still appear as part of the vault or as part of the ecosystem path, but not as the center of the new proposal.",
+        changeP2: "BANK2.0 seeks a cleaner image, a clearer movement and an experience more aligned with its identity: discretion, low cost, speed and user control.",
+        changeP3: "That is why this section only explains that the previous stage stays behind and the project moves into a new structure.",
         changeNoticeTitle: "Notice:",
-        changeNoticeText: "This section exists to explain the stage change, not to promote the previous coin.",
+        changeNoticeText: " this section explains the transition. It does not promote the previous coin as the main proposal.",
 
         solanaEyebrow: "Bank 2.0 Solana",
         solanaTitle: "The new coin and the new stage of the bank",
-        solanaLead: "BANK2.0 Solana is the new phase of the ecosystem. This is where the new coin, the new movement and the reason this stage matters are explained.",
+        solanaLead: "BANK2.0 Solana represents the new phase of the ecosystem. This is where the new coin, the new movement and the reason this stage matters are explained.",
         solanaQuote: "Investment, control and discretion",
-        solanaP1: "The idea of this coin also includes investment. When you hold it, the bank can buy interests from you, and you can also freeze your assets according to the strategy you choose.",
-        solanaP2: "But the strong message is not only that. The strong message is that BANK2.0 was designed for another movement: your assets are still yours, not the system's and not anyone else's.",
-        solanaP3: "This new stage wants to combine absolute speed, low-cost transfers, transparency and one non-negotiable priority: discretion.",
+        solanaP1: "The idea of this coin also includes investment. When you hold it, the bank can buy interests from you and you can also freeze your assets according to the strategy you choose.",
+        solanaP2: "But the strong message is another one: BANK2.0 was designed for a movement where your assets are still yours, not the system's and not anyone else's.",
+        solanaP3: "This stage wants to combine absolute speed, low-cost transfers, transparency and one non-negotiable priority: discretion.",
         solanaCard1Title: "A new coin with purpose",
         solanaCard1Text: "Not only the network changes. The idea of where BANK2.0 wants to go changes too.",
         solanaCard2Title: "Interests and strategy",
@@ -1056,16 +1177,16 @@
         prizeQuote: "Every point counts",
         prizeNumber: "1,000,000",
         prizeLabel: "MOWO GLOBAL PRIZE",
-        prizeP1: "The idea is simple and strong: create a competition where users play, collect points and try to enter the top of the global ranking.",
-        prizeP2: "The player with the highest score may qualify for the grand prize according to the active conditions inside the app.",
-        prizeP3: "It is not only a prize. It is a way to give identity, community and ambition to the whole ecosystem.",
+        prizeP1: "The idea is to create a competition where users play, collect points and try to reach the top of the global ranking.",
+        prizeP2: "The player with the highest score may qualify for the grand prize according to the active conditions inside the application.",
+        prizeP3: "It is not only a prize. It is a way to give identity, community and ambition to the entire ecosystem.",
 
         privacyEyebrow: "Privacy",
         privacyTitle: "Privacy is not a feature. It is the base of the bank.",
-        privacyLead: "If BANK2.0 wants to convince, it must make it clear: this is not only about moving crypto, it is about doing it with less exposure and more control.",
+        privacyLead: "If BANK2.0 wants to convince, it has to make it clear: this is not only about moving crypto, it is about doing it with less exposure and more control.",
         privacyQuote: "Anticipated privacy",
-        privacyP1: "No more turning every access into a delivery of data. No more making more visible than necessary. The wallet address moves to the center as a reserved identity.",
-        privacyP2: "BANK2.0 puts forward a simple logic: no names, no phones, no unnecessary exposure and no need to explain too much who you are in order to use your own bank.",
+        privacyP1: "No more turning every access into a delivery of data. No more making more visible than necessary. The wallet moves to the center as a reserved identity.",
+        privacyP2: "BANK2.0 puts forward a simple logic: no names, no phones, no unnecessary exposure and no need to explain more than necessary to use your own bank.",
         privacyP3: "Anticipated privacy, absolute discretion and real ownership are not decorative messages. They are the base of the experience.",
         privacyCard1Title: "No unnecessary data",
         privacyCard1Text: "Less exposure and less dependence on traditional identifiers.",
@@ -1094,27 +1215,52 @@
     };
 
     const langSwitcher = document.getElementById("langSwitcher");
+    const tabLinks = document.querySelectorAll(".tab-link");
+    const sections = [...document.querySelectorAll("main section[id]")];
     let currentLang = localStorage.getItem("bank20-lang") || "es";
 
     function applyTranslations(lang) {
       const dict = translations[lang] || translations.es;
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.getAttribute("data-i18n");
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
         if (dict[key] !== undefined) {
-          el.innerHTML = dict[key];
+          element.innerHTML = dict[key];
         }
       });
+
       langSwitcher.value = lang;
       localStorage.setItem("bank20-lang", lang);
       currentLang = lang;
     }
 
-    langSwitcher.addEventListener("change", (e) => {
-      applyTranslations(e.target.value);
+    function updateActiveTab() {
+      const offset = window.scrollY + 140;
+      let currentId = sections[0]?.id || "";
+
+      for (const section of sections) {
+        if (section.offsetTop <= offset) {
+          currentId = section.id;
+        }
+      }
+
+      tabLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${currentId}`;
+        link.classList.toggle("active", isActive);
+      });
+    }
+
+    langSwitcher.addEventListener("change", (event) => {
+      applyTranslations(event.target.value);
     });
 
+    window.addEventListener("scroll", updateActiveTab, { passive: true });
+    window.addEventListener("load", updateActiveTab);
+    window.addEventListener("hashchange", updateActiveTab);
+
     applyTranslations(currentLang);
+    updateActiveTab();
   </script>
 </body>
 </html>
