@@ -468,6 +468,23 @@
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
     }
 
+    .asset-emoji {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 28%),
+        linear-gradient(135deg, rgba(127,246,255,0.14), rgba(255,79,216,0.12));
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 1000;
+    }
+
     .nft-icon {
       width: 96px;
       height: 96px;
@@ -728,6 +745,7 @@
 
       <nav class="tabs" aria-label="Main navigation">
         <a class="tab-link" href="#wallet-vault" data-i18n="tabWalletVault">Wallet & Vault</a>
+        <a class="tab-link" href="#update" data-i18n="tabUpdate">New Update</a>
         <a class="tab-link" href="#games" data-i18n="tabGames">Games</a>
         <a class="tab-link" href="#change" data-i18n="tabChange">Change</a>
         <a class="tab-link" href="#solana" data-i18n="tabSolana">Solana</a>
@@ -785,6 +803,67 @@
       </div>
     </section>
 
+    <section id="update" class="section">
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" data-i18n="updateEyebrow">Nueva actualización</div>
+            <h2 data-i18n="updateTitle">BANK 2.0 - Wallet ya está lista para una nueva etapa Web3</h2>
+            <p data-i18n="updateLead">Descarga la app, crea tu nueva semilla y entra directamente al ecosistema con wallet, seguridad, staking, NFTs, juegos online y recompensas MOWO.</p>
+          </div>
+          <div class="quote" data-i18n="updateQuote">100 MOWO de bienvenida</div>
+        </div>
+
+        <div class="cards-4">
+          <div class="card feature">
+            <strong data-i18n="updateCard1Title">🎁 Bienvenida</strong>
+            <p data-i18n="updateCard1Text">Nada más entrar puedes tirar en la Máquina de la Suerte y recibir 100 tokens MOWO gratis como bienvenida.</p>
+          </div>
+          <div class="card feature">
+            <strong data-i18n="updateCard2Title">🌍 Idiomas</strong>
+            <p data-i18n="updateCard2Text">Español, Inglés, Italiano, Francés, Ruso, Árabe, Chino y Portugués de Brasil.</p>
+          </div>
+          <div class="card feature">
+            <strong data-i18n="updateCard3Title">💱 Monedas fiat</strong>
+            <p data-i18n="updateCard3Text">Consulta valores en USD, EUR, CNY, BRL y RUB.</p>
+          </div>
+          <div class="card feature">
+            <strong data-i18n="updateCard4Title">🛡️ Seguridad Web3</strong>
+            <p data-i18n="updateCard4Text">Sistema anti-DDoS con aviso visual por colores y bloqueo cuando detecta riesgo.</p>
+          </div>
+        </div>
+
+        <div class="cards-4">
+          <div class="card">
+            <strong data-i18n="updateCard5Title">⛓️ Redes y activos</strong>
+            <p data-i18n="updateCard5Text">Soporta ETH, Solana, BNB, Polygon, MOWO y BANK 2.0 dentro del ecosistema.</p>
+          </div>
+          <div class="card">
+            <strong data-i18n="updateCard6Title">🖼️ NFT Vault</strong>
+            <p data-i18n="updateCard6Text">Bodega NFT para Polygon y Solana. Próximamente también ETH y BNB.</p>
+          </div>
+          <div class="card">
+            <strong data-i18n="updateCard7Title">🔨 Subasta NFT</strong>
+            <p data-i18n="updateCard7Text">Próximamente: sistema de subastas NFT dentro de BANK 2.0 - Wallet.</p>
+          </div>
+          <div class="card">
+            <strong data-i18n="updateCard8Title">📈 Staking</strong>
+            <p data-i18n="updateCard8Text">Staking para Solana, Polygon, ETH y BNB con recompensas de hasta el 30%.</p>
+          </div>
+        </div>
+
+        <div class="notice">
+          <strong data-i18n="updateGamesTitle">🎮 Juegos online:</strong>
+          <span data-i18n="updateGamesText"> juega con tus amigos, compite con crypto, disfruta de ajedrez, tres en raya, hockey y más juegos. La app cobra 0% de comisión en las apuestas entre usuarios.</span>
+        </div>
+
+        <div class="notice">
+          <strong data-i18n="updatePrizeTitle">🏆 Premio global:</strong>
+          <span data-i18n="updatePrizeText"> juega todo lo que puedas para llegar a lo más alto del ranking y luchar por el gran premio de 1.000.000 de tokens MOWO.</span>
+        </div>
+      </div>
+    </section>
+
     <section id="wallet-vault" class="section">
       <div class="panel">
         <div class="section-head">
@@ -802,7 +881,7 @@
         <div class="cards">
           <div class="card feature">
             <strong data-i18n="vaultCard1Title">Bodega cripto</strong>
-            <p data-i18n="vaultCard1Text">Guarda Solana, Polygon, BANK 2.0 Solana, MOWO GOLD de Solana y MOWO Coin de Polygon.</p>
+            <p data-i18n="vaultCard1Text">Guarda ETH, Solana, BNB, Polygon, BANK 2.0, MOWO GOLD de Solana y MOWO Coin de Polygon.</p>
           </div>
           <div class="card feature">
             <strong data-i18n="vaultCard2Title">Hasta 30% por staking</strong>
@@ -821,6 +900,31 @@
             </div>
             <strong>Solana</strong>
             <p data-i18n="assetSolanaText">Activo guardable dentro de la bodega BANK2.0.</p>
+          </div>
+
+
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <div class="asset-emoji">Ξ</div>
+            </div>
+            <strong>Ethereum</strong>
+            <p data-i18n="assetEthText">Soporte para ETH dentro de la wallet y preparación para NFT y staking.</p>
+          </div>
+
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <div class="asset-emoji">BNB</div>
+            </div>
+            <strong>BNB</strong>
+            <p data-i18n="assetBnbText">Soporte para BNB dentro de la wallet y preparación para NFT y staking.</p>
+          </div>
+
+          <div class="card asset-card">
+            <div class="asset-icon-wrap">
+              <div class="asset-emoji">⬡</div>
+            </div>
+            <strong>Polygon</strong>
+            <p data-i18n="assetPolygonText">Red principal para MOWO Coin, BANK2.0 Polygon y NFTs del ecosistema.</p>
           </div>
 
           <div class="card asset-card">
@@ -867,7 +971,7 @@
         <div class="cards-2">
           <div class="card">
             <strong data-i18n="nftVaultTitle">Bodega NFT</strong>
-            <p data-i18n="nftVaultP1">BANK2.0 también incluye bodega NFT por la red de Solana y Polygon para guardar tus NFTs de forma más cómoda, más clara y más integrada.</p>
+            <p data-i18n="nftVaultP1">BANK2.0 también incluye bodega NFT por la red de Solana y Polygon para guardar tus NFTs de forma más cómoda, más clara y más integrada. Próximamente también ETH y BNB.</p>
             <p data-i18n="nftVaultP2">Si llegas 10 NFTs a tu wallet, puedes recibir una recompensa en MOWO Coin por confiar en nuestro proyecto.</p>
           </div>
 
@@ -898,15 +1002,15 @@
         <div class="cards">
           <div class="card feature">
             <strong data-i18n="gamesCard1Title">Tres en raya</strong>
-            <p data-i18n="gamesCard1Text">Un juego clásico dentro del ecosistema para participar, competir y seguir sumando actividad dentro de BANK2.0.</p>
+            <p data-i18n="gamesCard1Text">Un juego clásico dentro del ecosistema para participar, competir, jugar con amigos y seguir sumando actividad dentro de BANK2.0.</p>
           </div>
           <div class="card">
             <strong data-i18n="gamesCard2Title">Ajedrez online</strong>
-            <p data-i18n="gamesCard2Text">Compite online y forma parte de una experiencia más completa dentro de la wallet.</p>
+            <p data-i18n="gamesCard2Text">Compite online, juega con amigos y forma parte de una experiencia más completa dentro de la wallet.</p>
           </div>
           <div class="card">
             <strong data-i18n="gamesCard3Title">Ruleta de la suerte</strong>
-            <p data-i18n="gamesCard3Text">La ruleta puede darte premios NFT y abrir el acceso a recompensas conectadas con el metaverso.</p>
+            <p data-i18n="gamesCard3Text">La ruleta puede darte premios NFT, MOWO y acceso a recompensas conectadas con el metaverso.</p>
           </div>
         </div>
 
@@ -1198,7 +1302,7 @@
 
           <div class="card">
             <strong data-i18n="contractCard4Title">Guardable en BANK2.0 Wallet</strong>
-            <p data-i18n="contractCard4Text">Solana, Polygon, BANK 2.0 Solana, MOWO Gold Solana, MOWO Coin Polygon, NFT Polygon y NFT Solana.</p>
+            <p data-i18n="contractCard4Text">ETH, Solana, BNB, Polygon, BANK 2.0 Solana, MOWO Gold Solana, MOWO Coin Polygon, NFT Polygon y NFT Solana.</p>
           </div>
         </div>
 
@@ -1266,7 +1370,7 @@
         <img src="logo.png" alt="BANK2.0 logo" onerror="this.style.display='none'; this.parentElement.textContent='B20'; this.parentElement.style.color='#fff'; this.parentElement.style.fontWeight='900'; this.parentElement.style.fontSize='1rem';" />
       </div>
       <p data-i18n="footer1">© 2026 BANK2.0 · Concepto de banca cripto privada</p>
-      <p data-i18n="footer2">Privacidad, discreción, propiedad real, juegos y metaverso en una sola experiencia.</p>
+      <p data-i18n="footer2">Privacidad, discreción, propiedad real, staking, bodega NFT, juegos y metaverso en una sola experiencia.</p>
     </footer>
   </main>
 
@@ -1275,6 +1379,7 @@
       es: {
         brandSub: "Tu banco privado sin datos innecesarios",
         tabWalletVault: "Wallet & Bodega",
+        tabUpdate: "Nueva actualización",
         tabGames: "Juegos",
         tabChange: "Cambio",
         tabSolana: "Solana",
@@ -1300,6 +1405,31 @@
         heroCard3Title: "BANK2.0 te premia",
         heroCard3Text: "Mientras otros te cobran por guardar, BANK2.0 quiere premiarte por confiar en el ecosistema.",
 
+        updateEyebrow: "Nueva actualización",
+        updateTitle: "BANK 2.0 - Wallet ya está lista para una nueva etapa Web3",
+        updateLead: "Descarga la app, crea tu nueva semilla y entra directamente al ecosistema con wallet, seguridad, staking, NFTs, juegos online y recompensas MOWO.",
+        updateQuote: "100 MOWO de bienvenida",
+        updateCard1Title: "🎁 Bienvenida",
+        updateCard1Text: "Nada más entrar puedes tirar en la Máquina de la Suerte y recibir 100 tokens MOWO gratis como bienvenida.",
+        updateCard2Title: "🌍 Idiomas",
+        updateCard2Text: "Español, Inglés, Italiano, Francés, Ruso, Árabe, Chino y Portugués de Brasil.",
+        updateCard3Title: "💱 Monedas fiat",
+        updateCard3Text: "Consulta valores en USD, EUR, CNY, BRL y RUB.",
+        updateCard4Title: "🛡️ Seguridad Web3",
+        updateCard4Text: "Sistema anti-DDoS con aviso visual por colores y bloqueo cuando detecta riesgo.",
+        updateCard5Title: "⛓️ Redes y activos",
+        updateCard5Text: "Soporta ETH, Solana, BNB, Polygon, MOWO y BANK 2.0 dentro del ecosistema.",
+        updateCard6Title: "🖼️ NFT Vault",
+        updateCard6Text: "Bodega NFT para Polygon y Solana. Próximamente también ETH y BNB.",
+        updateCard7Title: "🔨 Subasta NFT",
+        updateCard7Text: "Próximamente: sistema de subastas NFT dentro de BANK 2.0 - Wallet.",
+        updateCard8Title: "📈 Staking",
+        updateCard8Text: "Staking para Solana, Polygon, ETH y BNB con recompensas de hasta el 30%.",
+        updateGamesTitle: "🎮 Juegos online:",
+        updateGamesText: " juega con tus amigos, compite con crypto, disfruta de ajedrez, tres en raya, hockey y más juegos. La app cobra 0% de comisión en las apuestas entre usuarios.",
+        updatePrizeTitle: "🏆 Premio global:",
+        updatePrizeText: " juega todo lo que puedas para llegar a lo más alto del ranking y luchar por el gran premio de 1.000.000 de tokens MOWO.",
+
         walletVaultEyebrow: "Wallet & Bodega",
         walletVaultTitle: "Tu banco, tu bodega cripto y tu bodega NFT en un solo lugar",
         walletVaultLead: "BANK2.0 no se presenta como una wallet cualquiera. La idea es más fuerte: convertir tu wallet en tu banco y en tu bodega digital dentro del ecosistema.",
@@ -1308,13 +1438,16 @@
         walletVaultP2: "La wallet está pensada para que tengas menos exposición, más control y una identidad más reservada dentro del ecosistema. Tu dirección puede actuar como tu identidad protegida.",
 
         vaultCard1Title: "Bodega cripto",
-        vaultCard1Text: "Guarda Solana, Polygon, BANK 2.0 Solana, MOWO GOLD de Solana y MOWO Coin de Polygon.",
+        vaultCard1Text: "Guarda ETH, Solana, BNB, Polygon, BANK 2.0, MOWO GOLD de Solana y MOWO Coin de Polygon.",
         vaultCard2Title: "Hasta 30% por staking",
         vaultCard2Text: "Tu banco no solo guarda. También puede premiarte con hasta un 30% de ganancias por staking dentro del ecosistema.",
         vaultCard3Title: "Hasta 250.000 MOWO de recompensa",
         vaultCard3Text: "La primera vez puedes recibir una recompensa de bienvenida de hasta 250.000 MOWO.",
 
         assetSolanaText: "Activo guardable dentro de la bodega BANK2.0.",
+        assetEthText: "Soporte para ETH dentro de la wallet y preparación para NFT y staking.",
+        assetBnbText: "Soporte para BNB dentro de la wallet y preparación para NFT y staking.",
+        assetPolygonText: "Red principal para MOWO Coin, BANK2.0 Polygon y NFTs del ecosistema.",
         assetBank20SolanaText: "La nueva fase del ecosistema también vive dentro de tu bodega.",
         assetMowoGoldText: "MOWO Gold de Solana también se puede guardar en BANK2.0 Wallet.",
         assetMowoPolygonText: "MOWO Coin de Polygon forma parte del ecosistema y se puede guardar en BANK2.0 Wallet.",
@@ -1326,7 +1459,7 @@
         assetWalletText: "Todo reunido en una sola wallet: banco, bodega, juegos y metaverso.",
 
         nftVaultTitle: "Bodega NFT",
-        nftVaultP1: "BANK2.0 también incluye bodega NFT por la red de Solana y Polygon para guardar tus NFTs de forma más cómoda, más clara y más integrada.",
+        nftVaultP1: "BANK2.0 también incluye bodega NFT por la red de Solana y Polygon para guardar tus NFTs de forma más cómoda, más clara y más integrada. Próximamente también ETH y BNB.",
         nftVaultP2: "Si llegas 10 NFTs a tu wallet, puedes recibir una recompensa en MOWO Coin por confiar en nuestro proyecto.",
         vaultDifferenceTitle: "La diferencia que marca BANK2.0",
         vaultDifferenceP1: "Mientras otros te cobran por guardar, BANK2.0 quiere premiarte por formar parte, por almacenar y por confiar dentro del ecosistema.",
@@ -1338,11 +1471,11 @@
         gamesLead: "BANK2.0 no es solo guardar activos. También es jugar, competir y abrir la puerta al metaverso desde la propia wallet.",
         gamesQuote: "Jugar también suma",
         gamesCard1Title: "Tres en raya",
-        gamesCard1Text: "Un juego clásico dentro del ecosistema para participar, competir y seguir sumando actividad dentro de BANK2.0.",
+        gamesCard1Text: "Un juego clásico dentro del ecosistema para participar, competir, jugar con amigos y seguir sumando actividad dentro de BANK2.0.",
         gamesCard2Title: "Ajedrez online",
-        gamesCard2Text: "Compite online y forma parte de una experiencia más completa dentro de la wallet.",
+        gamesCard2Text: "Compite online, juega con amigos y forma parte de una experiencia más completa dentro de la wallet.",
         gamesCard3Title: "Ruleta de la suerte",
-        gamesCard3Text: "La ruleta puede darte premios NFT y abrir el acceso a recompensas conectadas con el metaverso.",
+        gamesCard3Text: "La ruleta puede darte premios NFT, MOWO y acceso a recompensas conectadas con el metaverso.",
         gamesNoticeTitle: "Llave NFT:",
         gamesNoticeText: " la llave a la puerta NFT forma parte de las recompensas y conecta los juegos con los premios del metaverso lunar.",
         machineImageCaption: "<strong>Máquina de la suerte:</strong> juega, gana MOWO y desbloquea premios NFT conectados con MoonWorld.",
@@ -1438,7 +1571,7 @@
         contractCard2Title: "BANK2.0 Solana",
         contractCard3Title: "MOWO Gold Solana",
         contractCard4Title: "Guardable en BANK2.0 Wallet",
-        contractCard4Text: "Solana, Polygon, BANK 2.0 Solana, MOWO Gold Solana, MOWO Coin Polygon, NFT Polygon y NFT Solana.",
+        contractCard4Text: "ETH, Solana, BNB, Polygon, BANK 2.0 Solana, MOWO Gold Solana, MOWO Coin Polygon, NFT Polygon y NFT Solana.",
 
         contactEyebrow: "Contacto",
         contactTitle: "Contacto",
@@ -1452,12 +1585,13 @@
         contactMailText: "Contacto directo para soporte, propuestas, colaboraciones y consultas del ecosistema.",
 
         footer1: "© 2026 BANK2.0 · Concepto de banca cripto privada",
-        footer2: "Privacidad, discreción, propiedad real, juegos y metaverso en una sola experiencia."
+        footer2: "Privacidad, discreción, propiedad real, staking, bodega NFT, juegos y metaverso en una sola experiencia."
       },
 
       en: {
         brandSub: "Your private bank without unnecessary data",
         tabWalletVault: "Wallet & Vault",
+        tabUpdate: "New Update",
         tabGames: "Games",
         tabChange: "Change",
         tabSolana: "Solana",
@@ -1483,6 +1617,31 @@
         heroCard3Title: "BANK2.0 rewards you",
         heroCard3Text: "While others charge you for storage, BANK2.0 wants to reward you for trusting the ecosystem.",
 
+        updateEyebrow: "New Update",
+        updateTitle: "BANK 2.0 - Wallet is ready for a new Web3 stage",
+        updateLead: "Download the app, create your new seed phrase and enter the ecosystem with wallet, security, staking, NFTs, online games and MOWO rewards.",
+        updateQuote: "100 welcome MOWO",
+        updateCard1Title: "🎁 Welcome reward",
+        updateCard1Text: "As soon as you enter, you can spin the Lucky Machine and receive 100 free MOWO tokens as a welcome reward.",
+        updateCard2Title: "🌍 Languages",
+        updateCard2Text: "Spanish, English, Italian, French, Russian, Arabic, Chinese and Brazilian Portuguese.",
+        updateCard3Title: "💱 Fiat currencies",
+        updateCard3Text: "Check values in USD, EUR, CNY, BRL and RUB.",
+        updateCard4Title: "🛡️ Web3 Security",
+        updateCard4Text: "Anti-DDoS system with color alerts and blocking when risk is detected.",
+        updateCard5Title: "⛓️ Networks and assets",
+        updateCard5Text: "Supports ETH, Solana, BNB, Polygon, MOWO and BANK 2.0 inside the ecosystem.",
+        updateCard6Title: "🖼️ NFT Vault",
+        updateCard6Text: "NFT vault for Polygon and Solana. ETH and BNB coming soon.",
+        updateCard7Title: "🔨 NFT Auction",
+        updateCard7Text: "Coming soon: NFT auction system inside BANK 2.0 - Wallet.",
+        updateCard8Title: "📈 Staking",
+        updateCard8Text: "Staking for Solana, Polygon, ETH and BNB with rewards up to 30%.",
+        updateGamesTitle: "🎮 Online games:",
+        updateGamesText: " play with your friends, compete with crypto, enjoy chess, tic-tac-toe, hockey and more games. The app charges 0% commission on bets between users.",
+        updatePrizeTitle: "🏆 Global prize:",
+        updatePrizeText: " play as much as you can to reach the top of the ranking and fight for the grand prize of 1,000,000 MOWO tokens.",
+
         walletVaultEyebrow: "Wallet & Vault",
         walletVaultTitle: "Your bank, your crypto vault and your NFT vault in one place",
         walletVaultLead: "BANK2.0 does not present itself as just another wallet. The idea is stronger: turning your wallet into your bank and your digital vault inside the ecosystem.",
@@ -1498,6 +1657,9 @@
         vaultCard3Text: "The first time you can receive a welcome reward of up to 250,000 MOWO.",
 
         assetSolanaText: "Storable asset inside the BANK2.0 vault.",
+        assetEthText: "ETH support inside the wallet and preparation for NFT and staking features.",
+        assetBnbText: "BNB support inside the wallet and preparation for NFT and staking features.",
+        assetPolygonText: "Main network for MOWO Coin, BANK2.0 Polygon and ecosystem NFTs.",
         assetBank20SolanaText: "The new phase of the ecosystem also lives inside your vault.",
         assetMowoGoldText: "MOWO Gold on Solana can also be stored in BANK2.0 Wallet.",
         assetMowoPolygonText: "MOWO Coin on Polygon is part of the ecosystem and can be stored in BANK2.0 Wallet.",
@@ -1521,7 +1683,7 @@
         gamesLead: "BANK2.0 is not only about storing assets. It is also about playing, competing and opening the door to the metaverse from the wallet itself.",
         gamesQuote: "Playing also counts",
         gamesCard1Title: "Tic-tac-toe",
-        gamesCard1Text: "A classic game inside the ecosystem to participate, compete and keep adding activity inside BANK2.0.",
+        gamesCard1Text: "A classic game inside the ecosystem to participate, compete, play with friends and keep adding activity inside BANK2.0.",
         gamesCard2Title: "Online chess",
         gamesCard2Text: "Compete online and become part of a more complete experience inside the wallet.",
         gamesCard3Title: "Lucky machine",
@@ -1621,7 +1783,7 @@
         contractCard2Title: "BANK2.0 Solana",
         contractCard3Title: "MOWO Gold Solana",
         contractCard4Title: "Storable in BANK2.0 Wallet",
-        contractCard4Text: "Solana, Polygon, BANK 2.0 Solana, MOWO Gold Solana, MOWO Coin Polygon, Polygon NFT and Solana NFT.",
+        contractCard4Text: "ETH, Solana, BNB, Polygon, BANK 2.0 Solana, MOWO Gold Solana, MOWO Coin Polygon, Polygon NFT and Solana NFT.",
 
         contactEyebrow: "Contact",
         contactTitle: "Contact",
@@ -1639,7 +1801,7 @@
         whitepaperMowoCoinBtn: "📄 MOWO Coin Polygon Whitepaper",
 
         footer1: "© 2026 BANK2.0 · Private crypto banking concept",
-        footer2: "Privacy, discretion, real ownership, games and metaverse in one single experience."
+        footer2: "Privacy, discretion, real ownership, staking, NFT vault, games and metaverse in one single experience."
       }
     };
 
@@ -1692,4 +1854,4 @@
     updateActiveTab();
   </script>
 </body>
-</html>
+</html
