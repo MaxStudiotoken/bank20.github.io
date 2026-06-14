@@ -639,6 +639,55 @@
       object-fit: cover;
     }
 
+    /* ESTILOS PARA LOS JUEGOS */
+    .games-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .game-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border-color: rgba(127,246,255,0.3);
+    }
+    .game-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: linear-gradient(135deg, #1a0f2a, #0a0515);
+    }
+    .game-info {
+      padding: 20px;
+    }
+    .game-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .game-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    .game-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(127,246,255,0.1);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
     @media (max-width: 1100px) {
       .topbar { height: auto; }
       .topbar-inner {
@@ -685,6 +734,7 @@
       .actions { flex-direction: column; }
       .btn { width: 100%; }
       .promo-image { max-height: 440px; }
+      .games-showcase { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -813,7 +863,7 @@
 
         <div class="notice">
           <strong data-i18n="updateGamesTitle">🎮 Juegos online:</strong>
-          <span data-i18n="updateGamesText"> juega con tus amigos, compite con crypto, disfruta de ajedrez, tres en raya, hockey y más juegos. La app cobra 0% de comisión en las apuestas entre usuarios.</span>
+          <span data-i18n="updateGamesText"> juega con tus amigos, compite con crypto, disfruta de ajedrez, tres en raya, hockey, tetris, memoria y más juegos. La app cobra 0% de comisión en las apuestas entre usuarios.</span>
         </div>
 
         <div class="notice">
@@ -946,6 +996,7 @@
       </div>
     </section>
 
+    <!-- SECCIÓN DE JUEGOS CON TUS 8 NUEVAS IMÁGENES -->
     <section id="games" class="section">
       <div class="panel">
         <div class="section-head">
@@ -957,19 +1008,86 @@
           <div class="quote" data-i18n="gamesQuote">Jugar también suma</div>
         </div>
 
-        <!-- SECCIÓN DE JUEGOS - SOLO TUS IMÁGENES REALES -->
-        <div class="cards">
-          <div class="card feature">
-            <strong data-i18n="gamesCard1Title">Tres en raya</strong>
-            <p data-i18n="gamesCard1Text">Un juego clásico dentro del ecosistema para participar, competir, jugar con amigos y seguir sumando actividad dentro de BANK2.0.</p>
+        <!-- TUS 8 JUEGOS CON TUS IMÁGENES REALES -->
+        <div class="games-showcase">
+          <!-- 1. Tres en Raya -->
+          <div class="game-card">
+            <img class="game-image" src="juegostresenraya.png" alt="Tres en Raya" />
+            <div class="game-info">
+              <div class="game-title">⚡ Tres en Raya</div>
+              <div class="game-desc">Juego clásico para competir con amigos y ganar MOWO. 0% comisión en apuestas.</div>
+              <span class="game-badge">Próximamente</span>
+            </div>
           </div>
-          <div class="card">
-            <strong data-i18n="gamesCard2Title">Ajedrez online</strong>
-            <p data-i18n="gamesCard2Text">Compite online, juega con amigos y forma parte de una experiencia más completa dentro de la wallet.</p>
+
+          <!-- 2. Ajedrez -->
+          <div class="game-card">
+            <img class="game-image" src="juegosajedrez.png" alt="Ajedrez" />
+            <div class="game-info">
+              <div class="game-title">♜ Ajedrez Online</div>
+              <div class="game-desc">Partidas en tiempo real, ranking global y premios semanales en MOWO.</div>
+              <span class="game-badge">Próximamente</span>
+            </div>
           </div>
-          <div class="card">
-            <strong data-i18n="gamesCard3Title">Ruleta de la suerte</strong>
-            <p data-i18n="gamesCard3Text">La ruleta puede darte premios NFT, MOWO y acceso a recompensas conectadas con el metaverso.</p>
+
+          <!-- 3. Hockey / Jockey -->
+          <div class="game-card">
+            <img class="game-image" src="juegosjockey.png" alt="Air Hockey" />
+            <div class="game-info">
+              <div class="game-title">🏒 Air Hockey</div>
+              <div class="game-desc">Juego arcade multijugador. Velocidad, reflejos y recompensas MOWO.</div>
+              <span class="game-badge">Próximamente</span>
+            </div>
+          </div>
+
+          <!-- 4. Tetris -->
+          <div class="game-card">
+            <img class="game-image" src="juegostetris.png" alt="Tetris" />
+            <div class="game-info">
+              <div class="game-title">🧩 Tetris</div>
+              <div class="game-desc">El clásico arcade. Puntuaciones altas dan acceso a premios especiales NFT.</div>
+              <span class="game-badge">Próximamente</span>
+            </div>
+          </div>
+
+          <!-- 5. Máquina de la Suerte -->
+          <div class="game-card">
+            <img class="game-image" src="juegosmaquinadelasuerte.png" alt="Máquina de la Suerte" />
+            <div class="game-info">
+              <div class="game-title">🎰 Máquina de la Suerte</div>
+              <div class="game-desc">Gira y gana NFTs Oro, Plata o Cobre. ¡Hasta 250.000 MOWO!</div>
+              <span class="game-badge">Activo</span>
+            </div>
+          </div>
+
+          <!-- 6. Juego de Memoria -->
+          <div class="game-card">
+            <img class="game-image" src="juegosmemoria.png" alt="Juego de Memoria" />
+            <div class="game-info">
+              <div class="game-title">🧠 Juego de Memoria</div>
+              <div class="game-desc">Entrena tu mente, completa niveles y gana recompensas en MOWO.</div>
+              <span class="game-badge">Próximamente</span>
+            </div>
+          </div>
+
+          <!-- 7. Metaverso -->
+          <div class="game-card">
+            <img class="game-image" src="juegosmetaverso.png" alt="Metaverso" />
+            <div class="game-info">
+              <div class="game-title">🌙 Metaverso MoonWorld</div>
+              <div class="game-desc">Conecta wallet, juegos, NFT y metaverso en una sola experiencia.</div>
+              <span class="game-badge">Activo</span>
+            </div>
+          </div>
+
+          <!-- 8. Juego Estrella (tarta) -->
+          <div class="game-card">
+            <img class="game-image" src="juegostarta.png" alt="Juego Estrella" />
+            <div class="game-info">
+              <div class="game-title">⭐ Juego Estrella</div>
+              <div class="game-desc">Juego especial con premios exclusivos y acceso a eventos del ecosistema.</div>
+              <span class="game-badge">Próximamente</span>
+            </div>
           </div>
         </div>
 
@@ -1362,7 +1480,7 @@
         updateCard8Title: "📈 Staking",
         updateCard8Text: "Staking para Solana, Polygon, ETH y BNB con recompensas de hasta el 30%.",
         updateGamesTitle: "🎮 Juegos online:",
-        updateGamesText: " juega con tus amigos, compite con crypto, disfruta de ajedrez, tres en raya, hockey y más juegos. La app cobra 0% de comisión en las apuestas entre usuarios.",
+        updateGamesText: " juega con tus amigos, compite con crypto, disfruta de ajedrez, tres en raya, hockey, tetris, memoria y más juegos. La app cobra 0% de comisión en las apuestas entre usuarios.",
         updatePrizeTitle: "🏆 Premio global:",
         updatePrizeText: " juega todo lo que puedas para llegar a lo más alto del ranking y luchar por el gran premio de 1.000.000 de tokens MOWO.",
         walletVaultEyebrow: "Wallet & Bodega",
@@ -1399,12 +1517,6 @@
         gamesTitle: "Juegos dentro del ecosistema BANK2.0",
         gamesLead: "BANK2.0 no es solo guardar activos. También es jugar, competir y abrir la puerta al metaverso desde la propia wallet.",
         gamesQuote: "Jugar también suma",
-        gamesCard1Title: "Tres en raya",
-        gamesCard1Text: "Un juego clásico dentro del ecosistema para participar, competir, jugar con amigos y seguir sumando actividad dentro de BANK2.0.",
-        gamesCard2Title: "Ajedrez online",
-        gamesCard2Text: "Compite online, juega con amigos y forma parte de una experiencia más completa dentro de la wallet.",
-        gamesCard3Title: "Ruleta de la suerte",
-        gamesCard3Text: "La ruleta puede darte premios NFT, MOWO y acceso a recompensas conectadas con el metaverso.",
         gamesNoticeTitle: "Llave NFT:",
         gamesNoticeText: " la llave a la puerta NFT forma parte de las recompensas y conecta los juegos con los premios del metaverso lunar.",
         machineImageCaption: "<strong>Máquina de la suerte:</strong> juega, gana MOWO y desbloquea premios NFT conectados con MoonWorld.",
@@ -1558,7 +1670,7 @@
         updateCard8Title: "📈 Staking",
         updateCard8Text: "Staking for Solana, Polygon, ETH and BNB with rewards up to 30%.",
         updateGamesTitle: "🎮 Online games:",
-        updateGamesText: " play with your friends, compete with crypto, enjoy chess, tic-tac-toe, hockey and more games. The app charges 0% commission on bets between users.",
+        updateGamesText: " play with your friends, compete with crypto, enjoy chess, tic-tac-toe, hockey, tetris, memory and more games. The app charges 0% commission on bets between users.",
         updatePrizeTitle: "🏆 Global prize:",
         updatePrizeText: " play as much as you can to reach the top of the ranking and fight for the grand prize of 1,000,000 MOWO tokens.",
         walletVaultEyebrow: "Wallet & Vault",
@@ -1595,12 +1707,6 @@
         gamesTitle: "Games inside the BANK2.0 ecosystem",
         gamesLead: "BANK2.0 is not only about storing assets. It is also about playing, competing and opening the door to the metaverse from the wallet itself.",
         gamesQuote: "Playing also counts",
-        gamesCard1Title: "Tic-tac-toe",
-        gamesCard1Text: "A classic game inside the ecosystem to participate, compete, play with friends and keep adding activity inside BANK2.0.",
-        gamesCard2Title: "Online chess",
-        gamesCard2Text: "Compete online and become part of a more complete experience inside the wallet.",
-        gamesCard3Title: "Lucky machine",
-        gamesCard3Text: "The lucky machine can give you NFT prizes and open access to rewards connected to the metaverse.",
         gamesNoticeTitle: "NFT key:",
         gamesNoticeText: " the key to the NFT door is part of the rewards and connects the games with the lunar metaverse prizes.",
         machineImageCaption: "<strong>Lucky Machine:</strong> play, win MOWO and unlock NFT prizes connected to MoonWorld.",
