@@ -3,80 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BANK2.0 | Tu banco cripto privado</title>
+  <title>BANK2.0 · Tu banco cripto privado</title>
   <meta name="description" content="BANK2.0 private crypto bank with wallet, crypto vault, NFT vault, games, Solana ecosystem, security system and MoonWorld metaverse." />
   <link rel="icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
   <style>
-    /* ===== RESET Y VARIABLES ===== */
+    /* ===== INSPIRADO EN MAXSTUDIO ===== */
     :root {
-      --bg: #06020d;
-      --bg-2: #0d0416;
-      --panel: rgba(15, 8, 28, 0.84);
-      --panel-2: rgba(10, 6, 18, 0.92);
-      --text: #f5f7fb;
-      --muted: #b8bfd3;
-      --line: rgba(255, 255, 255, 0.08);
+      --bg-primary: #0b0815;
+      --bg-secondary: #110d1f;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-glow: rgba(127, 246, 255, 0.15);
+      --text-primary: #f0f2f8;
+      --text-secondary: #a8b2d9;
+      --text-muted: #6b7a9f;
       --cyan: #7ff6ff;
+      --cyan-dim: rgba(127, 246, 255, 0.08);
       --pink: #ff4fd8;
       --green: #7dffb2;
       --gold: #ffd76e;
-      --silver: #d8dee9;
-      --bronze: #d38a5c;
       --red: #ff5a5a;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-      --maxw: 1180px;
-      --navh: 78px;
+      --radius-lg: 32px;
+      --radius-md: 20px;
+      --radius-sm: 12px;
+      --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
+      --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--navh) + 18px);
+      scroll-padding-top: 90px;
     }
 
     body {
-      font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 15% 8%, rgba(255, 79, 216, 0.14), transparent 24%),
-        radial-gradient(circle at 85% 12%, rgba(127, 246, 255, 0.12), transparent 24%),
-        radial-gradient(circle at 50% 90%, rgba(125, 255, 178, 0.08), transparent 30%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 48%, var(--bg) 100%);
-      line-height: 1.65;
-      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* Fondo con gradiente sutil y textura */
     body::before {
-      content: "";
+      content: '';
       position: fixed;
       inset: 0;
       background:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 32px 32px;
-      opacity: 0.16;
+        radial-gradient(ellipse at 20% 10%, rgba(127, 246, 255, 0.06), transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(255, 79, 216, 0.05), transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(125, 255, 178, 0.03), transparent 60%);
+      z-index: -2;
       pointer-events: none;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 48px 48px;
       z-index: -1;
+      pointer-events: none;
     }
 
     img {
       display: block;
       max-width: 100%;
     }
-
     a {
       color: inherit;
       text-decoration: none;
     }
 
     .container {
-      width: min(var(--maxw), calc(100% - 32px));
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 24px;
     }
 
     /* ===== TOPBAR ===== */
@@ -84,44 +97,44 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      height: var(--navh);
-      background: rgba(7, 4, 13, 0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
+      background: rgba(11, 8, 21, 0.82);
+      backdrop-filter: blur(20px) saturate(1.2);
+      border-bottom: 1px solid var(--border-subtle);
+      height: 78px;
+      display: flex;
+      align-items: center;
     }
 
     .topbar-inner {
-      width: min(var(--maxw), calc(100% - 32px));
-      margin: 0 auto;
-      height: 100%;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 18px;
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 20px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
-      min-width: 0;
+      flex-shrink: 0;
     }
 
     .brand-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.24), transparent 30%),
-        linear-gradient(135deg, rgba(255,79,216,0.26), rgba(127,246,255,0.18));
-      border: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, rgba(127,246,255,0.15), rgba(255,79,216,0.10));
+      border: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 26px rgba(127, 246, 255, 0.12);
+      overflow: hidden;
+      flex-shrink: 0;
     }
-
     .brand-logo img {
       width: 100%;
       height: 100%;
@@ -130,660 +143,571 @@
 
     .brand-copy strong {
       display: block;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       color: #fff;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
     }
-
     .brand-copy span {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      letter-spacing: 0.02em;
     }
 
-    .tabs {
+    .nav-tabs {
       display: flex;
-      gap: 8px;
+      gap: 4px;
       align-items: center;
       overflow-x: auto;
-      overflow-y: hidden;
-      scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-      max-width: 100%;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      flex: 1;
+      justify-content: center;
+      padding: 0 12px;
     }
-
-    .tabs::-webkit-scrollbar {
-      height: 4px;
-    }
-    .tabs::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.05);
-      border-radius: 4px;
-    }
-    .tabs::-webkit-scrollbar-thumb {
-      background: var(--cyan);
-      border-radius: 4px;
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .tab-link {
       white-space: nowrap;
-      padding: 10px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
-      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: var(--transition);
       border: 1px solid transparent;
-      transition: 0.25s ease;
-      font-size: 0.94rem;
-      font-weight: 800;
-      flex-shrink: 0;
+      letter-spacing: 0.01em;
     }
-
-    .tab-link:hover,
+    .tab-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.04);
+    }
     .tab-link.active {
       color: #fff;
-      border-color: rgba(127, 246, 255, 0.18);
-      background: rgba(255,255,255,0.035);
+      background: rgba(127,246,255,0.08);
+      border-color: var(--border-glow);
     }
 
     .toolbar {
       display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
-
-    .lang {
-      appearance: none;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(127, 246, 255, 0.2);
-      color: var(--text);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      cursor: pointer;
-    }
-
-    /* ===== SECCIONES ===== */
-    section {
-      scroll-margin-top: calc(var(--navh) + 18px);
-    }
-
-    .hero {
-      padding: 42px 0 22px;
-    }
-
-    .hero-shell {
-      background:
-        radial-gradient(circle at 10% 12%, rgba(255, 79, 216, 0.14), transparent 26%),
-        radial-gradient(circle at 90% 16%, rgba(127, 246, 255, 0.12), transparent 24%),
-        linear-gradient(145deg, rgba(14, 8, 26, 0.98), rgba(7, 4, 14, 0.96));
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      padding: 54px 44px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 34px;
       align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      color: var(--gold);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 4.5rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
-      color: #fff;
-    }
-
-    h1 .grad {
-      background: linear-gradient(90deg, #fff 0%, var(--cyan) 44%, var(--green) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.07rem;
-      margin-bottom: 14px;
-      max-width: 760px;
-    }
-
-    .claim {
-      color: #fff;
-      font-size: 1.12rem;
-      font-weight: 900;
-      margin: 18px 0 24px;
-    }
-
-    .actions {
-      display: flex;
       gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 22px;
+      flex-shrink: 0;
     }
 
+    .lang-select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      appearance: none;
+      transition: var(--transition);
+    }
+    .lang-select:hover {
+      border-color: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+    .lang-select option {
+      background: var(--bg-primary);
+      color: #fff;
+    }
+
+    /* ===== BOTONES ===== */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 48px;
-      padding: 0 18px;
+      padding: 12px 28px;
       border-radius: 999px;
-      font-weight: 900;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
       cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.01em;
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
     .btn-primary {
-      color: #07130d;
       background: linear-gradient(90deg, var(--green), var(--cyan));
-      box-shadow: 0 10px 30px rgba(127, 246, 255, 0.18);
+      color: #0b0815;
+      box-shadow: 0 8px 30px rgba(127, 246, 255, 0.15);
     }
-
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(127, 246, 255, 0.25);
+    }
     .btn-secondary {
+      background: rgba(255,255,255,0.05);
       color: #fff;
-      background: rgba(255,255,255,0.04);
-      border-color: var(--line);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.2);
+      color: #fff;
     }
 
-    .hero-side {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 24px;
+    /* ===== SECCIONES ===== */
+    section {
+      scroll-margin-top: 90px;
+      padding: 40px 0;
     }
 
-    .side-title,
-    .eyebrow {
-      color: var(--cyan);
-      font-size: 0.82rem;
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .section-header-left {
+      max-width: 700px;
+    }
+    .section-header .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 900;
-      margin-bottom: 12px;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(127,246,255,0.08);
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-top: 8px;
+      max-width: 600px;
+    }
+    .section-header .badge-quote {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gold);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .side-list,
-    .cards,
-    .cards-2,
-    .cards-4,
-    .cards-5,
-    .cards-6,
-    .security-grid {
-      display: grid;
-      gap: 14px;
-    }
-
-    .side-item,
     .card {
-      padding: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: var(--transition);
     }
-
-    .side-item strong,
+    .card:hover {
+      border-color: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+    }
     .card strong {
       display: block;
       color: #fff;
-      font-size: 1rem;
+      font-size: 1.05rem;
+      font-weight: 700;
       margin-bottom: 6px;
     }
-
-    .side-item span,
     .card p {
-      color: var(--muted);
-      font-size: 0.96rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    .section {
-      padding: 16px 0 12px;
+    .card-glow {
+      background: linear-gradient(135deg, rgba(127,246,255,0.05), rgba(255,79,216,0.03));
+      border-color: var(--border-glow);
     }
 
-    .panel {
-      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      padding: 34px;
-    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
 
-    .section-head {
+    /* ===== HERO ===== */
+    .hero {
+      padding: 60px 0 40px;
+    }
+    .hero-inner {
+      background: radial-gradient(ellipse at 20% 20%, rgba(127,246,255,0.04), transparent 50%),
+                  radial-gradient(ellipse at 80% 80%, rgba(255,79,216,0.03), transparent 50%),
+                  var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 60px 56px;
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
-      align-items: end;
-      margin-bottom: 24px;
-    }
-
-    .section h2 {
-      font-size: clamp(1.7rem, 4vw, 3rem);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    .section p {
-      color: var(--muted);
-      font-size: 1.03rem;
-      margin-bottom: 12px;
-    }
-
-    .quote {
-      display: inline-flex;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
       align-items: center;
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(127,246,255,0.08);
-      border: 1px solid rgba(127,246,255,0.16);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
       color: #fff;
-      font-size: 0.94rem;
-      font-weight: 800;
-      white-space: nowrap;
     }
-
-    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; }
-    .cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 24px; }
-    .cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 24px; }
-    .cards-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 24px; }
-    .cards-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: 24px; }
-    .security-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; }
-
-    .card.feature {
-      background:
-        linear-gradient(135deg, rgba(255, 215, 110, 0.12), rgba(127, 246, 255, 0.06));
-      border-color: rgba(255, 215, 110, 0.14);
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
-    .asset-card,
-    .nft-card {
-      text-align: center;
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin-bottom: 12px;
     }
-
-    .security-card {
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      text-align: center;
+    .hero .claim {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 16px 0 24px;
     }
-
-    .security-card.green {
-      border-color: rgba(125, 255, 178, 0.35);
-      background: linear-gradient(135deg, rgba(125,255,178,0.12), rgba(255,255,255,0.03));
-    }
-    .security-card.yellow {
-      border-color: rgba(255, 215, 110, 0.35);
-      background: linear-gradient(135deg, rgba(255,215,110,0.12), rgba(255,255,255,0.03));
-    }
-    .security-card.red {
-      border-color: rgba(255, 90, 90, 0.4);
-      background: linear-gradient(135deg, rgba(255,90,90,0.16), rgba(255,255,255,0.03));
-    }
-
-    .security-dot {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      margin: 0 auto 12px;
-      animation: pulse-dot 2s infinite ease-in-out;
-    }
-    .security-card.green .security-dot { background: #32ff9c; box-shadow: 0 0 18px #32ff9c; }
-    .security-card.yellow .security-dot { background: #ffd76e; box-shadow: 0 0 18px #ffd76e; }
-    .security-card.red .security-dot { background: #ff4d4d; box-shadow: 0 0 18px #ff4d4d; }
-
-    @keyframes pulse-dot {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.3); opacity: 1; }
-    }
-
-    .asset-icon-wrap,
-    .nft-icon-wrap,
-    .metaverse-image-wrap {
-      margin-bottom: 14px;
+    .hero-actions {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
+    .hero-sidebar {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+    .hero-sidebar .side-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .hero-sidebar .side-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hero-sidebar .side-item:last-child {
+      border-bottom: none;
+    }
+    .hero-sidebar .side-item strong {
+      display: block;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .hero-sidebar .side-item span {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    /* ===== PANEL ===== */
+    .panel {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 44px 48px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ===== ASSET ICONS ===== */
     .asset-icon {
-      width: 72px;
-      height: 72px;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-      transition: transform 0.3s ease;
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 8px;
+      transition: var(--transition);
+      margin: 0 auto 12px;
     }
     .asset-icon:hover {
-      transform: scale(1.08);
+      transform: scale(1.06);
+      border-color: rgba(255,255,255,0.15);
     }
-
-    .nft-icon {
-      width: 96px;
-      height: 96px;
-      object-fit: cover;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-    }
-
-    .metaverse-image {
-      width: min(100%, 220px);
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .promo-image-card {
-      margin-top: 24px;
-      padding: 16px;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(127, 246, 255, 0.14), transparent 38%),
-        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
-      border: 1px solid rgba(127, 246, 255, 0.16);
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
-    }
-
-    .promo-image-card.gold {
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255, 215, 110, 0.18), transparent 38%),
-        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
-      border-color: rgba(255, 215, 110, 0.2);
-    }
-
-    .promo-image-card.red {
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255, 90, 90, 0.16), transparent 38%),
-        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
-      border-color: rgba(255, 90, 90, 0.22);
-    }
-
-    .promo-image {
-      width: 100%;
-      max-height: 620px;
-      object-fit: contain;
-      border-radius: 22px;
-      background: rgba(0, 0, 0, 0.22);
-    }
-
-    .promo-caption {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.98rem;
+    .asset-card {
       text-align: center;
     }
-    .promo-caption strong { color: #fff; }
-
-    .notice {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      color: var(--muted);
-    }
-    .notice strong { color: #fff; }
-
-    .code {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 20px;
-      background: #05060b;
-      border: 1px solid rgba(127,246,255,0.14);
-      color: var(--green);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    .asset-card strong {
       font-size: 0.95rem;
-      word-break: break-all;
+    }
+    .asset-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
-    .prize-box {
-      margin-top: 22px;
-      padding: 30px;
-      border-radius: 28px;
-      text-align: center;
-      background:
-        radial-gradient(circle at 50% 10%, rgba(255,215,110,0.18), transparent 35%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,215,110,0.16);
+    /* ===== NFT CARDS ===== */
+    .nft-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.02);
+      margin: 0 auto 12px;
     }
-
-    .prize-number {
-      font-size: clamp(3rem, 10vw, 7rem);
-      line-height: 0.9;
-      font-weight: 1000;
-      letter-spacing: -0.05em;
-      color: var(--gold);
-      text-shadow: 0 0 24px rgba(255,215,110,0.16);
-    }
-
-    .prize-label {
-      margin-top: 10px;
-      color: #fff;
-      font-weight: 900;
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .tier { text-align: center; }
-    .tier.gold { border-color: rgba(255, 215, 110, 0.25); background: linear-gradient(135deg, rgba(255,215,110,0.14), rgba(255,255,255,0.03)); }
-    .tier.silver { border-color: rgba(216, 222, 233, 0.22); background: linear-gradient(135deg, rgba(216,222,233,0.10), rgba(255,255,255,0.03)); }
-    .tier.bronze { border-color: rgba(211, 138, 92, 0.22); background: linear-gradient(135deg, rgba(211,138,92,0.12), rgba(255,255,255,0.03)); }
-
+    .tier-gold { border-color: rgba(255, 215, 110, 0.25); background: linear-gradient(135deg, rgba(255,215,110,0.08), transparent); }
+    .tier-silver { border-color: rgba(216, 222, 233, 0.15); background: linear-gradient(135deg, rgba(216,222,233,0.06), transparent); }
+    .tier-bronze { border-color: rgba(211, 138, 92, 0.20); background: linear-gradient(135deg, rgba(211,138,92,0.08), transparent); }
     .tier-label {
-      font-weight: 900;
-      letter-spacing: 0.08em;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 8px;
     }
-    .tier.gold .tier-label { color: var(--gold); }
-    .tier.silver .tier-label { color: var(--silver); }
-    .tier.bronze .tier-label { color: var(--bronze); }
+    .tier-gold .tier-label { color: var(--gold); }
+    .tier-silver .tier-label { color: var(--silver, #d8dee9); }
+    .tier-bronze .tier-label { color: var(--bronze, #d38a5c); }
 
     /* ===== GAMES ===== */
-    .games-showcase {
+    .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 24px;
       margin: 32px 0;
     }
     .game-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
       overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: var(--transition);
     }
     .game-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      border-color: rgba(127,246,255,0.3);
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
     }
-    .game-image {
+    .game-card img {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16/9;
       object-fit: cover;
-      background: linear-gradient(135deg, #1a0f2a, #0a0515);
+      background: var(--bg-primary);
     }
-    .game-info {
-      padding: 20px;
+    .game-card .game-info {
+      padding: 18px 20px 20px;
     }
-    .game-title {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .game-desc {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-    .game-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      background: rgba(127,246,255,0.1);
-      color: var(--cyan);
-      font-size: 0.75rem;
+    .game-card .game-title {
       font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .game-card .game-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
     }
 
-    /* ===== ANIMACIÓN CAJA FUERTE ===== */
+    /* ===== SECURITY ===== */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .security-card {
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      text-align: center;
+      background: var(--bg-card);
+    }
+    .security-card .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+    .security-card.green .dot { background: var(--green); box-shadow: 0 0 20px rgba(125,255,178,0.2); }
+    .security-card.yellow .dot { background: var(--gold); box-shadow: 0 0 20px rgba(255,215,110,0.2); }
+    .security-card.red .dot { background: var(--red); box-shadow: 0 0 20px rgba(255,90,90,0.2); }
+    .security-card strong { color: #fff; font-weight: 700; display: block; margin-bottom: 4px; }
+    .security-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    /* ===== SAFE ANIMATION ===== */
     .safe-container {
       position: relative;
       width: 100%;
       max-width: 500px;
-      margin: 30px auto;
-      height: 180px;
-      background: radial-gradient(circle at 50% 50%, rgba(127,246,255,0.06), transparent 60%);
+      margin: 24px auto 32px;
+      height: 160px;
+      background: radial-gradient(ellipse at center, rgba(127,246,255,0.04), transparent 60%);
       border-radius: 40px;
-      border: 2px dashed rgba(127,246,255,0.12);
+      border: 1px dashed rgba(127,246,255,0.10);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
-    .safe-container .safe-logo {
+    .safe-container .fly-logo {
       position: absolute;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 4px;
-      animation: flyToSafe 5s infinite alternate ease-in-out;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 6px;
+      animation: flyAround 8s infinite alternate ease-in-out;
     }
-    .safe-container .safe-logo img {
+    .safe-container .fly-logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 0 6px rgba(127,246,255,0.2));
+      filter: drop-shadow(0 4px 12px rgba(127,246,255,0.10));
     }
-    /* posiciones iniciales y retrasos */
-    .safe-container .safe-logo:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-    .safe-container .safe-logo:nth-child(2) { top: 60%; left: 80%; animation-delay: 0.4s; }
-    .safe-container .safe-logo:nth-child(3) { top: 80%; left: 10%; animation-delay: 0.8s; }
-    .safe-container .safe-logo:nth-child(4) { top: 20%; left: 70%; animation-delay: 1.2s; }
-    .safe-container .safe-logo:nth-child(5) { top: 50%; left: 30%; animation-delay: 1.6s; }
-    .safe-container .safe-logo:nth-child(6) { top: 10%; left: 50%; animation-delay: 2.0s; }
-    .safe-container .safe-logo:nth-child(7) { top: 70%; left: 50%; animation-delay: 2.4s; }
-    .safe-container .safe-logo:nth-child(8) { top: 40%; left: 90%; animation-delay: 2.8s; }
+    .safe-container .fly-logo:nth-child(1) { top: 8%; left: 4%; animation-delay: 0s; }
+    .safe-container .fly-logo:nth-child(2) { top: 60%; left: 85%; animation-delay: 0.6s; }
+    .safe-container .fly-logo:nth-child(3) { top: 78%; left: 8%; animation-delay: 1.2s; }
+    .safe-container .fly-logo:nth-child(4) { top: 15%; left: 72%; animation-delay: 1.8s; }
+    .safe-container .fly-logo:nth-child(5) { top: 45%; left: 28%; animation-delay: 2.4s; }
+    .safe-container .fly-logo:nth-child(6) { top: 5%; left: 48%; animation-delay: 3.0s; }
+    .safe-container .fly-logo:nth-child(7) { top: 68%; left: 48%; animation-delay: 3.6s; }
+    .safe-container .fly-logo:nth-child(8) { top: 35%; left: 92%; animation-delay: 4.2s; }
 
-    @keyframes flyToSafe {
-      0% { transform: translate(0, 0) scale(0.6) rotate(0deg); opacity: 0.5; }
+    @keyframes flyAround {
+      0% { transform: translate(0, 0) scale(0.7) rotate(0deg); opacity: 0.4; }
       100% { transform: translate(0, 0) scale(1) rotate(360deg); opacity: 1; }
     }
 
-    /* ===== SCROLL SUAVE ===== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s forwards;
+    /* ===== PROMO IMAGE ===== */
+    .promo-image-card {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: radial-gradient(ellipse at 50% 0%, rgba(127,246,255,0.06), transparent 50%);
+      border: 1px solid var(--border-subtle);
+      margin-top: 24px;
     }
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
+    .promo-image-card.gold {
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,215,110,0.08), transparent 50%);
+      border-color: rgba(255,215,110,0.12);
+    }
+    .promo-image-card.red {
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,90,90,0.06), transparent 50%);
+      border-color: rgba(255,90,90,0.10);
+    }
+    .promo-image-card img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      background: rgba(0,0,0,0.2);
+    }
+    .promo-image-card .caption {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+    .promo-image-card .caption strong { color: #fff; }
+
+    /* ===== PRIZE ===== */
+    .prize-box {
+      text-align: center;
+      padding: 40px 32px;
+      border-radius: var(--radius-md);
+      background: radial-gradient(ellipse at 50% 20%, rgba(255,215,110,0.08), transparent 50%);
+      border: 1px solid rgba(255,215,110,0.10);
+      margin: 24px 0;
+    }
+    .prize-number {
+      font-size: clamp(3.6rem, 10vw, 6.4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(90deg, var(--gold), #ffb347);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .prize-label {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 8px;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1100px) {
-      .topbar { height: auto; }
-      .topbar-inner {
-        grid-template-columns: 1fr;
-        height: auto;
-        padding: 12px 0;
-      }
-      .toolbar { justify-content: flex-start; }
-      .hero-inner { grid-template-columns: 1fr; }
-      html { scroll-padding-top: 120px; }
-      section { scroll-margin-top: 120px; }
+    /* ===== CODE BLOCK ===== */
+    .code-block {
+      background: #0a0815;
+      border: 1px solid rgba(127,246,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: var(--green);
+      word-break: break-all;
+      margin: 16px 0;
     }
 
-    @media (max-width: 980px) {
-      .cards-5,
-      .cards-6 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+    /* ===== NOTICE ===== */
+    .notice {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      color: var(--text-secondary);
+      margin-top: 16px;
     }
-
-    @media (max-width: 900px) {
-      .cards-4,
-      .security-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      .hero-inner,
-      .panel {
-        padding: 24px;
-      }
-      .section-head,
-      .cards,
-      .cards-2,
-      .cards-4,
-      .cards-5,
-      .cards-6,
-      .security-grid {
-        grid-template-columns: 1fr;
-      }
-      .actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .promo-image { max-height: 440px; }
-      .games-showcase { grid-template-columns: 1fr; }
-      .safe-container { height: 140px; }
-    }
+    .notice strong { color: #fff; }
 
     /* ===== FOOTER ===== */
     .footer {
-      padding: 28px 0 54px;
       text-align: center;
-      color: var(--muted);
+      padding: 48px 0 32px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 40px;
     }
     .footer-logo {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 14px;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.24), transparent 30%),
-        linear-gradient(135deg, rgba(255,79,216,0.26), rgba(127,246,255,0.18));
-      border: 1px solid var(--line);
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, rgba(127,246,255,0.10), rgba(255,79,216,0.06));
+      border: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -794,74 +718,105 @@
       height: 100%;
       object-fit: cover;
     }
+    .footer p {
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .topbar { height: auto; padding: 12px 0; }
+      .topbar-inner { flex-wrap: wrap; gap: 12px; }
+      .nav-tabs { order: 3; flex-basis: 100%; justify-content: flex-start; padding: 4px 0; }
+      .hero-inner { grid-template-columns: 1fr; padding: 40px 28px; }
+      .grid-4, .grid-5, .grid-6 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .topbar-inner { padding: 0 16px; }
+      .brand-copy span { display: none; }
+      .hero-inner { padding: 28px 20px; }
+      .panel { padding: 28px 20px; }
+      .grid-2, .grid-3, .grid-4, .grid-5, .grid-6 { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: 1fr; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .section-header .badge-quote { white-space: normal; align-self: flex-start; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .safe-container { height: 120px; }
+      .games-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .tab-link { font-size: 0.75rem; padding: 6px 12px; }
+      .lang-select { font-size: 0.75rem; padding: 6px 10px; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- ===== TOPBAR ===== -->
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="#inicio">
-        <div class="brand-logo"><img src="logo.png" alt="BANK2.0 logo" /></div>
+        <div class="brand-logo"><img src="logo.png" alt="BANK2.0" /></div>
         <div class="brand-copy">
           <strong>BANK2.0</strong>
           <span data-i18n="brandSub">Tu banco privado sin datos innecesarios</span>
         </div>
       </a>
 
-      <nav class="tabs" aria-label="Main navigation">
-        <a class="tab-link" href="#wallet-vault" data-i18n="tabWalletVault">Wallet & Vault</a>
-        <a class="tab-link" href="#update" data-i18n="tabUpdate">New Update</a>
+      <nav class="nav-tabs">
+        <a class="tab-link" href="#wallet-vault" data-i18n="tabWalletVault">Wallet</a>
+        <a class="tab-link" href="#update" data-i18n="tabUpdate">Update</a>
         <a class="tab-link" href="#games" data-i18n="tabGames">Games</a>
         <a class="tab-link" href="#solana" data-i18n="tabSolana">Solana</a>
         <a class="tab-link" href="#metaverse" data-i18n="tabMetaverse">MoonWorld</a>
-        <a class="tab-link" href="#prize" data-i18n="tabPrize">Global Prize</a>
-        <a class="tab-link" href="#security" data-i18n="tabSecurity">Security</a>
-        <a class="tab-link" href="#privacy" data-i18n="tabPrivacy">Privacy</a>
-        <a class="tab-link" href="#contract" data-i18n="tabContract">Contracts</a>
-        <a class="tab-link" href="#contact" data-i18n="tabContact">Contact</a>
+        <a class="tab-link" href="#prize" data-i18n="tabPrize">Premio</a>
+        <a class="tab-link" href="#security" data-i18n="tabSecurity">Seguridad</a>
+        <a class="tab-link" href="#privacy" data-i18n="tabPrivacy">Privacidad</a>
+        <a class="tab-link" href="#contract" data-i18n="tabContract">Contratos</a>
+        <a class="tab-link" href="#contact" data-i18n="tabContact">Contacto</a>
       </nav>
 
       <div class="toolbar">
-        <select id="langSwitcher" class="lang" aria-label="Language selector">
-          <option value="es">🌐 Español</option>
-          <option value="en">🇬🇧 English</option>
+        <select id="langSwitcher" class="lang-select">
+          <option value="es">🌐 ES</option>
+          <option value="en">🇬🇧 EN</option>
         </select>
       </div>
     </div>
   </header>
 
-  <main class="container">
+  <main>
 
     <!-- ===== HERO ===== -->
     <section id="inicio" class="hero">
-      <div class="hero-shell">
+      <div class="container">
         <div class="hero-inner">
           <div>
-            <div class="badge" data-i18n="heroBadge">BANK2.0 · BANCO CRIPTO PRIVADO</div>
-            <h1 data-i18n="heroTitle">Tu banco <span class="grad">sin nombres, sin teléfonos, sin exposición innecesaria</span></h1>
+            <div class="eyebrow" style="display:inline-block; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--cyan); background:var(--cyan-dim); padding:4px 16px; border-radius:999px; margin-bottom:16px; border:1px solid rgba(127,246,255,0.08);" data-i18n="heroBadge">BANK2.0 · BANCO CRIPTO PRIVADO</div>
+            <h1 data-i18n="heroTitle">Tu banco <span class="highlight">sin nombres, sin teléfonos, sin exposición innecesaria</span></h1>
             <p data-i18n="heroP1">BANK2.0 es tu banco privado en la nueva era: más directo, más tuyo. Olvídate de formularios y datos innecesarios. Tu wallet es tu identidad reservada.</p>
-            <p data-i18n="heroP2">Tus activos son tuyos. Tu identidad es tuya. Tu banco también.</p>
-            <div class="actions">
+            <p class="claim" data-i18n="heroClaim">Tus activos son tuyos. Tu identidad es tuya. Tu banco también.</p>
+            <div class="hero-actions">
               <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" rel="noopener" data-i18n="heroBtn1">📲 Descargar Wallet</a>
-              <a class="btn btn-secondary" href="#wallet-vault" data-i18n="heroBtn2">Ver la bodega</a>
+              <a class="btn btn-secondary" href="#wallet-vault" data-i18n="heroBtn2">Explorar bodega</a>
             </div>
           </div>
 
-          <aside class="hero-side">
+          <aside class="hero-sidebar">
             <div class="side-title" data-i18n="heroSideTitle">Por qué BANK2.0</div>
-            <div class="side-list">
-              <div class="side-item">
-                <strong data-i18n="heroCard1Title">Un banco, no solo una wallet</strong>
-                <span data-i18n="heroCard1Text">Banca privada para activos, custodia, identidad y movimiento.</span>
-              </div>
-              <div class="side-item">
-                <strong data-i18n="heroCard2Title">Sin datos innecesarios</strong>
-                <span data-i18n="heroCard2Text">Sin nombres, sin teléfonos, menos exposición.</span>
-              </div>
-              <div class="side-item">
-                <strong data-i18n="heroCard3Title">BANK2.0 te premia</strong>
-                <span data-i18n="heroCard3Text">Mientras otros te cobran, nosotros te recompensamos por confiar.</span>
-              </div>
+            <div class="side-item">
+              <strong data-i18n="heroCard1Title">Un banco, no solo una wallet</strong>
+              <span data-i18n="heroCard1Text">Banca privada para activos, custodia, identidad y movimiento.</span>
+            </div>
+            <div class="side-item">
+              <strong data-i18n="heroCard2Title">Sin datos innecesarios</strong>
+              <span data-i18n="heroCard2Text">Sin nombres, sin teléfonos, menos exposición.</span>
+            </div>
+            <div class="side-item">
+              <strong data-i18n="heroCard3Title">BANK2.0 te premia</strong>
+              <span data-i18n="heroCard3Text">Mientras otros te cobran, nosotros te recompensamos por confiar.</span>
             </div>
           </aside>
         </div>
@@ -870,285 +825,287 @@
 
     <!-- ===== UPDATE ===== -->
     <section id="update" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="updateEyebrow">Nueva actualización</div>
-            <h2 data-i18n="updateTitle">BANK 2.0 Wallet: listo para la Web3</h2>
-            <p data-i18n="updateLead">Descarga la app, crea tu semilla y entra al ecosistema con seguridad, staking, NFTs, juegos y recompensas MOWO.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="updateEyebrow">Nueva actualización</div>
+              <h2 data-i18n="updateTitle">BANK 2.0 Wallet: listo para la Web3</h2>
+              <p data-i18n="updateLead">Descarga la app, crea tu semilla y entra al ecosistema con seguridad, staking, NFTs, juegos y recompensas MOWO.</p>
+            </div>
+            <div class="badge-quote" data-i18n="updateQuote">🎁 100 MOWO de bienvenida</div>
           </div>
-          <div class="quote" data-i18n="updateQuote">🎁 100 MOWO de bienvenida</div>
-        </div>
 
-        <div class="cards-4">
-          <div class="card feature">
-            <strong data-i18n="updateCard1Title">🎁 Bienvenida</strong>
-            <p data-i18n="updateCard1Text">Gira la Máquina de la Suerte y recibe 100 MOWO gratis al entrar.</p>
+          <div class="grid-4">
+            <div class="card card-glow">
+              <strong data-i18n="updateCard1Title">🎁 Bienvenida</strong>
+              <p data-i18n="updateCard1Text">Gira la Máquina de la Suerte y recibe 100 MOWO gratis al entrar.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="updateCard2Title">🌍 Idiomas</strong>
+              <p data-i18n="updateCard2Text">Español, Inglés, Italiano, Francés, Ruso, Árabe, Chino y Portugués.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="updateCard3Title">💱 Monedas fiat</strong>
+              <p data-i18n="updateCard3Text">Consulta valores en USD, EUR, CNY, BRL y RUB.</p>
+            </div>
+            <div class="card card-glow">
+              <strong data-i18n="updateCard4Title">🛡️ Seguridad Web3</strong>
+              <p data-i18n="updateCard4Text">Anti-DDoS con aviso visual y bloqueo ante riesgos.</p>
+            </div>
           </div>
-          <div class="card feature">
-            <strong data-i18n="updateCard2Title">🌍 Idiomas</strong>
-            <p data-i18n="updateCard2Text">Español, Inglés, Italiano, Francés, Ruso, Árabe, Chino y Portugués.</p>
-          </div>
-          <div class="card feature">
-            <strong data-i18n="updateCard3Title">💱 Monedas fiat</strong>
-            <p data-i18n="updateCard3Text">Consulta valores en USD, EUR, CNY, BRL y RUB.</p>
-          </div>
-          <div class="card feature">
-            <strong data-i18n="updateCard4Title">🛡️ Seguridad Web3</strong>
-            <p data-i18n="updateCard4Text">Anti-DDoS con aviso visual y bloqueo ante riesgos.</p>
-          </div>
-        </div>
 
-        <div class="cards-4">
-          <div class="card">
-            <strong data-i18n="updateCard5Title">⛓️ Redes y activos</strong>
-            <p data-i18n="updateCard5Text">ETH, Solana, BNB, Polygon, MOWO, BANK2.0 y BTC.</p>
+          <div class="grid-4" style="margin-top:20px;">
+            <div class="card">
+              <strong data-i18n="updateCard5Title">⛓️ Redes y activos</strong>
+              <p data-i18n="updateCard5Text">ETH, Solana, BNB, Polygon, MOWO, BANK2.0 y BTC.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="updateCard6Title">🖼️ NFT Vault</strong>
+              <p data-i18n="updateCard6Text">Bodega NFT para Polygon y Solana. ETH y BNB próximamente.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="updateCard7Title">🔨 Subasta NFT</strong>
+              <p data-i18n="updateCard7Text">Próximamente: sistema de subastas NFT integrado.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="updateCard8Title">📈 Staking</strong>
+              <p data-i18n="updateCard8Text">Staking para Solana, Polygon, ETH y BNB con hasta 30% de recompensa.</p>
+            </div>
           </div>
-          <div class="card">
-            <strong data-i18n="updateCard6Title">🖼️ NFT Vault</strong>
-            <p data-i18n="updateCard6Text">Bodega NFT para Polygon y Solana. ETH y BNB próximamente.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="updateCard7Title">🔨 Subasta NFT</strong>
-            <p data-i18n="updateCard7Text">Próximamente: sistema de subastas NFT integrado.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="updateCard8Title">📈 Staking</strong>
-            <p data-i18n="updateCard8Text">Staking para Solana, Polygon, ETH y BNB con hasta 30% de recompensa.</p>
-          </div>
-        </div>
 
-        <div class="notice">
-          <strong data-i18n="updateGamesTitle">🎮 Juegos online:</strong>
-          <span data-i18n="updateGamesText"> juega con amigos, compite con crypto (ajedrez, tres en raya, hockey, tetris, memoria…). 0% comisión en apuestas.</span>
-        </div>
-        <div class="notice">
-          <strong data-i18n="updatePrizeTitle">🏆 Premio global:</strong>
-          <span data-i18n="updatePrizeText"> sube al ranking y lucha por 1.000.000 MOWO.</span>
+          <div class="notice">
+            <strong data-i18n="updateGamesTitle">🎮 Juegos online:</strong>
+            <span data-i18n="updateGamesText"> juega con amigos, compite con crypto (ajedrez, tres en raya, hockey, tetris, memoria…). 0% comisión en apuestas.</span>
+          </div>
+          <div class="notice">
+            <strong data-i18n="updatePrizeTitle">🏆 Premio global:</strong>
+            <span data-i18n="updatePrizeText"> sube al ranking y lucha por 1.000.000 MOWO.</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== WALLET & VAULT ===== -->
     <section id="wallet-vault" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="walletVaultEyebrow">Wallet & Bodega</div>
-            <h2 data-i18n="walletVaultTitle">Tu banco, tu bodega cripto y NFT en un solo lugar</h2>
-            <p data-i18n="walletVaultLead">Convierte tu wallet en tu banco digital. Guarda, organiza y gana recompensas por confiar.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="walletVaultEyebrow">Wallet &amp; Bodega</div>
+              <h2 data-i18n="walletVaultTitle">Tu banco, tu bodega cripto y NFT en un solo lugar</h2>
+              <p data-i18n="walletVaultLead">Convierte tu wallet en tu banco digital. Guarda, organiza y gana recompensas por confiar.</p>
+            </div>
+            <div class="badge-quote" data-i18n="walletVaultQuote">Guardar y ganar</div>
           </div>
-          <div class="quote" data-i18n="walletVaultQuote">Guardar y ganar</div>
-        </div>
 
-        <!-- ANIMACIÓN CAJA FUERTE con logos volando -->
-        <div class="safe-container">
-          <div class="safe-logo"><img src="ETH_LOGO_NEW.png" alt="ETH" /></div>
-          <div class="safe-logo"><img src="BNB_LOGO_NEW.png" alt="BNB" /></div>
-          <div class="safe-logo"><img src="POLYGON_LOGO_NEW.png" alt="Polygon" /></div>
-          <div class="safe-logo"><img src="solana.png" alt="Solana" /></div>
-          <div class="safe-logo"><img src="btc_logo.png" alt="BTC" /></div>
-          <div class="safe-logo"><img src="bank20solana.png" alt="BANK2.0" /></div>
-          <div class="safe-logo"><img src="mowo_gold_logo.png" alt="MOWO Gold" /></div>
-          <div class="safe-logo"><img src="moonworld_logo.png" alt="MOWO Coin" /></div>
-        </div>
+          <!-- ANIMACIÓN CAJA FUERTE -->
+          <div class="safe-container">
+            <div class="fly-logo"><img src="ETH_LOGO_NEW.png" alt="ETH" /></div>
+            <div class="fly-logo"><img src="BNB_LOGO_NEW.png" alt="BNB" /></div>
+            <div class="fly-logo"><img src="POLYGON_LOGO_NEW.png" alt="Polygon" /></div>
+            <div class="fly-logo"><img src="solana.png" alt="Solana" /></div>
+            <div class="fly-logo"><img src="btc_logo.png" alt="BTC" /></div>
+            <div class="fly-logo"><img src="bank20solana.png" alt="BANK2.0" /></div>
+            <div class="fly-logo"><img src="mowo_gold_logo.png" alt="MOWO Gold" /></div>
+            <div class="fly-logo"><img src="moonworld_logo.png" alt="MOWO Coin" /></div>
+          </div>
 
-        <div class="cards">
-          <div class="card feature">
-            <strong data-i18n="vaultCard1Title">Bodega cripto</strong>
-            <p data-i18n="vaultCard1Text">ETH, Solana, BNB, Polygon, BANK2.0, MOWO Gold, MOWO Coin y BTC.</p>
+          <div class="grid-3">
+            <div class="card card-glow">
+              <strong data-i18n="vaultCard1Title">Bodega cripto</strong>
+              <p data-i18n="vaultCard1Text">ETH, Solana, BNB, Polygon, BANK2.0, MOWO Gold, MOWO Coin y BTC.</p>
+            </div>
+            <div class="card card-glow">
+              <strong data-i18n="vaultCard2Title">Hasta 30% por staking</strong>
+              <p data-i18n="vaultCard2Text">Tu banco no solo guarda: te premia con hasta 30% de ganancias.</p>
+            </div>
+            <div class="card card-glow">
+              <strong data-i18n="vaultCard3Title">Hasta 250.000 MOWO</strong>
+              <p data-i18n="vaultCard3Text">Recompensa de bienvenida de hasta 250.000 MOWO la primera vez.</p>
+            </div>
           </div>
-          <div class="card feature">
-            <strong data-i18n="vaultCard2Title">Hasta 30% por staking</strong>
-            <p data-i18n="vaultCard2Text">Tu banco no solo guarda: te premia con hasta 30% de ganancias.</p>
-          </div>
-          <div class="card feature">
-            <strong data-i18n="vaultCard3Title">Hasta 250.000 MOWO</strong>
-            <p data-i18n="vaultCard3Text">Recompensa de bienvenida de hasta 250.000 MOWO la primera vez.</p>
-          </div>
-        </div>
 
-        <div class="cards-6">
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="solana.png" alt="Solana" /></div>
-            <strong>Solana</strong>
-            <p data-i18n="assetSolanaText">Activo guardable en BANK2.0.</p>
+          <div class="grid-5" style="margin-top:24px;">
+            <div class="card asset-card">
+              <img class="asset-icon" src="solana.png" alt="Solana" />
+              <strong>Solana</strong>
+              <p data-i18n="assetSolanaText">Activo guardable en BANK2.0.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="ETH_LOGO_NEW.png" alt="Ethereum" />
+              <strong>Ethereum</strong>
+              <p data-i18n="assetEthText">Soporte para ETH, NFT y staking.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="BNB_LOGO_NEW.png" alt="BNB" />
+              <strong>BNB</strong>
+              <p data-i18n="assetBnbText">BNB listo para NFT y staking.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="POLYGON_LOGO_NEW.png" alt="Polygon" />
+              <strong>Polygon</strong>
+              <p data-i18n="assetPolygonText">Red principal para MOWO Coin y NFTs.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="btc_logo.png" alt="BTC" />
+              <strong>BTC</strong>
+              <p data-i18n="assetBtcText">Bitcoin ahora también en tu bodega.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="bank20solana.png" alt="BANK2.0 Solana" />
+              <strong>BANK2.0 Solana</strong>
+              <p data-i18n="assetBank20SolanaText">La nueva fase del ecosistema.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="mowo_gold_logo.png" alt="MOWO Gold" />
+              <strong>MOWO Gold</strong>
+              <p data-i18n="assetMowoGoldText">MOWO Gold de Solana en tu wallet.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="moonworld_logo.png" alt="MOWO Coin Polygon" />
+              <strong>MOWO Coin</strong>
+              <p data-i18n="assetMowoPolygonText">MOWO Coin de Polygon en el ecosistema.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="polygonft.png" alt="NFT Polygon" />
+              <strong data-i18n="assetPolygonNftTitle">NFT Polygon</strong>
+              <p data-i18n="assetPolygonNftText">Bodega NFT con premios y utilidad.</p>
+            </div>
+            <div class="card asset-card">
+              <img class="asset-icon" src="solananft.png" alt="NFT Solana" />
+              <strong data-i18n="assetNftTitle">NFT Solana</strong>
+              <p data-i18n="assetNftText">Bodega NFT para activos y premios.</p>
+            </div>
           </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="ETH_LOGO_NEW.png" alt="Ethereum" /></div>
-            <strong>Ethereum</strong>
-            <p data-i18n="assetEthText">Soporte para ETH, NFT y staking.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="BNB_LOGO_NEW.png" alt="BNB" /></div>
-            <strong>BNB</strong>
-            <p data-i18n="assetBnbText">BNB listo para NFT y staking.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="POLYGON_LOGO_NEW.png" alt="Polygon" /></div>
-            <strong>Polygon</strong>
-            <p data-i18n="assetPolygonText">Red principal para MOWO Coin y NFTs.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="btc_logo.png" alt="BTC" /></div>
-            <strong>BTC</strong>
-            <p data-i18n="assetBtcText">Bitcoin ahora también en tu bodega.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="bank20solana.png" alt="BANK2.0 Solana" /></div>
-            <strong>BANK2.0 Solana</strong>
-            <p data-i18n="assetBank20SolanaText">La nueva fase del ecosistema.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="mowo_gold_logo.png" alt="MOWO Gold" /></div>
-            <strong>MOWO Gold</strong>
-            <p data-i18n="assetMowoGoldText">MOWO Gold de Solana en tu wallet.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="moonworld_logo.png" alt="MOWO Coin Polygon" /></div>
-            <strong>MOWO Coin</strong>
-            <p data-i18n="assetMowoPolygonText">MOWO Coin de Polygon en el ecosistema.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="polygonft.png" alt="NFT Polygon" /></div>
-            <strong data-i18n="assetPolygonNftTitle">NFT Polygon</strong>
-            <p data-i18n="assetPolygonNftText">Bodega NFT con premios y utilidad.</p>
-          </div>
-          <div class="card asset-card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="solananft.png" alt="NFT Solana" /></div>
-            <strong data-i18n="assetNftTitle">NFT Solana</strong>
-            <p data-i18n="assetNftText">Bodega NFT para activos y premios.</p>
-          </div>
-        </div>
 
-        <div class="cards-2">
-          <div class="card">
-            <strong data-i18n="nftVaultTitle">Bodega NFT</strong>
-            <p data-i18n="nftVaultP1">BANK2.0 incluye bodega NFT en Solana y Polygon. Próximamente ETH y BNB. Al alcanzar 10 NFTs, recibe recompensa en MOWO.</p>
+          <div class="grid-2" style="margin-top:24px;">
+            <div class="card">
+              <strong data-i18n="nftVaultTitle">Bodega NFT</strong>
+              <p data-i18n="nftVaultP1">BANK2.0 incluye bodega NFT en Solana y Polygon. Próximamente ETH y BNB. Al alcanzar 10 NFTs, recibe recompensa en MOWO.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="vaultDifferenceTitle">La diferencia BANK2.0</strong>
+              <p data-i18n="vaultDifferenceP1">Mientras otros te cobran, BANK2.0 te premia por guardar y confiar. Tu banco digital te da razones para quedarte.</p>
+            </div>
           </div>
-          <div class="card">
-            <strong data-i18n="vaultDifferenceTitle">La diferencia BANK2.0</strong>
-            <p data-i18n="vaultDifferenceP1">Mientras otros te cobran, BANK2.0 te premia por guardar y confiar. Tu banco digital te da razones para quedarte.</p>
-          </div>
-        </div>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" rel="noopener" data-i18n="walletVaultBtn">📲 Descargar BANK2.0 Wallet</a>
+          <div style="margin-top:24px;">
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=vargas.maximo.walletbank20" target="_blank" rel="noopener" data-i18n="walletVaultBtn">📲 Descargar BANK2.0 Wallet</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== GAMES ===== -->
     <section id="games" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="gamesEyebrow">Games</div>
-            <h2 data-i18n="gamesTitle">Juega, compite y gana en BANK2.0</h2>
-            <p data-i18n="gamesLead">No solo guardas activos: también juegas, compites y abres la puerta al metaverso desde tu wallet.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="gamesEyebrow">Games</div>
+              <h2 data-i18n="gamesTitle">Juega, compite y gana en BANK2.0</h2>
+              <p data-i18n="gamesLead">No solo guardas activos: también juegas, compites y abres la puerta al metaverso desde tu wallet.</p>
+            </div>
+            <div class="badge-quote" data-i18n="gamesQuote">Jugar también suma</div>
           </div>
-          <div class="quote" data-i18n="gamesQuote">Jugar también suma</div>
-        </div>
 
-        <div class="games-showcase">
-          <div class="game-card">
-            <img class="game-image" src="juegostresenraya.png" alt="Tres en Raya" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameTicTacToeTitle">⚡ Tres en Raya</div>
-              <div class="game-desc" data-i18n="gameTicTacToeDesc">Clásico, compite con amigos y gana MOWO. 0% comisión.</div>
+          <div class="games-grid">
+            <div class="game-card">
+              <img src="juegostresenraya.png" alt="Tres en Raya" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameTicTacToeTitle">⚡ Tres en Raya</div>
+                <div class="game-desc" data-i18n="gameTicTacToeDesc">Clásico, compite con amigos y gana MOWO. 0% comisión.</div>
+              </div>
+            </div>
+            <div class="game-card">
+              <img src="juegosajedrez.png" alt="Ajedrez" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameChessTitle">♜ Ajedrez Online</div>
+                <div class="game-desc" data-i18n="gameChessDesc">Partidas en tiempo real, ranking global y premios semanales.</div>
+              </div>
+            </div>
+            <div class="game-card">
+              <img src="juegosjockey.png" alt="Air Hockey" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameHockeyTitle">🏒 Air Hockey</div>
+                <div class="game-desc" data-i18n="gameHockeyDesc">Arcade multijugador: velocidad, reflejos y recompensas MOWO.</div>
+              </div>
+            </div>
+            <div class="game-card">
+              <img src="juegostetris.png" alt="Tetris" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameTetrisTitle">🧩 Tetris</div>
+                <div class="game-desc" data-i18n="gameTetrisDesc">Clásico arcade. Puntuaciones altas dan acceso a NFT especiales.</div>
+              </div>
+            </div>
+            <div class="game-card">
+              <img src="juegosmaquinadelasuerte.png" alt="Máquina de la Suerte" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameLuckyMachineTitle">🎰 Máquina de la Suerte</div>
+                <div class="game-desc" data-i18n="gameLuckyMachineDesc">Gira y gana NFTs Oro, Plata o Cobre. ¡Hasta 250.000 MOWO!</div>
+              </div>
+            </div>
+            <div class="game-card">
+              <img src="juegosmemoria.png" alt="Juego de Memoria" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameMemoryTitle">🧠 Juego de Memoria</div>
+                <div class="game-desc" data-i18n="gameMemoryDesc">Entrena tu mente, completa niveles y gana MOWO.</div>
+              </div>
+            </div>
+            <div class="game-card">
+              <img src="juegosmetaverso.png" alt="Metaverso" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameMetaverseTitle">🌙 Metaverso MoonWorld</div>
+                <div class="game-desc" data-i18n="gameMetaverseDesc">Conecta wallet, juegos, NFT y metaverso en una sola experiencia.</div>
+              </div>
+            </div>
+            <div class="game-card">
+              <img src="juegostarta.png" alt="Juego Estrella" />
+              <div class="game-info">
+                <div class="game-title" data-i18n="gameStarTitle">⭐ Juego Estrella</div>
+                <div class="game-desc" data-i18n="gameStarDesc">Premios exclusivos y acceso a eventos del ecosistema.</div>
+              </div>
             </div>
           </div>
-          <div class="game-card">
-            <img class="game-image" src="juegosajedrez.png" alt="Ajedrez" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameChessTitle">♜ Ajedrez Online</div>
-              <div class="game-desc" data-i18n="gameChessDesc">Partidas en tiempo real, ranking global y premios semanales.</div>
-            </div>
-          </div>
-          <div class="game-card">
-            <img class="game-image" src="juegosjockey.png" alt="Air Hockey" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameHockeyTitle">🏒 Air Hockey</div>
-              <div class="game-desc" data-i18n="gameHockeyDesc">Arcade multijugador: velocidad, reflejos y recompensas MOWO.</div>
-            </div>
-          </div>
-          <div class="game-card">
-            <img class="game-image" src="juegostetris.png" alt="Tetris" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameTetrisTitle">🧩 Tetris</div>
-              <div class="game-desc" data-i18n="gameTetrisDesc">Clásico arcade. Puntuaciones altas dan acceso a NFT especiales.</div>
-            </div>
-          </div>
-          <div class="game-card">
-            <img class="game-image" src="juegosmaquinadelasuerte.png" alt="Máquina de la Suerte" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameLuckyMachineTitle">🎰 Máquina de la Suerte</div>
-              <div class="game-desc" data-i18n="gameLuckyMachineDesc">Gira y gana NFTs Oro, Plata o Cobre. ¡Hasta 250.000 MOWO!</div>
-            </div>
-          </div>
-          <div class="game-card">
-            <img class="game-image" src="juegosmemoria.png" alt="Juego de Memoria" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameMemoryTitle">🧠 Juego de Memoria</div>
-              <div class="game-desc" data-i18n="gameMemoryDesc">Entrena tu mente, completa niveles y gana MOWO.</div>
-            </div>
-          </div>
-          <div class="game-card">
-            <img class="game-image" src="juegosmetaverso.png" alt="Metaverso" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameMetaverseTitle">🌙 Metaverso MoonWorld</div>
-              <div class="game-desc" data-i18n="gameMetaverseDesc">Conecta wallet, juegos, NFT y metaverso en una sola experiencia.</div>
-            </div>
-          </div>
-          <div class="game-card">
-            <img class="game-image" src="juegostarta.png" alt="Juego Estrella" />
-            <div class="game-info">
-              <div class="game-title" data-i18n="gameStarTitle">⭐ Juego Estrella</div>
-              <div class="game-desc" data-i18n="gameStarDesc">Premios exclusivos y acceso a eventos del ecosistema.</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="notice">
-          <strong data-i18n="gamesNoticeTitle">Llave NFT:</strong>
-          <span data-i18n="gamesNoticeText"> la llave a la puerta NFT conecta los juegos con los premios del metaverso lunar.</span>
-        </div>
+          <div class="notice">
+            <strong data-i18n="gamesNoticeTitle">Llave NFT:</strong>
+            <span data-i18n="gamesNoticeText"> la llave a la puerta NFT conecta los juegos con los premios del metaverso lunar.</span>
+          </div>
 
-        <div class="cards-2">
-          <div class="promo-image-card gold">
-            <img class="promo-image" src="maquina.png" alt="Lucky Machine" />
-            <p class="promo-caption" data-i18n="machineImageCaption">
-              <strong>Máquina de la suerte:</strong> juega, gana MOWO y desbloquea NFT conectados a MoonWorld.
-            </p>
+          <div class="grid-2" style="margin-top:24px;">
+            <div class="promo-image-card gold">
+              <img src="maquina.png" alt="Lucky Machine" />
+              <div class="caption" data-i18n="machineImageCaption"><strong>Máquina de la suerte:</strong> juega, gana MOWO y desbloquea NFT conectados a MoonWorld.</div>
+            </div>
+            <div class="promo-image-card red">
+              <img src="regalo.png" alt="Reward Gift" />
+              <div class="caption" data-i18n="giftImageCaption"><strong>Regalo de recompensa:</strong> premios especiales para participantes del ecosistema.</div>
+            </div>
           </div>
-          <div class="promo-image-card red">
-            <img class="promo-image" src="regalo.png" alt="Reward Gift" />
-            <p class="promo-caption" data-i18n="giftImageCaption">
-              <strong>Regalo de recompensa:</strong> premios especiales para participantes del ecosistema.
-            </p>
-          </div>
-        </div>
 
-        <div class="cards-4">
-          <div class="card tier gold nft-card">
-            <div class="nft-icon-wrap"><img class="nft-icon" src="1.png" alt="NFT Oro" /></div>
-            <div class="tier-label" data-i18n="goldTitle">NFT Oro</div>
-            <p data-i18n="goldText">Recompensas premium para tu metaverso lunar.</p>
-          </div>
-          <div class="card tier silver nft-card">
-            <div class="nft-icon-wrap"><img class="nft-icon" src="2.png" alt="NFT Plata" /></div>
-            <div class="tier-label" data-i18n="silverTitle">NFT Plata</div>
-            <p data-i18n="silverText">Recompensas intermedias dentro del ecosistema.</p>
-          </div>
-          <div class="card tier bronze nft-card">
-            <div class="nft-icon-wrap"><img class="nft-icon" src="3.png" alt="NFT Cobre" /></div>
-            <div class="tier-label" data-i18n="bronzeTitle">NFT Cobre</div>
-            <p data-i18n="bronzeText">Acceso a la puerta del ecosistema y sus premios.</p>
-          </div>
-          <div class="card nft-card">
-            <div class="nft-icon-wrap"><img class="nft-icon" src="todonftjuntos.png" alt="Premios metaverso" /></div>
-            <div class="tier-label" data-i18n="prizeAccessTitle">Premios metaverso</div>
-            <p data-i18n="prizeAccessText">Según tu NFT, obtén coche, personaje, parcela y casa.</p>
+          <div class="grid-4" style="margin-top:24px;">
+            <div class="card tier-gold" style="text-align:center;">
+              <img class="nft-icon" src="1.png" alt="NFT Oro" />
+              <div class="tier-label" data-i18n="goldTitle">NFT Oro</div>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="goldText">Recompensas premium para tu metaverso lunar.</p>
+            </div>
+            <div class="card tier-silver" style="text-align:center;">
+              <img class="nft-icon" src="2.png" alt="NFT Plata" />
+              <div class="tier-label" data-i18n="silverTitle">NFT Plata</div>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="silverText">Recompensas intermedias dentro del ecosistema.</p>
+            </div>
+            <div class="card tier-bronze" style="text-align:center;">
+              <img class="nft-icon" src="3.png" alt="NFT Cobre" />
+              <div class="tier-label" data-i18n="bronzeTitle">NFT Cobre</div>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="bronzeText">Acceso a la puerta del ecosistema y sus premios.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <img class="nft-icon" src="todonftjuntos.png" alt="Premios metaverso" />
+              <div class="tier-label" style="color:var(--cyan);" data-i18n="prizeAccessTitle">Premios metaverso</div>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="prizeAccessText">Según tu NFT, obtén coche, personaje, parcela y casa.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1156,169 +1113,175 @@
 
     <!-- ===== SOLANA ===== -->
     <section id="solana" class="section">
-      <div class="panel">
-        <div class="section-head">
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="solanaEyebrow">Bank 2.0 Solana</div>
+              <h2 data-i18n="solanaTitle">La nueva moneda y la nueva etapa del banco</h2>
+              <p data-i18n="solanaLead">BANK2.0 Solana representa la nueva fase: inversión, control y discreción. Una moneda con propósito.</p>
+            </div>
+            <div class="badge-quote" data-i18n="solanaQuote">Inversión, control y discreción</div>
+          </div>
+
+          <p data-i18n="solanaP1">Mantén la moneda y el banco te compra intereses, o congela tus activos según tu estrategia. Tus activos siguen siendo tuyos, no del sistema.</p>
+          <p data-i18n="solanaP2">Velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad no negociable: discreción.</p>
+
+          <div class="promo-image-card" style="margin-top:24px;">
+            <img src="fondos.png" alt="BANK2.0 funds" />
+            <div class="caption" data-i18n="fundsImageCaption"><strong>BANK2.0:</strong> acceso directo a tus fondos sin barreras bancarias.</div>
+          </div>
+
+          <div class="grid-3" style="margin-top:24px;">
+            <div class="card card-glow">
+              <strong data-i18n="solanaCard1Title">Una nueva moneda con propósito</strong>
+              <p data-i18n="solanaCard1Text">No solo cambia la red: cambia la dirección de BANK2.0.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="solanaCard2Title">Intereses y estrategia</strong>
+              <p data-i18n="solanaCard2Text">Mantén y congela activos con una lógica pensada para ti.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="solanaCard3Title">Velocidad, coste y reserva</strong>
+              <p data-i18n="solanaCard3Text">Más agilidad, menos fricción y más control.</p>
+            </div>
+          </div>
+
+          <div class="code-block">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
+
           <div>
-            <div class="eyebrow" data-i18n="solanaEyebrow">Bank 2.0 Solana</div>
-            <h2 data-i18n="solanaTitle">La nueva moneda y la nueva etapa del banco</h2>
-            <p data-i18n="solanaLead">BANK2.0 Solana representa la nueva fase: inversión, control y discreción. Una moneda con propósito.</p>
+            <a class="btn btn-primary" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" rel="noopener" data-i18n="solanaBtn">🚀 Ver BANK2.0 Solana</a>
           </div>
-          <div class="quote" data-i18n="solanaQuote">Inversión, control y discreción</div>
-        </div>
-
-        <p data-i18n="solanaP1">Mantén la moneda y el banco te compra intereses, o congela tus activos según tu estrategia. Tus activos siguen siendo tuyos, no del sistema.</p>
-        <p data-i18n="solanaP2">Velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad no negociable: discreción.</p>
-
-        <div class="promo-image-card">
-          <img class="promo-image" src="fondos.png" alt="BANK2.0 funds" />
-          <p class="promo-caption" data-i18n="fundsImageCaption">
-            <strong>BANK2.0:</strong> acceso directo a tus fondos sin barreras bancarias.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="card feature">
-            <strong data-i18n="solanaCard1Title">Una nueva moneda con propósito</strong>
-            <p data-i18n="solanaCard1Text">No solo cambia la red: cambia la dirección de BANK2.0.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="solanaCard2Title">Intereses y estrategia</strong>
-            <p data-i18n="solanaCard2Text">Mantén y congela activos con una lógica pensada para ti.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="solanaCard3Title">Velocidad, coste y reserva</strong>
-            <p data-i18n="solanaCard3Text">Más agilidad, menos fricción y más control.</p>
-          </div>
-        </div>
-
-        <div class="code">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
-
-        <div class="actions">
-          <a class="btn btn-primary" href="https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump" target="_blank" rel="noopener" data-i18n="solanaBtn">🚀 Ver BANK2.0 Solana</a>
         </div>
       </div>
     </section>
 
     <!-- ===== METAVERSE ===== -->
     <section id="metaverse" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="metaverseEyebrow">MoonWorld</div>
-            <h2 data-i18n="metaverseTitle">El metaverso lunar vuelve a BANK2.0</h2>
-            <p data-i18n="metaverseLead">MoonWorld es el metaverso lunar donde tus NFTs y juegos te dan acceso a objetos y activos digitales.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="metaverseEyebrow">MoonWorld</div>
+              <h2 data-i18n="metaverseTitle">El metaverso lunar vuelve a BANK2.0</h2>
+              <p data-i18n="metaverseLead">MoonWorld es el metaverso lunar donde tus NFTs y juegos te dan acceso a objetos y activos digitales.</p>
+            </div>
+            <div class="badge-quote" data-i18n="metaverseQuote">Coche, personaje, parcela y casa</div>
           </div>
-          <div class="quote" data-i18n="metaverseQuote">Coche, personaje, parcela y casa</div>
-        </div>
 
-        <div class="metaverse-image-wrap">
-          <img class="metaverse-image" src="moonworld_logo.png" alt="MoonWorld logo" />
-        </div>
+          <div style="display:flex; justify-content:center; margin-bottom:24px;">
+            <img src="moonworld_logo.png" alt="MoonWorld" style="width:180px; height:180px; object-fit:contain; border-radius:var(--radius-md); border:1px solid var(--border-subtle); background:rgba(255,255,255,0.02); padding:16px;" />
+          </div>
 
-        <p data-i18n="metaverseP1">Si consigues un NFT oro, plata o cobre, el premio se convierte en acceso real a elementos del metaverso: coche, personaje, parcela y casa.</p>
-        <p data-i18n="metaverseP3">Conecta wallet, juegos, NFT y metaverso en una sola experiencia BANK2.0.</p>
+          <p data-i18n="metaverseP1">Si consigues un NFT oro, plata o cobre, el premio se convierte en acceso real a elementos del metaverso: coche, personaje, parcela y casa.</p>
+          <p data-i18n="metaverseP3">Conecta wallet, juegos, NFT y metaverso en una sola experiencia BANK2.0.</p>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="https://maxstudiotoken.github.io/MoonWorld/" target="_blank" rel="noopener" data-i18n="metaverseBtn">🌙 Entrar en MoonWorld</a>
+          <div style="margin-top:20px;">
+            <a class="btn btn-primary" href="https://maxstudiotoken.github.io/MoonWorld/" target="_blank" rel="noopener" data-i18n="metaverseBtn">🌙 Entrar en MoonWorld</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== PRIZE ===== -->
     <section id="prize" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="prizeEyebrow">Premio Global</div>
-            <h2 data-i18n="prizeTitle">Un premio global para una comunidad global</h2>
-            <p data-i18n="prizeLead">BANK2.0 construye recompensa, competición y pertenencia.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="prizeEyebrow">Premio Global</div>
+              <h2 data-i18n="prizeTitle">Un premio global para una comunidad global</h2>
+              <p data-i18n="prizeLead">BANK2.0 construye recompensa, competición y pertenencia.</p>
+            </div>
+            <div class="badge-quote" data-i18n="prizeQuote">Cada punto cuenta</div>
           </div>
-          <div class="quote" data-i18n="prizeQuote">Cada punto cuenta</div>
-        </div>
 
-        <div class="prize-box">
-          <div class="prize-number" data-i18n="prizeNumber">1.000.000</div>
-          <div class="prize-label" data-i18n="prizeLabel">MOWO DE PREMIO GLOBAL</div>
-        </div>
+          <div class="prize-box">
+            <div class="prize-number" data-i18n="prizeNumber">1.000.000</div>
+            <div class="prize-label" data-i18n="prizeLabel">MOWO DE PREMIO GLOBAL</div>
+          </div>
 
-        <p data-i18n="prizeP1">Juega, suma puntos y sube al ranking global. El jugador con mayor puntuación opta al gran premio según condiciones activas.</p>
-        <p data-i18n="prizeP2">No es solo un premio: es identidad, comunidad y ambición para todo el ecosistema.</p>
+          <p data-i18n="prizeP1">Juega, suma puntos y sube al ranking global. El jugador con mayor puntuación opta al gran premio según condiciones activas.</p>
+          <p data-i18n="prizeP2">No es solo un premio: es identidad, comunidad y ambición para todo el ecosistema.</p>
+        </div>
       </div>
     </section>
 
     <!-- ===== SECURITY ===== -->
     <section id="security" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="securityEyebrow">Seguridad</div>
-            <h2 data-i18n="securityTitle">Alerta visual antes de entrar a tu wallet</h2>
-            <p data-i18n="securityLead">BANK2.0 te avisa con colores si el entorno es seguro, dudoso o de riesgo antes de que introduzcas tus datos.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="securityEyebrow">Seguridad</div>
+              <h2 data-i18n="securityTitle">Alerta visual antes de entrar a tu wallet</h2>
+              <p data-i18n="securityLead">BANK2.0 te avisa con colores si el entorno es seguro, dudoso o de riesgo antes de que introduzcas tus datos.</p>
+            </div>
+            <div class="badge-quote" data-i18n="securityQuote">Ver, revisar y decidir</div>
           </div>
-          <div class="quote" data-i18n="securityQuote">Ver, revisar y decidir</div>
-        </div>
 
-        <p data-i18n="securityP1">Si algo no parece correcto, la wallet te lo dice antes de que continúes.</p>
+          <p data-i18n="securityP1">Si algo no parece correcto, la wallet te lo dice antes de que continúes.</p>
 
-        <div class="promo-image-card">
-          <img class="promo-image" src="scaner.png" alt="Network Scanner" />
-          <p class="promo-caption" data-i18n="scannerImageCaption">
-            <strong>Pioneer Network Scanner:</strong> protección visual antes del acceso.
-          </p>
-        </div>
-
-        <div class="security-grid">
-          <div class="security-card green">
-            <div class="security-dot"></div>
-            <strong data-i18n="securityGreenTitle">Verde</strong>
-            <p data-i18n="securityGreenText">Acceso normal, entorno correcto.</p>
+          <div class="promo-image-card">
+            <img src="scaner.png" alt="Network Scanner" />
+            <div class="caption" data-i18n="scannerImageCaption"><strong>Pioneer Network Scanner:</strong> protección visual antes del acceso.</div>
           </div>
-          <div class="security-card yellow">
-            <div class="security-dot"></div>
-            <strong data-i18n="securityYellowTitle">Amarillo</strong>
-            <p data-i18n="securityYellowText">Duda o inestabilidad, revisa antes de entrar.</p>
-          </div>
-          <div class="security-card red">
-            <div class="security-dot"></div>
-            <strong data-i18n="securityRedTitle">Rojo</strong>
-            <p data-i18n="securityRedText">Posible riesgo. No introduzcas datos.</p>
-          </div>
-        </div>
 
-        <div class="notice">
-          <strong data-i18n="securityNoticeTitle">Seguridad BANK2.0:</strong>
-          <span data-i18n="securityNoticeText">antes de escribir, la wallet te da una señal visual clara para que tomes una decisión informada.</span>
+          <div class="security-grid">
+            <div class="security-card green">
+              <div class="dot"></div>
+              <strong data-i18n="securityGreenTitle">Verde</strong>
+              <p data-i18n="securityGreenText">Acceso normal, entorno correcto.</p>
+            </div>
+            <div class="security-card yellow">
+              <div class="dot"></div>
+              <strong data-i18n="securityYellowTitle">Amarillo</strong>
+              <p data-i18n="securityYellowText">Duda o inestabilidad, revisa antes de entrar.</p>
+            </div>
+            <div class="security-card red">
+              <div class="dot"></div>
+              <strong data-i18n="securityRedTitle">Rojo</strong>
+              <p data-i18n="securityRedText">Posible riesgo. No introduzcas datos.</p>
+            </div>
+          </div>
+
+          <div class="notice">
+            <strong data-i18n="securityNoticeTitle">Seguridad BANK2.0:</strong>
+            <span data-i18n="securityNoticeText">antes de escribir, la wallet te da una señal visual clara para que tomes una decisión informada.</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== PRIVACY ===== -->
     <section id="privacy" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="privacyEyebrow">Privacidad</div>
-            <h2 data-i18n="privacyTitle">La privacidad es la base del banco</h2>
-            <p data-i18n="privacyLead">No se trata solo de mover cripto: se trata de hacerlo con menos exposición y más control.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="privacyEyebrow">Privacidad</div>
+              <h2 data-i18n="privacyTitle">La privacidad es la base del banco</h2>
+              <p data-i18n="privacyLead">No se trata solo de mover cripto: se trata de hacerlo con menos exposición y más control.</p>
+            </div>
+            <div class="badge-quote" data-i18n="privacyQuote">Privacidad anticipada</div>
           </div>
-          <div class="quote" data-i18n="privacyQuote">Privacidad anticipada</div>
-        </div>
 
-        <p data-i18n="privacyP1">Sin nombres, sin teléfonos, sin exposición innecesaria. Tu wallet es tu identidad reservada.</p>
-        <p data-i18n="privacyP2">Privacidad anticipada, discreción absoluta y propiedad real no son mensajes decorativos: son la base de la experiencia.</p>
+          <p data-i18n="privacyP1">Sin nombres, sin teléfonos, sin exposición innecesaria. Tu wallet es tu identidad reservada.</p>
+          <p data-i18n="privacyP2">Privacidad anticipada, discreción absoluta y propiedad real no son mensajes decorativos: son la base de la experiencia.</p>
 
-        <div class="cards">
-          <div class="card feature">
-            <strong data-i18n="privacyCard1Title">Sin datos innecesarios</strong>
-            <p data-i18n="privacyCard1Text">Menos exposición, menos dependencia de identificadores tradicionales.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="privacyCard2Title">Identidad reservada</strong>
-            <p data-i18n="privacyCard2Text">La wallet como eje de una identidad protegida.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="privacyCard3Title">Discreción prioritaria</strong>
-            <p data-i18n="privacyCard3Text">La discreción deja de ser secundaria y pasa a ser prioritaria.</p>
+          <div class="grid-3" style="margin-top:24px;">
+            <div class="card card-glow">
+              <strong data-i18n="privacyCard1Title">Sin datos innecesarios</strong>
+              <p data-i18n="privacyCard1Text">Menos exposición, menos dependencia de identificadores tradicionales.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="privacyCard2Title">Identidad reservada</strong>
+              <p data-i18n="privacyCard2Text">La wallet como eje de una identidad protegida.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="privacyCard3Title">Discreción prioritaria</strong>
+              <p data-i18n="privacyCard3Text">La discreción deja de ser secundaria y pasa a ser prioritaria.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1326,80 +1289,93 @@
 
     <!-- ===== CONTRACTS ===== -->
     <section id="contract" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="contractEyebrow">Contratos</div>
-            <h2 data-i18n="contractTitle">Contratos del ecosistema</h2>
-            <p data-i18n="contractLead">Enlaces y contratos esenciales para guardar en BANK2.0 Wallet.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="contractEyebrow">Contratos</div>
+              <h2 data-i18n="contractTitle">Contratos del ecosistema</h2>
+              <p data-i18n="contractLead">Enlaces y contratos esenciales para guardar en BANK2.0 Wallet.</p>
+            </div>
+            <div class="badge-quote" data-i18n="contractQuote">Datos esenciales</div>
           </div>
-          <div class="quote" data-i18n="contractQuote">Datos esenciales</div>
-        </div>
 
-        <div class="cards-2">
-          <div class="card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="moonworld_logo.png" alt="MOWO Coin" /></div>
-            <strong data-i18n="contractCard1Title">MOWO Coin Polygon</strong>
-            <div class="code">0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121</div>
+          <div class="grid-2">
+            <div class="card">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <img src="moonworld_logo.png" alt="MOWO Coin" style="width:40px; height:40px; object-fit:contain;" />
+                <strong data-i18n="contractCard1Title">MOWO Coin Polygon</strong>
+              </div>
+              <div class="code-block">0x774455369E1b96a3E5cCB0Ed96DFDc184eCbb121</div>
+            </div>
+            <div class="card">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <img src="bank20solana.png" alt="BANK2.0 Solana" style="width:40px; height:40px; object-fit:contain;" />
+                <strong data-i18n="contractCard2Title">BANK2.0 Solana</strong>
+              </div>
+              <div class="code-block">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
+            </div>
+            <div class="card">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <img src="mowo_gold_logo.png" alt="MOWO Gold" style="width:40px; height:40px; object-fit:contain;" />
+                <strong data-i18n="contractCard3Title">MOWO Gold Solana</strong>
+              </div>
+              <div class="code-block">https://pump.fun/coin/GZYnRDN1zwGEmaQgxxQD27V29Q3qxZVv3LvdZDRBedzL</div>
+            </div>
+            <div class="card">
+              <strong data-i18n="contractCard4Title">Guardable en BANK2.0 Wallet</strong>
+              <p data-i18n="contractCard4Text" style="margin-top:8px;">ETH, Solana, BNB, Polygon, BTC, BANK2.0 Solana, MOWO Gold, MOWO Coin, NFT Polygon y NFT Solana.</p>
+            </div>
           </div>
-          <div class="card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="bank20solana.png" alt="BANK2.0 Solana" /></div>
-            <strong data-i18n="contractCard2Title">BANK2.0 Solana</strong>
-            <div class="code">https://pump.fun/coin/E1s2fK3StvV5BpUPaFXW9tLSFLT82AdpGn4shVafpump</div>
-          </div>
-          <div class="card">
-            <div class="asset-icon-wrap"><img class="asset-icon" src="mowo_gold_logo.png" alt="MOWO Gold" /></div>
-            <strong data-i18n="contractCard3Title">MOWO Gold Solana</strong>
-            <div class="code">https://pump.fun/coin/GZYnRDN1zwGEmaQgxxQD27V29Q3qxZVv3LvdZDRBedzL</div>
-          </div>
-          <div class="card">
-            <strong data-i18n="contractCard4Title">Guardable en BANK2.0 Wallet</strong>
-            <p data-i18n="contractCard4Text">ETH, Solana, BNB, Polygon, BTC, BANK2.0 Solana, MOWO Gold, MOWO Coin, NFT Polygon y NFT Solana.</p>
-          </div>
-        </div>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="BANK20_Solana_Whitepaper_v2.pdf" target="_blank" data-i18n="whitepaperBank20Btn">📄 BANK2.0 Solana Whitepaper</a>
-          <a class="btn btn-secondary" href="MOWO_Gold_Solana_Whitepaper_v2.pdf" target="_blank" data-i18n="whitepaperMowoGoldBtn">📄 MOWO Gold Whitepaper</a>
-          <a class="btn btn-secondary" href="MOWO_Coin_Polygon_Whitepaper_v2.pdf" target="_blank" data-i18n="whitepaperMowoCoinBtn">📄 MOWO Coin Polygon Whitepaper</a>
+          <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:24px;">
+            <a class="btn btn-primary" href="BANK20_Solana_Whitepaper_v2.pdf" target="_blank" data-i18n="whitepaperBank20Btn">📄 BANK2.0 Solana Whitepaper</a>
+            <a class="btn btn-secondary" href="MOWO_Gold_Solana_Whitepaper_v2.pdf" target="_blank" data-i18n="whitepaperMowoGoldBtn">📄 MOWO Gold Whitepaper</a>
+            <a class="btn btn-secondary" href="MOWO_Coin_Polygon_Whitepaper_v2.pdf" target="_blank" data-i18n="whitepaperMowoCoinBtn">📄 MOWO Coin Polygon Whitepaper</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== CONTACT ===== -->
     <section id="contact" class="section">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow" data-i18n="contactEyebrow">Contacto</div>
-            <h2 data-i18n="contactTitle">Contacto</h2>
-            <p data-i18n="contactLead">Preguntas, soporte o propuestas: canal directo.</p>
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="contactEyebrow">Contacto</div>
+              <h2 data-i18n="contactTitle">Contacto</h2>
+              <p data-i18n="contactLead">Preguntas, soporte o propuestas: canal directo.</p>
+            </div>
+            <div class="badge-quote" data-i18n="contactQuote">Canal oficial</div>
           </div>
-          <div class="quote" data-i18n="contactQuote">Canal oficial</div>
-        </div>
 
-        <div class="cards-2">
-          <div class="card">
-            <strong data-i18n="contactFounderTitle">Máximo Vargas</strong>
-            <p data-i18n="contactFounderP1">Fundador del ecosistema BANK2.0.</p>
-            <p data-i18n="contactFounderP2">Ingeniero de software, desarrollador y arquitecto del proyecto.</p>
-            <p data-i18n="contactFounderP3">Marketing, estrategia, producto y visión general.</p>
-          </div>
-          <div class="card">
-            <strong data-i18n="contactMailTitle">Correo oficial</strong>
-            <p data-i18n="contactMailText">Soporte, propuestas, colaboraciones y consultas.</p>
-            <div class="actions">
-              <a class="btn btn-primary" href="mailto:bank20token@proton.me">bank20token@proton.me</a>
+          <div class="grid-2">
+            <div class="card">
+              <strong data-i18n="contactFounderTitle">Máximo Vargas</strong>
+              <p data-i18n="contactFounderP1">Fundador del ecosistema BANK2.0.</p>
+              <p data-i18n="contactFounderP2">Ingeniero de software, desarrollador y arquitecto del proyecto.</p>
+              <p data-i18n="contactFounderP3">Marketing, estrategia, producto y visión general.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="contactMailTitle">Correo oficial</strong>
+              <p data-i18n="contactMailText">Soporte, propuestas, colaboraciones y consultas.</p>
+              <div style="margin-top:16px;">
+                <a class="btn btn-primary" href="mailto:bank20token@proton.me">bank20token@proton.me</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
-      <div class="footer-logo"><img src="logo.png" alt="BANK2.0 logo" /></div>
-      <p data-i18n="footer1">© 2026 BANK2.0 · Concepto de banca cripto privada</p>
-      <p data-i18n="footer2">Privacidad, discreción, staking, bodega NFT, juegos y metaverso en una sola experiencia.</p>
+      <div class="container">
+        <div class="footer-logo"><img src="logo.png" alt="BANK2.0" /></div>
+        <p data-i18n="footer1">© 2026 BANK2.0 · Concepto de banca cripto privada</p>
+        <p data-i18n="footer2">Privacidad, discreción, staking, bodega NFT, juegos y metaverso en una sola experiencia.</p>
+      </div>
     </footer>
 
   </main>
@@ -1409,23 +1385,22 @@
     const translations = {
       es: {
         brandSub: "Tu banco privado sin datos innecesarios",
-        tabWalletVault: "Wallet & Bodega",
-        tabUpdate: "Nueva actualización",
-        tabGames: "Juegos",
+        tabWalletVault: "Wallet",
+        tabUpdate: "Update",
+        tabGames: "Games",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
-        tabPrize: "Premio Global",
+        tabPrize: "Premio",
         tabSecurity: "Seguridad",
         tabPrivacy: "Privacidad",
         tabContract: "Contratos",
         tabContact: "Contacto",
-
         heroBadge: "BANK2.0 · BANCO CRIPTO PRIVADO",
-        heroTitle: 'Tu banco <span class="grad">sin nombres, sin teléfonos, sin exposición innecesaria</span>',
+        heroTitle: 'Tu banco <span class="highlight">sin nombres, sin teléfonos, sin exposición innecesaria</span>',
         heroP1: "BANK2.0 es tu banco privado en la nueva era: más directo, más tuyo. Olvídate de formularios y datos innecesarios. Tu wallet es tu identidad reservada.",
-        heroP2: "Tus activos son tuyos. Tu identidad es tuya. Tu banco también.",
+        heroClaim: "Tus activos son tuyos. Tu identidad es tuya. Tu banco también.",
         heroBtn1: "📲 Descargar Wallet",
-        heroBtn2: "Ver la bodega",
+        heroBtn2: "Explorar bodega",
         heroSideTitle: "Por qué BANK2.0",
         heroCard1Title: "Un banco, no solo una wallet",
         heroCard1Text: "Banca privada para activos, custodia, identidad y movimiento.",
@@ -1433,7 +1408,6 @@
         heroCard2Text: "Sin nombres, sin teléfonos, menos exposición.",
         heroCard3Title: "BANK2.0 te premia",
         heroCard3Text: "Mientras otros te cobran, nosotros te recompensamos por confiar.",
-
         updateEyebrow: "Nueva actualización",
         updateTitle: "BANK 2.0 Wallet: listo para la Web3",
         updateLead: "Descarga la app, crea tu semilla y entra al ecosistema con seguridad, staking, NFTs, juegos y recompensas MOWO.",
@@ -1458,13 +1432,10 @@
         updateGamesText: " juega con amigos, compite con crypto (ajedrez, tres en raya, hockey, tetris, memoria…). 0% comisión en apuestas.",
         updatePrizeTitle: "🏆 Premio global:",
         updatePrizeText: " sube al ranking y lucha por 1.000.000 MOWO.",
-
         walletVaultEyebrow: "Wallet & Bodega",
         walletVaultTitle: "Tu banco, tu bodega cripto y NFT en un solo lugar",
         walletVaultLead: "Convierte tu wallet en tu banco digital. Guarda, organiza y gana recompensas por confiar.",
         walletVaultQuote: "Guardar y ganar",
-        walletVaultP1: "Un banco tradicional te cobra por guardar. BANK2.0 te premia por confiar.",
-        walletVaultP2: "Menos exposición, más control, identidad reservada.",
         vaultCard1Title: "Bodega cripto",
         vaultCard1Text: "ETH, Solana, BNB, Polygon, BANK2.0, MOWO Gold, MOWO Coin y BTC.",
         vaultCard2Title: "Hasta 30% por staking",
@@ -1485,13 +1456,10 @@
         assetNftText: "Bodega NFT para activos y premios.",
         nftVaultTitle: "Bodega NFT",
         nftVaultP1: "BANK2.0 incluye bodega NFT en Solana y Polygon. Próximamente ETH y BNB. Al alcanzar 10 NFTs, recibe recompensa en MOWO.",
-        nftVaultP2: "",
         vaultDifferenceTitle: "La diferencia BANK2.0",
         vaultDifferenceP1: "Mientras otros te cobran, BANK2.0 te premia por guardar y confiar. Tu banco digital te da razones para quedarte.",
-        vaultDifferenceP2: "",
         walletVaultBtn: "📲 Descargar BANK2.0 Wallet",
-
-        gamesEyebrow: "Juegos",
+        gamesEyebrow: "Games",
         gamesTitle: "Juega, compite y gana en BANK2.0",
         gamesLead: "No solo guardas activos: también juegas, compites y abres la puerta al metaverso desde tu wallet.",
         gamesQuote: "Jugar también suma",
@@ -1523,14 +1491,12 @@
         bronzeText: "Acceso a la puerta del ecosistema y sus premios.",
         prizeAccessTitle: "Premios metaverso",
         prizeAccessText: "Según tu NFT, obtén coche, personaje, parcela y casa.",
-
         solanaEyebrow: "Bank 2.0 Solana",
         solanaTitle: "La nueva moneda y la nueva etapa del banco",
         solanaLead: "BANK2.0 Solana representa la nueva fase: inversión, control y discreción. Una moneda con propósito.",
         solanaQuote: "Inversión, control y discreción",
         solanaP1: "Mantén la moneda y el banco te compra intereses, o congela tus activos según tu estrategia. Tus activos siguen siendo tuyos, no del sistema.",
         solanaP2: "Velocidad absoluta, transferencias a bajo coste, transparencia y una prioridad no negociable: discreción.",
-        solanaP3: "",
         fundsImageCaption: "<strong>BANK2.0:</strong> acceso directo a tus fondos sin barreras bancarias.",
         solanaCard1Title: "Una nueva moneda con propósito",
         solanaCard1Text: "No solo cambia la red: cambia la dirección de BANK2.0.",
@@ -1539,16 +1505,13 @@
         solanaCard3Title: "Velocidad, coste y reserva",
         solanaCard3Text: "Más agilidad, menos fricción y más control.",
         solanaBtn: "🚀 Ver BANK2.0 Solana",
-
         metaverseEyebrow: "MoonWorld",
         metaverseTitle: "El metaverso lunar vuelve a BANK2.0",
         metaverseLead: "MoonWorld es el metaverso lunar donde tus NFTs y juegos te dan acceso a objetos y activos digitales.",
         metaverseQuote: "Coche, personaje, parcela y casa",
         metaverseP1: "Si consigues un NFT oro, plata o cobre, el premio se convierte en acceso real a elementos del metaverso: coche, personaje, parcela y casa.",
-        metaverseP2: "",
         metaverseP3: "Conecta wallet, juegos, NFT y metaverso en una sola experiencia BANK2.0.",
         metaverseBtn: "🌙 Entrar en MoonWorld",
-
         prizeEyebrow: "Premio Global",
         prizeTitle: "Un premio global para una comunidad global",
         prizeLead: "BANK2.0 construye recompensa, competición y pertenencia.",
@@ -1557,8 +1520,6 @@
         prizeLabel: "MOWO DE PREMIO GLOBAL",
         prizeP1: "Juega, suma puntos y sube al ranking global. El jugador con mayor puntuación opta al gran premio según condiciones activas.",
         prizeP2: "No es solo un premio: es identidad, comunidad y ambición para todo el ecosistema.",
-        prizeP3: "",
-
         securityEyebrow: "Seguridad",
         securityTitle: "Alerta visual antes de entrar a tu wallet",
         securityLead: "BANK2.0 te avisa con colores si el entorno es seguro, dudoso o de riesgo antes de que introduzcas tus datos.",
@@ -1573,21 +1534,18 @@
         securityRedText: "Posible riesgo. No introduzcas datos.",
         securityNoticeTitle: "Seguridad BANK2.0:",
         securityNoticeText: "antes de escribir, la wallet te da una señal visual clara para que tomes una decisión informada.",
-
         privacyEyebrow: "Privacidad",
         privacyTitle: "La privacidad es la base del banco",
         privacyLead: "No se trata solo de mover cripto: se trata de hacerlo con menos exposición y más control.",
         privacyQuote: "Privacidad anticipada",
         privacyP1: "Sin nombres, sin teléfonos, sin exposición innecesaria. Tu wallet es tu identidad reservada.",
         privacyP2: "Privacidad anticipada, discreción absoluta y propiedad real no son mensajes decorativos: son la base de la experiencia.",
-        privacyP3: "",
         privacyCard1Title: "Sin datos innecesarios",
         privacyCard1Text: "Menos exposición, menos dependencia de identificadores tradicionales.",
         privacyCard2Title: "Identidad reservada",
         privacyCard2Text: "La wallet como eje de una identidad protegida.",
         privacyCard3Title: "Discreción prioritaria",
         privacyCard3Text: "La discreción deja de ser secundaria y pasa a ser prioritaria.",
-
         contractEyebrow: "Contratos",
         contractTitle: "Contratos del ecosistema",
         contractLead: "Enlaces y contratos esenciales para guardar en BANK2.0 Wallet.",
@@ -1600,7 +1558,6 @@
         whitepaperBank20Btn: "📄 BANK2.0 Solana Whitepaper",
         whitepaperMowoGoldBtn: "📄 MOWO Gold Whitepaper",
         whitepaperMowoCoinBtn: "📄 MOWO Coin Polygon Whitepaper",
-
         contactEyebrow: "Contacto",
         contactTitle: "Contacto",
         contactLead: "Preguntas, soporte o propuestas: canal directo.",
@@ -1616,23 +1573,22 @@
       },
       en: {
         brandSub: "Your private bank without unnecessary data",
-        tabWalletVault: "Wallet & Vault",
-        tabUpdate: "New Update",
+        tabWalletVault: "Wallet",
+        tabUpdate: "Update",
         tabGames: "Games",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
-        tabPrize: "Global Prize",
+        tabPrize: "Prize",
         tabSecurity: "Security",
         tabPrivacy: "Privacy",
         tabContract: "Contracts",
         tabContact: "Contact",
-
         heroBadge: "BANK2.0 · PRIVATE CRYPTO BANK",
-        heroTitle: 'Your bank <span class="grad">without names, without phones, without unnecessary exposure</span>',
+        heroTitle: 'Your bank <span class="highlight">without names, without phones, without unnecessary exposure</span>',
         heroP1: "BANK2.0 is your private bank in the new era: more direct, more yours. Forget forms and unnecessary data. Your wallet is your reserved identity.",
-        heroP2: "Your assets are yours. Your identity is yours. Your bank too.",
+        heroClaim: "Your assets are yours. Your identity is yours. Your bank too.",
         heroBtn1: "📲 Download Wallet",
-        heroBtn2: "See the vault",
+        heroBtn2: "Explore vault",
         heroSideTitle: "Why BANK2.0",
         heroCard1Title: "A bank, not only a wallet",
         heroCard1Text: "Private banking for assets, custody, identity and movement.",
@@ -1640,7 +1596,6 @@
         heroCard2Text: "No names, no phones, less exposure.",
         heroCard3Title: "BANK2.0 rewards you",
         heroCard3Text: "While others charge, we reward you for trusting.",
-
         updateEyebrow: "New Update",
         updateTitle: "BANK 2.0 Wallet: ready for Web3",
         updateLead: "Download the app, create your seed phrase and enter the ecosystem with security, staking, NFTs, games and MOWO rewards.",
@@ -1665,13 +1620,10 @@
         updateGamesText: " play with friends, compete with crypto (chess, tic-tac-toe, hockey, tetris, memory…). 0% commission on bets.",
         updatePrizeTitle: "🏆 Global prize:",
         updatePrizeText: " climb the ranking and fight for 1,000,000 MOWO.",
-
         walletVaultEyebrow: "Wallet & Vault",
         walletVaultTitle: "Your bank, crypto & NFT vault all in one",
         walletVaultLead: "Turn your wallet into your digital bank. Store, organize and earn rewards by trusting.",
         walletVaultQuote: "Store and earn",
-        walletVaultP1: "A traditional bank charges you for storing. BANK2.0 rewards you for trusting.",
-        walletVaultP2: "Less exposure, more control, reserved identity.",
         vaultCard1Title: "Crypto vault",
         vaultCard1Text: "ETH, Solana, BNB, Polygon, BANK2.0, MOWO Gold, MOWO Coin and BTC.",
         vaultCard2Title: "Up to 30% staking",
@@ -1692,12 +1644,9 @@
         assetNftText: "NFT vault for assets and rewards.",
         nftVaultTitle: "NFT vault",
         nftVaultP1: "BANK2.0 includes NFT vault on Solana and Polygon. ETH and BNB coming soon. Reach 10 NFTs and get a MOWO reward.",
-        nftVaultP2: "",
         vaultDifferenceTitle: "The BANK2.0 difference",
         vaultDifferenceP1: "While others charge, BANK2.0 rewards you for storing and trusting. Your digital bank gives you reasons to stay.",
-        vaultDifferenceP2: "",
         walletVaultBtn: "📲 Download BANK2.0 Wallet",
-
         gamesEyebrow: "Games",
         gamesTitle: "Play, compete and win in BANK2.0",
         gamesLead: "Not only store assets: also play, compete and open the door to the metaverse from your wallet.",
@@ -1730,14 +1679,12 @@
         bronzeText: "Access to the ecosystem door and its prizes.",
         prizeAccessTitle: "Metaverse prizes",
         prizeAccessText: "Depending on your NFT, get car, character, land plot and house.",
-
         solanaEyebrow: "Bank 2.0 Solana",
         solanaTitle: "The new coin and the new stage of the bank",
         solanaLead: "BANK2.0 Solana represents the new phase: investment, control and discretion. A coin with purpose.",
         solanaQuote: "Investment, control and discretion",
         solanaP1: "Hold the coin and the bank buys interests from you, or freeze your assets according to your strategy. Your assets remain yours, not the system's.",
         solanaP2: "Absolute speed, low-cost transfers, transparency and a non-negotiable priority: discretion.",
-        solanaP3: "",
         fundsImageCaption: "<strong>BANK2.0:</strong> direct access to your funds without banking barriers.",
         solanaCard1Title: "A new coin with purpose",
         solanaCard1Text: "Not only the network changes: the direction of BANK2.0 changes too.",
@@ -1746,16 +1693,13 @@
         solanaCard3Title: "Speed, cost and reserve",
         solanaCard3Text: "More agility, less friction and more control.",
         solanaBtn: "🚀 View BANK2.0 Solana",
-
         metaverseEyebrow: "MoonWorld",
         metaverseTitle: "The lunar metaverse returns to BANK2.0",
         metaverseLead: "MoonWorld is the lunar metaverse where your NFTs and games give you access to digital objects and assets.",
         metaverseQuote: "Car, character, land plot and house",
         metaverseP1: "If you get a gold, silver or bronze NFT, the prize becomes real access to metaverse elements: car, character, land plot and house.",
-        metaverseP2: "",
         metaverseP3: "Connect wallet, games, NFT and metaverse in one BANK2.0 experience.",
         metaverseBtn: "🌙 Enter MoonWorld",
-
         prizeEyebrow: "Global Prize",
         prizeTitle: "A global prize for a global community",
         prizeLead: "BANK2.0 builds reward, competition and belonging.",
@@ -1764,8 +1708,6 @@
         prizeLabel: "MOWO GLOBAL PRIZE",
         prizeP1: "Play, collect points and climb the global ranking. The highest scorer qualifies for the grand prize according to active conditions.",
         prizeP2: "It's not just a prize: it's identity, community and ambition for the entire ecosystem.",
-        prizeP3: "",
-
         securityEyebrow: "Security",
         securityTitle: "Visual alert before entering your wallet",
         securityLead: "BANK2.0 warns you with colors if the environment is safe, doubtful or risky before you enter your data.",
@@ -1780,21 +1722,18 @@
         securityRedText: "Possible risk. Do not enter data.",
         securityNoticeTitle: "BANK2.0 Security:",
         securityNoticeText: "before typing, the wallet gives you a clear visual signal so you can make an informed decision.",
-
         privacyEyebrow: "Privacy",
         privacyTitle: "Privacy is the base of the bank",
         privacyLead: "It's not only about moving crypto: it's about doing it with less exposure and more control.",
         privacyQuote: "Anticipated privacy",
         privacyP1: "No names, no phones, no unnecessary exposure. Your wallet is your reserved identity.",
         privacyP2: "Anticipated privacy, absolute discretion and real ownership are not decorative messages: they are the base of the experience.",
-        privacyP3: "",
         privacyCard1Title: "No unnecessary data",
         privacyCard1Text: "Less exposure, less dependence on traditional identifiers.",
         privacyCard2Title: "Reserved identity",
         privacyCard2Text: "The wallet as the axis of a protected identity.",
         privacyCard3Title: "Priority discretion",
         privacyCard3Text: "Discretion stops being secondary and becomes the priority.",
-
         contractEyebrow: "Contracts",
         contractTitle: "Ecosystem contracts",
         contractLead: "Essential links and contracts to store in BANK2.0 Wallet.",
@@ -1807,7 +1746,6 @@
         whitepaperBank20Btn: "📄 BANK2.0 Solana Whitepaper",
         whitepaperMowoGoldBtn: "📄 MOWO Gold Whitepaper",
         whitepaperMowoCoinBtn: "📄 MOWO Coin Polygon Whitepaper",
-
         contactEyebrow: "Contact",
         contactTitle: "Contact",
         contactLead: "Questions, support or proposals: direct channel.",
@@ -1824,42 +1762,43 @@
     };
 
     // ===== LANG SWITCHER =====
-    const langSwitcher = document.getElementById("langSwitcher");
-    const tabLinks = document.querySelectorAll(".tab-link");
-    const sections = [...document.querySelectorAll("main section[id]")];
-    let currentLang = localStorage.getItem("bank20-lang") || "es";
+    const langSwitcher = document.getElementById('langSwitcher');
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const sections = [...document.querySelectorAll('main section[id]')];
+    let currentLang = localStorage.getItem('bank20-lang') || 'es';
 
     function applyTranslations(lang) {
       const dict = translations[lang] || translations.es;
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.getAttribute("data-i18n");
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
         if (dict[key] !== undefined) el.innerHTML = dict[key];
       });
       langSwitcher.value = lang;
-      localStorage.setItem("bank20-lang", lang);
+      localStorage.setItem('bank20-lang', lang);
       currentLang = lang;
     }
 
     function updateActiveTab() {
-      const offset = window.scrollY + 140;
-      let currentId = sections[0]?.id || "";
+      const offset = window.scrollY + 120;
+      let currentId = sections[0]?.id || '';
       for (const section of sections) {
         if (section.offsetTop <= offset) currentId = section.id;
       }
-      tabLinks.forEach((link) => {
-        const isActive = link.getAttribute("href") === `#${currentId}`;
-        link.classList.toggle("active", isActive);
+      tabLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${currentId}`;
+        link.classList.toggle('active', isActive);
       });
     }
 
-    langSwitcher.addEventListener("change", (e) => applyTranslations(e.target.value));
-    window.addEventListener("scroll", updateActiveTab, { passive: true });
-    window.addEventListener("load", () => {
+    langSwitcher.addEventListener('change', e => applyTranslations(e.target.value));
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
+    window.addEventListener('load', () => {
       applyTranslations(currentLang);
       updateActiveTab();
     });
-    window.addEventListener("hashchange", updateActiveTab);
+    window.addEventListener('hashchange', updateActiveTab);
   </script>
+
 </body>
 </html>
