@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    /* ===== RESET Y VARIABLES ===== */
     * {
       margin: 0;
       padding: 0;
@@ -39,7 +40,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 150px;
     }
 
     body {
@@ -79,6 +80,7 @@
       padding: 0 24px;
     }
 
+    /* ===== TOPBAR PRINCIPAL ===== */
     .topbar {
       position: sticky;
       top: 0;
@@ -218,29 +220,29 @@
       box-shadow: 0 0 20px rgba(127,246,255,0.05);
     }
 
-    .toolbar {
+    /* ===== NUEVA BARRA DE IDIOMAS (debajo del topbar) ===== */
+    .lang-bar {
+      background: rgba(10, 6, 24, 0.6);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 24px;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
+      flex-wrap: wrap;
+      gap: 6px;
+      position: sticky;
+      top: 78px;
+      z-index: 99;
     }
 
-    /* --- Selector de idiomas visual con banderas --- */
-    .lang-buttons {
-      display: flex;
-      gap: 4px;
-      background: rgba(255,255,255,0.04);
-      padding: 4px;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-    }
     .lang-btn {
       background: transparent;
       border: none;
       color: var(--text-secondary);
       font-size: 0.7rem;
       font-weight: 600;
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
       cursor: pointer;
       transition: var(--transition);
@@ -268,6 +270,7 @@
       font-weight: 700;
     }
 
+    /* ===== RESTO DE ESTILOS ===== */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -305,7 +308,7 @@
     }
 
     section {
-      scroll-margin-top: 90px;
+      scroll-margin-top: 150px;
       padding: 50px 0;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards;
@@ -884,6 +887,7 @@
       text-shadow: 0 0 20px rgba(127,246,255,0.2);
     }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 1100px) {
       .topbar { height: auto; padding: 12px 0; }
       .topbar-inner { flex-wrap: wrap; gap: 12px; }
@@ -892,7 +896,7 @@
       .grid-4, .grid-5 { grid-template-columns: repeat(3, 1fr); }
       .brand-group { flex-wrap: wrap; }
       .maxstudio-link { font-size: 0.7rem; padding: 4px 12px; }
-      .lang-buttons { flex-wrap: wrap; justify-content: center; }
+      .lang-bar { top: auto; position: relative; }
     }
 
     @media (max-width: 768px) {
@@ -910,12 +914,13 @@
       .games-grid { grid-template-columns: 1fr; }
       .maxstudio-link span { display: none; }
       .lang-btn .code { display: none; }
+      .lang-bar { gap: 4px; padding: 6px 12px; }
+      .lang-btn { padding: 4px 8px; }
+      .lang-btn .flag { font-size: 0.8rem; }
     }
 
     @media (max-width: 480px) {
       .tab-link { font-size: 0.7rem; padding: 6px 10px; }
-      .lang-btn { padding: 4px 8px; }
-      .lang-btn .flag { font-size: 0.8rem; }
     }
 
     /* IMAGEN MASCOTA CORREGIDA */
@@ -935,6 +940,7 @@
 
   <canvas id="particles-canvas"></canvas>
 
+  <!-- ===== TOPBAR PRINCIPAL ===== -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand-group">
@@ -963,21 +969,20 @@
         <a class="tab-link" href="#contract" data-i18n="tabContract">Contratos</a>
         <a class="tab-link" href="#contact" data-i18n="tabContact">Contacto</a>
       </nav>
-
-      <div class="toolbar">
-        <div class="lang-buttons" id="langButtons">
-          <button class="lang-btn active" data-lang="es"><span class="flag">🇪🇸</span><span class="code">ES</span></button>
-          <button class="lang-btn" data-lang="en"><span class="flag">🇬🇧</span><span class="code">EN</span></button>
-          <button class="lang-btn" data-lang="fr"><span class="flag">🇫🇷</span><span class="code">FR</span></button>
-          <button class="lang-btn" data-lang="it"><span class="flag">🇮🇹</span><span class="code">IT</span></button>
-          <button class="lang-btn" data-lang="pt"><span class="flag">🇵🇹</span><span class="code">PT</span></button>
-          <button class="lang-btn" data-lang="ru"><span class="flag">🇷🇺</span><span class="code">RU</span></button>
-          <button class="lang-btn" data-lang="ar"><span class="flag">🇸🇦</span><span class="code">AR</span></button>
-          <button class="lang-btn" data-lang="zh"><span class="flag">🇨🇳</span><span class="code">ZH</span></button>
-        </div>
-      </div>
     </div>
   </header>
+
+  <!-- ===== BARRA DE IDIOMAS (justo debajo) ===== -->
+  <div class="lang-bar" id="langBar">
+    <button class="lang-btn active" data-lang="es"><span class="flag">🇪🇸</span><span class="code">ES</span></button>
+    <button class="lang-btn" data-lang="en"><span class="flag">🇬🇧</span><span class="code">EN</span></button>
+    <button class="lang-btn" data-lang="fr"><span class="flag">🇫🇷</span><span class="code">FR</span></button>
+    <button class="lang-btn" data-lang="it"><span class="flag">🇮🇹</span><span class="code">IT</span></button>
+    <button class="lang-btn" data-lang="pt"><span class="flag">🇵🇹</span><span class="code">PT</span></button>
+    <button class="lang-btn" data-lang="ru"><span class="flag">🇷🇺</span><span class="code">RU</span></button>
+    <button class="lang-btn" data-lang="ar"><span class="flag">🇸🇦</span><span class="code">AR</span></button>
+    <button class="lang-btn" data-lang="zh"><span class="flag">🇨🇳</span><span class="code">ZH</span></button>
+  </div>
 
   <main>
 
@@ -1642,7 +1647,7 @@
     }
     drawParticles();
 
-    // --- Traducciones COMPLETAS (8 idiomas) ---
+    // ===== TRADUCCIONES COMPLETAS (8 idiomas) =====
     const translations = {
       es: {
         brandSub: "Tu banco privado sin datos innecesarios",
@@ -3150,7 +3155,7 @@
       }
     };
 
-    // --- Lógica de idioma y tabs ---
+    // ===== LÓGICA DE IDIOMA Y TABS =====
     const langButtons = document.querySelectorAll('.lang-btn');
     const tabLinks = document.querySelectorAll('.tab-link');
     const sections = [...document.querySelectorAll('main section[id]')];
@@ -3171,7 +3176,7 @@
     }
 
     function updateActiveTab() {
-      const offset = window.scrollY + 120;
+      const offset = window.scrollY + 140;
       let currentId = sections[0]?.id || '';
       for (const section of sections) {
         if (section.offsetTop <= offset) currentId = section.id;
