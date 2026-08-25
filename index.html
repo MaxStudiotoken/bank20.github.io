@@ -3206,9 +3206,15 @@
   Tu navegador no soporta la etiqueta de audio.
 </audio>
 
+<!-- ===== MÚSICA DE FONDO ===== -->
+<audio id="bg-music" loop>
+  <source src="https://github.com/MaxStudiotoken/bank20.github.io/raw/refs/heads/main/paulyudin-ambient-ambient-music-574003.mp3" type="audio/mpeg">
+  Tu navegador no soporta la etiqueta de audio.
+</audio>
+
 <!-- Botón de control de música -->
 <div id="music-control" style="position: fixed; bottom: 30px; right: 30px; z-index: 999; background: rgba(10, 6, 24, 0.7); backdrop-filter: blur(10px); border: 1px solid var(--border-subtle); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); box-shadow: 0 8px 30px rgba(0,0,0,0.4);">
-  <span id="music-icon" style="font-size: 1.6rem; line-height: 1; color: var(--cyan);">🔊</span>
+  <span id="music-icon" style="font-size: 1.6rem; line-height: 1; color: var(--cyan);">🔇</span>
 </div>
 
 <script>
@@ -3217,42 +3223,62 @@
   const musicControl = document.getElementById('music-control');
   const musicIcon = document.getElementById('music-icon');
   let isMusicPlaying = false;
+  let userInteracted = false;
 
-  // Intentar reproducir al cargar (con muted para evitar bloqueo)
-  audio.play().catch(() => {
-    // Si falla, esperamos a que el usuario haga clic en el botón
-  });
+  // Función para activar el sonido
+  function enableMusic() {
+    if (!isMusicPlaying) {
+      audio.muted = false;
+      audio.play()
+        .then(() => {
+          musicIcon.textContent = '🔊';
+          isMusicPlaying = true;
+          userInteracted = true;
+        })
+        .catch((err) => {
+          console.log('Error al reproducir:', err);
+          musicIcon.textContent = '🔇';
+          isMusicPlaying = false;
+        });
+    }
+  }
 
-  musicControl.addEventListener('click', function() {
+  // Función para desactivar el sonido
+  function disableMusic() {
     if (isMusicPlaying) {
       audio.pause();
       musicIcon.textContent = '🔇';
       isMusicPlaying = false;
+    }
+  }
+
+  // Click en el botón: alternar música
+  musicControl.addEventListener('click', function(e) {
+    e.stopPropagation(); // Evitar que el click se propague
+    if (isMusicPlaying) {
+      disableMusic();
     } else {
-      // Al hacer clic, quitamos el mute y reproducimos
-      audio.muted = false;
-      audio.play().then(() => {
-        musicIcon.textContent = '🔊';
-        isMusicPlaying = true;
-      }).catch(() => {
-        // Si aún falla, lo dejamos muteado y mostramos el ícono de silencio
-        musicIcon.textContent = '🔇';
-        isMusicPlaying = false;
-      });
+      enableMusic();
     }
   });
 
-  // Cuando el usuario haga clic en cualquier parte de la página por primera vez, activar el sonido
-  document.addEventListener('click', function enableAudio() {
-    if (!isMusicPlaying) {
-      audio.muted = false;
-      audio.play().then(() => {
-        musicIcon.textContent = '🔊';
-        isMusicPlaying = true;
-      }).catch(() => {});
+  // Click en cualquier parte de la página: activar música (solo la primera vez)
+  document.addEventListener('click', function enableAudioOnFirstClick() {
+    if (!userInteracted) {
+      enableMusic();
     }
-    document.removeEventListener('click', enableAudio);
-  }, { once: true });
+    // Remover el listener después de la primera interacción
+    document.removeEventListener('click', enableAudioOnFirstClick);
+  });
+
+  // Intentar reproducir al cargar (con muted)
+  audio.muted = true;
+  audio.play().catch(() => {
+    // Si falla, esperamos a que el usuario interactúe
+  });
+
+  // Si el usuario ya interactuó, no mostrar el mensaje de "toca para activar"
+  console.log('🎵 Música de fondo cargada. Toca en cualquier parte para activar el sonido.');
 </script>
 
   
