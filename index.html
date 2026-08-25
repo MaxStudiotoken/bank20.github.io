@@ -312,6 +312,7 @@
     section:nth-child(8) { animation-delay: 0.7s; }
     section:nth-child(9) { animation-delay: 0.8s; }
     section:nth-child(10) { animation-delay: 0.9s; }
+    section:nth-child(11) { animation-delay: 1.0s; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
@@ -950,6 +951,7 @@
         <a class="tab-link" href="#wallet-vault" data-i18n="tabWalletVault">Wallet</a>
         <a class="tab-link" href="#update" data-i18n="tabUpdate">Update</a>
         <a class="tab-link" href="#games" data-i18n="tabGames">Games</a>
+        <a class="tab-link" href="#pets" data-i18n="tabPets">Mascotas</a>
         <a class="tab-link" href="#solana" data-i18n="tabSolana">Solana</a>
         <a class="tab-link" href="#metaverse" data-i18n="tabMetaverse">MoonWorld</a>
         <a class="tab-link" href="#prize" data-i18n="tabPrize">Premio</a>
@@ -1287,6 +1289,60 @@
               <div class="tier-label" style="color:var(--cyan);" data-i18n="prizeAccessTitle">Premios metaverso</div>
               <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="prizeAccessText">Según tu NFT, obtén coche, personaje, parcela y casa.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PETS (NUEVA SECCIÓN) ===== -->
+    <section id="pets" class="section">
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="petsEyebrow">Colección</div>
+              <h2 data-i18n="petsTitle">Mascotas del ecosistema</h2>
+              <p data-i18n="petsLead">Compañeros digitales que podrás coleccionar, intercambiar y usar en MoonWorld.</p>
+            </div>
+            <div class="badge-quote" data-i18n="petsQuote">6 mascotas únicas</div>
+          </div>
+
+          <div class="grid-3" style="margin-top:24px;">
+            <div class="card" style="text-align:center;">
+              <img src="mascota1.png" alt="Mascota 1" style="width:100%; max-width:180px; aspect-ratio:1; object-fit:contain; border-radius:var(--radius-sm); background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); transition:var(--transition);" />
+              <strong style="margin-top:12px; display:block;">Mascota #1</strong>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="pet1Desc">Compañero lunar.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <img src="mascota2.png" alt="Mascota 2" style="width:100%; max-width:180px; aspect-ratio:1; object-fit:contain; border-radius:var(--radius-sm); background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); transition:var(--transition);" />
+              <strong style="margin-top:12px; display:block;">Mascota #2</strong>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="pet2Desc">Guardián de la bodega.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <img src="mascota3.png" alt="Mascota 3" style="width:100%; max-width:180px; aspect-ratio:1; object-fit:contain; border-radius:var(--radius-sm); background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); transition:var(--transition);" />
+              <strong style="margin-top:12px; display:block;">Mascota #3</strong>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="pet3Desc">Explorador de Solana.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <img src="mascota4.png" alt="Mascota 4" style="width:100%; max-width:180px; aspect-ratio:1; object-fit:contain; border-radius:var(--radius-sm); background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); transition:var(--transition);" />
+              <strong style="margin-top:12px; display:block;">Mascota #4</strong>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="pet4Desc">Aventurero de Polygon.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <img src="mascota5.png" alt="Mascota 5" style="width:100%; max-width:180px; aspect-ratio:1; object-fit:contain; border-radius:var(--radius-sm); background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); transition:var(--transition);" />
+              <strong style="margin-top:12px; display:block;">Mascota #5</strong>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="pet5Desc">Custodio de NFT.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <img src="mascota6.png" alt="Mascota 6" style="width:100%; max-width:180px; aspect-ratio:1; object-fit:contain; border-radius:var(--radius-sm); background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); transition:var(--transition);" />
+              <strong style="margin-top:12px; display:block;">Mascota #6</strong>
+              <p style="color:var(--text-secondary); font-size:0.9rem;" data-i18n="pet6Desc">Estrella de MoonWorld.</p>
+            </div>
+          </div>
+
+          <div class="notice">
+            <strong data-i18n="petsNoticeTitle">Próximamente:</strong>
+            <span data-i18n="petsNoticeText"> podrás obtener estas mascotas como recompensa en juegos y subastas NFT.</span>
           </div>
         </div>
       </div>
@@ -1632,6 +1688,7 @@
         tabWalletVault: "Wallet",
         tabUpdate: "Update",
         tabGames: "Games",
+        tabPets: "Mascotas",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
         tabPrize: "Premio",
@@ -1735,6 +1792,18 @@
         bronzeText: "Acceso a la puerta del ecosistema y sus premios.",
         prizeAccessTitle: "Premios metaverso",
         prizeAccessText: "Según tu NFT, obtén coche, personaje, parcela y casa.",
+        petsEyebrow: "Colección",
+        petsTitle: "Mascotas del ecosistema",
+        petsLead: "Compañeros digitales que podrás coleccionar, intercambiar y usar en MoonWorld.",
+        petsQuote: "6 mascotas únicas",
+        pet1Desc: "Compañero lunar.",
+        pet2Desc: "Guardián de la bodega.",
+        pet3Desc: "Explorador de Solana.",
+        pet4Desc: "Aventurero de Polygon.",
+        pet5Desc: "Custodio de NFT.",
+        pet6Desc: "Estrella de MoonWorld.",
+        petsNoticeTitle: "Próximamente:",
+        petsNoticeText: " podrás obtener estas mascotas como recompensa en juegos y subastas NFT.",
         solanaEyebrow: "Bank 2.0 Solana",
         solanaTitle: "La nueva moneda y la nueva etapa del banco",
         solanaLead: "BANK2.0 Solana representa la nueva fase: inversión, control y discreción. Una moneda con propósito.",
@@ -1820,6 +1889,7 @@
         tabWalletVault: "Wallet",
         tabUpdate: "Update",
         tabGames: "Games",
+        tabPets: "Pets",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
         tabPrize: "Prize",
@@ -1923,6 +1993,18 @@
         bronzeText: "Access to the ecosystem door and its prizes.",
         prizeAccessTitle: "Metaverse prizes",
         prizeAccessText: "Depending on your NFT, get car, character, land plot and house.",
+        petsEyebrow: "Collection",
+        petsTitle: "Ecosystem Pets",
+        petsLead: "Digital companions you can collect, trade and use in MoonWorld.",
+        petsQuote: "6 unique pets",
+        pet1Desc: "Lunar companion.",
+        pet2Desc: "Vault guardian.",
+        pet3Desc: "Solana explorer.",
+        pet4Desc: "Polygon adventurer.",
+        pet5Desc: "NFT custodian.",
+        pet6Desc: "MoonWorld star.",
+        petsNoticeTitle: "Coming soon:",
+        petsNoticeText: " you'll be able to get these pets as rewards in games and NFT auctions.",
         solanaEyebrow: "Bank 2.0 Solana",
         solanaTitle: "The new coin and the new stage of the bank",
         solanaLead: "BANK2.0 Solana represents the new phase: investment, control and discretion. A coin with purpose.",
