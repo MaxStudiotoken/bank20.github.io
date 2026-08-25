@@ -893,16 +893,15 @@
       .lang-select { font-size: 0.7rem; padding: 6px 10px; }
     }
 
-    /* IMAGEN MASCOTA - grande, cuadrada, sin texto */
+    /* IMAGEN MASCOTA - ocupa todo el ancho, cuadrada, sin texto */
     .mascota-img {
       width: 100%;
-      max-width: 500px;
-      aspect-ratio: 1/1;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 0;
       border: 2px solid var(--border-subtle);
       background: var(--bg-card);
-      margin: 0 auto 20px;
+      margin: 20px 0;
       display: block;
     }
   </style>
@@ -983,7 +982,7 @@
           </aside>
         </div>
 
-        <!-- MASCOTA #1 - SOLO IMAGEN, SIN TEXTO -->
+        <!-- MASCOTA #1 - SOLO IMAGEN, SIN NOMBRE, SIN TEXTO -->
         <img src="mascota1.png" alt="" class="mascota-img" />
       </div>
     </section>
