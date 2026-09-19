@@ -322,6 +322,7 @@
     section:nth-child(8) { animation-delay: 0.7s; }
     section:nth-child(9) { animation-delay: 0.8s; }
     section:nth-child(10) { animation-delay: 0.9s; }
+    section:nth-child(11) { animation-delay: 1.0s; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
@@ -960,6 +961,7 @@
       <nav class="nav-tabs">
         <a class="tab-link" href="#wallet-vault" data-i18n="tabWalletVault">Wallet</a>
         <a class="tab-link" href="#update" data-i18n="tabUpdate">Update</a>
+        <a class="tab-link" href="#mining" data-i18n="tabMining">Mining</a>
         <a class="tab-link" href="#games" data-i18n="tabGames">Games</a>
         <a class="tab-link" href="#solana" data-i18n="tabSolana">Solana</a>
         <a class="tab-link" href="#metaverse" data-i18n="tabMetaverse">MoonWorld</a>
@@ -1080,6 +1082,61 @@
           <div class="notice">
             <strong data-i18n="updatePrizeTitle">🏆 Premio global:</strong>
             <span data-i18n="updatePrizeText"> sube al ranking y lucha por 1.000.000 MOWO.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NUEVA SECCIÓN: MINING ===== -->
+    <section id="mining" class="section">
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="eyebrow" data-i18n="miningEyebrow">BANK 2.0 MINING</div>
+              <h2 data-i18n="miningTitle">Minería ecológica en la nube</h2>
+              <p data-i18n="miningLead">BANK 2.0 ha donado 500.000 tokens BANK 2.0 / SOL para impulsar una experiencia de minería en la nube sin dañar procesadores, tarjetas gráficas ni consumir luz.</p>
+            </div>
+            <div class="badge-quote" data-i18n="miningQuote">🌱 500.000 tokens donados</div>
+          </div>
+
+          <!-- Banner de minería -->
+          <div class="promo-image-card gold">
+            <img src="banert.png" alt="BANK 2.0 MINING Banner" />
+            <div class="caption" data-i18n="miningBannerCaption"><strong>BANK 2.0 MINING:</strong> una nueva forma de entender la minería digital, accesible y responsable.</div>
+          </div>
+
+          <div class="grid-3" style="margin-top:24px;">
+            <div class="card card-glow">
+              <strong data-i18n="miningCard1Title">☁️ 100% en la nube</strong>
+              <p data-i18n="miningCard1Text">La experiencia se gestiona de forma remota. Tu móvil no realiza cálculos criptográficos intensivos.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="miningCard2Title">🌍 Ecológica y responsable</strong>
+              <p data-i18n="miningCard2Text">No consume luz adicional ni castiga tu hardware. Tecnología pensada para el planeta.</p>
+            </div>
+            <div class="card">
+              <strong data-i18n="miningCard3Title">🎁 Recompensas para la comunidad</strong>
+              <p data-i18n="miningCard3Text">Los 500.000 tokens donados se destinan a que más usuarios descubran el ecosistema y participen.</p>
+            </div>
+          </div>
+
+          <!-- Logo de minería -->
+          <div style="display:flex; justify-content:center; margin:32px 0;">
+            <img src="logo_minado_bank22.png" alt="BANK 2.0 MINING Logo" style="width:200px; height:auto; object-fit:contain; border-radius:var(--radius-md); border:1px solid var(--border-subtle); background:rgba(255,255,255,0.02); padding:16px; transition:var(--transition);" />
+          </div>
+
+          <p data-i18n="miningP1" style="color:var(--text-secondary); line-height:1.8; margin-bottom:12px;">BANK 2.0 MINING te permite conocer cómo funciona una experiencia de minería en la nube sin necesidad de conocimientos avanzados. Solo necesitas una dirección pública de Solana.</p>
+          <p data-i18n="miningP2" style="color:var(--text-secondary); line-height:1.8; margin-bottom:12px;">Cada ciclo disponible dura 12 horas. Completa tus ciclos y podrás recibir recompensas BANK 2.0 según las condiciones vigentes del programa.</p>
+
+          <div class="notice">
+            <strong data-i18n="miningNoticeTitle">⚠️ Importante:</strong>
+            <span data-i18n="miningNoticeText"> BANK 2.0 MINING solo necesita tu dirección PÚBLICA de Solana. Nunca introduzcas tu frase semilla, clave privada ni contraseña.</span>
+          </div>
+
+          <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:12px;">
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.bank20.mining" target="_blank" rel="noopener" data-i18n="miningBtn1">⛏️ Descargar App de Minería</a>
+            <a class="btn btn-secondary" href="https://maxstudiotoken.github.io/bank20.github.io/mining.html" target="_blank" rel="noopener" data-i18n="miningBtn2">🌐 Web de Minería</a>
           </div>
         </div>
       </div>
@@ -1653,6 +1710,7 @@
         brandSub: "Tu banco privado sin datos innecesarios",
         tabWalletVault: "Wallet",
         tabUpdate: "Update",
+        tabMining: "Mining",
         tabGames: "Games",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -1698,6 +1756,23 @@
         updateGamesText: " juega con amigos, compite con crypto (ajedrez, tres en raya, hockey, tetris, memoria…). 0% comisión en apuestas.",
         updatePrizeTitle: "🏆 Premio global:",
         updatePrizeText: " sube al ranking y lucha por 1.000.000 MOWO.",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "Minería ecológica en la nube",
+        miningLead: "BANK 2.0 ha donado 500.000 tokens BANK 2.0 / SOL para impulsar una experiencia de minería en la nube sin dañar procesadores, tarjetas gráficas ni consumir luz.",
+        miningQuote: "🌱 500.000 tokens donados",
+        miningBannerCaption: "<strong>BANK 2.0 MINING:</strong> una nueva forma de entender la minería digital, accesible y responsable.",
+        miningCard1Title: "☁️ 100% en la nube",
+        miningCard1Text: "La experiencia se gestiona de forma remota. Tu móvil no realiza cálculos criptográficos intensivos.",
+        miningCard2Title: "🌍 Ecológica y responsable",
+        miningCard2Text: "No consume luz adicional ni castiga tu hardware. Tecnología pensada para el planeta.",
+        miningCard3Title: "🎁 Recompensas para la comunidad",
+        miningCard3Text: "Los 500.000 tokens donados se destinan a que más usuarios descubran el ecosistema y participen.",
+        miningP1: "BANK 2.0 MINING te permite conocer cómo funciona una experiencia de minería en la nube sin necesidad de conocimientos avanzados. Solo necesitas una dirección pública de Solana.",
+        miningP2: "Cada ciclo disponible dura 12 horas. Completa tus ciclos y podrás recibir recompensas BANK 2.0 según las condiciones vigentes del programa.",
+        miningNoticeTitle: "⚠️ Importante:",
+        miningNoticeText: " BANK 2.0 MINING solo necesita tu dirección PÚBLICA de Solana. Nunca introduzcas tu frase semilla, clave privada ni contraseña.",
+        miningBtn1: "⛏️ Descargar App de Minería",
+        miningBtn2: "🌐 Web de Minería",
         walletVaultEyebrow: "Wallet & Bodega",
         walletVaultTitle: "Tu banco, tu bodega cripto y NFT en un solo lugar",
         walletVaultLead: "Convierte tu wallet en tu banco digital. Guarda, organiza y gana recompensas por confiar.",
@@ -1841,6 +1916,7 @@
         brandSub: "Your private bank without unnecessary data",
         tabWalletVault: "Wallet",
         tabUpdate: "Update",
+        tabMining: "Mining",
         tabGames: "Games",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -1886,6 +1962,23 @@
         updateGamesText: " play with friends, compete with crypto (chess, tic-tac-toe, hockey, tetris, memory…). 0% commission on bets.",
         updatePrizeTitle: "🏆 Global prize:",
         updatePrizeText: " climb the ranking and fight for 1,000,000 MOWO.",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "Ecological cloud mining",
+        miningLead: "BANK 2.0 has donated 500,000 BANK 2.0 / SOL tokens to promote a cloud mining experience without damaging processors, graphics cards or consuming electricity.",
+        miningQuote: "🌱 500,000 tokens donated",
+        miningBannerCaption: "<strong>BANK 2.0 MINING:</strong> a new way to understand digital mining, accessible and responsible.",
+        miningCard1Title: "☁️ 100% in the cloud",
+        miningCard1Text: "The experience is managed remotely. Your phone does not perform intensive cryptographic calculations.",
+        miningCard2Title: "🌍 Ecological and responsible",
+        miningCard2Text: "It does not consume additional electricity or punish your hardware. Technology designed for the planet.",
+        miningCard3Title: "🎁 Community rewards",
+        miningCard3Text: "The 500,000 donated tokens are used so more users can discover the ecosystem and participate.",
+        miningP1: "BANK 2.0 MINING lets you learn how a cloud mining experience works without advanced knowledge. You only need a public Solana address.",
+        miningP2: "Each available cycle lasts 12 hours. Complete your cycles and you may receive BANK 2.0 rewards according to the current program conditions.",
+        miningNoticeTitle: "⚠️ Important:",
+        miningNoticeText: " BANK 2.0 MINING only needs your PUBLIC Solana address. Never enter your seed phrase, private key or password.",
+        miningBtn1: "⛏️ Download Mining App",
+        miningBtn2: "🌐 Mining Web",
         walletVaultEyebrow: "Wallet & Vault",
         walletVaultTitle: "Your bank, crypto & NFT vault all in one",
         walletVaultLead: "Turn your wallet into your digital bank. Store, organize and earn rewards by trusting.",
@@ -2029,6 +2122,7 @@
         brandSub: "Votre banque privée sans données inutiles",
         tabWalletVault: "Portefeuille",
         tabUpdate: "Mise à jour",
+        tabMining: "Minage",
         tabGames: "Jeux",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -2074,6 +2168,23 @@
         updateGamesText: " jouez avec des amis, compétitionnez avec crypto (échecs, morpion, hockey, tetris, mémoire…). 0% de commission sur les paris.",
         updatePrizeTitle: "🏆 Prix global :",
         updatePrizeText: " montez dans le classement et luttez pour 1.000.000 MOWO.",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "Minage écologique dans le cloud",
+        miningLead: "BANK 2.0 a fait don de 500 000 jetons BANK 2.0 / SOL pour promouvoir une expérience de minage dans le cloud sans endommager les processeurs, les cartes graphiques ni consommer d'électricité.",
+        miningQuote: "🌱 500 000 jetons donnés",
+        miningBannerCaption: "<strong>BANK 2.0 MINING :</strong> une nouvelle façon de comprendre le minage numérique, accessible et responsable.",
+        miningCard1Title: "☁️ 100% dans le cloud",
+        miningCard1Text: "L'expérience est gérée à distance. Votre téléphone n'effectue pas de calculs cryptographiques intensifs.",
+        miningCard2Title: "🌍 Écologique et responsable",
+        miningCard2Text: "Ne consomme pas d'électricité supplémentaire et ne pénalise pas votre matériel. Technologie pensée pour la planète.",
+        miningCard3Title: "🎁 Récompenses pour la communauté",
+        miningCard3Text: "Les 500 000 jetons donnés servent à ce que plus d'utilisateurs découvrent l'écosystème et participent.",
+        miningP1: "BANK 2.0 MINING vous permet de découvrir comment fonctionne une expérience de minage dans le cloud sans connaissances avancées. Vous avez seulement besoin d'une adresse publique Solana.",
+        miningP2: "Chaque cycle disponible dure 12 heures. Complétez vos cycles et vous pourrez recevoir des récompenses BANK 2.0 selon les conditions en vigueur du programme.",
+        miningNoticeTitle: "⚠️ Important :",
+        miningNoticeText: " BANK 2.0 MINING a seulement besoin de votre adresse PUBLIQUE Solana. N'entrez jamais votre phrase de récupération, clé privée ou mot de passe.",
+        miningBtn1: "⛏️ Télécharger l'application de minage",
+        miningBtn2: "🌐 Web de minage",
         walletVaultEyebrow: "Portefeuille & Coffre",
         walletVaultTitle: "Votre banque, votre coffre crypto et NFT en un seul lieu",
         walletVaultLead: "Transformez votre portefeuille en votre banque numérique. Stockez, organisez et gagnez des récompenses en faisant confiance.",
@@ -2217,6 +2328,7 @@
         brandSub: "La tua banca privata senza dati inutili",
         tabWalletVault: "Portafoglio",
         tabUpdate: "Aggiornamento",
+        tabMining: "Mining",
         tabGames: "Giochi",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -2262,6 +2374,23 @@
         updateGamesText: " gioca con amici, competi con crypto (scacchi, tris, hockey, tetris, memoria…). 0% di commissione sulle scommesse.",
         updatePrizeTitle: "🏆 Premio globale:",
         updatePrizeText: " sali in classifica e lotti per 1.000.000 MOWO.",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "Mining ecologico nel cloud",
+        miningLead: "BANK 2.0 ha donato 500.000 token BANK 2.0 / SOL per promuovere un'esperienza di mining nel cloud senza danneggiare processori, schede grafiche o consumare elettricità.",
+        miningQuote: "🌱 500.000 token donati",
+        miningBannerCaption: "<strong>BANK 2.0 MINING:</strong> un nuovo modo di intendere il mining digitale, accessibile e responsabile.",
+        miningCard1Title: "☁️ 100% nel cloud",
+        miningCard1Text: "L'esperienza è gestita da remoto. Il tuo telefono non esegue calcoli crittografici intensivi.",
+        miningCard2Title: "🌍 Ecologico e responsabile",
+        miningCard2Text: "Non consuma elettricità aggiuntiva e non danneggia l'hardware. Tecnologia pensata per il pianeta.",
+        miningCard3Title: "🎁 Ricompense per la comunità",
+        miningCard3Text: "I 500.000 token donati servono a far scoprire l'ecosistema a più utenti e a farli partecipare.",
+        miningP1: "BANK 2.0 MINING ti permette di scoprire come funziona un'esperienza di mining nel cloud senza conoscenze avanzate. Hai solo bisogno di un indirizzo pubblico Solana.",
+        miningP2: "Ogni ciclo disponibile dura 12 ore. Completa i tuoi cicli e potrai ricevere ricompense BANK 2.0 secondo le condizioni vigenti del programma.",
+        miningNoticeTitle: "⚠️ Importante:",
+        miningNoticeText: " BANK 2.0 MINING ha bisogno solo del tuo indirizzo PUBBLICO Solana. Non inserire mai la tua frase seed, chiave privata o password.",
+        miningBtn1: "⛏️ Scarica App di Mining",
+        miningBtn2: "🌐 Web di Mining",
         walletVaultEyebrow: "Wallet & Cassaforte",
         walletVaultTitle: "La tua banca, la tua cassaforte crypto e NFT in un unico posto",
         walletVaultLead: "Trasforma il tuo wallet nella tua banca digitale. Conserva, organizza e guadagna ricompense fidandoti.",
@@ -2405,6 +2534,7 @@
         brandSub: "Seu banco privado sem dados desnecessários",
         tabWalletVault: "Carteira",
         tabUpdate: "Atualização",
+        tabMining: "Mineração",
         tabGames: "Jogos",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -2450,6 +2580,23 @@
         updateGamesText: " jogue com amigos, compita com crypto (xadrez, jogo da velha, hóquei, tetris, memória…). 0% de comissão em apostas.",
         updatePrizeTitle: "🏆 Prêmio global:",
         updatePrizeText: " suba no ranking e lute por 1.000.000 MOWO.",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "Mineração ecológica na nuvem",
+        miningLead: "A BANK 2.0 doou 500.000 tokens BANK 2.0 / SOL para promover uma experiência de mineração na nuvem sem danificar processadores, placas gráficas ou consumir eletricidade.",
+        miningQuote: "🌱 500.000 tokens doados",
+        miningBannerCaption: "<strong>BANK 2.0 MINING:</strong> uma nova forma de entender a mineração digital, acessível e responsável.",
+        miningCard1Title: "☁️ 100% na nuvem",
+        miningCard1Text: "A experiência é gerenciada remotamente. Seu celular não realiza cálculos criptográficos intensivos.",
+        miningCard2Title: "🌍 Ecológica e responsável",
+        miningCard2Text: "Não consome eletricidade adicional nem prejudica seu hardware. Tecnologia pensada para o planeta.",
+        miningCard3Title: "🎁 Recompensas para a comunidade",
+        miningCard3Text: "Os 500.000 tokens doados são destinados a que mais usuários descubram o ecossistema e participem.",
+        miningP1: "O BANK 2.0 MINING permite que você conheça como funciona uma experiência de mineração na nuvem sem necessidade de conhecimentos avançados. Você só precisa de um endereço público Solana.",
+        miningP2: "Cada ciclo disponível dura 12 horas. Complete seus ciclos e poderá receber recompensas BANK 2.0 de acordo com as condições vigentes do programa.",
+        miningNoticeTitle: "⚠️ Importante:",
+        miningNoticeText: " O BANK 2.0 MINING só precisa do seu endereço PÚBLICO Solana. Nunca insira sua frase semente, chave privada ou senha.",
+        miningBtn1: "⛏️ Baixar App de Mineração",
+        miningBtn2: "🌐 Web de Mineração",
         walletVaultEyebrow: "Carteira & Cofre",
         walletVaultTitle: "Seu banco, seu cofre crypto e NFT em um só lugar",
         walletVaultLead: "Transforme sua carteira em seu banco digital. Guarde, organize e ganhe recompensas por confiar.",
@@ -2593,6 +2740,7 @@
         brandSub: "Ваш частный банк без лишних данных",
         tabWalletVault: "Кошелек",
         tabUpdate: "Обновление",
+        tabMining: "Майнинг",
         tabGames: "Игры",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -2638,6 +2786,23 @@
         updateGamesText: " играйте с друзьями, соревнуйтесь с крипто (шахматы, крестики-нолики, хоккей, тетрис, мемори…). 0% комиссии на ставки.",
         updatePrizeTitle: "🏆 Глобальный приз:",
         updatePrizeText: " поднимайтесь в рейтинге и боритесь за 1.000.000 MOWO.",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "Экологичный облачный майнинг",
+        miningLead: "BANK 2.0 пожертвовала 500 000 токенов BANK 2.0 / SOL для продвижения облачного майнинга без повреждения процессоров, видеокарт и без потребления электроэнергии.",
+        miningQuote: "🌱 500 000 токенов пожертвовано",
+        miningBannerCaption: "<strong>BANK 2.0 MINING:</strong> новый взгляд на цифровой майнинг — доступный и ответственный.",
+        miningCard1Title: "☁️ 100% в облаке",
+        miningCard1Text: "Процесс управляется удаленно. Ваш телефон не выполняет интенсивных криптографических вычислений.",
+        miningCard2Title: "🌍 Экологично и ответственно",
+        miningCard2Text: "Не потребляет дополнительную электроэнергию и не изнашивает ваше оборудование. Технология, созданная для планеты.",
+        miningCard3Title: "🎁 Награды для сообщества",
+        miningCard3Text: "500 000 пожертвованных токенов направлены на то, чтобы больше пользователей узнали об экосистеме и приняли участие.",
+        miningP1: "BANK 2.0 MINING позволяет узнать, как работает облачный майнинг, без необходимости в продвинутых знаниях. Вам нужен только публичный адрес Solana.",
+        miningP2: "Каждый доступный цикл длится 12 часов. Завершайте циклы и получайте награды BANK 2.0 в соответствии с действующими условиями программы.",
+        miningNoticeTitle: "⚠️ Важно:",
+        miningNoticeText: " BANK 2.0 MINING нужен только ваш ПУБЛИЧНЫЙ адрес Solana. Никогда не вводите сид-фразу, приватный ключ или пароль.",
+        miningBtn1: "⛏️ Скачать приложение для майнинга",
+        miningBtn2: "🌐 Веб-сайт майнинга",
         walletVaultEyebrow: "Кошелек и хранилище",
         walletVaultTitle: "Ваш банк, ваше крипто- и NFT-хранилище в одном месте",
         walletVaultLead: "Превратите свой кошелек в цифровой банк. Храните, организуйте и получайте вознаграждения за доверие.",
@@ -2781,6 +2946,7 @@
         brandSub: "بنكك الخاص بدون بيانات غير ضرورية",
         tabWalletVault: "المحفظة",
         tabUpdate: "تحديث",
+        tabMining: "التعدين",
         tabGames: "الألعاب",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -2826,6 +2992,23 @@
         updateGamesText: " العب مع الأصدقاء، تنافس بالعملات المشفرة (شطرنج، إكس-أو، هوكي، تتريس، ذاكرة…). 0% عمولة على الرهانات.",
         updatePrizeTitle: "🏆 جائزة عالمية:",
         updatePrizeText: " اصعد في الترتيب وتنافس على 1.000.000 MOWO.",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "تعدين سحابي بيئي",
+        miningLead: "تبرعت BANK 2.0 بمبلغ 500,000 رمز BANK 2.0 / SOL لتعزيز تجربة تعدين سحابي دون الإضرار بالمعالجات أو بطاقات الرسوميات أو استهلاك الكهرباء.",
+        miningQuote: "🌱 تم التبرع بـ 500,000 رمز",
+        miningBannerCaption: "<strong>BANK 2.0 MINING:</strong> طريقة جديدة لفهم التعدين الرقمي، سهلة الوصول ومسؤولة.",
+        miningCard1Title: "☁️ 100% في السحابة",
+        miningCard1Text: "تتم إدارة التجربة عن بُعد. لا يقوم هاتفك بحسابات تشفير مكثفة.",
+        miningCard2Title: "🌍 بيئي ومسؤول",
+        miningCard2Text: "لا يستهلك كهرباء إضافية ولا يضر بالعتاد. تقنية مصممة من أجل الكوكب.",
+        miningCard3Title: "🎁 مكافآت للمجتمع",
+        miningCard3Text: "يتم تخصيص 500,000 رمز متبرع به لكي يكتشف المزيد من المستخدمين النظام البيئي ويشاركوا.",
+        miningP1: "يتيح لك BANK 2.0 MINING معرفة كيفية عمل تجربة تعدين سحابي دون الحاجة إلى معرفة متقدمة. تحتاج فقط إلى عنوان Solana عام.",
+        miningP2: "تستمر كل دورة متاحة 12 ساعة. أكمل دوراتك ويمكنك تلقي مكافآت BANK 2.0 وفقًا للشروط السارية للبرنامج.",
+        miningNoticeTitle: "⚠️ هام:",
+        miningNoticeText: " يحتاج BANK 2.0 MINING فقط إلى عنوان Solana العام الخاص بك. لا تدخل أبدًا عبارة الاسترداد أو المفتاح الخاص أو كلمة المرور.",
+        miningBtn1: "⛏️ تحميل تطبيق التعدين",
+        miningBtn2: "🌐 موقع التعدين",
         walletVaultEyebrow: "المحفظة والخزنة",
         walletVaultTitle: "بنكك، خزنتك للعملات المشفرة و NFT في مكان واحد",
         walletVaultLead: "حوّل محفظتك إلى بنكك الرقمي. خزّن، نظّم واربح مكافآت مقابل الثقة.",
@@ -2969,6 +3152,7 @@
         brandSub: "您的私人银行，无需不必要的数据",
         tabWalletVault: "钱包",
         tabUpdate: "更新",
+        tabMining: "挖矿",
         tabGames: "游戏",
         tabSolana: "Solana",
         tabMetaverse: "MoonWorld",
@@ -3014,6 +3198,23 @@
         updateGamesText: " 与朋友一起玩，用加密货币竞争（国际象棋、井字棋、曲棍球、俄罗斯方块、记忆…）。投注 0% 佣金。",
         updatePrizeTitle: "🏆 全球奖项：",
         updatePrizeText: " 攀升排名，争夺 1,000,000 MOWO。",
+        miningEyebrow: "BANK 2.0 MINING",
+        miningTitle: "生态云挖矿",
+        miningLead: "BANK 2.0 已捐赠 500,000 个 BANK 2.0 / SOL 代币，用于推广不会损坏处理器、显卡或消耗电力的云挖矿体验。",
+        miningQuote: "🌱 已捐赠 500,000 代币",
+        miningBannerCaption: "<strong>BANK 2.0 MINING：</strong>一种理解数字挖矿的新方式，易于访问且负责任。",
+        miningCard1Title: "☁️ 100% 云端",
+        miningCard1Text: "体验由远程管理。您的手机不会执行密集的加密计算。",
+        miningCard2Title: "🌍 生态且负责任",
+        miningCard2Text: "不消耗额外电力，不损害您的硬件。为地球设计的技术。",
+        miningCard3Title: "🎁 社区奖励",
+        miningCard3Text: "捐赠的 500,000 个代币用于让更多用户发现生态系统并参与其中。",
+        miningP1: "BANK 2.0 MINING 让您无需高级知识即可了解云挖矿体验的工作原理。您只需要一个公共 Solana 地址。",
+        miningP2: "每个可用周期持续 12 小时。完成您的周期，您可能会根据当前计划条件获得 BANK 2.0 奖励。",
+        miningNoticeTitle: "⚠️ 重要：",
+        miningNoticeText: " BANK 2.0 MINING 只需要您的公共 Solana 地址。切勿输入您的助记词、私钥或密码。",
+        miningBtn1: "⛏️ 下载挖矿应用",
+        miningBtn2: "🌐 挖矿网站",
         walletVaultEyebrow: "钱包与金库",
         walletVaultTitle: "您的银行、加密和 NFT 金库集于一体",
         walletVaultLead: "将您的钱包转变为您的数字银行。通过信任来存储、组织和赚取奖励。",
@@ -3200,87 +3401,70 @@
     });
     window.addEventListener('hashchange', updateActiveTab);
   </script>
-<!-- ===== MÚSICA DE FONDO ===== -->
-<audio id="bg-music" loop muted>
-  <source src="https://github.com/MaxStudiotoken/bank20.github.io/raw/refs/heads/main/paulyudin-ambient-ambient-music-574003.mp3" type="audio/mpeg">
-  Tu navegador no soporta la etiqueta de audio.
-</audio>
 
-<!-- ===== MÚSICA DE FONDO ===== -->
-<audio id="bg-music" loop>
-  <source src="https://github.com/MaxStudiotoken/bank20.github.io/raw/refs/heads/main/paulyudin-ambient-ambient-music-574003.mp3" type="audio/mpeg">
-  Tu navegador no soporta la etiqueta de audio.
-</audio>
+  <!-- ===== MÚSICA DE FONDO ===== -->
+  <audio id="bg-music" loop>
+    <source src="https://github.com/MaxStudiotoken/bank20.github.io/raw/refs/heads/main/paulyudin-ambient-ambient-music-574003.mp3" type="audio/mpeg">
+    Tu navegador no soporta la etiqueta de audio.
+  </audio>
 
-<!-- Botón de control de música -->
-<div id="music-control" style="position: fixed; bottom: 30px; right: 30px; z-index: 999; background: rgba(10, 6, 24, 0.7); backdrop-filter: blur(10px); border: 1px solid var(--border-subtle); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); box-shadow: 0 8px 30px rgba(0,0,0,0.4);">
-  <span id="music-icon" style="font-size: 1.6rem; line-height: 1; color: var(--cyan);">🔇</span>
-</div>
+  <!-- Botón de control de música -->
+  <div id="music-control" style="position: fixed; bottom: 30px; right: 30px; z-index: 999; background: rgba(10, 6, 24, 0.7); backdrop-filter: blur(10px); border: 1px solid var(--border-subtle); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); box-shadow: 0 8px 30px rgba(0,0,0,0.4);">
+    <span id="music-icon" style="font-size: 1.6rem; line-height: 1; color: var(--cyan);">🔇</span>
+  </div>
 
-<script>
-  // --- Control de música de fondo ---
-  const audio = document.getElementById('bg-music');
-  const musicControl = document.getElementById('music-control');
-  const musicIcon = document.getElementById('music-icon');
-  let isMusicPlaying = false;
-  let userInteracted = false;
+  <script>
+    // --- Control de música de fondo ---
+    const audio = document.getElementById('bg-music');
+    const musicControl = document.getElementById('music-control');
+    const musicIcon = document.getElementById('music-icon');
+    let isMusicPlaying = false;
+    let userInteracted = false;
 
-  // Función para activar el sonido
-  function enableMusic() {
-    if (!isMusicPlaying) {
-      audio.muted = false;
-      audio.play()
-        .then(() => {
-          musicIcon.textContent = '🔊';
-          isMusicPlaying = true;
-          userInteracted = true;
-        })
-        .catch((err) => {
-          console.log('Error al reproducir:', err);
-          musicIcon.textContent = '🔇';
-          isMusicPlaying = false;
-        });
+    function enableMusic() {
+      if (!isMusicPlaying) {
+        audio.muted = false;
+        audio.play()
+          .then(() => {
+            musicIcon.textContent = '🔊';
+            isMusicPlaying = true;
+            userInteracted = true;
+          })
+          .catch((err) => {
+            console.log('Error al reproducir:', err);
+            musicIcon.textContent = '🔇';
+            isMusicPlaying = false;
+          });
+      }
     }
-  }
 
-  // Función para desactivar el sonido
-  function disableMusic() {
-    if (isMusicPlaying) {
-      audio.pause();
-      musicIcon.textContent = '🔇';
-      isMusicPlaying = false;
+    function disableMusic() {
+      if (isMusicPlaying) {
+        audio.pause();
+        musicIcon.textContent = '🔇';
+        isMusicPlaying = false;
+      }
     }
-  }
 
-  // Click en el botón: alternar música
-  musicControl.addEventListener('click', function(e) {
-    e.stopPropagation(); // Evitar que el click se propague
-    if (isMusicPlaying) {
-      disableMusic();
-    } else {
-      enableMusic();
-    }
-  });
+    musicControl.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (isMusicPlaying) {
+        disableMusic();
+      } else {
+        enableMusic();
+      }
+    });
 
-  // Click en cualquier parte de la página: activar música (solo la primera vez)
-  document.addEventListener('click', function enableAudioOnFirstClick() {
-    if (!userInteracted) {
-      enableMusic();
-    }
-    // Remover el listener después de la primera interacción
-    document.removeEventListener('click', enableAudioOnFirstClick);
-  });
+    document.addEventListener('click', function enableAudioOnFirstClick() {
+      if (!userInteracted) {
+        enableMusic();
+      }
+      document.removeEventListener('click', enableAudioOnFirstClick);
+    });
 
-  // Intentar reproducir al cargar (con muted)
-  audio.muted = true;
-  audio.play().catch(() => {
-    // Si falla, esperamos a que el usuario interactúe
-  });
+    audio.muted = true;
+    audio.play().catch(() => {});
+  </script>
 
-  // Si el usuario ya interactuó, no mostrar el mensaje de "toca para activar"
-  console.log('🎵 Música de fondo cargada. Toca en cualquier parte para activar el sonido.');
-</script>
-
-  
 </body>
 </html>
